@@ -1,0 +1,141 @@
+{
+  "input": "Creepy_Black_Mu_v9.gb",
+  "input_sha256": "064c2117243d1340ff1b3f5e55dcac3cfb654ed1d455c46d8d0f5d2f256fa70d",
+  "sha256": "fea56a6d600bed061effc4472af578053ed941645fcdbc2eac1510aa9a07a242",
+  "size": 1048576,
+  "labels": {
+    "bankF": {
+      "phit": "0x7ea0",
+      "p_both": "0x7eb7",
+      "p_azhi": "0x7ebc",
+      "p_imm": "0x7ec0",
+      "ehit": "0x7eca",
+      "e_both": "0x7ee1",
+      "e_kab": "0x7ee6",
+      "e_azhi": "0x7eec",
+      "e_imm": "0x7ef0",
+      "dmg": "0x7efa",
+      "wipe": "0x7f13",
+      "bf": "0x7f1b",
+      "dret": "0x7f2d",
+      "pdmg": "0x7f31",
+      "anim": "0x7f53",
+      "ago": "0x7f68",
+      "scared": "0x7f7a",
+      "curse": "0x7f8a",
+      "eff01": "0x7f96"
+    },
+    "bank2e": {
+      "bf_player": "0x4900",
+      "bpl": "0x4908",
+      "bpn": "0x4928",
+      "bf_enemy": "0x4933",
+      "bel": "0x4941",
+      "ben": "0x495d"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x39a3d",
+      "before": "988e948d8692938491508194867f82809382878491508b809292509280888b8e91508991e8939180888d8491ef508991e8939180888d8491f5508f8e8aba8c808d8880825092948f84917f8d8491835087888a84915081888a849150819491868b809150848d86888d84849150818b80828a7f93808c8491508588928784918c808d509296888c8c8491508294847f81808b8b5086808c818b849150818480949398508f92988287888250918e828a849150899486868b84915093808c849150818891837f8a84848f849150818b80828a81848b9350918895808bf7508e808a50828788848550928288848d938892935086888e95808d8d8850918e828a849350828e8e8b939180888d8491ef50828e8e8b939180888d8491f5508191948d8e5081918e828a508c88929398508b93e89294918684508491888a80508a8e868050818b80888d845092808191888d805086848d938b848c808d50918895808bf850918895808bf9508b8e91848b8488508287808d8d848b849150808680938780508b808d828450",
+      "after": "988e948d8692938491508194867f82809382878491508b809292509280888b8e91508991e8939180888d8491ef508991e8939180888d8491f5508f8e8aba8c808d8880825092948f84917f8d8491835087888a84915081888a849150819491868b809150848d86888d84849150e6e6e6e6e6508588928784918c808d509296888c8c8491508294847f81808b8b5086808c818b849150818480949398508f92988287888250918e828a849150899486868b84915093808c849150818891837f8a84848f849150818b80828a81848b9350918895808bf7508e808a50828788848550928288848d938892935086888e95808d8d8850918e828a849350828e8e8b939180888d8491ef50828e8e8b939180888d8491f5508191948d8e5081918e828a508c88929398508b93e89294918684508491888a80508a8e868050818b80888d845092808191888d805086848d938b848c808d50918895808bf850918895808bf9508b8e91848b8488508287808d8d848b849150808680938780508b808d828450505050505050",
+      "name": "Trainer class 13 name BLACK TAMER -> ?????"
+    },
+    {
+      "offset": "0x1c93a",
+      "before": "8084918e83808293988b",
+      "after": "80998788505050505050",
+      "name": "Species name B7 = AZHI"
+    },
+    {
+      "offset": "0x3bd42",
+      "before": "000000000000",
+      "after": "aa243c1aff14",
+      "name": "Move data AA DRAGONBREATH (death-move table entry 4)"
+    },
+    {
+      "offset": "0xb0636",
+      "before": "00000000000000000000000000",
+      "after": "839180868e8d81918480938750",
+      "name": "Move name AA = DRAGONBREATH"
+    },
+    {
+      "offset": "0x3bcc7",
+      "before": "a8000000",
+      "after": "a813aa7e",
+      "name": "AZHI moves: BLACK FLAME, FLY, DRAGONBREATH, FIRE BLAST"
+    },
+    {
+      "offset": "0xb8900",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2164d1116cd10e002afeffc847fa2fccb9281578feb72810fe79280caf1213121be52103001977e1e5212c0019545de10c18d5fa57d0fe02c0219dd811a5d80e002afeffc847fae8cfb9281178feb7280caf1213121be52103001977e1e5212c0019545de10c18d9",
+      "name": "Bank 2E: BLACK FLAME party faint"
+    },
+    {
+      "offset": "0x3fea0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd4166fae5cf47fad2cffea92809fea5280afea82806c978feb6280478feb7c03e01ea5fd0afea5bd0c9cd4166fa14d047facccffea7280efea92805fea8280cc978feb7280a78feb6c0180478feb7c03e01ea5fd0afea5bd0c9facccffea7ca637dfea82815fa5dd4a72821fa14d0fe79201a21b644062ecd1836fa14d0fe7928f1210049062ecd1836c3787d21d7d0c9fad2cffea8c2e07d213349062ecd18363e03ead7d03ee7ead8d0afea5ed021d7d0c9fea7daed6f47fea83e7e280978feaa3e5228023ea3c5cded6fc178fea9d021c744062ecd1836c9fa14d0feb6ca1059feb7ca1059c3407dfae5cffeb7c83e01ea39ccc9f0f3a7c2eb72fad2cffea5c2eb72fae5cffeb7c2eb72212d5dc3943c",
+      "name": "Bank F: AZHI / BLACK FLAME / DRAGONBREATH hooks"
+    },
+    {
+      "offset": "0x3d7d3",
+      "before": "cd507e",
+      "after": "cda07e",
+      "name": "Player MoveHitTest -> v10 immunities"
+    },
+    {
+      "offset": "0x3e865",
+      "before": "cd807e",
+      "after": "cdca7e",
+      "name": "Enemy MoveHitTest -> v10 immunities"
+    },
+    {
+      "offset": "0x3e2d6",
+      "before": "cd637d",
+      "after": "cdfa7e",
+      "name": "ApplyDamageToPlayerPokemon -> BLACK FLAME / death moves"
+    },
+    {
+      "offset": "0x3e218",
+      "before": "cde07d",
+      "after": "cd317f",
+      "name": "ApplyDamageToEnemyPokemon -> BLACK FLAME"
+    },
+    {
+      "offset": "0x3e89f",
+      "before": "cd867d",
+      "after": "cd537f",
+      "name": "Enemy move animation -> v10 table"
+    },
+    {
+      "offset": "0x3d804",
+      "before": "cd047e",
+      "after": "cd537f",
+      "name": "Player move animation -> v10 table"
+    },
+    {
+      "offset": "0x3d8e2",
+      "before": "cd6d7e",
+      "after": "cd7a7f",
+      "name": "PrintGhostText: PRETA and AZHI never too scared"
+    },
+    {
+      "offset": "0x3f23f",
+      "before": "eb72",
+      "after": "967f",
+      "name": "Effect 01 (CURSE): says it does not affect AZHI"
+    },
+    {
+      "offset": "0x3d72d",
+      "before": "3e01ea39cc",
+      "after": "cd8a7f0000",
+      "name": "CURSE chosen: no curse kill against AZHI"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563900000000",
+      "after": "435245455059204d5520563130000000",
+      "name": "Branch identity v10"
+    }
+  ]
+}
