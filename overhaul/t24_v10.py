@@ -20,7 +20,7 @@ def run_turn(move_index,seen,limit=1500):
         press_('up',20);press_('left',20)
     for k in range(5):
         press_('a',60)
-        if m[0xcc26]==0 and 'TYPE' in ' '.join(txt()):break
+        if 'TYPE' in ' '.join(txt()):break
     for k in range(4):                                          # the move cursor remembers the last move used
         if m[0xcc26]==0:break
         press_('up',20)
