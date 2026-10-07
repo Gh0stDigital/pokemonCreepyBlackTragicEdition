@@ -136,7 +136,7 @@ elif MODE=='wild_bf':                                           # wild AZHI's BL
     print('PASS wild AZHI BLACK FLAME: CHARMANDER fainted, GHOST and PRETA spared')
 elif MODE=='player_bf':                                         # a player AZHI's BLACK FLAME vs a wild Pidgey
     load('v6_after_macabre');s=0xd16b+44*2
-    m[s]=0xb7;m[0xd166]=0xb7;m[s+8:s+12]=[0xa8,0x13,0xaa,0x7e];m[s+29:s+33]=[10,15,20,5];m[s+5]=8;m[s+6]=2;m[s+33]=50;m[s+3]=50
+    m[s]=0xb7;m[0xd166]=0xb7;m[s+8:s+12]=[0xa8,0x13,0x52,0x7e];m[s+29:s+33]=[10,15,20,5];m[s+5]=8;m[s+6]=2;m[s+33]=50;m[s+3]=50
     for k,v in enumerate([0,180,0,150,0,100,0,200,0,100]):m[s+34+k]=v
     m[s+1]=0;m[s+2]=180
     def swap(i,j):
