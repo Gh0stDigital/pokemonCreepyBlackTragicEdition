@@ -1,0 +1,77 @@
+{
+  "input": "Creepy_Black_Mu_v8.gb",
+  "input_sha256": "a2de63667dd7bcf8408d359b48d098d11e9ee1e69d20d382998c130c3a4e0aa9",
+  "sha256": "064c2117243d1340ff1b3f5e55dcac3cfb654ed1d455c46d8d0f5d2f256fa70d",
+  "size": 1048576,
+  "labels": {
+    "bankF": {
+      "ehit": "0x7e80"
+    },
+    "bank3": {
+      "cursed": "0x7fce",
+      "candy": "0x7fd7",
+      "heal": "0x7fe2",
+      "ok": "0x7ff3",
+      "skip": "0x7ff6"
+    },
+    "bank1": {
+      "nurse": "0x7c50"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x1c930",
+      "before": "8a808194938e8f925050",
+      "after": "8f918493805050505050",
+      "name": "Species name B6 = PRETA"
+    },
+    {
+      "offset": "0x3fe80",
+      "before": "00000000000000000000000000000000000000000000000000",
+      "after": "cd4166facccffea7c0fa14d0feb6c03e01ea5fd0afea5bd0c9",
+      "name": "Bank F: PRETA immune to MACABREBLADE"
+    },
+    {
+      "offset": "0x3e865",
+      "before": "cd4166",
+      "after": "cd807e",
+      "name": "Enemy MoveHitTest: MACABREBLADE vs PRETA"
+    },
+    {
+      "offset": "0xffce",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fe1fc8feb6c8feb7c9fab5d0cdce7fc87efe64c92afeffc847fa62d4a7782805cdce7f2803feffc9e5212c0019545de118e2",
+      "name": "Bank 3: cursed Pokemon - no Rare Candy, no Center heal"
+    },
+    {
+      "offset": "0xe1b9",
+      "before": "7efe64",
+      "after": "cdd77f",
+      "name": "Rare Candy: no effect on GHOST/PRETA/fossil Aerodactyl"
+    },
+    {
+      "offset": "0xf9da",
+      "before": "2afeff",
+      "after": "cde27f",
+      "name": "HealParty loop: skip cursed Pokemon at the Center"
+    },
+    {
+      "offset": "0x7c50",
+      "before": "000000000000000000000000000000",
+      "after": "3e01ea62d43e07cdc13eafea62d4c9",
+      "name": "Bank 1: Pokemon Center heal flag"
+    },
+    {
+      "offset": "0x7016",
+      "before": "3e07cdc13e",
+      "after": "cd507c0000",
+      "name": "Pokemon Center: HealParty with cursed-Pokemon skip"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563800000000",
+      "after": "435245455059204d5520563900000000",
+      "name": "Branch identity v9"
+    }
+  ]
+}
