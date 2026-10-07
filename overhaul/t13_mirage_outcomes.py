@@ -28,6 +28,8 @@ for b in range(4):
 mode=sys.argv[1]
 if mode=='fight':
     m[0xcffa]=0;m[0xcffb]=1                          # slow the enemy so the player acts first
+    if m[0xcfe5]==0xb7:                              # v11+: BLACK FLAME spares the stand-in; test a sure hit instead
+        m[0xcfed]=m[0xcfee]=m[0xcfef]=m[0xcff0]=0x52 # DRAGON RAGE (never misses, 40 damage)
     p.button('a',8);p.tick(40);p.button('a',8)       # FIGHT -> TACKLE
     seen,black=watch(900,'fight')
     for s in seen:print('  TEXT:',clean(s))

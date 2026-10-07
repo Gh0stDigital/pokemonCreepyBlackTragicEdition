@@ -25,4 +25,5 @@ VERIFIED IN PYBOY (run_v11.sh)
   untouched. With the stand-in out: "It doesn't affect RED!", battle continues, no reset.
 - Wild AZHI's BLACK FLAME (party CHARMANDER/GHOST/PRETA): CHARMANDER fainted, GHOST and PRETA kept HP.
 - AZHI's moves in battle: A8 / FLY / DRAGON RAGE / FIRE BLAST; DRAGON RAGE did 40 to PRETA.
-- Earlier checks: see the run log in the follow-up commit.
+- All earlier checks pass on v11 (run_v11.sh + the v1-v5 chain). t13 'fight' now forces AZHI's
+  DRAGON RAGE when the saved Mirage is AZHI, since BLACK FLAME no longer kills the stand-in.
