@@ -1,0 +1,88 @@
+{
+  "input": "Creepy_Black_Mu_v6.gb",
+  "input_sha256": "94919c4f615f514fe1188a7629bee4890ea4521b57edc799705569a2268efffe",
+  "sha256": "95a2107114dc7246cda7dfbba4cc56fde37fdb144fa2a8e4456b36caedbc8a45",
+  "size": 1048576,
+  "labels": {
+    "bank2e": {
+      "tick": "0x4700",
+      "tloop": "0x4708",
+      "counting": "0x4720",
+      "ncopy": "0x4737",
+      "tnext": "0x4743",
+      "restore": "0x474e",
+      "post": "0x4760",
+      "ploop": "0x476a",
+      "pnext": "0x477e",
+      "pdone": "0x4788",
+      "rose_text": "0x478b"
+    },
+    "bankF": {
+      "scope": "0x7e20",
+      "sloop": "0x7e23",
+      "none": "0x7e31",
+      "turn": "0x7e36"
+    },
+    "bank16": {
+      "scope": "0x65c0",
+      "sloop": "0x65c3",
+      "none": "0x65d1"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x5a5c0",
+      "before": "00000000000000000000000000000000000000000000",
+      "after": "2164d12afeff2809feb620f7060178a7c90648c3d534",
+      "name": "Bank 16: PRETA counts as SILPH SCOPE"
+    },
+    {
+      "offset": "0x58dd8",
+      "before": "0648cdd534",
+      "after": "cdc0650000",
+      "name": "PrintBeginningBattleText: PRETA unveils ghosts"
+    },
+    {
+      "offset": "0xb8700",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2164d1116cd10e002afeffc8feb620331a47131a1bb0202bfa61d4a720023e033dea61d4c0cd4e4721b5d279010b00cdbb3a116dcd060b2a12130520fa218b47c3943ce5212c0019545de10c18bad5212100192a12137e12d1210300193600c9afea61d42164d1116cd12afeff2819feb6200b1a47131a1bb02003cd4e47e5212c0019545de118e2c32344016dcd007fb1aeb2a44fa5b1aeac7fb3a7a47fa3a4a0a3e758",
+      "name": "Bank 2E: PRETA revival (battle countdown + after battle)"
+    },
+    {
+      "offset": "0x3fe20",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2164d12afeff2809feb620f7060178a7c90648c3d534210047062ecd1836c36e4d",
+      "name": "Bank F: PRETA scope + turn hooks"
+    },
+    {
+      "offset": "0x3d920",
+      "before": "0648cdd534",
+      "after": "cd207e0000",
+      "name": "IsGhostBattle: PRETA unveils ghosts"
+    },
+    {
+      "offset": "0x3c233",
+      "before": "cd6e4d",
+      "after": "cd367e",
+      "name": "MainInBattleLoop: PRETA revival tick"
+    },
+    {
+      "offset": "0xc4",
+      "before": "212344",
+      "after": "216047",
+      "name": "After every battle: restore fainted PRETA, then Mirage cleanup"
+    },
+    {
+      "offset": "0x2ff3c",
+      "before": "44a6fbd4a74a5cc6db6fd2696bf37c1bd5e83ff37894608608dd0c70462e04d3810a3553781c12923b37c6230c88134a081252a29307825d6222b04c681e36430f4b7bcc14cb0cc6bfebfad5aa1cdebeadd576392aaaa8f277c5e42283027244444971c1918517026ac0859db04525409b219591864669229504546d119104541047424209cc844210219d08351d5a0ac7c4800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "4426fbd4a74a5cc6db6fd2696bf385ad5e9ffce39189828d927d8c294d388a355385c11451bf38a1f0f0e0733a08b608618530782505a0a26e630a078cd15df4b7bcc5884207f31affafeb56a8737afab755d8e4aaaaa3c9df1790982724445454706461045409c09e0460950270656461919c0950454716441150411d09082732110840867e0c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "name": "Fossil Kabutops back sprite: grey back patches -> white (38 px, 135 bytes)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563600000000",
+      "after": "435245455059204d5520563700000000",
+      "name": "Branch identity v7"
+    }
+  ]
+}
