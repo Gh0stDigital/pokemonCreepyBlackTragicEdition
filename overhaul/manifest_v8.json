@@ -1,0 +1,104 @@
+{
+  "input": "Creepy_Black_Mu_v7.gb",
+  "input_sha256": "95a2107114dc7246cda7dfbba4cc56fde37fdb144fa2a8e4456b36caedbc8a45",
+  "sha256": "a2de63667dd7bcf8408d359b48d098d11e9ee1e69d20d382998c130c3a4e0aa9",
+  "size": 1048576,
+  "labels": {
+    "bankF": {
+      "hit": "0x7e50",
+      "immune": "0x7e63",
+      "scared": "0x7e6d"
+    },
+    "bank2e": {
+      "mapload": "0x4800",
+      "next": "0x4813"
+    },
+    "bank7": {
+      "script": "0x7600",
+      "hide": "0x760d",
+      "show": "0x7619"
+    },
+    "bank11": {
+      "objects": "0x7100",
+      "texts": "0x7160",
+      "script": "0x7168",
+      "show": "0x717b",
+      "mu": "0x717e",
+      "t_mu": "0x7188"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x3fe50",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd4166fad2cffea9c0fae5cffeb62803feb7c03e01ea5fd0afea5bd0c9fa14d0feb6ca1059c3407d",
+      "name": "Bank F: fossil immunity to MACABRE, PRETA not scared"
+    },
+    {
+      "offset": "0x3d7d3",
+      "before": "cd4166",
+      "after": "cd507e",
+      "name": "Player MoveHitTest: MACABRE vs fossils"
+    },
+    {
+      "offset": "0x3d8e2",
+      "before": "cd407d",
+      "after": "cd6d7e",
+      "name": "PrintGhostText: PRETA is never too scared"
+    },
+    {
+      "offset": "0xb8800",
+      "before": "00000000000000000000000000000000000000000000",
+      "after": "fa60d4fe02200cfa5ed3fe3f28053e03ea60d4c36642",
+      "name": "Bank 2E: Mu moves on after PRETA"
+    },
+    {
+      "offset": "0xb8000",
+      "before": "c36642",
+      "after": "c30048",
+      "name": "Map load: Mu state 2 -> 3 outside the trade house"
+    },
+    {
+      "offset": "0x1f600",
+      "before": "00000000000000000000000000000000000000000000000000000000",
+      "after": "fa51d4a72807fa60d4fe03380cafea30c13effea34c2ea35c2c3873c",
+      "name": "Bank 7: trade house Mu visibility v8"
+    },
+    {
+      "offset": "0x1d701",
+      "before": "2c71",
+      "after": "0076",
+      "name": "Trade house script pointer -> v8"
+    },
+    {
+      "offset": "0x47100",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2e081b0400ff1b0500ff1b0600ff1b0700ff0a0500d6171500d81b1a00ff1b1b00ff0004201515ffd241e4043d0712ffff821d3d1916ffff832610190affd00411c81b0411c81b0512c81b0612c81b0769c70a05efc717151cc81b1a1cc81b1b4143212521257e71fa60d4fe03300cafea40c13effea44c2ea45c2c3af4208218871cd943cc304250080a7f47f52e84f98aeb47fa2a0aca4e85193a7a8b27faca0adb2a8aead4fb1a4aca4aca1a4b1b27fb6a7a0b355b6a0b27faca0a3a47fa7a4b1a4e85196a47fb6a8abab7fb3a0abaa4fa0a6a0a8ad7fb2aeaeade858",
+      "name": "Bank 11: Mansion 1F Mr. Mu (objects, texts, script)"
+    },
+    {
+      "offset": "0x442a8",
+      "before": "2c43af42",
+      "after": "60716871",
+      "name": "Mansion 1F text + script pointers"
+    },
+    {
+      "offset": "0x442ad",
+      "before": "a443",
+      "after": "0071",
+      "name": "Mansion 1F object pointer"
+    },
+    {
+      "offset": "0x2ff3c",
+      "before": "4426fbd4a74a5cc6db6fd2696bf385ad5e9ffce39189828d927d8c294d388a355385c11451bf38a1f0f0e0733a08b608618530782505a0a26e630a078cd15df4b7bcc5884207f31affafeb56a8737afab755d8e4aaaaa3c9df1790982724445454706461045409c09e0460950270656461919c0950454716441150411d09082732110840867e0c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "4426fbd4a74a5cc6db6fd2696bf385ad5e9ffce39189828d927d8c294d388a355385c11451bf38a1f0f0e0733a08b608618530782505a0a26e630a078cd15df4b7bcc5884207f31affafeb56a8737afab755d8e4aaaaa3c99fe00800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "name": "Fossil Kabutops back sprite: grey rib lines -> white (83 px, 91 bytes)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563700000000",
+      "after": "435245455059204d5520563800000000",
+      "name": "Branch identity v8"
+    }
+  ]
+}
