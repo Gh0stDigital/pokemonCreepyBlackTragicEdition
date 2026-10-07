@@ -1,0 +1,92 @@
+{
+  "input": "Creepy_Black_Mu_v10.gb",
+  "input_sha256": "fea56a6d600bed061effc4472af578053ed941645fcdbc2eac1510aa9a07a242",
+  "sha256": "7fa2b19d9a7584dad94263fba733d5b2a64b4302e71f2c984b36ec2b76271b9f",
+  "size": 1048576,
+  "labels": {
+    "bankF": {
+      "ehit": "0x7fc0",
+      "phit": "0x7fd4"
+    },
+    "bank2e": {
+      "spared": "0x4a00",
+      "faint_player": "0x4a0c",
+      "fpl": "0x4a14",
+      "fpn": "0x4a31",
+      "faint_enemy": "0x4a3c",
+      "fel": "0x4a4a",
+      "fen": "0x4a67",
+      "vs_player": "0x4a72",
+      "vs_enemy": "0x4a7e",
+      "immune": "0x4a88"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x4ffa5",
+      "before": "773f8cd693d262a4ee69454c18c938da4962a862a35a41555aa58c135a423863893923b948488f1955aa1a8f2ea95485494f3aa22484dd4f26533464e3e955a52130aaa562a4e28cea3aa953463ccaaaaa8ff0267fd10800000000",
+      "after": "773f9d1554f4a254f462955555554f0a295555555533453898963a98181355a2e5534685554c229568e0aaaaa498dd223d5823c54e28f613d6608f11a5553593c18c91458b9555555553aa424eb8f664c98f3aaaaa3f87a7fd1080",
+      "name": "Mirage trainer pic: blacked-out GENTLEMAN"
+    },
+    {
+      "offset": "0x3bcc7",
+      "before": "a813aa7e",
+      "after": "a813527e",
+      "name": "AZHI moves: BLACK FLAME, FLY, DRAGON RAGE, FIRE BLAST"
+    },
+    {
+      "offset": "0x3bd42",
+      "before": "aa243c1aff14",
+      "after": "000000000000",
+      "name": "Remove move data AA DRAGONBREATH"
+    },
+    {
+      "offset": "0xb0636",
+      "before": "839180868e8d81918480938750",
+      "after": "00000000000000000000000000",
+      "name": "Remove move name AA DRAGONBREATH"
+    },
+    {
+      "offset": "0xb8a00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fe1fc8feb6c8feb7c8fe79c92164d1116cd10e002afeffc847fa2fccb9281278cd004a280caf1213121be52103001977e1e5212c0019545de10c18d8fa57d0fe02c0219dd811a5d80e002afeffc847fae8cfb9281278cd004a280caf1213121be52103001977e1e5212c0019545de10c18d8cd0c4afa14d0cd004ac0180acd3c4afae5cfcd004ac03e01ea5fd0afea5bd0c9",
+      "name": "Bank 2E: BLACK FLAME v11 (spares GHOST/PRETA/AZHI and people)"
+    },
+    {
+      "offset": "0x3ffc0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "facccffea8c2ca7ecd416621724a062ecd1836c9fad2cffea8c2a07ecd4166217e4a062ecd1836c9",
+      "name": "Bank F: BLACK FLAME v11 hit-test hooks"
+    },
+    {
+      "offset": "0x3e865",
+      "before": "cdca7e",
+      "after": "cdc07f",
+      "name": "Enemy MoveHitTest -> v11 (BLACK FLAME)"
+    },
+    {
+      "offset": "0x3d7d3",
+      "before": "cda07e",
+      "after": "cdd47f",
+      "name": "Player MoveHitTest -> v11 (BLACK FLAME)"
+    },
+    {
+      "offset": "0x3ff23",
+      "before": "0049",
+      "after": "0c4a",
+      "name": "v10 BLACK FLAME damage hook -> v11 party faint"
+    },
+    {
+      "offset": "0x3ff3a",
+      "before": "3349",
+      "after": "3c4a",
+      "name": "v10 player BLACK FLAME damage hook -> v11 party faint"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563130000000",
+      "after": "435245455059204d5520563131000000",
+      "name": "Branch identity v11"
+    }
+  ]
+}
