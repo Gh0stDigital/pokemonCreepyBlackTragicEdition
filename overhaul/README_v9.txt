@@ -28,7 +28,8 @@ VERIFIED IN PYBOY (run_v9.sh)
 - Rare Candy: PRETA Lv50 and GHOST Lv1 unchanged with "It won't have any effect."; CHARMANDER levels up.
 - Viridian Pokémon Center with every party member at 5 HP: CHARMANDER healed to 22, PRETA and
   GHOST stay at 5, PRETA's MACABRE stays at 3 PP.
-- All earlier checks pass (see run log in the commit).
+- All earlier checks pass: run_v8.sh, run_v7.sh, run_v6.sh and the full v1-v5 chain (run_v3.sh) on v9.
+  t19_revive now counts the turns fought between faint and revival from the battle text (2).
 
 NOTE
 ----
