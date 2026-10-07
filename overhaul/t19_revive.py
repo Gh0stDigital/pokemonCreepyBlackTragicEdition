@@ -39,8 +39,12 @@ for s in seen:
     if 'rose' in s or 'dead' in s or 'fainted' in s:print('  TEXT:',''.join(c for c in s if c not in '│─┌┐└┘|').strip())
 print('after battle: Preta HP',preta_hp(),'max',m[0xd18d]<<8|m[0xd18e],'count',m[0xd461],'party',list(m[0xd164:0xd168]))
 if MODE=='turns':
-    assert fainted_turn and revived_turn==fainted_turn+2,(fainted_turn,revived_turn)
-    print('PASS PRETA revived %d turns after fainting'%(revived_turn-fainted_turn))
+    flat=[' '.join(''.join(c for c in x if c not in '│─┌┐└┘|').split()) for x in seen]
+    fi=next(i for i,x in enumerate(flat) if 'PRETA fainted!' in x);ri=next(i for i,x in enumerate(flat) if 'from the dead!' in x)
+    turns=sum(1 for i in range(fi,ri) if flat[i].endswith('used SCRATCH!') and not flat[i-1].endswith('used SCRATCH!'))
+    print('full turns fought by CHARMANDER between faint and revival:',turns)
+    assert turns==2,turns
+    print('PASS PRETA revived after %d turns'%turns)
 else:
     assert fainted_turn and revived_turn is None
 assert preta_hp()==135 and m[0xd164]==0xb6 and m[0xd461]==0;print('PASS PRETA at full HP after the battle')
