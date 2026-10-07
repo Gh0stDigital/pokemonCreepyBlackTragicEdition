@@ -1,0 +1,8 @@
+{
+ "hesitate": [["GHOST","hesitates..."],["<RIVAL> ran away!"]],
+ "died": [["","My #MON...","They... died!?"],["What did you","do to them!?"]],
+ "tower_shock": [["<PLAYER>..."],["My #MON...","That thing of","yours killed","them."],["They were my","friends..."],["I came here to","mourn them."],["And you show up","with that","monster!?"],["I won't let you","get away with it!"]],
+ "tower_bastard": [["You bastard!"],["I'll never","forgive you!"]],
+ "silph_avenge": [["<PLAYER>!"],["That creature","you carry is","dangerous."],["It killed my","#MON..."],["This time I'll","avenge them!"]],
+ "silph_rocket": [["<PLAYER>!"],["TEAM ROCKET told","me everything."],["You carry a","dangerous #MON","weapon."],["It has to be","destroyed!"]]
+}

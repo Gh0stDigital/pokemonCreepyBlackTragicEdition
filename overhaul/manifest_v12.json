@@ -1,0 +1,143 @@
+{
+  "input": "Creepy_Black_Mu_v11.gb",
+  "input_sha256": "7fa2b19d9a7584dad94263fba733d5b2a64b4302e71f2c984b36ec2b76271b9f",
+  "sha256": "fc69b434678ec34ddb41073fccbfe30eb30029b347036539c528545f8d24d5c8",
+  "size": 1048576,
+  "labels": {
+    "bank2e": {
+      "curse_trainer": "0x4b00",
+      "hes": "0x4b18",
+      "killable": "0x4b1e",
+      "kr": "0x4b2f",
+      "fear": "0x4b33",
+      "rival": "0x4b44",
+      "ssdone": "0x4b7e",
+      "tower": "0x4b84",
+      "tpre": "0x4ba6",
+      "silph": "0x4bb2",
+      "sp": "0x4bc8",
+      "hero": "0x4bd1",
+      "t_hesitate": "0x4bdc",
+      "t_tower_shock": "0x4bfc",
+      "t_tower_bastard": "0x4ca6",
+      "t_silph_avenge": "0x4ccb",
+      "t_silph_rocket": "0x4d25"
+    },
+    "bank14": {
+      "pre": "0x6b00",
+      "pend": "0x6b15",
+      "after": "0x6b18",
+      "r22": "0x6b2a",
+      "r22go": "0x6b35"
+    },
+    "bank18": {
+      "tower": "0x6600"
+    },
+    "bankE": {
+      "parties": "0x7d60",
+      "rt": "0x7db4",
+      "rtdone": "0x7dcd"
+    },
+    "bank6": {
+      "died": "0x6f00"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x1af00",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "004f8cb87f548c8e8de8e8e85593a7a4b8e8e8e87fa3a8a4a3e7e65196a7a0b37fa3a8a37fb8aeb44fa3ae7fb3ae7fb3a7a4ace7e658",
+      "name": "Bank 6: rival \"My POKeMON... died!?\" defeat text"
+    },
+    {
+      "offset": "0xb8b00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa31d0fe192811fe2a280d3e01ea85d4060321994dc3183621dc4bc3943ccd5c36c0fa31d0fe192806fe2a2802afc93e01a7c9fa52d4a7c8fa31d0fe192805fe2ac232403e06ea92d03e6fea8cd0ea8ed03e00ea8dd0ea8fd0fa51d4a7c8fa64d7cb7fc0fa63d4a7c03e01ea63d4215bd7cbfefa65d6a720053e04ea65d621ebd7cbbec9afea57d4fa51d4a7c8fa63d4fe01c0fa64d7cb7f280c21a64ccd943c3e01ea57d4c921fc4bcd943c3e02ea57d4c9afea57d4fa51d4a7c821254dfa63d4fe01200321cb4ccd943c3e01ea57d4c9fa51d4a7c83e02ea63d4c90086878e92934fa7a4b2a8b3a0b3a4b2e8e8e851537fb1a0ad7fa0b6a0b8e7580052e8e8e8518cb87f548c8e8de8e8e84f93a7a0b37fb3a7a8ada67faea555b8aeb4b1b27faaa8ababa4a355b3a7a4ace85193a7a4b87fb6a4b1a47facb84fa5b1a8a4ada3b2e8e8e851887fa2a0aca47fa7a4b1a47fb3ae4facaeb4b1ad7fb3a7a4ace85180ada37fb8aeb47fb2a7aeb67fb4af4fb6a8b3a77fb3a7a0b355acaeadb2b3a4b1e7e651887fb6aeadbe7faba4b37fb8aeb44fa6a4b37fa0b6a0b87fb6a8b3a77fa8b3e7580098aeb47fa1a0b2b3a0b1a3e75188bcab7fada4b5a4b14fa5aeb1a6a8b5a47fb8aeb4e7580052e75193a7a0b37fa2b1a4a0b3b4b1a44fb8aeb47fa2a0b1b1b87fa8b255a3a0ada6a4b1aeb4b2e85188b37faaa8ababa4a37facb84f548c8e8de8e8e85193a7a8b27fb3a8aca47f88bcab4fa0b5a4ada6a47fb3a7a4ace7580052e7519384808c7f918e828a84937fb3aeaba34faca47fa4b5a4b1b8b3a7a8ada6e85198aeb47fa2a0b1b1b87fa04fa3a0ada6a4b1aeb4b27f548c8e8d55b6a4a0afaeade85188b37fa7a0b27fb3ae7fa1a44fa3a4b2b3b1aeb8a4a3e758",
+      "name": "Bank 2E: rival BLUE modes (curse, shock, Silph, hero)"
+    },
+    {
+      "offset": "0x3ffe8",
+      "before": "00000000000000000000000000000000",
+      "after": "21004b062ec31836211e4b062ec31836",
+      "name": "Bank F: trainer-curse hook"
+    },
+    {
+      "offset": "0x3d043",
+      "before": "3e01ea85d4060321994dcd1836",
+      "after": "cde87f00000000000000000000",
+      "name": "Trainer CURSE: BLUE hesitates instead of dying"
+    },
+    {
+      "offset": "0x3d033",
+      "before": "cd5c36",
+      "after": "cdf07f",
+      "name": "Trainer CURSE: BLUE counts as cursable (no \"But, it failed!\" loop)"
+    },
+    {
+      "offset": "0x3fd11",
+      "before": "213240",
+      "after": "21334b",
+      "name": "Defeat text selector -> rival-aware v12"
+    },
+    {
+      "offset": "0x62600",
+      "before": "0000000000000000000000000000000000000000000000",
+      "after": "0821844b062ecd1836fa57d4a7cae0453dca0425c3f545",
+      "name": "Bank 18: Pokemon Tower 2F rival text wrapper"
+    },
+    {
+      "offset": "0x605db",
+      "before": "df45",
+      "after": "0066",
+      "name": "Pokemon Tower 2F text 1 -> wrapper"
+    },
+    {
+      "offset": "0x52b00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0821b24b062ecd1836fa57d4a7200621c35ecd943cc304250821d14b062ecd183621d25ecd943cc30425fa63d4a7280521ebd7cbbec3b24e",
+      "name": "Bank 14: Silph Co 7F rival texts + Route 22 rival gate"
+    },
+    {
+      "offset": "0x51d57",
+      "before": "c35e",
+      "after": "006b",
+      "name": "Silph Co 7F text 13 (rival pre-battle) -> wrapper"
+    },
+    {
+      "offset": "0x51d5b",
+      "before": "d25e",
+      "after": "186b",
+      "name": "Silph Co 7F text 15 (rival after win) -> hero mode"
+    },
+    {
+      "offset": "0x50007",
+      "before": "b24e",
+      "after": "2a6b",
+      "name": "Route 22 map script -> rival gate (shock/hero: no rival)"
+    },
+    {
+      "offset": "0x3bd60",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "ff3d973b953d013d143f0a411c00ff3d973b953d013d163f14419a00ff3d973b953d013d0a3f1641b400ff3d973b953d013d143f0a468300ff3d973b953d013d163f14468300ff3d973b953d013d0a3f16468300fa59d0fef32012fa63d4fe02200b215dd07efe043003c60377fa2bd1c9",
+      "name": "Bank E: Champion parties (+hero Mewtwo) and trainer-number hook"
+    },
+    {
+      "offset": "0x39dcd",
+      "before": "cf64",
+      "after": "607d",
+      "name": "RIVAL3 party list -> 6 parties"
+    },
+    {
+      "offset": "0x39c91",
+      "before": "fa2bd1",
+      "after": "cdb47d",
+      "name": "ReadTrainer: Champion uses hero party in hero mode"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563131000000",
+      "after": "435245455059204d5520563132000000",
+      "name": "Branch identity v12"
+    }
+  ]
+}
