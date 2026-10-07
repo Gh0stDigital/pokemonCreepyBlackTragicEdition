@@ -46,7 +46,7 @@ if MODE=='mirage':
         p.button('a',8)
         for i in range(1500):
             p.tick()
-            if i%20==0:
+            if i%4==0:
                 b=clean(box())
                 if b and (not seen or seen[-1]!=b):seen.append(b)
             if i%60==30 and box() and 'FIGHT' not in box():p.button('a',8)

@@ -33,4 +33,6 @@ VERIFIED IN PYBOY (run_v10.sh)
 - Wild AZHI vs GHOST's CURSE: "It doesn't affect Enemy AZHI!", HP 15 -> 15, battle continues.
 - A player AZHI's BLACK FLAME knocked out a wild PIDGEY.
 - Wild KABUTOPS vs a player AERODACTYL shows both original sprites.
-- All earlier checks (run_v9.sh chain) and the v1-v5 chain: see commit message.
+- All earlier checks (run_v9.sh chain) and the v1-v5 chain pass on v10. Test fixes: t23_v9 samples the
+  text box more often (it missed a line); t15_aero now accepts any AZHI move and skips when the chain's
+  saved Mirage rolled PRETA instead of AZHI.
