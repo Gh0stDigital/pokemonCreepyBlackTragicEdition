@@ -1,0 +1,240 @@
+{
+ "oak": [
+  [
+   "Hello there!",
+   "Welcome to the",
+   "world of #MON!"
+  ],
+  [
+   "My name is OAK!",
+   "People call me",
+   "the #MON PROF!"
+  ],
+  [
+   "I am hiring you",
+   "as a research",
+   "agent."
+  ]
+ ],
+ "briefing": [
+  [
+   "<PLAYER>!"
+  ],
+  [
+   "Some people use",
+   "#MON as",
+   "weapons to commit",
+   "crimes and even",
+   "murder."
+  ],
+  [
+   "They hurt others",
+   "to get what",
+   "they want."
+  ],
+  [
+   "The law permits",
+   "#MON to be",
+   "used in",
+   "self-defense",
+   "only."
+  ],
+  [
+   "Be careful in",
+   "this region."
+  ],
+  [
+   "Your research",
+   "journey is about",
+   "to begin!"
+  ]
+ ],
+ "mu_question": [
+  [
+   "I am MR. MU."
+  ],
+  [
+   "If a #MON",
+   "kills a person",
+   "while obeying its",
+   "TRAINER..."
+  ],
+  [
+   "Who is",
+   "responsible?"
+  ]
+ ],
+ "menu": [
+  [
+   " THE TRAINER",
+   " THE POKéMON"
+  ]
+ ],
+ "mu_after": [
+  [
+   "I see."
+  ],
+  [
+   "Remember your",
+   "answer."
+  ]
+ ],
+ "shaman": [
+  [
+   "Long before the",
+   "LEAGUE, there",
+   "were people in",
+   "KANTO"
+  ],
+  [
+   "who worshiped an",
+   "old god of",
+   "the dead."
+  ],
+  [
+   "They believed the",
+   "souls of humans",
+   "could be",
+   "caught..."
+  ],
+  [
+   "bound...",
+   "and commanded."
+  ],
+  [
+   "Like #MON."
+  ],
+  [
+   "Those who",
+   "practiced it were",
+   "said to carry"
+  ],
+  [
+   "the dead with",
+   "them as servants."
+  ],
+  [
+   "..."
+  ],
+  [
+   "But the old",
+   "stories say that",
+   "once you begin"
+  ],
+  [
+   "playing with",
+   "souls..."
+  ],
+  [
+   "...something",
+   "eventually begins",
+   "playing with",
+   "yours."
+  ]
+ ],
+ "ghost_notice": [
+  [
+   "A cold presence",
+   "follows you..."
+  ],
+  [
+   "GHOST joined",
+   "your party!"
+  ]
+ ],
+ "fear0": [
+  [
+   "Wh-what did you",
+   "do to my #MON!?"
+  ],
+  [
+   "Please...",
+   "spare my life!"
+  ]
+ ],
+ "fear1": [
+  [
+   "What is that",
+   "monster!?"
+  ],
+  [
+   "Keep it away",
+   "from me!"
+  ]
+ ],
+ "fear2": [
+  [
+   "My #MON...",
+   "What have you",
+   "done!?"
+  ],
+  [
+   "Don't let it",
+   "take me too!"
+  ]
+ ],
+ "police": [
+  [
+   "Be on the lookout",
+   "for a criminal",
+   "TRAINER."
+  ],
+  [
+   "Reports describe",
+   "attacks that kill",
+   "both people and",
+   "#MON."
+  ],
+  [
+   "Some witnesses",
+   "blame TEAM",
+   "ROCKET."
+  ],
+  [
+   "Others describe",
+   "a lone TRAINER."
+  ],
+  [
+   "The reports are",
+   "conflicting.",
+   "Stay alert!"
+  ]
+ ],
+ "fear_v2": {
+  "fear0": [
+   [
+    "",
+    "Wh-what did you",
+    "do to my",
+    "#MON!?"
+   ],
+   [
+    "Please...",
+    "spare my life!"
+   ]
+  ],
+  "fear1": [
+   [
+    "",
+    "What is that",
+    "monster!?"
+   ],
+   [
+    "Keep it away",
+    "from me!"
+   ]
+  ],
+  "fear2": [
+   [
+    "",
+    "My #MON...",
+    "What have you",
+    "done!?"
+   ],
+   [
+    "Don't let it",
+    "take me too!"
+   ]
+  ]
+ }
+}

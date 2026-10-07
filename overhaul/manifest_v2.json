@@ -1,0 +1,170 @@
+{
+  "input": "Creepy_Black_Mu_v1.gb",
+  "input_sha256": "1bb97ea3f2fbabbca72f29a529983ea11828aed3275623f56bc65a6ae9e73df5",
+  "sha256": "e7855fae19f3c8c3ee1c9a3791a13e6804836b0a0f25bc67893f8e3bfd4d280d",
+  "size": 1048576,
+  "tuning": {
+    "start": 160,
+    "steps_per_point": 6,
+    "wild": 16,
+    "trainer": 48,
+    "human": 160,
+    "own": 12
+  },
+  "labels_bank2e": {
+    "hunger_step": "0x4100",
+    "eat": "0x411e",
+    "eat_loop": "0x4122",
+    "eat_player": "0x415e",
+    "wipe_bank": "0x4172",
+    "wipe_fill": "0x417a",
+    "black_on": "0x418c",
+    "black_off": "0x41a8",
+    "feed": "0x41b8",
+    "feed_store": "0x41c0",
+    "feed_battle": "0x41c2",
+    "feed_go": "0x41d8",
+    "feed_human": "0x41db",
+    "award_ext": "0x41e5"
+  },
+  "changes": [
+    {
+      "offset": "0x17abd",
+      "before": "07",
+      "after": "10",
+      "name": "Sprite set 1 slot 5: COOLTRAINER_M -> GENTLEMAN (Mr. Mu)"
+    },
+    {
+      "offset": "0x17abf",
+      "before": "3c",
+      "after": "19",
+      "name": "Sprite set 1 slot 7: SEEL -> CHANNELER (shamaness)"
+    },
+    {
+      "offset": "0x1ad45",
+      "before": "25",
+      "after": "10",
+      "name": "Mr. Mu uses GENTLEMAN sprite"
+    },
+    {
+      "offset": "0x1ad4b",
+      "before": "28130dffd109",
+      "after": "19130cffd209",
+      "name": "Shamaness: CHANNELER sprite at x8,y15 by the water, facing water"
+    },
+    {
+      "offset": "0xb8100",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa51d4a7c8fa30d7cb7fc02156d4347efe06d836002155d47ea7280235c0fa63d14778a7ca5e41052164d1581600197efe1f28eeea57d478ea92cfcd8c41fa57d4cdff13afea95cf21617b0601cd18360e28cd7337cda8413e0cea55d4c9cd8c413e1fcdff130e78cd73373e0aea000006040578ea00402100a0af227cfec020f978a720edafea0000c30001f047ea58d4f048ea59d4f049ea5ad43effe047e048e0490e0ac37337fa58d4e047fa59d4e048fa5ad4e049c92155d48630023eff77c9fa51d4a7c8fa14d0fe1fc0fa57d0fe013e1028023e30c3b841fa51d4a7c83ea0c3b8413e01ea51d43ea0ea55d4afea56d4c9",
+      "name": "Ghost hunger engine (step drain, eating, permadeath, feeding)"
+    },
+    {
+      "offset": "0xb802c",
+      "before": "3e01ea51d4c9",
+      "after": "c3e541000000",
+      "name": "Ghost award also fills hunger"
+    },
+    {
+      "offset": "0xe0",
+      "before": "00000000000000000000000000",
+      "after": "210041062ecd18363e14c3c13e",
+      "name": "Home stub: hunger step then poison predef"
+    },
+    {
+      "offset": "0x62d",
+      "before": "3e14cdc13e",
+      "after": "cde0000000",
+      "name": "Overworld step hook"
+    },
+    {
+      "offset": "0x3fd20",
+      "before": "0000000000000000000000",
+      "after": "21c241062ecd1836c36e4d",
+      "name": "Feed Ghost on enemy faint"
+    },
+    {
+      "offset": "0x3c56d",
+      "before": "cd6e4d",
+      "after": "cd207d",
+      "name": "FaintEnemyPokemon hook"
+    },
+    {
+      "offset": "0xff8e",
+      "before": "3e01ea53d421a4d4c9000000000000000000000000",
+      "after": "3e01ea53d4c5d521db41062ecd1836d1c121a4d4c9",
+      "name": "Trainer death: record + feed human"
+    },
+    {
+      "offset": "0x1a87f",
+      "before": "0052e75192aeaca47fafa4aeafaba47fb4b2a44f548c8e8d7fa0b27fb6a4a0afaeadb255b3ae7fa2aeacaca8b37fa2b1a8aca4b255a0ada37fa4b5a4ad7facb4b1a3a4b1e85193a7a4b87fa7b4b1b37faeb3a7a4b1b24fb3ae7fa6a4b37fb6a7a0b355b3a7a4b87fb6a0adb3e85193a7a47faba0b67fafa4b1aca8b3b24f548c8e8d7fb3ae7fa1a47fb4b2a4a355a8ad7fb2a4aba5e3a3a4a5a4adb2a455aeadabb8e85181a47fa2a0b1a4a5b4ab7fa8ad4fb3a7a8b27fb1a4a6a8aeade85198aeb4b17fb1a4b2a4a0b1a2a74fa9aeb4b1ada4b87fa8b27fa0a1aeb4b355b3ae7fa1a4a6a8ade757",
+      "after": "0052e75192aeaca47fafa4aeafaba47fb4b2a44f548c8e8d7fa0b255b6a4a0afaeadb27fb3ae7fa2aeacaca8b355a2b1a8aca4b27fa0ada37fa4b5a4ad55acb4b1a3a4b1e85193a7a4b87fa7b4b1b37faeb3a7a4b1b24fb3ae7fa6a4b37fb6a7a0b355b3a7a4b87fb6a0adb3e85193a7a47faba0b67fafa4b1aca8b3b24f548c8e8d7fb3ae7fa1a455b4b2a4a37fa8ad55b2a4aba5e3a3a4a5a4adb2a455aeadabb8e85181a47fa2a0b1a4a5b4ab7fa8ad4fb3a7a8b27fb1a4a6a8aeade85198aeb4b17fb1a4b2a4a0b1a2a74fa9aeb4b1ada4b87fa8b27fa0a1aeb4b355b3ae7fa1a4a6a8ade757",
+      "name": "Rewrap briefing to 17-col lines"
+    },
+    {
+      "offset": "0x1a967",
+      "before": "00887fa0ac7f8c91e87f8c94e85188a57fa07f548c8e8d7faaa8ababb24fa07fafa4b1b2aead7fb6a7a8aba455aea1a4b8a8ada67fa8b3b255939180888d8491e8e8e85196a7ae7fa8b24fb1a4b2afaeadb2a8a1aba4e658",
+      "after": "00887fa0ac7f8c91e87f8c94e85188a57fa07f548c8e8d4faaa8ababb27fa07fafa4b1b2aead55b6a7a8aba47faea1a4b8a8ada67fa8b3b255939180888d8491e8e8e85196a7ae7fa8b24fb1a4b2afaeadb2a8a1aba4e658",
+      "name": "Rewrap mu_question to 17-col lines"
+    },
+    {
+      "offset": "0x1a9f8",
+      "before": "008baeada67fa1a4a5aeb1a47fb3a7a44f8b8480869484f47fb3a7a4b1a47fb6a4b1a455afa4aeafaba47fa8ad7f8a808d938e51b6a7ae7fb6aeb1b2a7a8afa4a37fa0ad4faeaba37fa6aea37faea555b3a7a47fa3a4a0a3e85193a7a4b87fa1a4aba8a4b5a4a37fb3a7a44fb2aeb4abb27faea57fa7b4aca0adb255a2aeb4aba37fa1a47fa2a0b4a6a7b3e8e8e851a1aeb4ada3e8e8e84fa0ada37fa2aeacaca0ada3a4a3e8518ba8aaa47f548c8e8de85193a7aeb2a47fb6a7ae4fafb1a0a2b3a8a2a4a37fa8b37fb6a4b1a455b2a0a8a37fb3ae7fa2a0b1b1b851b3a7a47fa3a4a0a37fb6a8b3a74fb3a7a4ac7fa0b27fb2a4b1b5a0adb3b2e851e8e8e85181b4b37fb3a7a47faeaba34fb2b3aeb1a8a4b27fb2a0b87fb3a7a0b355aeada2a47fb8aeb47fa1a4a6a8ad51afaba0b8a8ada67fb6a8b3a74fb2aeb4abb2e8e8e851e8e8e8b2aeaca4b3a7a8ada64fa4b5a4adb3b4a0ababb87fa1a4a6a8adb255afaba0b8a8ada67fb6a8b3a755b8aeb4b1b2e858",
+      "after": "008baeada67fa1a4a5aeb1a47fb3a7a44f8b8480869484f47fb3a7a4b1a455b6a4b1a47fafa4aeafaba47fa8ad558a808d938e51b6a7ae7fb6aeb1b2a7a8afa4a37fa0ad4faeaba37fa6aea37faea555b3a7a47fa3a4a0a3e85193a7a4b87fa1a4aba8a4b5a4a37fb3a7a44fb2aeb4abb27faea57fa7b4aca0adb255a2aeb4aba37fa1a455a2a0b4a6a7b3e8e8e851a1aeb4ada3e8e8e84fa0ada37fa2aeacaca0ada3a4a3e8518ba8aaa47f548c8e8de85193a7aeb2a47fb6a7ae4fafb1a0a2b3a8a2a4a37fa8b37fb6a4b1a455b2a0a8a37fb3ae7fa2a0b1b1b851b3a7a47fa3a4a0a37fb6a8b3a74fb3a7a4ac7fa0b27fb2a4b1b5a0adb3b2e851e8e8e85181b4b37fb3a7a47faeaba34fb2b3aeb1a8a4b27fb2a0b87fb3a7a0b355aeada2a47fb8aeb47fa1a4a6a8ad51afaba0b8a8ada67fb6a8b3a74fb2aeb4abb2e8e8e851e8e8e8b2aeaca4b3a7a8ada64fa4b5a4adb3b4a0ababb87fa1a4a6a8adb255afaba0b8a8ada67fb6a8b3a755b8aeb4b1b2e858",
+      "name": "Rewrap shaman to 17-col lines"
+    },
+    {
+      "offset": "0x1ac48",
+      "before": "0081a47faead7fb3a7a47fabaeaeaaaeb4b34fa5aeb17fa07fa2b1a8aca8ada0ab55939180888d8491e85191a4afaeb1b3b27fa3a4b2a2b1a8a1a44fa0b3b3a0a2aab27fb3a7a0b37faaa8abab55a1aeb3a77fafa4aeafaba47fa0ada355548c8e8de85192aeaca47fb6a8b3ada4b2b2a4b24fa1aba0aca47f9384808c7f918e828a8493e8518eb3a7a4b1b27fa3a4b2a2b1a8a1a44fa07fabaeada47f939180888d8491e85193a7a47fb1a4afaeb1b3b27fa0b1a44fa2aeada5aba8a2b3a8ada6e85592b3a0b87fa0aba4b1b3e758",
+      "after": "0081a47faead7fb3a7a47fabaeaeaaaeb4b34fa5aeb17fa07fa2b1a8aca8ada0ab55939180888d8491e85191a4afaeb1b3b27fa3a4b2a2b1a8a1a44fa0b3b3a0a2aab27fb3a7a0b37faaa8abab55a1aeb3a77fafa4aeafaba47fa0ada355548c8e8de85192aeaca47fb6a8b3ada4b2b2a4b24fa1aba0aca47f9384808c55918e828a8493e8518eb3a7a4b1b27fa3a4b2a2b1a8a1a44fa07fabaeada47f939180888d8491e85193a7a47fb1a4afaeb1b3b27fa0b1a44fa2aeada5aba8a2b3a8ada6e85592b3a0b87fa0aba4b1b3e758",
+      "name": "Rewrap police to 17-col lines"
+    },
+    {
+      "offset": "0x1ae40",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "004f96a7e3b6a7a0b37fa3a8a37fb8aeb455a3ae7fb3ae7facb855548c8e8de7e6518faba4a0b2a4e8e8e84fb2afa0b1a47facb87faba8a5a4e758",
+      "name": "Frightened text fear0 (starts on line 2)"
+    },
+    {
+      "offset": "0x1ae7b",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "004f96a7a0b37fa8b27fb3a7a0b355acaeadb2b3a4b1e7e6518aa4a4af7fa8b37fa0b6a0b84fa5b1aeac7faca4e758",
+      "name": "Frightened text fear1 (starts on line 2)"
+    },
+    {
+      "offset": "0x1aeaa",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "004f8cb87f548c8e8de8e8e85596a7a0b37fa7a0b5a47fb8aeb455a3aeada4e7e65183aeadbe7faba4b37fa8b34fb3a0aaa47faca47fb3aeaee758",
+      "name": "Frightened text fear2 (starts on line 2)"
+    },
+    {
+      "offset": "0xb805e",
+      "before": "a66be06b0e6c",
+      "after": "406e7b6eaa6e",
+      "name": "Repoint fear table"
+    },
+    {
+      "offset": "0xb8200",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa3ccca7c0fa47cca7c0fa53d4a72848fa5bd4a72042fa13cfa7283c47fae1d4b8380e78cb376f26c17ecd5b42281b1827fae1d4a728214f2110c17ecd5b4228097dc6106f0d20f3180e3e01ea5bd4cd9938216142cd943cc39938fe31c8fe32c917486c0650afea5bd4fa54d4c30340",
+      "name": "Police bulletin v2"
+    },
+    {
+      "offset": "0x29fd",
+      "before": "216440",
+      "after": "210042",
+      "name": "Guard hook -> police v2"
+    },
+    {
+      "offset": "0xb8000",
+      "before": "fa54d4",
+      "after": "c36642",
+      "name": "Map load clears police flag"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563100000000",
+      "after": "435245455059204d5520563200000000",
+      "name": "Branch identity v2"
+    }
+  ]
+}

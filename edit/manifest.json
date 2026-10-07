@@ -1,0 +1,20 @@
+{
+  "filename": "Creepy_Black_Mu_v1.gb",
+  "sha256": "1bb97ea3f2fbabbca72f29a529983ea11828aed3275623f56bc65a6ae9e73df5",
+  "size_bytes": 1048576,
+  "base_filename": "Pokemon_Black_(Creepy)_d.gb",
+  "features": [
+    "Oak research-agent briefing",
+    "Mr. Mu forced Pallet encounter and choice",
+    "Ghost awarded after first rival battle only for Trainer answer",
+    "Pallet shaman NPC",
+    "Curse frightened dialogue and police alert hooks"
+  ],
+  "verified": [
+    "opening",
+    "both Mu answers",
+    "Mu disappearance",
+    "shaman dialogue",
+    "Ghost award after rival battle"
+  ]
+}

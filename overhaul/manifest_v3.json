@@ -1,0 +1,272 @@
+{
+  "input": "Creepy_Black_Mu_v2.gb",
+  "input_sha256": "e7855fae19f3c8c3ee1c9a3791a13e6804836b0a0f25bc67893f8e3bfd4d280d",
+  "sha256": "221da20e1a68559cbdbf2525be08bbb6375e3403771fc9eb6139399501b956ab",
+  "size": 1048576,
+  "tuning": {
+    "per_curse": 2,
+    "chance_cap": 64,
+    "run_success": 166
+  },
+  "labels": {
+    "bank2e": {
+      "mirage_start": "0x4300",
+      "chance": "0x4317",
+      "cap": "0x4324",
+      "have": "0x4326",
+      "find": "0x4330",
+      "ghost": "0x433c",
+      "noghost": "0x4369",
+      "mask": "0x4374",
+      "dead": "0x437f",
+      "maskdone": "0x438a",
+      "cpy": "0x43b1",
+      "copyname": "0x43eb",
+      "cn": "0x43f0",
+      "dummy_struct": "0x43f7",
+      "mirage_post": "0x4423",
+      "rloop": "0x4433",
+      "bit": "0x4446",
+      "bitdone": "0x444f",
+      "remove": "0x4465",
+      "rdone": "0x4479",
+      "mirage_death": "0x44b6",
+      "flash": "0x44c7"
+    },
+    "bankF": {
+      "scared": "0x7d40",
+      "run": "0x7d4f",
+      "runfail": "0x7d5f",
+      "dmg": "0x7d63",
+      "kill": "0x7d78",
+      "dmgret": "0x7d82",
+      "anim": "0x7d86",
+      "animgo": "0x7d93",
+      "cursecnt": "0x7d9f",
+      "movehelper": "0x7dae",
+      "mine": "0x7dbb"
+    },
+    "bankE": {
+      "special_header": "0x7c60",
+      "fin": "0x7c6f",
+      "kab": "0x7c76",
+      "aero": "0x7c7b",
+      "partial": "0x7c7e",
+      "dummy": "0x7c90",
+      "copyb": "0x7c9d",
+      "kab_data": "0x7ca4",
+      "aero_data": "0x7cbc",
+      "dummy_hdr": "0x7cd4",
+      "mymoves": "0x7cef",
+      "party": "0x7cfb",
+      "movehelper": "0x7d01",
+      "mine": "0x7d0e"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x4ffa5",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "773f8cd693d262a4ee69454c18c938da4962a862a35a41555aa58c135a423863893923b948488f1955aa1a8f2ea95485494f3aa22484dd4f26533464e3e955a52130aaa562a4e28cea3aa953463ccaaaaa8ff0267fd108",
+      "name": "Mirage Black Tamer silhouette pic"
+    },
+    {
+      "offset": "0x3bc60",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fab5d0feb6280ffeb72810fe792821fab5d0eab8d0c921a47c180321bc7c11b9d00609cd9d7c11c5d0060fcd9d7c18df21d47c11b9d0061bcd9d7c18d22a12130520fac93c7369504608050000e879a7000000050000000000000000506941823c080200003665a80000000500000000000000000f0505050500000000440a7e0a7e21000000000000000000000000a711fa1bff0aa811fa1bff0a32b60032b700fea63009210040010600c3bb3ad6a64f8781874f060021ef7c09010600c9",
+      "name": "Bank E: fossil/dummy headers, death moves, Black Tamer party"
+    },
+    {
+      "offset": "0xb8300",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa51d4a7c8fa90d7cb7fc0fa5dd4a7c0fa5cd4a7c84fafc6023809fe4030050d20f518023e4047f0d3b8d02164d10e002afeff2834fe1f28030c18f4fa80dafe14d079ea92cf3e1fea91cf3e01ea95cf214d780603cd1836afea95cf21617b0601cd18363e01ea5fd4216cd1fa63d14f06001e0179a728122ab6280378b347c5012b0009c1cb230d18ea78ea5ed4fa63d14f3cea63d12164d10600093e79223eff77216bd179012c00cdbb3a11f743062c1a22130520fafa63d13df52173d2010b00cdbb3acdeb43f121b5d2010b00cdbb3acdeb433ed5ea59d0ead8cff0d4e6013cea5dd03e01ea5dd4c91158d1060b1a22130520fac979000f05000000002100000000000000000000000000000000000000002300000005000f0005000500050005fa5dd4a7c8afea5dd4ea59d0fa63d14f79a728420d2164d10600097efe7928221e014178a72805cb230518f7fa5ed4a328de216cd179c5012c00cdbb3ac12ab620ce79ea92cfafea95cfc521617b0601cd1836c118bafa5fd4a7c8afea5fd4fa80daa7c83d4f2181da0600097efe1fc079ea92cf3e1fea91cfafea95cf214d780603cd18363e01ea95cf21617b0601cd1836c9cd8c41fae5cfcdff130e78cd7337c36b41cd8c410e14cd7337c3a841",
+      "name": "Bank 2E: Mirage encounter, cleanup, death, flash"
+    },
+    {
+      "offset": "0x3fd40",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa5dd4a7ca1059f0f3a7c21059afc9fa5dd4a7ca1059cd816ffea63002afc9e1c36d4bfa5dd4a72819fa14d0fe79200821b644062ecd18363e03ead7d03ee7ead8d021d7d0c9fea7daed6ffea73ea328023e7ecded6f21c744062ecd1836c93e01ea52d4e5215cd434200135e1c9fea63009210040010600c3bb3ad6a64f8781874f060021ef7c09010600c9",
+      "name": "Bank F: Mirage battle hooks"
+    },
+    {
+      "offset": "0x3d8e2",
+      "before": "cd1059",
+      "after": "cd407d",
+      "name": "PrintGhostText: your Pokemon are too scared in Mirage battles"
+    },
+    {
+      "offset": "0x3cae4",
+      "before": "cd1059",
+      "after": "cd4f7d",
+      "name": "TryRunningFromBattle: 65% run in Mirage battles"
+    },
+    {
+      "offset": "0x3e2d6",
+      "before": "21d7d0",
+      "after": "cd637d",
+      "name": "ApplyDamageToPlayerPokemon: death moves kill / wipe"
+    },
+    {
+      "offset": "0x3e89f",
+      "before": "cded6f",
+      "after": "cd867d",
+      "name": "Enemy move animation: death-move visuals"
+    },
+    {
+      "offset": "0x3fd08",
+      "before": "3e01ea52d4",
+      "after": "cd9f7d0000",
+      "name": "Curse use also raises Ghost-use counter"
+    },
+    {
+      "offset": "0x3e403",
+      "before": "210040010600cdbb3a",
+      "after": "cdae7d000000000000",
+      "name": "Move reader f6403 -> death moves"
+    },
+    {
+      "offset": "0x3ebc6",
+      "before": "210040010600cdbb3a",
+      "after": "cdae7d000000000000",
+      "name": "Move reader GetCurrentMove -> death moves"
+    },
+    {
+      "offset": "0x398c6",
+      "before": "210040010600cdbb3a",
+      "after": "cd017d000000000000",
+      "name": "AI move reader -> death moves"
+    },
+    {
+      "offset": "0xffb0",
+      "before": "000000000000000000000000000000000000000000000000000000000000",
+      "after": "fea63009210040010600c3bb3ad6a64f8781874f060021ef7c09010600c9",
+      "name": "Bank 3 move reader helper"
+    },
+    {
+      "offset": "0xf7af",
+      "before": "210040010600cdbb3a",
+      "after": "cdb07f000000000000",
+      "name": "LoadMovePPs -> death moves"
+    },
+    {
+      "offset": "0x15c6",
+      "before": "fab5d0eab8d0",
+      "after": "cd607c000000",
+      "name": "GetMonHeader: fossil/dummy headers"
+    },
+    {
+      "offset": "0x13aec",
+      "before": "00000000000000000000",
+      "after": "210043062ecd1836afc9",
+      "name": "Bank 4 Mirage roll stub"
+    },
+    {
+      "offset": "0x1395e",
+      "before": "3e01a7c9afc9",
+      "after": "f601c9c3ec7a",
+      "name": "Encounter exit: can't = or 1/ret, will = jp Mirage roll"
+    },
+    {
+      "offset": "0x13944",
+      "before": "1d",
+      "after": "1c",
+      "name": "retarget jr z -> 0x7961"
+    },
+    {
+      "offset": "0x13950",
+      "before": "11",
+      "after": "10",
+      "name": "retarget jr -> 0x7961"
+    },
+    {
+      "offset": "0xc0",
+      "before": "0000000000000000000000000000",
+      "after": "cd9006f5212344062ecd1836f1c9",
+      "name": "Home: NewBattle then Mirage cleanup"
+    },
+    {
+      "offset": "0x639",
+      "before": "cd9006",
+      "after": "cdc000",
+      "name": "Overworld NewBattle call -> wrapper"
+    },
+    {
+      "offset": "0x582",
+      "before": "cd9006",
+      "after": "cdc000",
+      "name": "Step NewBattle call -> wrapper"
+    },
+    {
+      "offset": "0x1c930",
+      "before": "8c889292888d868d8ee8",
+      "after": "8a808194938e8f925050",
+      "name": "Species name b6 = KABUTOPS"
+    },
+    {
+      "offset": "0x1c93a",
+      "before": "8c889292888d868d8ee8",
+      "after": "8084918e83808293988b",
+      "name": "Species name b7 = AERODACTYL"
+    },
+    {
+      "offset": "0x1c6ce",
+      "before": "8c889292888d868d8ee8",
+      "after": "988e9450505050505050",
+      "name": "Species name 79 = YOU"
+    },
+    {
+      "offset": "0x410e3",
+      "before": "00",
+      "after": "8d",
+      "name": "Fossil Kabutops dex -> Kabutops (seen flag safety)"
+    },
+    {
+      "offset": "0x410e4",
+      "before": "00",
+      "after": "8e",
+      "name": "Fossil Aerodactyl dex -> Aerodactyl (seen flag safety)"
+    },
+    {
+      "offset": "0x396a3",
+      "before": "000000",
+      "after": "18ee01",
+      "name": "Fossil Kabutops cry = Kabutops"
+    },
+    {
+      "offset": "0x396a6",
+      "before": "000000",
+      "after": "2320f0",
+      "name": "Fossil Aerodactyl cry = Aerodactyl"
+    },
+    {
+      "offset": "0xb0615",
+      "before": "00000000000000000000000000000000000000000000000000",
+      "after": "8c808280819184818b80838450818b80828a7f858b808c8450",
+      "name": "Move names A7/A8"
+    },
+    {
+      "offset": "0x3998e",
+      "before": "7d59003500",
+      "after": "a57f000000",
+      "name": "Class 13 pic = silhouette, no prize money"
+    },
+    {
+      "offset": "0x39d91",
+      "before": "5160",
+      "after": "fb7c",
+      "name": "Class 13 party data -> Fossil Kabutops / Aerodactyl Lv50"
+    },
+    {
+      "offset": "0x39a3d",
+      "before": "988e948d8692938491508194867f82809382878491508b809292509280888b8e91508991e8939180888d8491ef508991e8939180888d8491f5508f8e8aba8c808d8880825092948f84917f8d8491835087888a84915081888a849150819491868b809150848d86888d84849150899486868b8491508588928784918c808d509296888c8c8491508294847f81808b8b5086808c818b849150818480949398508f92988287888250918e828a849150899486868b84915093808c849150818891837f8a84848f849150818b80828a81848b9350918895808bf7508f918e85e88e808a50828788848550928288848d938892935086888e95808d8d8850918e828a849350828e8e8b939180888d8491ef50828e8e8b939180888d8491f5508191948d8e5081918e828a508c88929398508b93e89294918684508491888a80508a8e868050818b80888d845092808191888d805086848d938b848c808d50918895808bf850918895808bf9508b8e91848b8488508287808d8d848b849150808680938780508b808d828450",
+      "after": "988e948d8692938491508194867f82809382878491508b809292509280888b8e91508991e8939180888d8491ef508991e8939180888d8491f5508f8e8aba8c808d8880825092948f84917f8d8491835087888a84915081888a849150819491868b809150848d86888d84849150818b80828a7f93808c8491508588928784918c808d509296888c8c8491508294847f81808b8b5086808c818b849150818480949398508f92988287888250918e828a849150899486868b84915093808c849150818891837f8a84848f849150818b80828a81848b9350918895808bf7508e808a50828788848550928288848d938892935086888e95808d8d8850918e828a849350828e8e8b939180888d8491ef50828e8e8b939180888d8491f5508191948d8e5081918e828a508c88929398508b93e89294918684508491888a80508a8e868050818b80888d845092808191888d805086848d938b848c808d50918895808bf850918895808bf9508b8e91848b8488508287808d8d848b849150808680938780508b808d82845050",
+      "name": "Trainer class names: JUGGLER(13) -> BLACK TAMER, PROF.OAK -> OAK"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563200000000",
+      "after": "435245455059204d5520563300000000",
+      "name": "Branch identity v3"
+    }
+  ]
+}
