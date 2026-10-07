@@ -5,13 +5,14 @@ Python script that applies **logged patches with old-byte asserts** on top of th
 Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM length exactly 1,048,576 bytes.
 
 ## Layout
-- `Creepy_Black_Mu_v1.gb` … `v5.gb` (root and `overhaul/`): builds. Latest = **v5**
-  (SHA-256 ad5cac221a706237436afa9be82e3c64ae9db931384d764d588b147846b4a1a0).
+- `Creepy_Black_Mu_v1.gb` … `v6.gb` (root and `overhaul/`): builds. Latest = **v6**
+  (SHA-256 94919c4f615f514fe1188a7629bee4890ea4521b57edc799705569a2268efffe).
 - `edit/`: original v1 handoff (v1 build.py, which needs the clean base ROM that is NOT in this repo).
-- `overhaul/build_v2.py … build_v5.py`: each takes the previous version, checks its SHA, writes the next
-  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`.
+- `overhaul/build_v2.py … build_v6.py`: each takes the previous version, checks its SHA, writes the next
+  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`.
 - `overhaul/harness.py` + `t*.py`: PyBoy emulator tests. `run_all.sh` (v2 features), `run_v3.sh` (full chain
-  including the Mirage tests). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
+  including the Mirage tests), `run_v6.sh` (Cerulean Mu / PRETA / MACABRE; needs the chain's
+  `pallet_with_ghost` state). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
   regenerates them starting at `t1_opening.py`). Select the ROM with `CB_ROM=Creepy_Black_Mu_v5.gb`.
 - `ref/`: reverse-engineering helpers. `red.gb` = vanilla Pokémon Red (US) for signature matching;
   `pokered.sym` = pret pokered symbols; `sig.py` locates vanilla routines in this ROM by masked byte
@@ -33,11 +34,13 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 D450 Mu answer (1 Trainer, 2 Pokémon) · D451 Ghost acquired · D452 Curse used this battle · D453 trainer
 killed by Curse · D454 Mu state · D455 Ghost hunger · D456 hunger step counter · D457–D45A temp ·
 D45B police alert shown this map · D45C Ghost-use counter · D45D Mirage battle active · D45E alive mask ·
-D45F Ghost deposited for Mirage. Do not use D485–D4A3 (real game data) or D4A4–D4AF (gravestones etc.).
+D45F Ghost deposited for Mirage · D460 Cerulean Mu state (0/1 introduced/2 PRETA given). Do not use D485–D4A3 (real game data) or D4A4–D4AF (gravestones etc.).
 
 ## Features (see READMEs for verified details)
 v1 Oak briefing, Mr. Mu question, shaman, Ghost after rival · v2 sprites (Gentleman/Channeler), Ghost hunger
 (drain, eat party, permadeath wipe), Curse frightened text, police bulletin, text fixes · v3 Mirage Black Tamer
 (silhouette trainer class 13, Lv50 Fossil Kabutops/Aerodactyl, MACABREBLADE/BLACK FLAME, Ghost to PC,
 player stand-in species 0x79, 65% run, permanent deaths) · v4/v5 fossil back sprites (v5 = fossilized
-originals).
+originals) · v6 Mr. Mu in the Cerulean trade house (Ghost route only), DOME FOSSIL question
+(ACCEPT/DEFY), PRETA (Lv50 Fossil Kabutops, perfect DVs, MACABRE/CUT/SURF/STRENGTH), move A9 MACABRE
+(never misses, Slash anim, leaves target at 1 HP; death-move table now at E:7D30).

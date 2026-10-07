@@ -1,0 +1,11 @@
+{
+ "intro": [["Ah, <PLAYER>.","We meet again."],["Allow me to","introduce myself","properly."],["I am MR. MU,","an executive of","SILPH CO."],["Forgive me for","the abrupt","question when we","first met."],["I travel KANTO in","search of a","protege."],["Someone I can","teach the art","of business."],["My success should","not die with me."],["A word of","warning."],["TEAM ROCKET has","been snooping","around this town."],["They were seen","near MT.MOON too."],["Be careful,","<PLAYER>."]],
+ "again": [["TEAM ROCKET is","still snooping","around here."],["Stay alert,","<PLAYER>."]],
+ "question": [["Hm? What is that","you're carrying?"],["A DOME FOSSIL!","How remarkable."],["I'm impressed,","<PLAYER>."],["Tell me","something."],["Is death","something we","should accept..."],["even when we","have the power","to undo it?"]],
+ "menu": [[" ACCEPT IT"," DEFY IT"]],
+ "accept": [["Hm."],["Then why carry","the remains of","something that","died so long ago?"]],
+ "full": [["...I see."],["But you have no","room for it."],["Make room in your","party first."]],
+ "defy": [["...I see."],["Then perhaps this","shouldn't remain","a fossil."]],
+ "got": [["Something stirred","inside the","fossil..."],["<PLAYER> received","PRETA!"]],
+ "hint": [["Oh, one more","thing."],["If you happen to","find another","fossil..."],["don't be too","quick to change","it."],["Some things are","more valuable","as they are."]]
+}
