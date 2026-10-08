@@ -55,6 +55,8 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
   trainers (no trainer header) normally get "But, it failed!" there (check at F:5033).
 
 ## Saved RAM used by the overhaul (D450–D4AD cleared on NEW GAME)
+All of it is inside the saved block (wMainData D2F7–DA80); `t27_saveload.py` proves save → power cycle → CONTINUE
+keeps D450–D463 and the gravestones, and NEW GAME over an old save clears them. New flags must stay in D450–D4A3.
 D450 Mu answer (1 Trainer, 2 Pokémon) · D451 Ghost acquired · D452 Curse used this battle · D453 trainer
 killed by Curse · D454 Mu state · D455 Ghost hunger · D456 hunger step counter · D457–D45A temp ·
 D45B police alert shown this map · D45C Ghost-use counter · D45D Mirage battle active · D45E alive mask ·

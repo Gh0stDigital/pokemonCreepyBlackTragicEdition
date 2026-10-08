@@ -6,3 +6,4 @@ CB_ROM=$CB_ROM PY=$PY bash run_v12.sh
 for t in center mart; do
   echo "=== t26_center.py $t"; timeout 600 $PY -u t26_center.py $t 2>&1 | grep -v -i sdl | grep -E "PASS|FAIL|Error|assert|lowest"
 done
+echo "=== t27_saveload.py"; timeout 600 $PY -u t27_saveload.py 2>&1 | grep -v -i sdl | grep -E "PASS|FAIL|Error|assert"
