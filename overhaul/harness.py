@@ -4,6 +4,7 @@ from pathlib import Path
 from pyboy import PyBoy
 ROOT=Path(__file__).resolve().parent;qa=ROOT/'qa';qa.mkdir(exist_ok=True)
 ROM=os.environ.get('CB_ROM',str(ROOT/'Creepy_Black_Mu_v2.gb'))
+VERSION=int(re.search(r'_v(\d+)',ROM).group(1))
 cm={}
 for k,v in re.findall(r'^\s*charmap "([^"]+)",\s*\$([0-9A-Fa-f]+)',(ROOT.parent/'pokeblack/charmap.asm').read_text(encoding='utf8'),re.M):
     if len(k)==1 and ord(k)<0x3000:cm.setdefault(int(v,16),k)

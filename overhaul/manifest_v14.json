@@ -1,0 +1,735 @@
+{
+  "input": "Creepy_Black_Mu_v13.gb",
+  "input_sha256": "2fa351de1eca04f63f96abe47469287eccfc3754f6437c0411d5f81ecf7098a4",
+  "sha256": "acd7ac590d4893b0edd0f0a01c5c1227fabd0c8166f1f8f3a14b5241322eeb46",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "SABRINA victory: trainers stay active if killed",
+      "17:50fd is trainer-header data (30 b3 d7 = sight range 3, event byte d7b3), not a jr",
+      "['jump from file $5d0fd lands inside the patch at $50b2']"
+    ]
+  ],
+  "labels": {
+    "bank2e": {
+      "mirage_rand": "0x4e00",
+      "award_add": "0x4e05",
+      "leader_graves": "0x4e0c",
+      "lg_loop": "0x4e13",
+      "lg_found": "0x4e1e",
+      "lg_end": "0x4e24",
+      "lg_put": "0x4e2d",
+      "ltab": "0x4e37",
+      "rumour_00_2": "0x4e4d",
+      "rumour_01_1": "0x4eac",
+      "rumour_02_1": "0x4f03",
+      "rumour_03_3": "0x4f53",
+      "rumour_03_5": "0x4fbb",
+      "rumour_04_2": "0x5012",
+      "rumour_05_1": "0x508e",
+      "rumour_05_4": "0x50ec",
+      "rumour_06_1": "0x513b",
+      "rumour_06_4": "0x5184",
+      "rumour_07_4": "0x51d6",
+      "rumour_08_1": "0x521e",
+      "rumour_0a_3": "0x5295",
+      "rumour_0a_10": "0x52d6"
+    },
+    "bankF": {
+      "poof": "0x7cc0",
+      "poof_skip": "0x7ccc",
+      "grow": "0x7cce",
+      "grow_you": "0x7cda",
+      "seen": "0x7d2b",
+      "seen_skip": "0x7d3b"
+    },
+    "bank17": {
+      "lp": "0x7a0a",
+      "found": "0x7a18",
+      "none": "0x7a27",
+      "out": "0x7a28",
+      "tab": "0x7a2d",
+      "rev_BROCK": "0x7a42",
+      "rev_MISTY": "0x7a84",
+      "rev_LT.SURGE": "0x7ac6",
+      "rev_SABRINA": "0x7b0b",
+      "eng_MISTY": "0x7b4f",
+      "joy_MISTY": "0x7b5d",
+      "killed_MISTY": "0x7b6c",
+      "nobag_MISTY": "0x7b8c",
+      "deact_MISTY": "0x7b8f",
+      "took_MISTY": "0x7b9d",
+      "ttab_MISTY": "0x7bc8",
+      "eng_LT.SURGE": "0x7bd8",
+      "joy_LT.SURGE": "0x7be6",
+      "killed_LT.SURGE": "0x7bf5",
+      "nobag_LT.SURGE": "0x7c15",
+      "deact_LT.SURGE": "0x7c18",
+      "took_LT.SURGE": "0x7c27",
+      "ttab_LT.SURGE": "0x7c55",
+      "eng_SABRINA": "0x7c67",
+      "joy_SABRINA": "0x7c75",
+      "killed_SABRINA": "0x7c84",
+      "nobag_SABRINA": "0x7ca4",
+      "deact_SABRINA": "0x7ca7",
+      "took_SABRINA": "0x7cbb",
+      "ttab_SABRINA": "0x7ce6",
+      "deact_BROCK": "0x7d00"
+    },
+    "bank12": {
+      "lp": "0x7a0a",
+      "found": "0x7a18",
+      "none": "0x7a27",
+      "out": "0x7a28",
+      "tab": "0x7a2d",
+      "rev_ERIKA": "0x7a33",
+      "eng_ERIKA": "0x7a75",
+      "joy_ERIKA": "0x7a83",
+      "killed_ERIKA": "0x7a92",
+      "nobag_ERIKA": "0x7ab2",
+      "deact_ERIKA": "0x7ab5",
+      "took_ERIKA": "0x7ac9",
+      "ttab_ERIKA": "0x7af4"
+    },
+    "bank1d": {
+      "lp": "0x7a0a",
+      "found": "0x7a18",
+      "none": "0x7a27",
+      "out": "0x7a28",
+      "tab": "0x7a2d",
+      "rev_KOGA": "0x7a3d",
+      "rev_BLAINE": "0x7a7e",
+      "rev_GIOVANNI": "0x7ac1",
+      "eng_KOGA": "0x7b06",
+      "joy_KOGA": "0x7b14",
+      "killed_KOGA": "0x7b23",
+      "nobag_KOGA": "0x7b43",
+      "deact_KOGA": "0x7b46",
+      "took_KOGA": "0x7b55",
+      "ttab_KOGA": "0x7b7c",
+      "eng_BLAINE": "0x7b94",
+      "eng_b": "0x7b9f",
+      "joy_BLAINE": "0x7baa",
+      "killed_BLAINE": "0x7bb9",
+      "nobag_BLAINE": "0x7bd9",
+      "deact_BLAINE": "0x7bdc",
+      "took_BLAINE": "0x7bf0",
+      "ttab_BLAINE": "0x7c1c",
+      "eng_GIOVANNI": "0x7c36",
+      "joy_GIOVANNI": "0x7c44",
+      "killed_GIOVANNI": "0x7c53",
+      "nobag_GIOVANNI": "0x7c73",
+      "deact_GIOVANNI": "0x7c76",
+      "took_GIOVANNI": "0x7c8d",
+      "ttab_GIOVANNI": "0x7cb9"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x3fd2b",
+      "before": "000000000000000000000000000000000000",
+      "after": "f5fad8cffeb62808feb72804f1c3c13ef1c9",
+      "name": "Bank F: PRETA/AZHI (B6/B7) not marked seen"
+    },
+    {
+      "offset": "0x3fcc0",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "f5fa14d0fe792804f1c3ed6ff1c9f5fa14d0fe792804f1c3c13efa57d0f5afea57d03e02cdc13ef1ea57d0f1c9",
+      "name": "Bank F: YOU sent out without the Poke Ball"
+    },
+    {
+      "offset": "0xb8e00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "47cdb03ec9afea49ccc35b3921374efa5ed3472afeffc8b82804232318f52a575e2186d47e3c280523232318f77223360023732336ffc941011a5c011b86011c9d011db2011ea6011f2d0120ff0083a8a37fb8aeb47fa7a4a0b1e64f92aeaca4aeada4bd7faaa8ababa8ada655b3b1a0a8ada4b1b27faead7fb3a7a455b1aeb4b3a4b2e7518caeac7fb2a0b8b27fa8b3bd4f9384808c7f918e828a8493e85588e57fb2a2a0b1a4a3e8e8e85700807fb3b1a0a8ada4b17fb6a0b24fa5aeb4ada37fa3a4a0a37faead7fa055b1aeb4b3a4e75187a8b27f548c8e8d7fb3aeaee84f84b5a4b1b8a1aea3b87fb2a0b8b2559384808c7f918e828a84937fa3a8a355a8b3e7570093a7a4b87fb2a0b87fa07fada4b64f918e828a84937faca4aca1a4b155aaa8ababb27fb3b1a0a8ada4b1b255a5aeb17fa5b4ade8518daeb37fa4b5a4ad7f548c8e8d4fa0b1a47fb2afa0b1a4a3e7570093a7a47f8f8e8b8882847fb2a0b87fa04fb3b1a0a8ada4b17fa8b27faeb4b355b3a7a4b1a47faaa8ababa8ada651aeb3a7a4b17fb3b1a0a8ada4b1b24fa0ada37f548c8e8d7fb3aeaee75181a4b37fa8b3bd7f9384808c4f918e828a8493bd7fa3aea8ada6e75700807f918e828a84937fa6b1b4adb34fa1b1a0a6a6a4a37fa0a1aeb4b37fa055aaa8ababa4b17fb3b1a0a8ada4b1e85187a47fb2a0a8a37fb3a7a47f818e92924fb6a0adb3b27fb3ae7fb1a4a2b1b4a8b355a7a8ace757008caeb1a47fa6b1a0b5a4b27fa2aeaca44fa4b5a4b1b87fa3a0b8e8e8e85193b1a0a8ada4b1b27fa0ada34fb3a7a4a8b17f548c8e8df455aaa8ababa4a37fa1b87fa07fa1aba0a2aa55b2a7a0a3aeb6f47fb3a7a4b87fb2a0b8e85192aeaca47fb2a0b87fa8b3bd7fa04f918e828a84937fa0b2b2a0b2b2a8ade857008baea2aa7fb8aeb4b17fa3aeaeb1b2e74f807facb4b1a3a4b1a4b17fa8b255abaeaeb2a47fa8ad7f8a808d938ee75193a7a4b87fb2a0b87f9384808c4f918e828a84937fafa0b8b27fa7a8ac55a5aeb17fa4b5a4b1b87faaa8ababe757008cb87fb6aeb1aaa4b1b27fb6aeadbe4fa6ae7faead7fb3a7a47fb1aeb4b3a4b2e85192aeaca47f918e828a84934faaa8ababa4b17fa8b27fafa8a2aaa8ada655aea5a57fb3b1a0a8ada4b1b2e75700807fa1a0a37fb3b1a0a8ada4b14faaa8ababa4a37facb87fa1b1aeb3a7a4b155a0ada37fa7a8b27f548c8e8de7519384808c7f918e828a84937fa8b24fb3a7a47fb6aeb1b2b3e7570093a7a47f86808c847f828e918d84914fa6b4b8b27fb2a0b87fa07faaa8ababa4b155b6aeb1aab27fa5aeb17fb3a7a4ace85193b1a0a8ada4b1b27faaa4a4af4fb3b4b1ada8ada67fb4af7fa3a4a0a3e7570093a7a47f96809183848d7fa5aeb4ada34fa07fa3a4a0a37fb3b1a0a8ada4b151a1b87fb3a7a47f9280858091884f998e8d84e87f918e828a8493b2f455a5aeb17fb2b4b1a4e7570084b5a4ad7faeb4b37fa7a4b1a47fb6a44fa7a4a0b17fa0a1aeb4b37fa8b3e8e8e851807fb3b1a0a8ada4b17fb6a7ae4faaa8ababb27fafa4aeafaba47fa0ada355548c8e8d7fa0aba8aaa4e85193a7a4b87fb2a0b87fa7a4bd4f9384808c7f918e828a8493bd55b2a4a2b1a4b37fb6a4a0afaeade8570087a4a7f47fa7a4a0b1a37fa0a1aeb4b34fb3a7a47faaa8ababa4b1e65193a7a47f818e92927fb6a0adb3b24fa7a8ac7fa8ad7f9384808c55918e828a8493e75700918e828a84937fa8b27fa6aeada4f44fa1b4b37fb3a7a47faaa8ababa4b151a8b27fb2b3a8abab7faeb4b34fb3a7a4b1a4e8e8e857",
+      "name": "Bank 2E: Mirage random, leader gravestones, town rumours"
+    },
+    {
+      "offset": "0xb8029",
+      "before": "cd5b39",
+      "after": "cd054e",
+      "name": "GHOST award: AddPartyMon into the PLAYER party (CC49 = 0)"
+    },
+    {
+      "offset": "0xb8326",
+      "before": "47f0d3",
+      "after": "cd004e",
+      "name": "Mirage roll: fresh random number (was the encounter roll)"
+    },
+    {
+      "offset": "0xb81ea",
+      "before": "3ea0",
+      "after": "3e43",
+      "name": "GHOST starts hungrier: 67 (~400 steps to the first meal)"
+    },
+    {
+      "offset": "0x3ecfd",
+      "before": "cdc13e",
+      "after": "cd2b7d",
+      "name": "LoadEnemyMonData: PRETA/AZHI not added to the Pokedex"
+    },
+    {
+      "offset": "0x3cd0e",
+      "before": "cded6f",
+      "after": "cdc07c",
+      "name": "SendOutMon: no Poke Ball poof for YOU"
+    },
+    {
+      "offset": "0x3cd16",
+      "before": "cdc13e",
+      "after": "cdce7c",
+      "name": "SendOutMon: YOU appears at full size"
+    },
+    {
+      "offset": "0xb8688",
+      "before": "2108d3cbe6211bd3cbe6",
+      "after": "00000000000000000000",
+      "name": "PRETA award: Kabutops dex flags no longer set"
+    },
+    {
+      "offset": "0x50a5a",
+      "before": "10",
+      "after": "0b",
+      "name": "map 0a object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x44289",
+      "before": "10",
+      "after": "0b",
+      "name": "map 29 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x5c634",
+      "before": "10",
+      "after": "0b",
+      "name": "map 3a object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x5c68c",
+      "before": "10",
+      "after": "0b",
+      "name": "map 40 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x4938e",
+      "before": "10",
+      "after": "0b",
+      "name": "map 44 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x56481",
+      "before": "10",
+      "after": "0b",
+      "name": "map 48 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x493e6",
+      "before": "10",
+      "after": "0b",
+      "name": "map 51 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x59cc1",
+      "before": "10",
+      "after": "0b",
+      "name": "map 5a object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x5cc27",
+      "before": "10",
+      "after": "0b",
+      "name": "map 5c object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61a7c",
+      "before": "10",
+      "after": "0b",
+      "name": "map 66 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61a84",
+      "before": "10",
+      "after": "0b",
+      "name": "map 66 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61ac1",
+      "before": "10",
+      "after": "0b",
+      "name": "map 66 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61cc1",
+      "before": "10",
+      "after": "0b",
+      "name": "map 67 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61cd1",
+      "before": "10",
+      "after": "0b",
+      "name": "map 67 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61ce1",
+      "before": "10",
+      "after": "0b",
+      "name": "map 67 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61cee",
+      "before": "10",
+      "after": "0b",
+      "name": "map 67 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x61d01",
+      "before": "10",
+      "after": "0b",
+      "name": "map 67 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x488e4",
+      "before": "10",
+      "after": "0b",
+      "name": "map 85 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x48fe9",
+      "before": "10",
+      "after": "0b",
+      "name": "map 87 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x49098",
+      "before": "10",
+      "after": "0b",
+      "name": "map 88 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x5c91b",
+      "before": "10",
+      "after": "0b",
+      "name": "map 8d object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x75e5e",
+      "before": "10",
+      "after": "0b",
+      "name": "map ab object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x5d57c",
+      "before": "10",
+      "after": "0b",
+      "name": "map b6 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x45df1",
+      "before": "10",
+      "after": "0b",
+      "name": "map e1 object: GENTLEMAN -> GAMBLER sprite"
+    },
+    {
+      "offset": "0x17aff",
+      "before": "10",
+      "after": "0b",
+      "name": "Saffron sprite set: GENTLEMAN -> GAMBLER"
+    },
+    {
+      "offset": "0x39a1a",
+      "before": "d073",
+      "after": "2154",
+      "name": "GENTLEMAN trainer pic -> GAMBLER pic"
+    },
+    {
+      "offset": "0xce",
+      "before": "000000000000000000000000000000000000",
+      "after": "f0b8fe172809fe122805fe1dc2943cc3007a",
+      "name": "Home: TalkToTrainer revenge-text dispatch (gym banks 17/12/1D)"
+    },
+    {
+      "offset": "0x3234",
+      "before": "cd943c",
+      "after": "cdce00",
+      "name": "TalkToTrainer: gym trainers swear revenge for a killed leader"
+    },
+    {
+      "offset": "0x5fa00",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "d5c5e5212d7afa5ed3472afeff2818b828062323232318f22a5f16d41aa62807232a666ff11801e1c1d1c3943c36a510427a41a704847a5ca708c67ab2a7400b7bff0081918e828a7fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a8ace75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e758008c889293987fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a4b1e75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e758008b93e892949186847fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a8ace75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e7580092808191888d807fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a4b1e75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e758f53e1aeaafd4afeaaed4f1c3ac33f5faa7d4e6042007f13ef0ea6bcdc9f1e13ef0ea6bcd215ed7cbfe3e08e08ccd4d290101d3cd823e3005215ed7cbf6c34b47faa7d4e604c0215ed7cbd6cbdec900527fb3aeaeaa7fb3a7a44f8280928280838481808386847fa5b1aeac558c88929398bd7fa1aea3b8e8578647f4470d482648dd47e247e8479d7bf53e1beaafd4afeaaed4f1c3ac33f5faa7d4e6082007f13ef0ea6bcdc9f1e13ef0ea6bcd2173d7cbfe3e09e08ccd4d290101e0cd823e30052173d7cbf6c3e84afaa7d4e608c0fa73d7f61cea73d7c900527fb3aeaeaa7fb3a7a44f9387948d83849181808386847fa5b1aeac558b93e89294918684bd7fa1aea3b8e857324ba54bbe4bd74bf04b8c4b914b9b4b277cf53e1eeaafd4afeaaed4f1c3ac33f5faa7d4e6402007f13ef0ea6bcdc9f1e13ef0ea6bcd21b3d7cbce3e0de08ccd4d290101f6cd823e300521b3d7cbc6c3a650faa7d4e640c0fab3d7f6fceab3d721b4d7cbc6c900527fb3aeaeaa7fb3a7a44f8c8091928781808386847fa5b1aeac5592808191888d80bd7fa1aea3b8e8572d519c51a651b051ba51c451ce51d851e25188518d519751bb7cfaa5d4e610c02155d7cbd6c9",
+      "name": "Bank 17: gym leader kill / revenge code"
+    },
+    {
+      "offset": "0x5c437",
+      "before": "2155d7cbd6",
+      "after": "cd007d0000",
+      "name": "Pewter Gym: trainer stays active if BROCK was killed"
+    },
+    {
+      "offset": "0x5c6c1",
+      "before": "5f47",
+      "after": "c87b",
+      "name": "MISTY gym: text table + \"took the badge\" text (id 8)"
+    },
+    {
+      "offset": "0x5c7bd",
+      "before": "cdac33",
+      "after": "cd4f7b",
+      "name": "MISTY battle: kill index 26"
+    },
+    {
+      "offset": "0x5c71d",
+      "before": "3ef0ea6bcd",
+      "after": "cd5d7b0000",
+      "name": "MISTY post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x5c755",
+      "before": "215ed7cbd6cbde",
+      "after": "cd8f7b00000000",
+      "name": "MISTY victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0x5ca34",
+      "before": "fd4a",
+      "after": "557c",
+      "name": "LT.SURGE gym: text table + \"took the badge\" text (id 9)"
+    },
+    {
+      "offset": "0x5cb69",
+      "before": "cdac33",
+      "after": "cdd87b",
+      "name": "LT.SURGE battle: kill index 27"
+    },
+    {
+      "offset": "0x5caba",
+      "before": "3ef0ea6bcd",
+      "after": "cde67b0000",
+      "name": "LT.SURGE post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x5caf2",
+      "before": "fa73d7f61cea73d7",
+      "after": "cd187c0000000000",
+      "name": "LT.SURGE victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0x5d01b",
+      "before": "c050",
+      "after": "e67c",
+      "name": "SABRINA gym: text table + \"took the badge\" text (id 13)"
+    },
+    {
+      "offset": "0x5d164",
+      "before": "cdac33",
+      "after": "cd677c",
+      "name": "SABRINA battle: kill index 30"
+    },
+    {
+      "offset": "0x5d078",
+      "before": "3ef0ea6bcd",
+      "after": "cd757c0000",
+      "name": "SABRINA post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x5d0b0",
+      "before": "fab3d7f6fceab3d721b4d7cbc6",
+      "after": "cda77c00000000000000000000",
+      "name": "SABRINA victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0x4ba00",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "d5c5e5212d7afa5ed3472afeff2818b828062323232318f22a5f16d41aa62807232a666ff11801e1c1d1c3943c86a710337aff008491888a807fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a4b1e75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e758f53e1ceaafd4afeaaed4f1c3ac33f5faa7d4e6102007f13ef0ea6bcdc9f1e13ef0ea6bcd217cd7cbce3e0ce08ccd4d290101ddcd823e3005217cd7cbc6c38c49faa7d4e610c0fa7cd7f6fcea7cd7217dd7cbc6c900527fb3aeaeaa7fb3a7a44f9180888d818e9681808386847fa5b1aeac558491888a80bd7fa1aea3b8e857114a814a9a4ab34acc4ae54afe4a174b6d4a724a7c4ac97a",
+      "name": "Bank 12: gym leader kill / revenge code"
+    },
+    {
+      "offset": "0x48903",
+      "before": "a649",
+      "after": "f47a",
+      "name": "ERIKA gym: text table + \"took the badge\" text (id 12)"
+    },
+    {
+      "offset": "0x48a48",
+      "before": "cdac33",
+      "after": "cd757a",
+      "name": "ERIKA battle: kill index 28"
+    },
+    {
+      "offset": "0x4895e",
+      "before": "3ef0ea6bcd",
+      "after": "cd837a0000",
+      "name": "ERIKA post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x48996",
+      "before": "fa7cd7f6fcea7cd7217dd7cbc6",
+      "after": "cdb57a00000000000000000000",
+      "name": "ERIKA victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0x77a00",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "d5c5e5212d7afa5ed3472afeff2818b828062323232318f22a5f16d41aa62807232a666ff11801e1c1d1c3943c9da7203d7aa6a7807e7a2da801c17aff008a8e86807fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a8ace75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e75800818b80888d847fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a8ace75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e7580086888e95808d8d887fa8b27fa3a4a0a3e74f98aeb47facb4b1a3a4b1a4a37fa7a8ace75188bcab7fa0b5a4ada6a47facb84f8b8480838491f47facb4b1a3a4b1a4b1e758f53e1deaafd4afeaaed4f1c3ac33f5faa7d4e6202007f13ef0ea6bcdc9f1e13ef0ea6bcd2192d7cbce3e0ce08ccd4d290101cecd823e30052192d7cbc6c3c054faa7d4e620c0fa92d7f6fcea92d7c900527fb3aeaeaa7fb3a7a44f928e948b81808386847fa5b1aeac558a8e8680bd7fa1aea3b8e8573455a455bd55d655ef55085621563a56905595559f55557bf5fa13cffe013e1f2801afeaafd4afeaaed4f1c3ac33f5faa7d4e6802007f13ef0ea6bcdc9f1e13ef0ea6bcd219ad7cbce3e0de08ccd4d290101eecd823e3005219ad7cbc6c38058faa7d4e680c0fa9ad7f6fcea9ad7219bd7cbc6c900527fb3aeaeaa7fb3a7a44f958e8b82808d8e81808386847fa5b1aeac55818b80888d84bd7fa1aea3b8e857df5839596e59a359d8590d5a425a775aac5a25592a593459f07bf53e20eaafd4afeaaed4f1c3ac33f5faa8d4e6012007f13ef0ea6bcdc9f1e13ef0ea6bcd2151d7cbce3e0fe08ccd4d290101e3cd823e30052151d7cbc6c3be49faa8d4e601c0fa51d7f6fcea51d7fa52d7f603ea52d7c900527fb3aeaeaa7fb3a7a44f848091938781808386847fa5b1aeac5586888e95808d8d88bd7fa1aea3b8e857694af34a0c4b254b3e4b574b704b894ba24bbb4b2125df4ae44aee4a8d7c",
+      "name": "Bank 1D: gym leader kill / revenge code"
+    },
+    {
+      "offset": "0x75436",
+      "before": "d554",
+      "after": "7c7b",
+      "name": "KOGA gym: text table + \"took the badge\" text (id 12)"
+    },
+    {
+      "offset": "0x7556b",
+      "before": "cdac33",
+      "after": "cd067b",
+      "name": "KOGA battle: kill index 29"
+    },
+    {
+      "offset": "0x75492",
+      "before": "3ef0ea6bcd",
+      "after": "cd147b0000",
+      "name": "KOGA post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x754ca",
+      "before": "fa92d7f6fcea92d7",
+      "after": "cd467b0000000000",
+      "name": "KOGA victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0x75743",
+      "before": "9f58",
+      "after": "1c7c",
+      "name": "BLAINE gym: text table + \"took the badge\" text (id 13)"
+    },
+    {
+      "offset": "0x758bc",
+      "before": "cdac33",
+      "after": "cd947b",
+      "name": "BLAINE battle: kill index 31"
+    },
+    {
+      "offset": "0x75852",
+      "before": "3ef0ea6bcd",
+      "after": "cdaa7b0000",
+      "name": "BLAINE post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x7588a",
+      "before": "fa9ad7f6fcea9ad7219bd7cbc6",
+      "after": "cddc7b00000000000000000000",
+      "name": "BLAINE victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0x7489c",
+      "before": "ec49",
+      "after": "b97c",
+      "name": "GIOVANNI gym: text table + \"took the badge\" text (id 15)"
+    },
+    {
+      "offset": "0x74abb",
+      "before": "cdac33",
+      "after": "cd367c",
+      "name": "GIOVANNI battle: kill index 32"
+    },
+    {
+      "offset": "0x74990",
+      "before": "3ef0ea6bcd",
+      "after": "cd447c0000",
+      "name": "GIOVANNI post-battle: killed -> badge/TM from the body"
+    },
+    {
+      "offset": "0x749c8",
+      "before": "fa51d7f6fcea51d7fa52d7f603ea52d7",
+      "after": "cd767c00000000000000000000000000",
+      "name": "GIOVANNI victory: trainers stay active if killed"
+    },
+    {
+      "offset": "0xffa3",
+      "before": "0000000000000000000000",
+      "after": "cd2d4e210c4e062ecd1836",
+      "name": "Bank 3: after the gravestone list, add killed gym leaders"
+    },
+    {
+      "offset": "0xff88",
+      "before": "21a24ec32d4e",
+      "after": "21a24ec3a37f",
+      "name": "Map load: gravestone list -> leader graves"
+    },
+    {
+      "offset": "0x1b400",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a721d34f2803211374cd943cc30425174d4e2e50",
+      "name": "map 00 text 2: killer rumour after a murder"
+    },
+    {
+      "offset": "0x1ad5f",
+      "before": "d34f",
+      "after": "0074",
+      "name": "map 00 text 2 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b418",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a72102512803212b74cd943cc3042517ac4e2e50",
+      "name": "map 01 text 1: killer rumour after a murder"
+    },
+    {
+      "offset": "0x190e4",
+      "before": "0251",
+      "after": "1874",
+      "name": "map 01 text 1 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b430",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a721a7532803214374cd943cc3042517034f2e50",
+      "name": "map 02 text 1: killer rumour after a murder"
+    },
+    {
+      "offset": "0x1938b",
+      "before": "a753",
+      "after": "3074",
+      "name": "map 02 text 1 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b448",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a721fe562803215b74cd943cc3042517534f2e50",
+      "name": "map 03 text 3: killer rumour after a murder"
+    },
+    {
+      "offset": "0x19637",
+      "before": "fe56",
+      "after": "4874",
+      "name": "map 03 text 3 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b460",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a72108572803217374cd943cc3042517bb4f2e50",
+      "name": "map 03 text 5: killer rumour after a murder"
+    },
+    {
+      "offset": "0x1963b",
+      "before": "0857",
+      "after": "6074",
+      "name": "map 03 text 5 -> rumour wrapper"
+    },
+    {
+      "offset": "0x47400",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a7214b412803211374cd943cc304251712502e50",
+      "name": "map 04 text 2: killer rumour after a murder"
+    },
+    {
+      "offset": "0x44110",
+      "before": "4b41",
+      "after": "0074",
+      "name": "map 04 text 2 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b478",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a7218f582803218b74cd943cc30425178e502e50",
+      "name": "map 05 text 1: killer rumour after a murder"
+    },
+    {
+      "offset": "0x19875",
+      "before": "8f58",
+      "after": "7874",
+      "name": "map 05 text 1 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b490",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a7212359280321a374cd943cc3042517ec502e50",
+      "name": "map 05 text 4: killer rumour after a murder"
+    },
+    {
+      "offset": "0x1987b",
+      "before": "2359",
+      "after": "9074",
+      "name": "map 05 text 4 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b4a8",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a7219059280321bb74cd943cc30425173b512e50",
+      "name": "map 06 text 1: killer rumour after a murder"
+    },
+    {
+      "offset": "0x1996c",
+      "before": "9059",
+      "after": "a874",
+      "name": "map 06 text 1 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b4c0",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a7219f59280321d374cd943cc304251784512e50",
+      "name": "map 06 text 4: killer rumour after a murder"
+    },
+    {
+      "offset": "0x19972",
+      "before": "9f59",
+      "after": "c074",
+      "name": "map 06 text 4 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1b4d8",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a721735a280321eb74cd943cc3042517d6512e50",
+      "name": "map 07 text 4: killer rumour after a murder"
+    },
+    {
+      "offset": "0x19a3a",
+      "before": "735a",
+      "after": "d874",
+      "name": "map 07 text 4 -> rumour wrapper"
+    },
+    {
+      "offset": "0x1f800",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a721964a2803211378cd943cc30425171e522e50",
+      "name": "map 08 text 1: killer rumour after a murder"
+    },
+    {
+      "offset": "0x1ca81",
+      "before": "964a",
+      "after": "0078",
+      "name": "map 08 text 1 -> rumour wrapper"
+    },
+    {
+      "offset": "0x53000",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a7213f4c2803211370cd943cc304251795522e50",
+      "name": "map 0a text 3: killer rumour after a murder"
+    },
+    {
+      "offset": "0x50c07",
+      "before": "3f4c",
+      "after": "0070",
+      "name": "map 0a text 3 -> rumour wrapper"
+    },
+    {
+      "offset": "0x53018",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "08fa53d4a721624c2803212b70cd943cc3042517d6522e50",
+      "name": "map 0a text 10: killer rumour after a murder"
+    },
+    {
+      "offset": "0x50c15",
+      "before": "624c",
+      "after": "1870",
+      "name": "map 0a text 10 -> rumour wrapper"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563133000000",
+      "after": "435245455059204d5520563134000000",
+      "name": "Branch identity"
+    }
+  ]
+}

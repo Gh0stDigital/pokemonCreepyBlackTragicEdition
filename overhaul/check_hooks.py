@@ -1,11 +1,11 @@
-# Re-check every hook ever added (v1-v13) against the CURRENT ROM with patchguard:
+# Re-check every hook ever added (v1-v14) against the CURRENT ROM with patchguard:
 #   - no jump elsewhere in the ROM lands inside a patched range (except reviewed, allow-listed ones)
 #   - stubs don't leave registers changed that the original code after the hook still reads, and don't
 #     re-run a replaced "call X" after changing X's inputs.
 # Usage (from overhaul/): python check_hooks.py [ROM]   -> exit code 1 on any unreviewed problem.
 import json,sys,hashlib
 from patchguard import check_hook,jumps_into,fo
-LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v13.gb'
+LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v14.gb'
 cur=open(LATEST,'rb').read()
 v1=bytearray(open('Creepy_Black_Mu_v1.gb','rb').read())
 # v1 had no byte log: original bytes from the asserts in edit/build.py
@@ -37,6 +37,7 @@ REVIEWED={
  (0x29fd,'jump'):'v13 layout: 0x2A03 (AfterDisplayingTextID) is the first byte of the far call again; 0x2A06/0x2A07 hits are operand/data bytes',
  (0x1395e,'jump'):'v3 retargeted the two encounter jr\'s to 0x7961 on purpose; 0x13993 is the operand of "srl b"',
  (0xff8e,'jump'):'hits come from text data in bank 3',
+ (fo(0x17,0x50b0),'jump'):'v14: 17:50FD is Saffron Gym trainer-header data (30 b3 d7 = sight 3, event byte D7B3), not a jr',
  (0x62d,'jump'):'hits are operand/data bytes (0x335e, 0x8ac9, 0x20d71, 0x7cb3e)',
  (0xc4,'jump'):'0x4c42 is an operand byte',
  (0x18e5b,'jump'):'v1 Pallet stub jumps back to 0x4E60 = the untouched instruction after the patch',

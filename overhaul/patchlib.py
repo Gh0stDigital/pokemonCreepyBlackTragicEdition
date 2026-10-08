@@ -53,19 +53,23 @@ def txt(paras,end=0x58,maxw=17):
             out+=enc(line)
     out.append(end);return out
 
+def _b(x):return bytes.fromhex(x.replace(' ','')) if isinstance(x,str) else bytes(x)
+
 class Rom:
     def __init__(self,path,expect_sha):
         src=(ROOT/path).read_bytes();assert hashlib.sha256(src).hexdigest()==expect_sha,'input ROM is not the verified one'
         self.input=path;self.input_sha=expect_sha;self.r=bytearray(src);self.log=[];self.reviews=[]
     def _apply(self,o,data,name,old):
-        data=bytes(data);old=bytes.fromhex(old.replace(' ','')) if isinstance(old,str) else bytes(old)
+        data=_b(data);old=_b(old)
         assert self.r[o:o+len(old)]==old,(name,hex(o),self.r[o:o+len(old)].hex())
         assert len(old)>=len(data),(name,'old bytes must cover the whole patch',len(old),len(data))
         self.log.append(dict(offset=hex(o),before=self.r[o:o+len(data)].hex(),after=data.hex(),name=name));self.r[o:o+len(data)]=data
     def put(self,o,data,name):
+        data=_b(data)
         assert not any(self.r[o:o+len(data)]),('not free',name,hex(o));self._apply(o,data,name,bytes(len(data)))
     def data(self,o,data,name,old):self._apply(o,data,name,old)
     def code(self,o,data,name,old,reviewed=None):
+        data=_b(data)
         hits=jumps_into(bytes(self.r),o,len(bytes(data)))
         if hits and not reviewed:
             raise SystemExit('REFUSED %s: other code jumps inside the patched bytes: %s'%(name,[(hex(s),hex(t)) for s,t in hits]))
@@ -73,7 +77,7 @@ class Rom:
         self._apply(o,data,name,old)
     def hook(self,o,data,name,old,provides=(),reviewed=None):
         """call/jp to a stub that must already be in the ROM. provides = registers/flags the hook sets on purpose."""
-        before=bytes(self.r);self._apply(o,data,name,old)
+        data=_b(data);before=bytes(self.r);self._apply(o,data,name,old)
         probs=check_hook(before,bytes(self.r),o,len(bytes(data)),provides=provides)
         if probs and not reviewed:
             raise SystemExit('REFUSED hook %s at $%05x:\n  '%(name,o)+'\n  '.join(probs))

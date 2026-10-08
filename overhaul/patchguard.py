@@ -62,7 +62,7 @@ def decode(r,bank,addr):
     elif mn in ('add','adc','sub','sbc','and','xor','or','cp'):
         if len(args)==2:d,s=args
         else:d,s='a',args[0]
-        R|=regs_in(d)|regs_in(s)
+        if not (mn in ('xor','sub') and d=='a' and s=='a'):R|=regs_in(d)|regs_in(s)   # xor a / sub a: result 0
         if mn in ('adc','sbc'):R|={'f'}
         if mn!='cp':W|=regs_in(d)
         W|={'f'}
@@ -212,6 +212,7 @@ class Analyzer:
                 if op!=0x21:consts.pop('hl',None)
             if k=='push':
                 pr=ins['text'].split()[1];stack=stack+((pr,tuple(sorted(set(PAIRS[pr])&set(D)))),)
+            elif k=='pop' and not stack:continue   # pops its own return address: this path never returns here
             elif k=='pop' and stack:
                 pr,was=stack[-1];stack=stack[:-1]
                 for x in PAIRS[ins['text'].split()[1]]:
