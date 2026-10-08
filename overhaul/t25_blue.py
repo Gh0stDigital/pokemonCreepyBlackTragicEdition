@@ -6,6 +6,7 @@
 #  route22 - from blue_hero: Route 22 rival-wants-battle flag is cleared
 #  champion- from blue_hero: Champion's last Pokemon is Lv70 MEWTWO
 from harness import *
+CER=lambda:(m[0xd75a]&1) if VERSION>=15 else m[0xd75b]>>7   # v15: BLUE's real Cerulean flag (v12-v14 set the Rocket thief's)
 import sys,random
 MODE=sys.argv[1]
 def clean(s):return ' '.join(''.join(c for c in s if c not in '│─┌┐└┘|').split())
@@ -60,7 +61,7 @@ def show(tag):
     print(tag);[print('  TEXT:',s) for s in seen if s.endswith('!') or s.endswith('▼') or s.endswith('?') or s.endswith('.')]
 if MODE=='tower':
     warp_from_pallet(0x8f,1);m[0xd887]=0
-    print('mode',m[0xd463],'tower beaten',m[0xd764]>>7,'cerulean',m[0xd75b]>>7,'ssanne script',m[0xd665],'r22 wants',m[0xd7eb]>>7)
+    print('mode',m[0xd463],'tower beaten',m[0xd764]>>7,'cerulean',CER(),'ssanne script',m[0xd665],'r22 wants',m[0xd7eb]>>7)
     m[0xd7eb]|=0x80                                             # pretend Oak's Pokedex set Route 22 rival wanting a battle
     walk_to(6,14)
     for i in range(40):
@@ -71,9 +72,9 @@ if MODE=='tower':
     fight_with_curse();after_battle(30)
     show('TOWER')
     allt=' '.join(seen)
-    print('mode',m[0xd463],'murder',m[0xd453],'tower beaten',m[0xd764]>>7,'cerulean',m[0xd75b]>>7,'ssanne script',m[0xd665],'r22 wants',m[0xd7eb]>>7,'graves',list(m[0xd4a4:0xd4ae]),pos())
+    print('mode',m[0xd463],'murder',m[0xd453],'tower beaten',m[0xd764]>>7,'cerulean',CER(),'ssanne script',m[0xd665],'r22 wants',m[0xd7eb]>>7,'graves',list(m[0xd4a4:0xd4ae]),pos())
     assert 'died' in allt and 'hesitates' in allt and 'ran away' in allt and 'bastard' in allt
-    assert m[0xd463]==1 and m[0xd453]==0 and m[0xd764]>>7 and m[0xd75b]>>7 and m[0xd665]==4 and not m[0xd7eb]>>7
+    assert m[0xd463]==1 and m[0xd453]==0 and m[0xd764]>>7 and CER() and (VERSION<15 or not m[0xd75b]>>7) and m[0xd665]==4 and not m[0xd7eb]>>7
     print('PASS Tower: died text, GHOST hesitates, no murder, shock mode, encounters skipped, bastard text')
     save('blue_after_tower')
 elif MODE in ('silph','silph_rocket'):
