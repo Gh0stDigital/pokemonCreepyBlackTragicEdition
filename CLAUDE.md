@@ -16,6 +16,10 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
   (v7 checks + Mansion Mu / PRETA in Mirage battles), `run_v9.sh` (v8 checks + PRETA vs PRETA,
   Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py), `run_v13.sh` (v12 suite + Pokémon Center/Mart, t26_center.py). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
   regenerates them starting at `t1_opening.py`). Select the ROM with `CB_ROM=Creepy_Black_Mu_v5.gb`.
+- Patch safety (static, no emulator): `overhaul/patchguard.py` (SM83 decoder + checks), `overhaul/patchlib.py`
+  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all 42 hooks v1-v13
+  on a ROM; reviewed exceptions listed with reasons), `test_patchguard.py` / `test_patchlib.py` (the guard must
+  still catch the v1 0x29FD and v12 F:5033 bugs). Run all with `bash run_checks.sh [ROM]`.
 - `ref/`: reverse-engineering helpers. `red.gb` = vanilla Pokémon Red (US) for signature matching;
   `pokered.sym` = pret pokered symbols; `sig.py` locates vanilla routines in this ROM by masked byte
   signatures; `dis.py` = tiny disassembler (`python ref/dis.py ROM BANK ADDR N`); `pic.py` = Gen-1 pic
@@ -25,6 +29,18 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 ## Setup
 `pip install pyboy pillow pypng`, then run from `overhaul/` with `PY=python bash run_v3.sh`
 (scripts default to a Windows venv path; set `PY`). Set `PYTHONIOENCODING=utf-8`.
+
+## Making a new version (v14+)
+- Write `build_vN.py` with `from patchlib import *`: `Rom(input, expect_sha)`, put stubs with `rom.put`, then
+  connect them with `rom.hook(site, call_bytes, name, old, provides=...)`. `provides` = registers/flags the hook
+  sets on purpose (e.g. `('f',)` for a yes/no result). Edit other code with `rom.code`, tables/text/pics with `rom.data`.
+  The build stops with REFUSED if a hook covers a jump target or breaks registers the game still needs; only pass
+  `reviewed='reason'` after checking the disassembly yourself.
+- Prefer hooking exactly one `call X` (3 bytes). If a far call is needed before code that reads hl/b, put the
+  stub in home space or save/restore the registers.
+- Add `check_hooks.py` entries for new hooks, run `bash run_checks.sh`, then the emulator suite.
+- Every special-case change gets a test that the normal case still behaves as before (e.g. "a gym leader still
+  can't be cursed to death" next to "BLUE hesitates").
 
 ## Rules learned the hard way
 - Verify bank, CPU address and file offset before patching; pokered addresses are shifted in this ROM.
