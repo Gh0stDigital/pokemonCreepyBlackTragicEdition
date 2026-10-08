@@ -146,8 +146,16 @@ if MODE=='champion_curse':                                      # Champion: CURS
         if 'FIGHT' in b and 'RUN' in b:break
         press_('a',60)
     press_('a',60);press_('a',200);T(300)
-    for i in range(10):press_('a',90)
-    show('CHAMPION trainer CURSE');print('battle',m[0xd057],'murder',m[0xd453],'d485',m[0xd485],pos())
+    for i in range(6):press_('a',90)
+    show('CHAMPION trainer CURSE');print('battle',m[0xd057],'type',m[0xd05a],'murder',m[0xd453],pos(),flush=True)
+    del seen[:]
+    for i in range(20):                                         # leave the trainer phase with RUN
+        if m[0xd057]==0:break
+        b=clean(box())
+        if 'FIGHT' in b and 'RUN' in b:press_('down',20);press_('right',20);press_('a',200);continue
+        press_('a',90)
+    T(300);show('CHAMPION after RUN');print('battle',m[0xd057],'murder',m[0xd453],pos())
+    assert m[0xd057]==0 and m[0xd453]==0;print('PASS Champion: CURSE on BLUE fails like any scripted trainer; RUN leaves the trainer phase')
 if MODE in ('tower_pre','tower_normal'):                        # pre-battle text only
     warp_from_pallet(0x8f,1);m[0xd887]=0
     if MODE=='tower_pre':m[0xd463]=1                            # shocked in an earlier battle (e.g. Cerulean)

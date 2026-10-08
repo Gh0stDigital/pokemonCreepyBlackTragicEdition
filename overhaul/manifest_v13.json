@@ -1,0 +1,63 @@
+{
+  "input": "Creepy_Black_Mu_v12.gb",
+  "input_sha256": "fc69b434678ec34ddb41073fccbfe30eb30029b347036539c528545f8d24d5c8",
+  "sha256": "2fa351de1eca04f63f96abe47469287eccfc3754f6437c0411d5f81ecf7098a4",
+  "size": 1048576,
+  "labels": {
+    "bank1": {
+      "swap_entry": "0x7c70",
+      "swl": "0x7c88",
+      "swap_gk": "0x7c93",
+      "hide": "0x7cb4",
+      "find": "0x7cc8",
+      "found": "0x7cd3",
+      "show": "0x7cea",
+      "nurse": "0x7d0c",
+      "anim": "0x7d12"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x29fd",
+      "before": "210042062ecd183600000000000000",
+      "after": "fa3ccca72009210042062ecd183600",
+      "name": "Fix v1 hook: AfterDisplayingTextID (0x2A03) is a real entry again"
+    },
+    {
+      "offset": "0x7c70",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "e5c5fa57d40600cdbb3a545dc1e1c5fa58d40600cdbb3ac11a477e127023130d20f6c92164d10e01cd707c216bd10e2ccd707c2173d20e0bcd707c21b5d20e0bcd707cc93effea57d4fa63d1fe02d83dea58d42164d10e002afeffc8fe1f28030c18f579ea57d4cd937cfa58d4ea63d14f06002164d10936ffc9fa57d4feffc8fa58d44f3cea63d106002164d109361f2336ffcd937c3effea57d4c9cdb47cc3507c061c216544cd1836c3ea7c",
+      "name": "Bank 1: Pokemon Center keeps GHOST out of the heal"
+    },
+    {
+      "offset": "0x7016",
+      "before": "cd507c",
+      "after": "cd0c7d",
+      "name": "Nurse heal -> hide GHOST first"
+    },
+    {
+      "offset": "0x701b",
+      "before": "061c216544cd1836",
+      "after": "cd127d0000000000",
+      "name": "Healing machine animation, then put GHOST back"
+    },
+    {
+      "offset": "0xed",
+      "before": "00000000000000000000000000000000000000",
+      "after": "cd5c36c0fa31d0fe192804fe2a2002a7c9afc9",
+      "name": "Home: trainer-curse \"killable\" check (BLUE only), registers kept"
+    },
+    {
+      "offset": "0x3d033",
+      "before": "cdf07f",
+      "after": "cded00",
+      "name": "Trainer CURSE check -> home (fix v12 register clobber)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563132000000",
+      "after": "435245455059204d5520563133000000",
+      "name": "Branch identity v13"
+    }
+  ]
+}

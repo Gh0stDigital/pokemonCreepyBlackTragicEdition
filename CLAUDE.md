@@ -5,16 +5,16 @@ Python script that applies **logged patches with old-byte asserts** on top of th
 Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM length exactly 1,048,576 bytes.
 
 ## Layout
-- `Creepy_Black_Mu_v1.gb` … `v12.gb` (root and `overhaul/`): builds. Latest = **v12**
-  (SHA-256 fc69b434678ec34ddb41073fccbfe30eb30029b347036539c528545f8d24d5c8).
+- `Creepy_Black_Mu_v1.gb` … `v13.gb` (root and `overhaul/`): builds. Latest = **v13**
+  (SHA-256 2fa351de1eca04f63f96abe47469287eccfc3754f6437c0411d5f81ecf7098a4).
 - `edit/`: original v1 handoff (v1 build.py, which needs the clean base ROM that is NOT in this repo).
-- `overhaul/build_v2.py … build_v12.py`: each takes the previous version, checks its SHA, writes the next
-  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`.
+- `overhaul/build_v2.py … build_v13.py`: each takes the previous version, checks its SHA, writes the next
+  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`.
 - `overhaul/harness.py` + `t*.py`: PyBoy emulator tests. `run_all.sh` (v2 features), `run_v3.sh` (full chain
   including the Mirage tests), `run_v6.sh` (Cerulean Mu / PRETA / MACABRE; needs the chain's
   `pallet_with_ghost` state), `run_v7.sh` (v6 checks + PRETA revival / Silph Scope effect), `run_v8.sh`
   (v7 checks + Mansion Mu / PRETA in Mirage battles), `run_v9.sh` (v8 checks + PRETA vs PRETA,
-  Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
+  Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py), `run_v13.sh` (v12 suite + Pokémon Center/Mart, t26_center.py). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
   regenerates them starting at `t1_opening.py`). Select the ROM with `CB_ROM=Creepy_Black_Mu_v5.gb`.
 - `ref/`: reverse-engineering helpers. `red.gb` = vanilla Pokémon Red (US) for signature matching;
   `pokered.sym` = pret pokered symbols; `sig.py` locates vanilla routines in this ROM by masked byte
@@ -31,8 +31,10 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 - Text lines ≤ 17 rendered chars (`#` renders as "POKé", 4 chars): the ▼ arrow eats column 18.
 - Outdoor maps can only show sprites in their sprite set (Pallet = set 1 at 0x17AB9).
 - Don't claim behavior works until a PyBoy test shows it.
-- PyBoy hangs if a test keeps pressing A through the Pokémon Center nurse's goodbye (also on v1); stop at
-  "fighting fit".
+- Never patch over an address other code jumps to: v1's 0x29FD hook covered AfterDisplayingTextID (0x2A03) and
+  froze the game after every Center/Mart dialogue until v13. Check jump targets into a patched range first.
+- A hook that far-calls (ld hl/ld b/call Bankswitch) destroys hl/b: never put one where the next code needs
+  those registers (v12 F:5033 bug).
 - The base game's trainer-kill step is a second "battle" (wBattleType 3) after winning with CURSE; scripted
   trainers (no trainer header) normally get "But, it failed!" there (check at F:5033).
 
@@ -57,4 +59,5 @@ DRAGONBREATH/FIRE BLAST), BLACK FLAME faints the whole opposing party, new move 
 CURSE/MACABRE/BLACK FLAME, in Mirage battles only death moves kill outright · v11 Mirage trainer pic = blacked-out GENTLEMAN, AZHI
 knows DRAGON RAGE (DRAGONBREATH removed), BLACK FLAME faints only Pokémon (spares GHOST/PRETA/AZHI, never harms people) · v12 rival BLUE: CURSE can't kill him (except Champion),
 "died" defeat text, shock mode (skips Cerulean/S.S. Anne/Route 22, Tower grief + bastard), Silph Co avenge/Rocket
-lines, hero mode after Silph (no Route 22, Champion's ace = Lv70 MEWTWO).
+lines, hero mode after Silph (no Route 22, Champion's ace = Lv70 MEWTWO) · v13 fixed v1 freeze after Center/Mart dialogue, GHOST taken out of the party
+during the nurse's heal, fixed v12 trainer-curse register clobber (scripted trainers unkillable again).
