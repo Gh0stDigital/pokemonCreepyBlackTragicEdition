@@ -6,3 +6,4 @@ Creepy Black Mu v28 (on v27): the world reacts to BLACK (D46C = 1).
 - Trainers no longer spot BLACK; they fight only when talked to.
 Hooks: DisplayTextID init call -> 2D npc_talk; 0:325B sight check via home stub 0:167B; 3:4E8F gravestone test via 0:1688.
 Tests: t36_v28.py (panic/exempt/sight/normal), t37_kills_save.py (save/continue/new game), run_v28.sh.
+v28 regression (v3-v25 suite + t35 backpic + t36 + t37): 168 PASS, 0 FAIL
