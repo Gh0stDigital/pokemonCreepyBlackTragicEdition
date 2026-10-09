@@ -102,7 +102,8 @@ D45F Ghost deposited for Mirage · D460 Mu state after Mt. Moon (0/1 introduced/
   blacked out, GHOST's slanted white eyes only (no mouth, no eye shading), mirrored, at rows 12-13 / x 19-28
   (`small='A0'`, face_at (12,19)), GHOST-style dithered aura around the outline. Made by
   `overhaul/red_ghost_fusion.py` (`fuse(rom, small='A0')`); reference: `overhaul/qa_ref/black_tamer_pic.png`
-  (1x) / `black_tamer_pic_x5.png`. Replaces v11's blacked-out GENTLEMAN pic of trainer class 13; implement in v23+
+  (1x) / `black_tamer_pic_x5.png`. Back pic: RED's back pic (0C:7E0A here, 4x4) blacked out (1-pixel outline gaps closed)
+  + the same aura, no face: `fuse_back(rom)` -> `qa_ref/black_tamer_back.png`. Replaces v11's blacked-out GENTLEMAN pic of trainer class 13; implement in v23+
   (compress with ref/pic.py, check the trainer pic pointer/bank and free space via the manifests).
 
 ## Features (see READMEs for verified details)

@@ -86,6 +86,17 @@ def aura(out,reach=5):
             elif d==2:out[y][x]=1 if chk or h==0 else 0
             elif d<=reach and chk and h<{3:3,4:2,5:1}[d]:out[y][x]=1
     return out
+RED_BACK=(0x0c,0x7e0a)                                # RED's back pic (4x4 tiles, shown doubled in battle)
+def fuse_back(r,halo=True,reach=4,close=1):
+    """back view for the same figure: RED's back pic blacked out + GHOST's halo (tighter, as on GHOST's own back pic)"""
+    red=grid(r,*RED_BACK);H,W=len(red),len(red[0])
+    near=lambda m,y,x,k:[m[j][i] for j in range(y-k,y+k+1) for i in range(x-k,x+k+1) if 0<=j<H and 0<=i<W]
+    # the arm and POKe BALL are drawn as open outlines (white inside, gaps up to 3 pixels): close them
+    # (grow by `close`, fill, shrink back) so the silhouette keeps the arm and ball
+    grown=[[3 if any(near(red,y,x,close)) else 0 for x in range(W)] for y in range(H)];bg=outside(grown)
+    inside=[[not bg[y][x] for x in range(W)] for y in range(H)]
+    out=[[3 if red[y][x] or all(near(inside,y,x,close)) else 0 for x in range(W)] for y in range(H)]
+    return aura(out,reach) if halo else out
 def to_image(g,scale=4):
     pal=[255,170,85,0];H,W=len(g),len(g[0]);im=Image.new('L',(W,H))
     for y in range(H):
