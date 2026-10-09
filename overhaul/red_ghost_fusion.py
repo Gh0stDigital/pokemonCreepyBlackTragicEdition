@@ -38,6 +38,10 @@ SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided 
  'C':['#.....#','##...##','.......','..###..'],
  'A0':['##......##','###....###','..........','..........','..........'],   # A without the mouth (eyes stay where A has them)
  'A3':['.+##......##:+','.:###....###:.','..............','..............','..............'],   # A0 + grey rim on each eye's outer side (as A2)
+ # A0 + HAUNTER's mouth: a white grin split by a jagged row of teeth (place with face_at=EYES_AT so the eyes stay put)
+ 'H1':['##......##','###....###','..........','#........#','##########','.#.#.#.#..'],
+ 'H2':['##......##','###....###','..........','##......##','.#.#.#.#..','..#.#.#...'],
+ 'H3':['##......##','###....###','..........','#........#','#.#.#.#.##','.#.#.#.#..'],
  # A with GHOST's grin (crescent, one end curls up, shadow under the upper lip; stored mirrored so it ends up
  # leaning like GHOST's after the face flip) and a grey rim on each eye's outer side. ':' light, '+' dark grey
  'A2':['.+##......##:+','.:###....###:.','...+..........','...####::++...','...#####:+....','....+###+.....'],
@@ -46,6 +50,7 @@ SHADE={'#':0,':':1,'+':2}
 def small_face(k,flip=True):
     rows=[row[::-1] if flip else row for row in SMALL_FACES[k]]   # mirrored: grin leans the other way
     return [(y,x,SHADE[c]) for y,row in enumerate(rows) for x,c in enumerate(row) if c in SHADE],(len(rows),len(rows[0]))
+EYES_AT=(12,19)                                      # where option A's eyes sit (A/A0)
 FACE_CENTRE=(14.5,23.5)                                # RED's face: under the cap brim, centred on the head (x 15-32)
 def fuse(r,face_at=None,small=None,halo=True):
     red=grid(r,4,0x6f2a);H,W=len(red),len(red[0]);bg=outside(red)
