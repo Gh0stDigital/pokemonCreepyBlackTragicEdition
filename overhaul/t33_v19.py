@@ -49,6 +49,8 @@ def spr(k):return (hex(m[0xc100+16*k]),m[0xc204+16*k]-4,m[0xc205+16*k]-4)
 def block_at(y,x):                                            # current block id under a step (wOverworldMap, border 3)
     w=m[0xd369]
     return m[0xc6e8+(y//2+3)*(w+6)+x//2+3]
+V20=VERSION>=20
+STAIRS=(19,11) if V20 else (18,11);MU=(11,11) if V20 else (10,10)
 S='/tmp/claude-0/-home-user-pokemonCreepyBlackTragicEdition/f8b43b79-da25-5b1d-8781-e68cb6d59e07/scratchpad/'
 
 if MODE=='closed':
@@ -63,11 +65,11 @@ elif MODE=='chamber':
     bfs_to(2,11);p.screen.image.save(S+'v19_7f_door.png')
     p.button('up',16);T(200)
     print('after the stairs',pos(),'grass',m[0xd887],'music',hex(m[0xc0ee]),'tileset',hex(m[0xd367]))
-    assert pos()==(0x69,11,18)
+    assert pos()==(0x69,STAIRS[1],STAIRS[0])
     print('chamber objects',[spr(k) for k in range(1,3)],'missable list',[hex(x) for x in m[0xd5ce:0xd5d2]])
-    assert spr(1)==('0x10',10,10) and m[0xd887]==0
+    assert spr(1)==('0x10',MU[0],MU[1]) and m[0xd887]==0
     p.screen.image.save(S+'v19_chamber_entry.png')
-    reach=bfs_to(11,10)                                       # in front of MR. MU (he faces down)
+    reach=bfs_to(MU[0]+1,MU[1])                               # in front of MR. MU (he faces down)
     print('reachable steps',len(reach))
     seen.clear();p.button('up',8);T(30)
     for k in range(10):
@@ -76,10 +78,10 @@ elif MODE=='chamber':
     print('MU says',[s for s in seen if s.endswith(('.','!','?'))])
     assert 'found' in allt()
     p.screen.image.save(S+'v19_chamber_mu.png')
-    for y,x in ((4,10),(10,4),(10,16),(16,10)):              # around the circle
+    for y,x in (((4,11),(11,4),(11,18),(17,11)) if V20 else ((4,10),(10,4),(10,16),(16,10))):   # around the circle
         bfs_to(y,x);print('walked to',(y,x))
     print('PASS the chamber loads, MR. MU stands in the centre and talks, the room can be walked')
-    bfs_to(17,11);p.button('down',16);T(200)
+    bfs_to(STAIRS[0]-1,11);p.button('down',16);T(200)
     print('back',pos(),'AGATHA',spr(9))
     assert pos()==(0x94,11,1)
     p.button('down',16);T(60);print('off the stairs',pos())
@@ -89,7 +91,7 @@ elif MODE=='saveload':
     import harness
     from pyboy import PyBoy
     tower(5);bfs_to(2,11);p.button('up',16);T(200);assert pos()[0]==0x69
-    bfs_to(14,10);where=pos()
+    bfs_to(14,11 if V20 else 10);where=pos()
     p.button('start',8);T(90)
     for i in range(8):
         if '▲SAVE' in ' '.join(txt()):break
@@ -114,8 +116,8 @@ elif MODE=='saveload':
         if m[0xd35e]==0x69 and not box():break
         p.button('a',8);p.tick(120)
     p.tick(120);print('saved at',where,'continued at',pos(),'MU',spr(1))
-    assert pos()==where and spr(1)==('0x10',10,10)
+    assert pos()==where and spr(1)==('0x10',MU[0],MU[1])
     p.screen.image.save(S+'v19_continue.png')
-    bfs_to(17,11);p.button('down',16);T(200);print('down the stairs',pos())
+    bfs_to(STAIRS[0]-1,11);p.button('down',16);T(200);print('down the stairs',pos())
     assert pos()==(0x94,11,1)
     print('PASS save in the chamber -> power cycle -> CONTINUE in the chamber, stairs still work')
