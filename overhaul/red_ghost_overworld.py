@@ -36,14 +36,17 @@ def outside(g):
 # white eyes (colour 1 = white with the sprite palette; colour 0 would be see-through): GHOST's slanted eyes,
 # outer corner up, on RED's eye rows. Walking frames sit one row lower (frame 3) like RED's own.
 EYES={0:[(7,4),(7,5),(8,5),(8,6), (7,11),(7,10),(8,10),(8,9)],
-      2:[(6,4),(6,5),(7,5),(7,6)]}
+      2:[(6,5),(6,6),(7,4),(7,5)]}          # side view: the slant flipped up (back corner high)
 EYES[3]=[(y+1,x) for y,x in EYES[0]]           # walking frames are drawn one row lower than the standing ones
 EYES[5]=[(y+1,x) for y,x in EYES[2]]
+BACKPACK={1:[(11,6),(11,7)],4:[(12,6),(12,7)]}  # RED's white line on the backpack: shows it's his back
 def ghost_frames(r):
     out=[]
     for i,g in enumerate(frames(r)):
         bg=outside(g);n=[[0 if bg[y][x] else 3 for x in range(16)] for y in range(16)]
-        for y,x in EYES.get(i,[]):
+        edge=lambda y,x:any(not(0<=y+dy<16 and 0<=x+dx<16) or bg[y+dy][x+dx] for dy,dx in ((1,0),(-1,0),(0,1),(0,-1)))
+        n=[[2 if n[y][x] and edge(y,x) else n[y][x] for x in range(16)] for y in range(16)]   # grey outline
+        for y,x in EYES.get(i,[])+BACKPACK.get(i,[]):
             if n[y][x]:n[y][x]=1
         out.append(n)
     return out
