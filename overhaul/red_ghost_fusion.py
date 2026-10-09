@@ -32,10 +32,19 @@ def ghost_face(r):
     pts=[(y,x) for y in range(len(g)//2+4) for x in range(len(g[0])) if g[y][x]==0 and not bg[y][x]]
     y0=min(p[0] for p in pts);x0=min(p[1] for p in pts);y1=max(p[0] for p in pts);x1=max(p[1] for p in pts)
     return [(y-y0,x-x0) for y,x in pts],(y1-y0+1,x1-x0+1)
-def fuse(r,face_at=None):
+SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided grin ('#' = white)
+ 'A':['##......##','###....###','..........','...#####..','...####...'],
+ 'B':['#......#','##....##','........','..####..','..###...'],
+ 'C':['#.....#','##...##','.......','..###..'],
+}
+def small_face(k):
+    rows=SMALL_FACES[k];return [(y,x) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='#'],(len(rows),len(rows[0]))
+FACE_CENTRE=(13,26)                                  # RED's face, just under the cap brim
+def fuse(r,face_at=None,small=None):
     red=grid(r,4,0x6f2a);H,W=len(red),len(red[0]);bg=outside(red)
     out=[[0 if bg[y][x] else 3 for x in range(W)] for y in range(H)]       # silhouette: everything inside = black
-    face,(fh,fw)=ghost_face(r)
+    face,(fh,fw)=small_face(small) if small else ghost_face(r)
+    if face_at is None and small:face_at=(FACE_CENTRE[0]-fh//2,FACE_CENTRE[1]-fw//2)
     if face_at is None:                                                     # centre the face on RED's face
         face_at=(5,17)                                                      # eyes + grin on RED's head (rows 2-19, x 16-34)
     for y,x in face:
