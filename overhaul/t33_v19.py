@@ -71,13 +71,14 @@ elif MODE=='chamber':
     p.screen.image.save(S+'v19_chamber_entry.png')
     reach=bfs_to(MU[0]+1,MU[1])                               # in front of MR. MU (he faces down)
     print('reachable steps',len(reach))
-    seen.clear();p.button('up',8);T(30)
-    for k in range(10):
-        press_('a',90)
-        if not box() and k>2:break
-    print('MU says',[s for s in seen if s.endswith(('.','!','?'))])
-    assert 'found' in allt()
-    p.screen.image.save(S+'v19_chamber_mu.png')
+    if VERSION<23:                                            # v23: his last talk + the ritual battle (t34_v23.py)
+        seen.clear();p.button('up',8);T(30)
+        for k in range(10):
+            press_('a',90)
+            if not box() and k>2:break
+        print('MU says',[s for s in seen if s.endswith(('.','!','?'))])
+        assert 'found' in allt()
+        p.screen.image.save(S+'v19_chamber_mu.png')
     for y,x in (((4,11),(11,4),(11,18),(17,11)) if V20 else ((4,10),(10,4),(10,16),(16,10))):   # around the circle
         bfs_to(y,x);print('walked to',(y,x))
     print('PASS the chamber loads, MR. MU stands in the centre and talks, the room can be walked')

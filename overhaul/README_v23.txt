@@ -68,7 +68,8 @@ VERIFIED IN PYBOY (t34_v23.py, run_v23.sh)
 - bagfull / boxfull: MR. MU asks to make room, no battle, bag/party unchanged.
 - wild (normal case): a wild catch with a MASTER BALL still shows the POKeDEX page and asks for a nickname, and the
   ball keeps its normal palette.
-- Static: run_checks.sh (79 hooks, 0 problems).
+- Static: run_checks.sh (79 hooks, 0 problems). Full run_v23.sh: every earlier suite passes on v23 (t33 chamber now
+  skips the old v19 MR. MU line; his talk is t34's job).
 NOT DONE YET
 - The random Mirage encounters (trainer class 13 "?????") still use v11's blacked-out GENTLEMAN picture: trainer
   pics must live in bank 13, which is full. ????? the caught Pokemon uses the fusion pictures.
