@@ -37,8 +37,8 @@ SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided 
  'B':['#......#','##....##','........','..####..','..###...'],
  'C':['#.....#','##...##','.......','..###..'],
  # A with GHOST's grin (crescent, one end curls up, shadow under the upper lip; stored mirrored so it ends up
- # leaning like GHOST's after the face flip) and GHOST's grey rim on the eyes. ':' light, '+' dark grey
- 'A2':['##+...+:##','###:..:###','.+........','.####::++.','.#####:+..','..+###+...'],
+ # leaning like GHOST's after the face flip) and a grey rim on each eye's outer side. ':' light, '+' dark grey
+ 'A2':['.+##......##:+','.:###....###:.','...+..........','...####::++...','...#####:+....','....+###+.....'],
 }
 SHADE={'#':0,':':1,'+':2}
 def small_face(k,flip=True):
