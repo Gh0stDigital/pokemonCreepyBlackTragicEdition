@@ -79,16 +79,18 @@ def talk(y,x,face='up',answer=None,n=80):
 def tower(state_fn=None,rescued=True):
     def setup():
         m[0xd769]|=0x0e|(0x80 if rescued else 0)               # three ROCKETs beaten (+ FUJI rescued)
-        if rescued:m[0xd7e0]|=0x80
+        if rescued:m[0xd7e0]|=0x80;m[0xd5ae]|=0x0f   # 7F ROCKETs + FUJI hidden (toggles 40-43), as after the real rescue
         if state_fn:state_fn()
     warp(0x94,0,setup);m[0xd887]=0
-def agatha(answer=None):return talk(4,9,'up',answer)
+AG_X=11 if VERSION>=17 else 9;GIRL_X=10 if VERSION>=17 else 11   # v17: AGATHA on FUJI's right, the girl on her left
+def agatha(answer=None):return talk(4,AG_X,'up',answer)
 DOME,HELIX,AMBER,MB=0x29,0x2a,0x1f,0x01
 
 if MODE in ('hostage','noghost'):
     tower(lambda:(m.__setitem__(0xd451,0) if MODE=='noghost' else None),rescued=False)
     print('sprites 5-8',[hex(pic(k)) for k in range(5,9)],'positions',[(m[0xc204+0x10*k]-4,m[0xc205+0x10*k]-4) for k in range(4,9)])
-    shot('v16_tower7f')
+    shot('v16_tower7f');print('AGATHA x',m[0xc255]-4,'girl x',[m[0xc205+0x10*k]-4 for k in (6,7,8)])
+    if VERSION>=17:assert m[0xc255]-4==11
     assert all(pic(k)==0 for k in (6,7,8))
     if MODE=='noghost':
         assert pic(5)==0;print('PASS off the GHOST route: no AGATHA on Tower 7F');raise SystemExit
@@ -123,14 +125,16 @@ elif MODE=='full':
     print('PASS MISTY has left her gym')
     for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x94
     bfs_to(12,4);p.button('down',16);T(60);p.button('down',16);T(200);print('tower',pos(),'sprites',[hex(pic(k)) for k in range(5,9)])
+    m[0xd887]=0
     assert m[0xd35e]==0x94 and pic(5)==0x39 and pic(6)==0x1d and pic(7)==0 and pic(8)==0
-    t=talk(4,11,'up');print('6:',t[-120:]);assert 'chills' in t
-    t=agatha();assert 'brought her' in t
+    t=talk(4,GIRL_X,'up');print('6:',t[-120:]);assert 'chills' in t
+    t=agatha();print('7:',t[-200:],pos());assert 'brought her' in t
+    bfs_to(5,10);shot('v17_tower_consort')
     print('PASS MISTY waits with AGATHA on Tower 7F')
 elif MODE=='mu':
     def s():m[0xd464]=1;m[0xd164+1]=0xb6                       # PRETA in the party (stand-in for Mr. Mu's awakening)
     tower(s);set_bag([(AMBER,1),(HELIX,1)])
-    t=agatha();print(t[-240:]);assert 'already woken' in t and 'better' in t and m[0xd464]==2 and m[0xd466]&4
+    t=agatha();print(t[-240:]);assert 'already woken' in t and 'better' in t and (VERSION<17 or "one's work" not in t) and m[0xd464]==2 and m[0xd466]&4
     print('PASS PRETA counts as the dome relic, with AGATHA\'s surprise')
 elif MODE=='labfail':
     def s():m[0xd464]=1;m[0xd308]|=0x02                         # OMANYTE owned: revived at the lab

@@ -1,0 +1,45 @@
+{
+  "input": "Creepy_Black_Mu_v16.gb",
+  "input_sha256": "5875e91e40856e454032edd9e4b06c7f988b5e4c60d6628425d2e7f4e74a9164",
+  "sha256": "eb1805db25d8291f93c64947eda0868a76ecffaf7e235efb616335a164a3152b",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0x62728",
+      "before": "0d",
+      "after": "0f",
+      "name": "Tower 7F: AGATHA on FUJI's right (x11)"
+    },
+    {
+      "offset": "0x6272e",
+      "before": "0f",
+      "after": "0e",
+      "name": "Tower 7F: chosen girl on AGATHA's left (x10, FUJI's spot after he goes home)"
+    },
+    {
+      "offset": "0x62734",
+      "before": "0f",
+      "after": "0e",
+      "name": "Tower 7F: chosen girl on AGATHA's left (x10, FUJI's spot after he goes home)"
+    },
+    {
+      "offset": "0x6273a",
+      "before": "0f",
+      "after": "0e",
+      "name": "Tower 7F: chosen girl on AGATHA's left (x10, FUJI's spot after he goes home)"
+    },
+    {
+      "offset": "0xbad06",
+      "before": "0087ace67f98aeb47fa7a0b5a44fa0abb1a4a0a3b87fb6aeaaa4ad55b2aeaca47faea57fb3a7a4ace8e8e85193a7a0b37faeada4bd7fb6aeb1aaf44f887fb2b4afafaeb2a4e85183aeadbe7fb6aeb1b1b8e87f93a7a44fb1a8b3b4a0ab7fa2a0ad7fb2b3a8abab55a1a47fa3aeada4e8518fa4b1a7a0afb27fa8b37fa8b24fa4b5a4ad7fa1a4b3b3a4b155b3a7a8b27fb6a0b8e858",
+      "after": "0087ace67f98aeb47fa7a0b5a44fa0abb1a4a0a3b87fb6aeaaa4ad55b2aeaca47faea57fb3a7a4ace8e8e85183aeadbe7fb6aeb1b1b8e87f93a7a44fb1a8b3b4a0ab7fa2a0ad7fb2b3a8abab55a1a47fa3aeada4e8518fa4b1a7a0afb27fa8b37fa8b24fa4b5a4ad7fa1a4b3b3a4b155b3a7a8b27fb6a0b8e858000000000000000000000000000000000000000000000000000000",
+      "name": "AGATHA: drop the line that hints at Mr. Mu"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563136000000",
+      "after": "435245455059204d5520563137000000",
+      "name": "Branch identity"
+    }
+  ]
+}
