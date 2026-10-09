@@ -1,0 +1,96 @@
+{
+  "input": "Creepy_Black_Mu_v20.gb",
+  "input_sha256": "9203c4809f4f90014020dc59f95afda5b9d337ca3079a78461456be60b71113c",
+  "sha256": "63b8b00c4aba9782a37626819104247b85276ec36fce671a970c55fbcb37b93b",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "chamber": {
+      "header": "0x7600",
+      "blocks": "0x760c",
+      "objects": "0x769c",
+      "texts": "0x76ae",
+      "script": "0x76b0",
+      "mu": "0x76b3",
+      "t_mu": "0x76bd"
+    }
+  },
+  "new_blocks": [
+    "0x75",
+    "0x76",
+    "0x77",
+    "0x78",
+    "0x79",
+    "0x7a",
+    "0x7b",
+    "0x7c"
+  ],
+  "changes": [
+    {
+      "offset": "0x6cd10",
+      "before": "80ffc0fff83f3ce7bc67deb36e9bddb7",
+      "after": "0101010101010101010101010101272f",
+      "name": "Tower blockset slot 75: chamber block"
+    },
+    {
+      "offset": "0x6cd20",
+      "before": "14eb3cdf57b737d730f437f777f770f4",
+      "after": "0101373f01013d3e0101090a0101191a",
+      "name": "Tower blockset slot 76: chamber block"
+    },
+    {
+      "offset": "0x6cd30",
+      "before": "04fb38ffe8efe8ef0c2fecefeeef0e2f",
+      "after": "01010101010101012222222222222222",
+      "name": "Tower blockset slot 77: chamber block"
+    },
+    {
+      "offset": "0x6cd40",
+      "before": "1fff30d457b737d710f417f717f710f4",
+      "after": "01010101010101012222010122220101",
+      "name": "Tower blockset slot 78: chamber block"
+    },
+    {
+      "offset": "0x6cd50",
+      "before": "fcfb082fe8efe8ef082fe8efe8ef082f",
+      "after": "01012222010122220101222201012222",
+      "name": "Tower blockset slot 79: chamber block"
+    },
+    {
+      "offset": "0x6cd60",
+      "before": "1cfb65e77fc37edae6e621e141c041c0",
+      "after": "01012222010122220101010101010101",
+      "name": "Tower blockset slot 7A: chamber block"
+    },
+    {
+      "offset": "0x6cd70",
+      "before": "74eb999fa4af544f150faa8f7d7f4447",
+      "after": "01012222010122222222010122220101",
+      "name": "Tower blockset slot 7B: chamber block"
+    },
+    {
+      "offset": "0x6cd80",
+      "before": "15eb6bd67fff80ff8080ffa6b7b6fc80",
+      "after": "373f01013d3e0101090a0101191a0101",
+      "name": "Tower blockset slot 7C: chamber block"
+    },
+    {
+      "offset": "0x63600",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0f0c0c0c76ae76b076009c760101010101010101010101010101013c10353503010101010101103a6e753606353d0101013c3a36367636361f08010101106e363677783636073d0101353636796f793636200d01013536717a777b3671200d01010c397c363636367c35010101013570367171361e0d0101010172141c737435050101010101010172050501010101010101010101010101010101011101130b01940001100f0fffd001a2c7130bb376c3873c0821bd76cd943cc30425008c91e87f8c949c7fe8e8e85192aef47fb8aeb47fa5aeb4ada34fb3a7a8b27fafaba0a2a4e85182aeaca47fa2abaeb2a4b1f44fa2a7a8aba37faea57fb3a7a45586878e9293e8e8e857",
+      "name": "Bank 18: TOWER CHAMBER v21 (centre ring, statue triangle)"
+    },
+    {
+      "offset": "0x280",
+      "before": "007c",
+      "after": "0076",
+      "name": "Map 0x69 header -> v21 chamber"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563230000000",
+      "after": "435245455059204d5520563231000000",
+      "name": "Branch identity"
+    }
+  ]
+}
