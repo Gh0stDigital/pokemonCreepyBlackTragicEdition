@@ -126,9 +126,10 @@ elif MODE=='full':
     for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x94
     bfs_to(12,4);p.button('down',16);T(60);p.button('down',16);T(200);print('tower',pos(),'sprites',[hex(pic(k)) for k in range(5,9)])
     m[0xd887]=0
-    assert m[0xd35e]==0x94 and pic(5)==0x39 and pic(6)==0x1d and pic(7)==0 and pic(8)==0
+    AG=9 if VERSION>=19 else 5                                  # v19: from stage 5 AGATHA stands beside the secret stairs
+    assert m[0xd35e]==0x94 and pic(AG)==0x39 and pic(6)==0x1d and pic(7)==0 and pic(8)==0 and (VERSION<19 or pic(5)==0)
     t=talk(4,GIRL_X,'up');print('6:',t[-120:]);assert 'chills' in t
-    t=agatha();print('7:',t[-200:],pos());assert 'brought her' in t
+    t=talk(2,11,'left') if VERSION>=19 else agatha();print('7:',t[-200:],pos());assert 'brought her' in t
     bfs_to(5,10);shot('v17_tower_consort')
     print('PASS MISTY waits with AGATHA on Tower 7F')
 elif MODE=='mu':
