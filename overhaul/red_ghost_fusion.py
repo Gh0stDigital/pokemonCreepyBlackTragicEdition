@@ -40,8 +40,8 @@ SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided 
 def small_face(k,flip=True):
     rows=[row[::-1] if flip else row for row in SMALL_FACES[k]]   # mirrored: grin leans the other way
     return [(y,x) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='#'],(len(rows),len(rows[0]))
-FACE_CENTRE=(13,23.5)                                # RED's face: under the cap brim, centred on the head (x 15-32)
-def fuse(r,face_at=None,small=None):
+FACE_CENTRE=(14,23.5)                                # RED's face: under the cap brim, centred on the head (x 15-32)
+def fuse(r,face_at=None,small=None,halo=True):
     red=grid(r,4,0x6f2a);H,W=len(red),len(red[0]);bg=outside(red)
     out=[[0 if bg[y][x] else 3 for x in range(W)] for y in range(H)]       # silhouette: everything inside = black
     face,(fh,fw)=small_face(small) if small else ghost_face(r)
@@ -51,7 +51,29 @@ def fuse(r,face_at=None,small=None):
     for y,x in face:
         Y,X=y+face_at[0],x+face_at[1]
         if 0<=Y<H and 0<=X<W and out[Y][X]==3:out[Y][X]=0
+    if halo:out=aura(out)
     return out,(fh,fw),face_at
+def aura(out,reach=5):
+    """GHOST's halo around the silhouette: dark-grey checker on the edge, light-grey checker next to it,
+    then scattered light dots that thin out with distance (same dithering as GHOST's front pic)"""
+    H,W=len(out),len(out[0]);dist=[[None]*W for _ in range(H)];q=deque();bg=outside(out)   # face holes stay white
+    for y in range(H):
+        for x in range(W):
+            if out[y][x]==3:dist[y][x]=0;q.append((y,x))
+    while q:
+        y,x=q.popleft()
+        for dy in (-1,0,1):
+            for dx in (-1,0,1):
+                ny,nx=y+dy,x+dx
+                if 0<=ny<H and 0<=nx<W and dist[ny][nx] is None:dist[ny][nx]=dist[y][x]+1;q.append((ny,nx))
+    for y in range(H):
+        for x in range(W):
+            d=dist[y][x];chk=(x+y)%2==0;h=(x*7+y*13+x*y)%5
+            if not d or not bg[y][x]:continue
+            if d==1:out[y][x]=2 if chk else 1
+            elif d==2:out[y][x]=1 if chk or h==0 else 0
+            elif d<=reach and chk and h<{3:3,4:2,5:1}[d]:out[y][x]=1
+    return out
 def to_image(g,scale=4):
     pal=[255,170,85,0];H,W=len(g),len(g[0]);im=Image.new('L',(W,H))
     for y in range(H):
