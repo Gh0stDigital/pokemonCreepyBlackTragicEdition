@@ -37,6 +37,7 @@ SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided 
  'B':['#......#','##....##','........','..####..','..###...'],
  'C':['#.....#','##...##','.......','..###..'],
  'A0':['##......##','###....###','..........','..........','..........'],   # A without the mouth (eyes stay where A has them)
+ 'A3':['.+##......##:+','.:###....###:.','..............','..............','..............'],   # A0 + grey rim on each eye's outer side (as A2)
  # A with GHOST's grin (crescent, one end curls up, shadow under the upper lip; stored mirrored so it ends up
  # leaning like GHOST's after the face flip) and a grey rim on each eye's outer side. ':' light, '+' dark grey
  'A2':['.+##......##:+','.:###....###:.','...+..........','...####::++...','...#####:+....','....+###+.....'],
