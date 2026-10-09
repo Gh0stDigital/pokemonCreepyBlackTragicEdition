@@ -39,7 +39,7 @@ EYES={0:[(7,4),(7,5),(8,5),(8,6), (7,11),(7,10),(8,10),(8,9)],
       2:[(6,6),(6,7),(7,5),(7,6)]}          # side view: the slant flipped up (back corner high), one pixel back from the face
 EYES[3]=[(y+1,x) for y,x in EYES[0]]           # walking frames are drawn one row lower than the standing ones
 EYES[5]=[(y+1,x) for y,x in EYES[2]]
-BACKPACK={1:[(10,x) for x in range(6,10)],4:[(11,x) for x in range(6,10)]}  # RED's long black line across the backpack, in white: shows it's his back
+BACKPACK={}                                      # back view: fully black (no backpack line)
 def ghost_frames(r):
     out=[]
     for i,g in enumerate(frames(r)):
