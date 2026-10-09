@@ -97,6 +97,14 @@ killed by Curse · D454 Mu state · D455 Ghost hunger · D456 hunger step counte
 D45B police alert shown this map · D45C Ghost-use counter · D45D Mirage battle active · D45E alive mask ·
 D45F Ghost deposited for Mirage · D460 Mu state after Mt. Moon (0/1 introduced/2 PRETA given/3 moved to Mansion 1F) · D461 PRETA revival countdown · D462 temp: Pokémon Center heal running · D463 rival mode (0 normal/1 shock/2 hero) · D464 AGATHA quest stage (0–5) · D465 consort (1 MISTY/2 ERIKA/3 SABRINA) · D466 quest flags (bit0 failed, bit1 AGATHA gone, bit2 Mu note said). Do not use D485–D4A3 (real game data) or D4A4–D4AF (gravestones etc.; v14 uses kill bits 26–32 = D4A7 bits 2–7, D4A8 bit 0).
 
+## Planned (decided, not built yet)
+- **Mirage Black Tamer (?????) trainer pic -> RED+GHOST fusion, option A0** (user's choice): RED's front pic (4:6F2A, 7x7)
+  blacked out, GHOST's slanted white eyes only (no mouth, no eye shading), mirrored, at rows 12-13 / x 19-28
+  (`small='A0'`, face_at (12,19)), GHOST-style dithered aura around the outline. Made by
+  `overhaul/red_ghost_fusion.py` (`fuse(rom, small='A0')`); reference: `overhaul/qa_ref/black_tamer_pic.png`
+  (1x) / `black_tamer_pic_x5.png`. Replaces v11's blacked-out GENTLEMAN pic of trainer class 13; implement in v23+
+  (compress with ref/pic.py, check the trainer pic pointer/bank and free space via the manifests).
+
 ## Features (see READMEs for verified details)
 v1 Oak briefing, Mr. Mu question, shaman, Ghost after rival · v2 sprites (Gentleman/Channeler), Ghost hunger
 (drain, eat party, permadeath wipe), Curse frightened text, police bulletin, text fixes · v3 Mirage Black Tamer
