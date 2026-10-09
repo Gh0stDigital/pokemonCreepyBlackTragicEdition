@@ -310,14 +310,16 @@ elif MODE=='shots':
     c.save(S+'v25_scenes.png')
 
 elif MODE=='backpic':
-    # v26: BLACK's back picture has an empty margin (no halo/silhouette in the outer 2 px) so it can't look like a square
+    # v26/v27: BLACK's back picture keeps a clear top margin and no solid pixel on the outer edge, so it can't look like a square
     import json
     sys.path.insert(0,'../ref');import pic,red_ghost_fusion as FZ
-    info=json.load(open('manifest_v26.json'))['back_pic'];addr=int(info['addr'],16)
+    mf='manifest_v27.json' if 'v27' in ROM else 'manifest_v26.json'
+    info=json.load(open(mf))['back_pic'];addr=int(info['addr'],16)
     g=FZ.grid(ROM_BYTES,0x2d,addr);H=W=len(g);assert H==32
-    edge=[(y,x) for y in range(H) for x in range(W) if min(y,x,H-1-y,W-1-x)<2]
-    bad=[(y,x) for y,x in edge if g[y][x]]
+    top=[(y,x) for y in range(2) for x in range(W) if g[y][x]]
+    solid=[(y,x) for y in range(H) for x in range(W) if min(y,x,W-1-x)<1 and g[y][x]==3]
     dark=sum(1 for row in g for c in row if c==3)
-    print('back pic %dx%d, dark pixels %d, non-white pixels in the outer 2 px: %d'%(H,W,dark,len(bad)))
-    assert not bad and 250<dark<600
-    print('PASS BLACK back picture: margin is empty (no square), silhouette still solid',flush=True)
+    print('back pic %dx%d, dark pixels %d, top-2-rows non-white %d, solid on outer edge %d'%(H,W,dark,len(top),len(solid)))
+    lo,hi=(250,600) if 'v26' in mf else (400,700)
+    assert not top and not solid and lo<dark<hi
+    print('PASS BLACK back picture: top margin empty, no solid edge pixels, silhouette solid',flush=True)

@@ -5,17 +5,17 @@ Python script that applies **logged patches with old-byte asserts** on top of th
 Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM length exactly 1,048,576 bytes.
 
 ## Layout
-- `Creepy_Black_Mu_v1.gb` … `v26.gb` (root and `overhaul/`): builds. Latest = **v26**
-  (SHA-256 28580d1b047e392589b94a79f80a121da23b4579ee20ef874c5916ba2f11ca00).
+- `Creepy_Black_Mu_v1.gb` … `v27.gb` (root and `overhaul/`): builds. Latest = **v27**
+  (SHA-256 66c4c9df99dd4da9f99bbb9b9fdfd828efb93aea72171144a04cd3f99a71938c).
 - Test ROMs `Creepy_Black_Mu_vN_test.gb` (`build_vN_test.py`): vN + a built-in save (GHOST route, CHARMANDER, just after
   the POKéDEX; made by `make_save_v14.py`, packed into 2E:6000) installed when the cartridge has no save (`t29_testrom.py`).
-  Keep 2E:6000–67FF free in the main builds for it. `Creepy_Black_Mu_v19…v26_chamber_test.gb` = vN + a test-only save on Tower 7F
-  at AGATHA stage 5 (`make_save_v19_chamber.py`, flags set directly). `Creepy_Black_Mu_v25_ritual_test.gb` / `v26_ritual_test.gb` = a save in the
+  Keep 2E:6000–67FF free in the main builds for it. `Creepy_Black_Mu_v19…v27_chamber_test.gb` = vN + a test-only save on Tower 7F
+  at AGATHA stage 5 (`make_save_v19_chamber.py`, flags set directly). `Creepy_Black_Mu_v25_ritual_test.gb` / `v26/v27_ritual_test.gb` = a save in the
   TOWER CHAMBER right after MR. MU's ritual (????? in the party): `make_save_v25_ritual.py` plays the ritual in the emulator
   and saves through the START menu; walking out of the circle starts the v25 climax.
 - `edit/`: original v1 handoff (v1 build.py, which needs the clean base ROM that is NOT in this repo).
-- `overhaul/build_v2.py … build_v26.py`: each takes the previous version, checks its SHA, writes the next
-  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`, `README_v14.txt`, `README_v15.txt`, `README_v16.txt`, `README_v17.txt`, `README_v18.txt`, `README_v19.txt`, `README_v20.txt`, `README_v21.txt`, `README_v22.txt`, `README_v23.txt`, `README_v24.txt`, `README_v25.txt`, `README_v26.txt`.
+- `overhaul/build_v2.py … build_v27.py`: each takes the previous version, checks its SHA, writes the next
+  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`, `README_v14.txt`, `README_v15.txt`, `README_v16.txt`, `README_v17.txt`, `README_v18.txt`, `README_v19.txt`, `README_v20.txt`, `README_v21.txt`, `README_v22.txt`, `README_v23.txt`, `README_v24.txt`, `README_v25.txt`, `README_v26.txt`, `README_v27.txt`.
 - `overhaul/harness.py` + `t*.py`: PyBoy emulator tests. `run_all.sh` (v2 features), `run_v3.sh` (full chain
   including the Mirage tests), `run_v6.sh` (Cerulean Mu / PRETA / MACABRE; needs the chain's
   `pallet_with_ghost` state), `run_v7.sh` (v6 checks + PRETA revival / Silph Scope effect), `run_v8.sh`
@@ -25,7 +25,7 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 - Assembler: `overhaul/sm83asm.py` (SM83 assembler built from `ref/instruction_set.py`: labels, `.local` labels, db/dw/ds,
   `farcall addr,bank` macro; `test_sm83asm.py` round-trips real ROM code byte for byte). v25's code is written in it.
 - Patch safety (static, no emulator): `overhaul/patchguard.py` (SM83 decoder + checks), `overhaul/patchlib.py`
-  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all hooks v1-v26, found through the manifests
+  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all hooks v1-v27, found through the manifests
   on a ROM; reviewed exceptions listed with reasons), `test_patchguard.py` / `test_patchlib.py` (the guard must
   still catch the v1 0x29FD and v12 F:5033 bugs). Run all with `bash run_checks.sh [ROM]`.
 - `ref/`: reverse-engineering helpers. `red.gb` = vanilla Pokémon Red (US) for signature matching;
@@ -38,7 +38,7 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 `pip install pyboy pillow pypng`, then run from `overhaul/` with `PY=python bash run_v3.sh`
 (scripts default to a Windows venv path; set `PY`). Set `PYTHONIOENCODING=utf-8`.
 
-## Making a new version (v27+)
+## Making a new version (v28+)
 - Write `build_vN.py` with `from patchlib import *` (and `from sm83asm import asm` for non-trivial code): `Rom(input, expect_sha)`, put stubs with `rom.put`, then
   connect them with `rom.hook(site, call_bytes, name, old, provides=...)`. `provides` = registers/flags the hook
   sets on purpose (e.g. `('f',)` for a yes/no result). Edit other code with `rom.code`, tables/text/pics with `rom.data`.
@@ -170,4 +170,4 @@ DOME FOSSIL bottom-left, HELIX FOSSIL bottom-right). · v23 MR. MU's last talk i
 LAVENDER / BLACK TAMER, the MIRAGE = his missing half, the MASTER BALL handed back, "Is there life after death?" with no
 wrong answer) and the ritual battle: party put aside (SRAM 1:B600), YOU alone with STRUGGLE, PKMN/ITEM/RUN refused,
 MR. MU (class 27, species 20) never attacks and dies (gravestone, kill index 33), the MIRAGE ????? (species 7A) appears, only the MASTER BALL works and turns black when it catches; party back + ????? (or PC box). · v24 ????? keeps the MIRAGE's
-blacked-out silhouette (front = the Mirage trainer pic, back = it mirrored at 32x32); the fusion is for the BLACK TAMER. · v25 the climax: ????? has a hollow-GENTLEMAN party icon; every item/Dig/Teleport/Fly is disabled in the chamber; first step out of the circle: GHOST consumes the MIRAGE (GENGAR cry placeholder), two steps later a Lv100 GHOST battle: CURSE first, ~5 s black, evolution screen "GHOST has transcended and become BLACK.", the player is BLACK (renamed, fusion back picture and map sprite, species 7F), GHOST leaves the party, hunger off; AGATHA walks up on 7F, celebrates, sends BLACK against the POKeMON LEAGUE (+ MR. MU lore, final line); the consort waits in the player's house 1F and heals. · v26 BLACK's back picture is scaled to 80% with a margin and a small halo (no more dithered square): `red_ghost_fusion.fuse_back_soft`, picture at 2D:6E00; t35 `backpic` checks the empty margin.
+blacked-out silhouette (front = the Mirage trainer pic, back = it mirrored at 32x32); the fusion is for the BLACK TAMER. · v25 the climax: ????? has a hollow-GENTLEMAN party icon; every item/Dig/Teleport/Fly is disabled in the chamber; first step out of the circle: GHOST consumes the MIRAGE (GENGAR cry placeholder), two steps later a Lv100 GHOST battle: CURSE first, ~5 s black, evolution screen "GHOST has transcended and become BLACK.", the player is BLACK (renamed, fusion back picture and map sprite, species 7F), GHOST leaves the party, hunger off; AGATHA walks up on 7F, celebrates, sends BLACK against the POKeMON LEAGUE (+ MR. MU lore, final line); the consort waits in the player's house 1F and heals. · v26 BLACK's back picture is scaled to 80% with a margin and a small halo (no more dithered square): `red_ghost_fusion.fuse_back_soft`, picture at 2D:6E00; t35 `backpic` checks the empty margin. · v27 the back picture is full size again (v26 shrank it) but shifted 2 px right / 4 px down with a small halo, so the top and sides stay clear (`red_ghost_fusion.fuse_back_shift`, picture at 2D:6F00).

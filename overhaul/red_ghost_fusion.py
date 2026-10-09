@@ -117,6 +117,13 @@ def fuse_back_soft(r,scale=0.8,reach=2,bottom=2):
         for x in range(w):
             if sm.getpixel((x,y))>=128:out[oy+y][ox+x]=3
     return aura(out,reach) if reach else out
+def fuse_back_shift(r,dx=2,reach=2,dy=4):
+    """v27 back view: full-size silhouette moved dx right / dy down (top and sides keep room for the halo), small halo"""
+    sil=fuse_back(r,halo=False);H=W=32;out=[[0]*W for _ in range(H)]
+    for y in range(H):
+        for x in range(W):
+            if sil[y][x] and 0<=y+dy<H and 0<=x+dx<W:out[y+dy][x+dx]=3
+    return aura(out,reach) if reach else out
 def to_image(g,scale=4):
     pal=[255,170,85,0];H,W=len(g),len(g[0]);im=Image.new('L',(W,H))
     for y in range(H):

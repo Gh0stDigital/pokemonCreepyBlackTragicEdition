@@ -1,0 +1,43 @@
+{
+  "input": "Creepy_Black_Mu_v26.gb",
+  "input_sha256": "28580d1b047e392589b94a79f80a121da23b4579ee20ef874c5916ba2f11ca00",
+  "sha256": "66c4c9df99dd4da9f99bbb9b9fdfd828efb93aea72171144a04cd3f99a71938c",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "back_pic": {
+    "addr": "0x6f00",
+    "bytes": 128
+  },
+  "changes": [
+    {
+      "offset": "0xb6f00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "44ba104104e870820834e4608c2cc1d9d047ce3f8882098e363b5b3bb3c0cf033b3234e04de09d29041824e18341c2089cc732bb8c730639fd2b3a609986733bfbba723b9869820a8243719e537d5bbfc713c6351c0b71d97476d9df6762367663ea6ca9ac1f6a42abf79c105a0f0410f98e6337316e61e7336a43a73c177700",
+      "name": "Bank 2D: BLACK back picture v27 (full size, shifted, small halo; 128 bytes)"
+    },
+    {
+      "offset": "0x3be7b",
+      "before": "006e",
+      "after": "006f",
+      "name": "BLACK header: back picture -> v27"
+    },
+    {
+      "offset": "0x3be94",
+      "before": "006e006e",
+      "after": "006f006f",
+      "name": "YOU-as-BLACK header: pictures -> v27"
+    },
+    {
+      "offset": "0x3fcf4",
+      "before": "006e",
+      "after": "006f",
+      "name": "LoadPlayerBackPic stub: BLACK back picture -> v27"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563236000000",
+      "after": "435245455059204d5520563237000000",
+      "name": "Branch identity"
+    }
+  ]
+}
