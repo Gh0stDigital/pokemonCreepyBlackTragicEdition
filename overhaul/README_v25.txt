@@ -69,3 +69,7 @@ NOT DONE YET / NOTES
 - Placeholder: the consume sound is GENGAR's cry. BLACK's own cry is the same.
 - The trainer card and Oak's intro still show RED; surfing/biking sprites are RED's.
 - After this: BLACK's journey (destroy the POKeMON LEAGUE) is for the next chapters.
+
+REGRESSION RUN (run_v25.sh on Creepy_Black_Mu_v25.gb): the whole chain from the opening through v24 plus t35_v25.py
+passed (135 PASS lines). The one failure seen, t34 "sendout", was a test-ordering bug (t34 partyfull overwrote the shared
+v23_after_ritual state); fixed in t34_v23.py (only the plain ritual mode saves it) and sendout re-run: PASS.
