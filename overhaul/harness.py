@@ -24,3 +24,8 @@ def pos():return (m[0xd35e],m[0xd362],m[0xd361])  # map, x, y
 def walk(d,steps):
     for _ in range(steps):p.button(d,8);p.tick(24)
     p.tick(10)
+BACK={'up':'down','down':'up','left':'right','right':'left'}
+def walk_in(mapid,d):
+    """one random-walk step that stays on mapid (steps back if it left, e.g. Route 1 grass -> Pallet/Viridian)"""
+    walk(d,1)
+    if m[0xd35e]!=mapid and not m[0xd057]:walk(BACK[d],1)

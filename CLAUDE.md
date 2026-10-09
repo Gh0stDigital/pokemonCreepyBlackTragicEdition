@@ -72,6 +72,8 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
   GIOVANNI at SILPH 11F).
 - Don't wait on the regression with `pgrep -f "run_v…sh"` from a shell: the waiter's own command line matches and it
   never ends. Run the regression with run_in_background and wait for its notification.
+- Random walks for encounters must stay in the grass: use `walk_in(map, dir)` (harness) — with the real Mirage rate
+  (25% since v14) a free random walk drifts into Pallet/houses and the Mirage tests fail by luck.
 - After every trainer win there is a "trainer phase" (CURSE or RUN). Tests that want a normal win must RUN there.
 - The base game's trainer-kill step is a second "battle" (wBattleType 3) after winning with CURSE; scripted
   trainers (no trainer header) normally get "But, it failed!" there (check at F:5033).

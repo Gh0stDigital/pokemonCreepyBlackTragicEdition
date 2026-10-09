@@ -14,7 +14,7 @@ def find_mirage(seed):
                 if 'FIGHT' in box():p.button('down',8);p.tick(10);p.button('right',8);p.tick(10);p.button('a',8);p.tick(150)
                 else:p.button('a',8);p.tick(150)
             continue
-        m[0xd455]=255;walk(random.choice(['up','down','left','right']),1)
+        m[0xd455]=255;walk_in(0x0c,random.choice(['up','down','left','right']))
 for seed in range(20,40):
     assert find_mirage(seed)
     for i in range(40):

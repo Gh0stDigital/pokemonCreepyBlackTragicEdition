@@ -42,7 +42,7 @@ def find_mirage(want):
                     if 'FIGHT' in box():p.button('down',8);p.tick(10);p.button('right',8);p.tick(10);p.button('a',8);p.tick(150)
                     else:p.button('a',8);p.tick(150)
                 continue
-            m[0xd455]=255;walk(random.choice(['up','down','left','right']),1)
+            m[0xd455]=255;walk_in(0x0c,random.choice(['up','down','left','right']))
         assert found;intro=[]
         for i in range(40):
             b=clean(box())
@@ -101,7 +101,7 @@ elif MODE=='wild':                                              # wild AZHI: CUR
     random.seed(9)
     for i in range(800):
         if m[0xd057]:break
-        walk(random.choice(['up','down','left','right']),1);m[0xd455]=255
+        walk_in(0x0c,random.choice(['up','down','left','right']));m[0xd455]=255
         for k in range(10):m[0xd888+2*k]=2;m[0xd889+2*k]=0xb7
     assert m[0xd057]==1;p.tick(60);print('wild',hex(m[0xcfe5]),'lv',m[0xcff3])
     for i in range(30):
@@ -124,7 +124,7 @@ elif MODE=='wild_bf':                                           # wild AZHI's BL
     for i in range(800):
         if m[0xd057]:break
         for k in range(10):m[0xd888+2*k]=30;m[0xd889+2*k]=0xb7
-        walk(random.choice(['up','down','left','right']),1);m[0xd455]=255
+        walk_in(0x0c,random.choice(['up','down','left','right']));m[0xd455]=255
     assert m[0xd057]==1
     for i in range(30):
         if 'FIGHT' in box():break
@@ -147,7 +147,7 @@ elif MODE=='player_bf':                                         # a player AZHI'
     swap(0,2);random.seed(5)
     for i in range(800):
         if m[0xd057]:break
-        walk(random.choice(['up','down','left','right']),1);m[0xd455]=255
+        walk_in(0x0c,random.choice(['up','down','left','right']));m[0xd455]=255
     assert m[0xd057]==1;p.tick(60)
     seen=[];anims=set()
     for i in range(30):
@@ -164,7 +164,7 @@ elif MODE=='sprites':                                           # real Kabutops 
     random.seed(9)
     for i in range(800):
         if m[0xd057]:break
-        walk(random.choice(['up','down','left','right']),1);m[0xd455]=255
+        walk_in(0x0c,random.choice(['up','down','left','right']));m[0xd455]=255
         for k in range(10):m[0xd888+2*k]=20;m[0xd889+2*k]=0x5b
     assert m[0xd057]==1
     for i in range(30):
