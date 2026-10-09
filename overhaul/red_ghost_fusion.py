@@ -98,6 +98,25 @@ def fuse_back(r,halo=True,reach=4,close=1):
     inside=[[not bg[y][x] for x in range(W)] for y in range(H)]
     out=[[3 if red[y][x] or all(near(inside,y,x,close)) else 0 for x in range(W)] for y in range(H)]
     return aura(out,reach) if halo else out
+
+def fuse_back_soft(r,scale=0.8,reach=2,bottom=2):
+    """v26 back view: the same silhouette scaled down and centred with a margin (so neither it nor its halo reaches the 32x32
+    picture edges = no visible square), with a smaller GHOST-style halo"""
+    sil=fuse_back(r,halo=False);H=W=32
+    ys=[y for y in range(H) for x in range(W) if sil[y][x]];xs=[x for y in range(H) for x in range(W) if sil[y][x]]
+    y0,y1,x0,x1=min(ys),max(ys),min(xs),max(xs)
+    im=Image.new('L',(x1-x0+1,y1-y0+1),0)
+    for y in range(y0,y1+1):
+        for x in range(x0,x1+1):
+            if sil[y][x]:im.putpixel((x-x0,y-y0),255)
+    w=max(1,round(im.width*scale));h=max(1,round(im.height*scale))
+    sm=im.resize((w,h),Image.BOX)
+    out=[[0]*W for _ in range(H)]
+    ox=(W-w)//2;oy=H-bottom-h
+    for y in range(h):
+        for x in range(w):
+            if sm.getpixel((x,y))>=128:out[oy+y][ox+x]=3
+    return aura(out,reach) if reach else out
 def to_image(g,scale=4):
     pal=[255,170,85,0];H,W=len(g),len(g[0]);im=Image.new('L',(W,H))
     for y in range(H):

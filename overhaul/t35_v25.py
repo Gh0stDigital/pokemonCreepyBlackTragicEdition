@@ -196,7 +196,7 @@ if MODE=='sprites':
         assert im is not None,'no intro frame'
         assert wait_menu()
         res[tag]=dark_ratio(im,(0,40,80,104));print(tag,'back pic dark ratio',round(res[tag],2))
-    assert res['black']>res['red']+0.15,res
+    assert res['black']>res['red']+0.05,res
     print('PASS the battle back picture is the blacked-out BLACK fusion when BLACK (RED otherwise)',flush=True)
     choose('RUN');press_('a',60)
     for k in range(40):
@@ -290,7 +290,7 @@ elif MODE=='you':
         assert wait_menu();im=p.screen.image.copy();im.save(S+'v25_you_%s.png'%tag)
         shots[tag]=dark_ratio(im,(0,50,80,100));print(tag,'YOU back pic dark ratio',round(shots[tag],2),'mon',hex(m[0xd014]))
         assert m[0xd014]==YOU
-    assert shots['black']>shots['red']+0.15,shots
+    assert shots['black']>shots['red']+0.05,shots
     print('PASS the stand-in YOU is drawn with the BLACK back picture when BLACK (RED back picture otherwise)',flush=True)
 elif MODE=='shots':
     from PIL import Image
@@ -308,3 +308,16 @@ elif MODE=='shots':
     c=Image.new('RGB',(len(ims)*330,288),'white')
     for i,im in enumerate(ims):c.paste(im.convert('RGB').resize((320,288),Image.NEAREST),(i*330,0))
     c.save(S+'v25_scenes.png')
+
+elif MODE=='backpic':
+    # v26: BLACK's back picture has an empty margin (no halo/silhouette in the outer 2 px) so it can't look like a square
+    import json
+    sys.path.insert(0,'../ref');import pic,red_ghost_fusion as FZ
+    info=json.load(open('manifest_v26.json'))['back_pic'];addr=int(info['addr'],16)
+    g=FZ.grid(ROM_BYTES,0x2d,addr);H=W=len(g);assert H==32
+    edge=[(y,x) for y in range(H) for x in range(W) if min(y,x,H-1-y,W-1-x)<2]
+    bad=[(y,x) for y,x in edge if g[y][x]]
+    dark=sum(1 for row in g for c in row if c==3)
+    print('back pic %dx%d, dark pixels %d, non-white pixels in the outer 2 px: %d'%(H,W,dark,len(bad)))
+    assert not bad and 250<dark<600
+    print('PASS BLACK back picture: margin is empty (no square), silhouette still solid',flush=True)
