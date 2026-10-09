@@ -121,3 +121,14 @@ elif MODE=='saveload':
     bfs_to(STAIRS[0]-1,11);p.button('down',16);T(200);print('down the stairs',pos())
     assert pos()==(0x94,11,1)
     print('PASS save in the chamber -> power cycle -> CONTINUE in the chamber, stairs still work')
+elif MODE=='fossils':                                          # v22: a fossil on each statue's stand
+    tower(5);bfs_to(2,11);p.button('up',16);T(200)
+    objs=[spr(k) for k in range(2,5)];print('fossil objects',objs)
+    assert objs==[('0x3e',7,11),('0x3e',15,6),('0x3e',15,16)]
+    for (y,x),name in (((8,11),'OLD AMBER'),((16,6),'DOME FOSSIL'),((16,16),'HELIX FOSSIL')):
+        bfs_to(y,x);seen.clear();p.button('up',8);T(30)
+        for k in range(6):
+            press_('a',90)
+            if not box() and k>1:break
+        assert name in allt() and 'stand' in allt(),allt()[-80:]
+    print('PASS three fossils on the stands in front of the statues, each named')
