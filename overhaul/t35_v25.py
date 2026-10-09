@@ -313,7 +313,8 @@ elif MODE=='backpic':
     # v26/v27: BLACK's back picture keeps a clear top margin and no solid pixel on the outer edge, so it can't look like a square
     import json
     sys.path.insert(0,'../ref');import pic,red_ghost_fusion as FZ
-    mf='manifest_v27.json' if 'v27' in ROM else 'manifest_v26.json'
+    import re as _re
+    mf=next(f for f in ('manifest_v%d.json'%v for v in range(int(_re.search(r'_v(\d+)',ROM).group(1)),25,-1)) if 'back_pic' in json.load(open(f)))   # newest build that placed the picture
     info=json.load(open(mf))['back_pic'];addr=int(info['addr'],16)
     g=FZ.grid(ROM_BYTES,0x2d,addr);H=W=len(g);assert H==32
     top=[(y,x) for y in range(2) for x in range(W) if g[y][x]]
