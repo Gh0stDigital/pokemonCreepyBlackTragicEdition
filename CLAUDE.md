@@ -5,22 +5,22 @@ Python script that applies **logged patches with old-byte asserts** on top of th
 Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM length exactly 1,048,576 bytes.
 
 ## Layout
-- `Creepy_Black_Mu_v1.gb` … `v17.gb` (root and `overhaul/`): builds. Latest = **v17**
-  (SHA-256 eb1805db25d8291f93c64947eda0868a76ecffaf7e235efb616335a164a3152b).
+- `Creepy_Black_Mu_v1.gb` … `v18.gb` (root and `overhaul/`): builds. Latest = **v18**
+  (SHA-256 7bbcd9bf11620d3439fa2159befb987cd4100b7bb2f620d856bcb1d8ef8d51c8).
 - Test ROMs `Creepy_Black_Mu_vN_test.gb` (`build_vN_test.py`): vN + a built-in save (GHOST route, CHARMANDER, just after
   the POKéDEX; made by `make_save_v14.py`, packed into 2E:6000) installed when the cartridge has no save (`t29_testrom.py`).
   Keep 2E:6000–67FF free in the main builds for it.
 - `edit/`: original v1 handoff (v1 build.py, which needs the clean base ROM that is NOT in this repo).
-- `overhaul/build_v2.py … build_v17.py`: each takes the previous version, checks its SHA, writes the next
-  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`, `README_v14.txt`, `README_v15.txt`, `README_v16.txt`, `README_v17.txt`.
+- `overhaul/build_v2.py … build_v18.py`: each takes the previous version, checks its SHA, writes the next
+  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`, `README_v14.txt`, `README_v15.txt`, `README_v16.txt`, `README_v17.txt`, `README_v18.txt`.
 - `overhaul/harness.py` + `t*.py`: PyBoy emulator tests. `run_all.sh` (v2 features), `run_v3.sh` (full chain
   including the Mirage tests), `run_v6.sh` (Cerulean Mu / PRETA / MACABRE; needs the chain's
   `pallet_with_ghost` state), `run_v7.sh` (v6 checks + PRETA revival / Silph Scope effect), `run_v8.sh`
   (v7 checks + Mansion Mu / PRETA in Mirage battles), `run_v9.sh` (v8 checks + PRETA vs PRETA,
-  Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py), `run_v13.sh` (v12 suite + Pokémon Center/Mart, t26_center.py), `run_v14.sh` (v13 suite + t28_v14.py: Mirage rate, YOU, dex, GAMBLER, rumours, gym leaders; `bfs_to` walks around obstacles), `run_v15.sh` (v14 suite + t30_v15.py: Nugget Bridge BLUE, BILL), `run_v16.sh` (v15 suite + t31_v16.py: AGATHA quest), `run_v17.sh` (same on v17). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
+  Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py), `run_v13.sh` (v12 suite + Pokémon Center/Mart, t26_center.py), `run_v14.sh` (v13 suite + t28_v14.py: Mirage rate, YOU, dex, GAMBLER, rumours, gym leaders; `bfs_to` walks around obstacles), `run_v15.sh` (v14 suite + t30_v15.py: Nugget Bridge BLUE, BILL), `run_v16.sh` (v15 suite + t31_v16.py: AGATHA quest), `run_v17.sh` (same on v17), `run_v18.sh` (v17 suite + t32_v18.py: SILPH CO.). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
   regenerates them starting at `t1_opening.py`). Select the ROM with `CB_ROM=Creepy_Black_Mu_v5.gb`.
 - Patch safety (static, no emulator): `overhaul/patchguard.py` (SM83 decoder + checks), `overhaul/patchlib.py`
-  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all hooks v1-v17, found through the manifests
+  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all hooks v1-v18, found through the manifests
   on a ROM; reviewed exceptions listed with reasons), `test_patchguard.py` / `test_patchlib.py` (the guard must
   still catch the v1 0x29FD and v12 F:5033 bugs). Run all with `bash run_checks.sh [ROM]`.
 - `ref/`: reverse-engineering helpers. `red.gb` = vanilla Pokémon Red (US) for signature matching;
@@ -33,7 +33,7 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 `pip install pyboy pillow pypng`, then run from `overhaul/` with `PY=python bash run_v3.sh`
 (scripts default to a Windows venv path; set `PY`). Set `PYTHONIOENCODING=utf-8`.
 
-## Making a new version (v18+)
+## Making a new version (v19+)
 - Write `build_vN.py` with `from patchlib import *`: `Rom(input, expect_sha)`, put stubs with `rom.put`, then
   connect them with `rom.hook(site, call_bytes, name, old, provides=...)`. `provides` = registers/flags the hook
   sets on purpose (e.g. `('f',)` for a yes/no result). Edit other code with `rom.code`, tables/text/pics with `rom.data`.
@@ -68,6 +68,10 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 - Hidden/shown object toggle numbers are shifted in this ROM: read wMissableObjectList (D5CE: sprite, toggle pairs)
   on the map, flags at D5A6 + toggle/8 (Tower 7F ROCKETs + FUJI = 40–43 = D5AE bits 0–3). Tests that fake an event
   must also set its toggles, or objects that the real event hides stay in the way.
+- The after-win trainer phase starts at F:46EC when GHOST (species 1F) is the Pokémon out (v18 skips it for
+  GIOVANNI at SILPH 11F).
+- Don't wait on the regression with `pgrep -f "run_v…sh"` from a shell: the waiter's own command line matches and it
+  never ends. Run the regression with run_in_background and wait for its notification.
 - After every trainer win there is a "trainer phase" (CURSE or RUN). Tests that want a normal win must RUN there.
 - The base game's trainer-kill step is a second "battle" (wBattleType 3) after winning with CURSE; scripted
   trainers (no trainer header) normally get "But, it failed!" there (check at F:5033).
@@ -105,4 +109,6 @@ rumours (blamed on TEAM ROCKET) from 14 town NPCs after the first murder · v15 
 Lavender soul-tribe story after the S.S. TICKET, shock mode skips BLUE at Cerulean with the right flag (D75A.0) · v16 AGATHA quest part 1 (GHOST route): hostage with
 FUJI on Tower 7F, relics (DOME/PRETA, AMBER/AZHI, HELIX), vessel (MASTER BALL), GHOST Lv100, consort (MISTY/ERIKA/SABRINA
 takes the HELIX FOSSIL after her gym, joins AGATHA on 7F); fails on lab revival, a used MASTER BALL or all three girls dead · v17 AGATHA on FUJI's right (7F x11), the girl on
-AGATHA's left (x10, FUJI's spot after the rescue), no Mr. Mu hint in her note.
+AGATHA's left (x10, FUJI's spot after the rescue), no Mr. Mu hint in her note · v18 SILPH CO. (GHOST route): Tower 7F opens the Saffron gates and clears GIOVANNI
+out of the hideout; GIOVANNI's new speech, "Damn that cult...!", no trainer phase, "forces ... using you";
+the PRESIDENT's MASTER BALL story (his vanished old friend).

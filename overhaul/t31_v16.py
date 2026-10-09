@@ -90,7 +90,7 @@ if MODE in ('hostage','noghost'):
     tower(lambda:(m.__setitem__(0xd451,0) if MODE=='noghost' else None),rescued=False)
     print('sprites 5-8',[hex(pic(k)) for k in range(5,9)],'positions',[(m[0xc204+0x10*k]-4,m[0xc205+0x10*k]-4) for k in range(4,9)])
     shot('v16_tower7f');print('AGATHA x',m[0xc255]-4,'girl x',[m[0xc205+0x10*k]-4 for k in (6,7,8)])
-    if VERSION>=17:assert m[0xc255]-4==11
+    if VERSION>=17 and MODE=='hostage':assert m[0xc255]-4==11
     assert all(pic(k)==0 for k in (6,7,8))
     if MODE=='noghost':
         assert pic(5)==0;print('PASS off the GHOST route: no AGATHA on Tower 7F');raise SystemExit
@@ -142,15 +142,9 @@ elif MODE=='labfail':
     t=agatha();print(t[-200:]);assert 'scientists' in t and m[0xd466]&1 and m[0xd464]==1
     t=agatha();assert 'weeping' in t
     print('PASS lab revival: AGATHA can\'t help, laments on the next talk')
-    for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x94
-    bfs_to(16,10);p.button('left',16);T(200)                     # leave (warp back to 7F = map reload)
-    print('back',pos(),'flags',bin(m[0xd466]),'sprite5',hex(pic(5)))
-    # a reload of 7F itself does not count as leaving; go via 6F
-    if not m[0xd466]&2:
-        for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x93
-        bfs_to(16,10);p.button('left',16);T(200);print('6F',pos())
-        for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x94
-        p.button('up',16);T(30);p.button('down',16);T(200);print('7F?',pos())
+    q=list(m[0xd464:0xd467]);print('failed flags',bin(q[2]))
+    warp(0x93,0,lambda:m.__setitem__(slice(0xd464,0xd467),q))  # leave: any other map (here Tower 6F)
+    print('6F',pos(),'flags',bin(m[0xd466]))
     assert m[0xd466]&2
     q=list(m[0xd464:0xd467]);tower(lambda:m.__setitem__(slice(0xd464,0xd467),q));print('7F again: sprite5',hex(pic(5)))
     assert pic(5)==0
