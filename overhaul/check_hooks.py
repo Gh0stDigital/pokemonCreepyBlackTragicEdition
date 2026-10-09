@@ -1,11 +1,11 @@
-# Re-check every hook ever added (v1-v14) against the CURRENT ROM with patchguard:
+# Re-check every hook ever added (v1-v23) against the CURRENT ROM with patchguard:
 #   - no jump elsewhere in the ROM lands inside a patched range (except reviewed, allow-listed ones)
 #   - stubs don't leave registers changed that the original code after the hook still reads, and don't
 #     re-run a replaced "call X" after changing X's inputs.
 # Usage (from overhaul/): python check_hooks.py [ROM]   -> exit code 1 on any unreviewed problem.
 import json,sys,hashlib
 from patchguard import check_hook,jumps_into,fo
-LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v22.gb'
+LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v23.gb'
 cur=open(LATEST,'rb').read()
 v1=bytearray(open('Creepy_Black_Mu_v1.gb','rb').read())
 # v1 had no byte log: original bytes from the asserts in edit/build.py
@@ -24,7 +24,7 @@ for v in range(2,max(roms)+1):
     for c in m['changes']:
         o=int(c['offset'],16);a=bytes.fromhex(c['after']);b=bytes.fromhex(c['before'])
         if o in hooks or not a or a[0] not in (0xcd,0xc3) or not any(b) or len(a)>16:continue
-        if b[0] not in (0xcd,0xc3,0xfa,0x21,0x3e,0xaf,0xf0,0x06,0x11,0x01,0x7e,0x2a,0xcb,0xea,0xe0):continue  # data patches
+        if b[0] not in (0xcd,0xc3,0xfa,0x21,0x3e,0xaf,0xf0,0x06,0x11,0x01,0x7e,0x2a,0xcb,0xea,0xe0,0xa7):continue  # data patches
         hooks[o]=(v,len(a),roms[v-1])
 # Reviewed exceptions: (site, 'jump'|'regs') -> reason. Every entry was checked by disassembly; add new ones only
 # with the same care and a reason.
@@ -47,7 +47,8 @@ RESULT_FLAG_HOOKS={fo(0xf,0x5033):'f',fo(0xf,0x5920):'f',fo(0x16,0x4dd8):'b f',f
                    fo(0xf,0x6218):'h l',fo(0xf,0x62d6):'h l',fo(0xe,0x5c91):'a',0x15c6:'a',fo(0xf,0x4233):'',
                    fo(0xf,0x7d08):'',fo(0xf,0x689f):'',fo(0xf,0x5804):'',fo(0xe,0x58c6):'h l b c',fo(0xf,0x6403):'h l b c',
                    fo(0xf,0x6bc6):'h l b c',fo(3,0x77af):'h l b c',fo(3,0x69d7):'h l b c',fo(3,0x79fa):'h l b c',fo(0xe,0x70a6):'h l b c',
-                   0xcd99:'h l',0x3d723:'a',fo(0xf,0x572d):'a'}
+                   0xcd99:'h l',0x3d723:'a',fo(0xf,0x572d):'a',
+                   fo(0xf,0x5000):'a f'}   # v23 battle menu: a = the selection again, flags set by the stub's own path
 problems=0;report=[]
 for site in sorted(hooks):
     v,length,before=hooks[site]
