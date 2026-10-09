@@ -36,21 +36,24 @@ SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided 
  'A':['##......##','###....###','..........','...#####..','...####...'],
  'B':['#......#','##....##','........','..####..','..###...'],
  'C':['#.....#','##...##','.......','..###..'],
+ # A with GHOST's grin: a crescent whose one end curls up, shadow (':' light, '+' dark grey) under the upper lip
+ 'A2':['##......##','###....###','........+.','.++::####.','..+:#####.','...+###+..'],
 }
+SHADE={'#':0,':':1,'+':2}
 def small_face(k,flip=True):
     rows=[row[::-1] if flip else row for row in SMALL_FACES[k]]   # mirrored: grin leans the other way
-    return [(y,x) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='#'],(len(rows),len(rows[0]))
-FACE_CENTRE=(14,23.5)                                # RED's face: under the cap brim, centred on the head (x 15-32)
+    return [(y,x,SHADE[c]) for y,row in enumerate(rows) for x,c in enumerate(row) if c in SHADE],(len(rows),len(rows[0]))
+FACE_CENTRE=(14.5,23.5)                                # RED's face: under the cap brim, centred on the head (x 15-32)
 def fuse(r,face_at=None,small=None,halo=True):
     red=grid(r,4,0x6f2a);H,W=len(red),len(red[0]);bg=outside(red)
     out=[[0 if bg[y][x] else 3 for x in range(W)] for y in range(H)]       # silhouette: everything inside = black
     face,(fh,fw)=small_face(small) if small else ghost_face(r)
-    if face_at is None and small:face_at=(FACE_CENTRE[0]-fh//2,int(FACE_CENTRE[1]-(fw-1)/2+0.5))
+    if face_at is None and small:face_at=(int(FACE_CENTRE[0]-fh/2+0.5),int(FACE_CENTRE[1]-(fw-1)/2+0.5))
     if face_at is None:                                                     # centre the face on RED's face
         face_at=(5,17)                                                      # eyes + grin on RED's head (rows 2-19, x 16-34)
-    for y,x in face:
+    for y,x,*c in face:
         Y,X=y+face_at[0],x+face_at[1]
-        if 0<=Y<H and 0<=X<W and out[Y][X]==3:out[Y][X]=0
+        if 0<=Y<H and 0<=X<W and out[Y][X]==3:out[Y][X]=c[0] if c else 0
     if halo:out=aura(out)
     return out,(fh,fw),face_at
 def aura(out,reach=5):
