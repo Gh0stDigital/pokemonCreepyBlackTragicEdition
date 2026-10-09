@@ -1,11 +1,11 @@
-# Re-check every hook ever added (v1-v24) against the CURRENT ROM with patchguard:
+# Re-check every hook ever added (v1-v25) against the CURRENT ROM with patchguard:
 #   - no jump elsewhere in the ROM lands inside a patched range (except reviewed, allow-listed ones)
 #   - stubs don't leave registers changed that the original code after the hook still reads, and don't
 #     re-run a replaced "call X" after changing X's inputs.
 # Usage (from overhaul/): python check_hooks.py [ROM]   -> exit code 1 on any unreviewed problem.
 import json,sys,hashlib
 from patchguard import check_hook,jumps_into,fo
-LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v24.gb'
+LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v25.gb'
 cur=open(LATEST,'rb').read()
 v1=bytearray(open('Creepy_Black_Mu_v1.gb','rb').read())
 # v1 had no byte log: original bytes from the asserts in edit/build.py
@@ -41,6 +41,9 @@ REVIEWED={
  (0x62d,'jump'):'hits are operand/data bytes (0x335e, 0x8ac9, 0x20d71, 0x7cb3e)',
  (0xc4,'jump'):'0x4c42 is an operand byte',
  (0x18e5b,'jump'):'v1 Pallet stub jumps back to 0x4E60 = the untouched instruction after the patch',
+ (0x1077,'jump'):'v25: the only hit (file $2734b) is inside picture data of bank 9, misread as a jr',
+ (fo(0xf,0x6d84),'jump'):'v25: the only jump hit is the operand byte 18 of call $1875 at F:6DD5 misread as jr',
+ (fo(0xf,0x6d84),'regs'):'v25: the stub re-runs UncompressSpriteFromDE with de/a set on purpose (the BLACK back picture)',
 }
 RESULT_FLAG_HOOKS={fo(0xf,0x5033):'f',fo(0xf,0x5920):'f',fo(0x16,0x4dd8):'b f',fo(3,0x61b9):'a f',fo(3,0x79da):'a f',
                    fo(0xf,0x57d3):'',fo(0xf,0x6865):'',fo(4,0x795e):'a f',fo(0xf,0x4ae4):'a f',fo(0xf,0x58e2):'a f',
@@ -48,7 +51,8 @@ RESULT_FLAG_HOOKS={fo(0xf,0x5033):'f',fo(0xf,0x5920):'f',fo(0x16,0x4dd8):'b f',f
                    fo(0xf,0x7d08):'',fo(0xf,0x689f):'',fo(0xf,0x5804):'',fo(0xe,0x58c6):'h l b c',fo(0xf,0x6403):'h l b c',
                    fo(0xf,0x6bc6):'h l b c',fo(3,0x77af):'h l b c',fo(3,0x69d7):'h l b c',fo(3,0x79fa):'h l b c',fo(0xe,0x70a6):'h l b c',
                    0xcd99:'h l',0x3d723:'a',fo(0xf,0x572d):'a',
-                   fo(0xf,0x5000):'a f'}   # v23 battle menu: a = the selection again, flags set by the stub's own path
+                   fo(0xf,0x5000):'a f',
+                   0x1077:'d e',fo(0xf,0x6d84):'a d e',fo(3,0x58f8):'a',fo(4,0x71c4):'a',fo(0xf,0x4ede):'a',fo(0x1c,0x5927):''}   # v23 battle menu: a = the selection again, flags set by the stub's own path
 problems=0;report=[]
 for site in sorted(hooks):
     v,length,before=hooks[site]
