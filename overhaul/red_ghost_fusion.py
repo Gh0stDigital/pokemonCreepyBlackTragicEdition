@@ -1,5 +1,6 @@
 # Experiment: RED's battle picture as a black silhouette with GHOST's face (white eyes + grin) on his face.
-# CHOSEN for the Mirage Black Tamer's trainer pic: option A0 (eyes only, no mouth) -> fuse(rom, small='A0').
+# CHOSEN for the BLACK TAMER (a separate thing from the MIRAGE, not built yet): option A0 (eyes only, no mouth)
+# -> fuse(rom, small='A0'), back -> fuse_back(rom). The MIRAGE keeps its blacked-out silhouette (v24).
 # Builds a 7x7-tile picture (56x56, 4 shades) from the ROM's own RED front pic (4:6F2A) and GHOST front pic (2D:4000).
 import sys,io,os
 HERE=os.path.dirname(os.path.abspath(__file__));sys.path.insert(0,os.path.join(HERE,'..','ref'));import pic

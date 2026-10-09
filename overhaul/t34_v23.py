@@ -238,3 +238,19 @@ elif MODE=='wild':
     print(allt()[-200:])
     assert black is False and nickname and m[RIT]==0 and party()[-1]==sp
     print('PASS normal wild catch (species %02x): nickname asked, ball not blackened'%sp,flush=True)
+elif MODE=='sendout':                                         # v24: ????? (from the ritual) sent out shows its back pic
+    load('v23_after_ritual');n=m[0xd163];i=list(m[0xd164:0xd164+n]).index(MIR)
+    st=bytes(m[0xd16b+44*i:0xd16b+44*(i+1)]);ot=bytes(m[0xd273+11*i:0xd273+11*(i+1)]);nk=bytes(m[0xd2b5+11*i:0xd2b5+11*(i+1)])
+    random.seed(4);load('pallet_with_ghost');m[0xd45c]=0;m[0xd455]=255
+    m[0xd164]=MIR;m[0xd16b:0xd16b+44]=st;m[0xd273:0xd27e]=ot;m[0xd2b5:0xd2c0]=nk     # ????? leads
+    bfs_to(0,10)
+    for i in range(30):
+        if m[0xd35e]==0xc and pos()[2]<30:break
+        p.button('up',8);T(24)
+    for i in range(800):
+        if m[0xd057]:break
+        walk_in(0xc,random.choice(['up','down','left','right']))
+    assert m[0xd057]==1 and wait_menu()
+    print('out:',hex(m[0xd014]),allt()[-80:]);p.screen.image.save(S+'v24_sendout.png')
+    assert m[0xd014]==MIR and 'Go! ?????' in allt()
+    print('PASS ????? sent out in a wild battle (back pic shown: see v24_sendout.png)',flush=True)

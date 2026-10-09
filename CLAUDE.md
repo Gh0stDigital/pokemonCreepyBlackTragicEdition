@@ -5,23 +5,23 @@ Python script that applies **logged patches with old-byte asserts** on top of th
 Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM length exactly 1,048,576 bytes.
 
 ## Layout
-- `Creepy_Black_Mu_v1.gb` … `v23.gb` (root and `overhaul/`): builds. Latest = **v23**
-  (SHA-256 04fb2d3cdb63ffe4cb3b9776da5bb12d6426d58393833d0158250e4aeadcd4d0).
+- `Creepy_Black_Mu_v1.gb` … `v24.gb` (root and `overhaul/`): builds. Latest = **v24**
+  (SHA-256 8526a20e7b70b3592f7ad324a0a1d763fbd774df2a4fa26278a7856b0d4e612e).
 - Test ROMs `Creepy_Black_Mu_vN_test.gb` (`build_vN_test.py`): vN + a built-in save (GHOST route, CHARMANDER, just after
   the POKéDEX; made by `make_save_v14.py`, packed into 2E:6000) installed when the cartridge has no save (`t29_testrom.py`).
-  Keep 2E:6000–67FF free in the main builds for it. `Creepy_Black_Mu_v19…v23_chamber_test.gb` = vN + a test-only save on Tower 7F
+  Keep 2E:6000–67FF free in the main builds for it. `Creepy_Black_Mu_v19…v24_chamber_test.gb` = vN + a test-only save on Tower 7F
   at AGATHA stage 5 (`make_save_v19_chamber.py`, flags set directly).
 - `edit/`: original v1 handoff (v1 build.py, which needs the clean base ROM that is NOT in this repo).
-- `overhaul/build_v2.py … build_v23.py`: each takes the previous version, checks its SHA, writes the next
-  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`, `README_v14.txt`, `README_v15.txt`, `README_v16.txt`, `README_v17.txt`, `README_v18.txt`, `README_v19.txt`, `README_v20.txt`, `README_v21.txt`, `README_v22.txt`, `README_v23.txt`.
+- `overhaul/build_v2.py … build_v24.py`: each takes the previous version, checks its SHA, writes the next
+  ROM + `manifest_vN.json` (before/after bytes per patch). READMEs: `README_v2.txt`, `README_v3.txt`, `README_v6.txt`, `README_v7.txt`, `README_v8.txt`, `README_v9.txt`, `README_v10.txt`, `README_v11.txt`, `README_v12.txt`, `README_v13.txt`, `README_v14.txt`, `README_v15.txt`, `README_v16.txt`, `README_v17.txt`, `README_v18.txt`, `README_v19.txt`, `README_v20.txt`, `README_v21.txt`, `README_v22.txt`, `README_v23.txt`, `README_v24.txt`.
 - `overhaul/harness.py` + `t*.py`: PyBoy emulator tests. `run_all.sh` (v2 features), `run_v3.sh` (full chain
   including the Mirage tests), `run_v6.sh` (Cerulean Mu / PRETA / MACABRE; needs the chain's
   `pallet_with_ghost` state), `run_v7.sh` (v6 checks + PRETA revival / Silph Scope effect), `run_v8.sh`
   (v7 checks + Mansion Mu / PRETA in Mirage battles), `run_v9.sh` (v8 checks + PRETA vs PRETA,
-  Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py), `run_v13.sh` (v12 suite + Pokémon Center/Mart, t26_center.py), `run_v14.sh` (v13 suite + t28_v14.py: Mirage rate, YOU, dex, GAMBLER, rumours, gym leaders; `bfs_to` walks around obstacles), `run_v15.sh` (v14 suite + t30_v15.py: Nugget Bridge BLUE, BILL), `run_v16.sh` (v15 suite + t31_v16.py: AGATHA quest), `run_v17.sh` (same on v17), `run_v18.sh` (v17 suite + t32_v18.py: SILPH CO.), `run_v19.sh` (v18 suite + t33_v19.py: secret chamber), `run_v20.sh` / `run_v21.sh` (same on v20 / v21), `run_v22.sh` (+ chamber fossils), `run_v23.sh` (+ t34_v23.py: MR. MU's talk + ritual battle). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
+  Rare Candy, Pokémon Center), `run_v10.sh` (v9 checks + AZHI / BLACK FLAME / ?????), `run_v11.sh` (same suite on v11), `run_v12.sh` (v10 suite + rival BLUE, t25_blue.py), `run_v13.sh` (v12 suite + Pokémon Center/Mart, t26_center.py), `run_v14.sh` (v13 suite + t28_v14.py: Mirage rate, YOU, dex, GAMBLER, rumours, gym leaders; `bfs_to` walks around obstacles), `run_v15.sh` (v14 suite + t30_v15.py: Nugget Bridge BLUE, BILL), `run_v16.sh` (v15 suite + t31_v16.py: AGATHA quest), `run_v17.sh` (same on v17), `run_v18.sh` (v17 suite + t32_v18.py: SILPH CO.), `run_v19.sh` (v18 suite + t33_v19.py: secret chamber), `run_v20.sh` / `run_v21.sh` (same on v20 / v21), `run_v22.sh` (+ chamber fossils), `run_v23.sh` (+ t34_v23.py: MR. MU's talk + ritual battle), `run_v24.sh` (+ t34 sendout: ????? back pic). Tests chain through save states in `overhaul/qa/` (gitignored; the chain
   regenerates them starting at `t1_opening.py`). Select the ROM with `CB_ROM=Creepy_Black_Mu_v5.gb`.
 - Patch safety (static, no emulator): `overhaul/patchguard.py` (SM83 decoder + checks), `overhaul/patchlib.py`
-  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all hooks v1-v23, found through the manifests
+  (shared build helpers: `Rom.put/data/code/hook/finish`), `overhaul/check_hooks.py` (re-checks all hooks v1-v24, found through the manifests
   on a ROM; reviewed exceptions listed with reasons), `test_patchguard.py` / `test_patchlib.py` (the guard must
   still catch the v1 0x29FD and v12 F:5033 bugs). Run all with `bash run_checks.sh [ROM]`.
 - `ref/`: reverse-engineering helpers. `red.gb` = vanilla Pokémon Red (US) for signature matching;
@@ -34,7 +34,7 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 `pip install pyboy pillow pypng`, then run from `overhaul/` with `PY=python bash run_v3.sh`
 (scripts default to a Windows venv path; set `PY`). Set `PYTHONIOENCODING=utf-8`.
 
-## Making a new version (v24+)
+## Making a new version (v25+)
 - Write `build_vN.py` with `from patchlib import *`: `Rom(input, expect_sha)`, put stubs with `rom.put`, then
   connect them with `rom.hook(site, call_bytes, name, old, provides=...)`. `provides` = registers/flags the hook
   sets on purpose (e.g. `('f',)` for a yes/no result). Edit other code with `rom.code`, tables/text/pics with `rom.data`.
@@ -107,10 +107,11 @@ D45B police alert shown this map · D45C Ghost-use counter · D45D Mirage battle
 D45F Ghost deposited for Mirage · D460 Mu state after Mt. Moon (0/1 introduced/2 PRETA given/3 moved to Mansion 1F) · D461 PRETA revival countdown · D462 temp: Pokémon Center heal running · D463 rival mode (0 normal/1 shock/2 hero) · D464 AGATHA quest stage (0–5) · D465 consort (1 MISTY/2 ERIKA/3 SABRINA) · D466 quest flags (bit0 failed, bit1 AGATHA gone, bit2 Mu note said). D467 ritual (0 -, 1 MR. MU battle, 2 MIRAGE phase, 3 done) · D468/D469 battle-hook temps. Do not use D485–D4A3 (real game data) or D4A4–D4AF (gravestones etc.; v14 uses kill bits 26–32 = D4A7 bits 2–7, D4A8 bit 0).
 
 ## Planned (decided, not built yet)
-- The random Mirage encounters' trainer pic (class 13, still v11's blacked-out GENTLEMAN at 13:7FA5) -> the RED+GHOST
-  fusion (option A0) that v23 already uses for the caught ????? (species 7A): trainer pics must be in bank 13, which is
-  full, so this needs a hook in the trainer-pic loader. Fusion maker: `overhaul/red_ghost_fusion.py`
-  (`fuse(rom, small='A0')` front, `fuse_back(rom)` back; references `qa_ref/black_tamer_pic*.png`, `black_tamer_back*.png`).
+- The BLACK TAMER (a separate thing from the MIRAGE; how it appears is not decided yet) uses the RED+GHOST fusion
+  picture, option A0 (white eyes, no mouth, GHOST-style aura): `overhaul/red_ghost_fusion.py` (`fuse(rom, small='A0')`
+  front, `fuse_back(rom)` back; references `qa_ref/black_tamer_pic*.png`, `black_tamer_back*.png`). Compressed copies
+  already sit unused in 2D:41C0 (front 253 bytes) / 2D:42BD (back 143 bytes) since v23.
+- The MIRAGE (random encounters, class 13, and ????? species 7A since v24) keeps the blacked-out GENTLEMAN silhouette.
 
 ## Features (see READMEs for verified details)
 v1 Oak briefing, Mr. Mu question, shaman, Ghost after rival · v2 sprites (Gentleman/Channeler), Ghost hunger
@@ -146,5 +147,5 @@ three statues each with a gravestone in front (blocks 75-7C) · v22 a fossil spr
 DOME FOSSIL bottom-left, HELIX FOSSIL bottom-right). · v23 MR. MU's last talk in the chamber (successor, "I gave birth to you",
 LAVENDER / BLACK TAMER, the MIRAGE = his missing half, the MASTER BALL handed back, "Is there life after death?" with no
 wrong answer) and the ritual battle: party put aside (SRAM 1:B600), YOU alone with STRUGGLE, PKMN/ITEM/RUN refused,
-MR. MU (class 27, species 20) never attacks and dies (gravestone, kill index 33), the MIRAGE ????? (species 7A, fusion
-pics) appears, only the MASTER BALL works and turns black when it catches; party back + ????? (or PC box).
+MR. MU (class 27, species 20) never attacks and dies (gravestone, kill index 33), the MIRAGE ????? (species 7A) appears, only the MASTER BALL works and turns black when it catches; party back + ????? (or PC box). · v24 ????? keeps the MIRAGE's
+blacked-out silhouette (front = the Mirage trainer pic, back = it mirrored at 32x32); the fusion is for the BLACK TAMER.
