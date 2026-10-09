@@ -37,14 +37,15 @@ SMALL_FACES={   # hand-shrunk versions of GHOST's face: slanted eyes + lopsided 
  'B':['#......#','##....##','........','..####..','..###...'],
  'C':['#.....#','##...##','.......','..###..'],
 }
-def small_face(k):
-    rows=SMALL_FACES[k];return [(y,x) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='#'],(len(rows),len(rows[0]))
-FACE_CENTRE=(13,26)                                  # RED's face, just under the cap brim
+def small_face(k,flip=True):
+    rows=[row[::-1] if flip else row for row in SMALL_FACES[k]]   # mirrored: grin leans the other way
+    return [(y,x) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='#'],(len(rows),len(rows[0]))
+FACE_CENTRE=(13,23.5)                                # RED's face: under the cap brim, centred on the head (x 15-32)
 def fuse(r,face_at=None,small=None):
     red=grid(r,4,0x6f2a);H,W=len(red),len(red[0]);bg=outside(red)
     out=[[0 if bg[y][x] else 3 for x in range(W)] for y in range(H)]       # silhouette: everything inside = black
     face,(fh,fw)=small_face(small) if small else ghost_face(r)
-    if face_at is None and small:face_at=(FACE_CENTRE[0]-fh//2,FACE_CENTRE[1]-fw//2)
+    if face_at is None and small:face_at=(FACE_CENTRE[0]-fh//2,int(FACE_CENTRE[1]-(fw-1)/2+0.5))
     if face_at is None:                                                     # centre the face on RED's face
         face_at=(5,17)                                                      # eyes + grin on RED's head (rows 2-19, x 16-34)
     for y,x in face:
