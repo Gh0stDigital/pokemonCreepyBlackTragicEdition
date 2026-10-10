@@ -9,3 +9,4 @@ party slot, so a leading GHOST used to come back last. Now:
 A GHOST that wasn't leading still comes back last (unchanged). The other temporary removals already kept the slot:
 the Pokemon Center heal (v13) and MR. MU's ritual (v23).
 Tests: t40_v31.py lead / second (a real MIRAGE encounter on Route 1, RUN, party order checked).
+Regression (run_v31.sh: v3-v30 suites + t40): 219 PASS, 0 FAIL
