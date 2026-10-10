@@ -21,3 +21,4 @@ The fix
 
 Tests: t38_v29.py table / nugget (Route 24 trainer: new index, bit in D430, PC box untouched, exactly one kill byte,
 gravestone after re-entering, others alive) / forest (base index still works); t37 now also covers D430-D44F.
+Regression (run_v29.sh: v3-v28 suites + t38): 191 PASS, 0 FAIL
