@@ -1,4 +1,4 @@
-# v28: BLACK flag (D46C) and the NPC kill list (D471-D484) survive SAVE -> power cycle -> CONTINUE and are cleared by NEW GAME.
+# v28/v29: BLACK flag (D46C), the NPC kill list (D471-D484) and the v29 trainer kill bits (D430-D44F) survive SAVE -> power cycle -> CONTINUE and are cleared by NEW GAME.
 # (same procedure as t27_saveload.py)
 # All overhaul flags (D450-D463) survive SAVE -> power cycle (fresh emulator + the save RAM) -> CONTINUE. Also checks the party/box and a
 # few event flags, and that NEW GAME still clears the overhaul range.
@@ -6,7 +6,7 @@ from harness import *
 def clean(s):return ' '.join(''.join(c for c in s if c not in '│─┌┐└┘|').split())
 load('blue_hero');p.tick(60)
 # recognizable, harmless values (mode/state bytes kept at real values)
-vals={0xd46c:1,0xd471:0,0xd472:3,0xd473:0x25,0xd474:2,0xd475:1,0xd476:7,0xd483:0x33,0xd484:4}
+vals={0xd430:0x81,0xd44f:0x18,0xd46c:1,0xd471:0,0xd472:3,0xd473:0x25,0xd474:2,0xd475:1,0xd476:7,0xd483:0x33,0xd484:4}
 for a,v in vals.items():m[a]=v
 graves=list(m[0xd4a4:0xd4ae]);party=list(m[0xd163:0xd16b]);ev=list(m[0xd747:0xd747+40])
 press('start',90)
@@ -65,5 +65,5 @@ press('down',30);press('a',300)
 for i in range(6):press('a',120)
 print('after NEW GAME: D450-D463',list(m[0xd450:0xd464]),'graves',list(m[0xd4a4:0xd4ae]))
 print('nonzero in D450-D484:',{hex(0xd450+i):v for i,v in enumerate(m[0xd450:0xd485]) if v})
-assert not any(m[0xd450:0xd470]) and not any(m[0xd471:0xd485]) and not any(m[0xd4a4:0xd4ae])   # D470 = scratch (pic bank)
+assert not any(m[0xd430:0xd450]) and not any(m[0xd450:0xd470]) and not any(m[0xd471:0xd485]) and not any(m[0xd4a4:0xd4ae])   # D470 = scratch (pic bank)
 print('PASS NEW GAME over an old save clears BLACK and the kill list')
