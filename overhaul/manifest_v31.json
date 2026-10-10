@@ -1,0 +1,52 @@
+{
+  "input": "Creepy_Black_Mu_v30.gb",
+  "input_sha256": "b14fa33f93ffc14d8327aada199e047ef568924090a41d325e40c9252a6764d0",
+  "sha256": "d093575eb53df4fc79dc98481f8d0c193d8746ff947346ce08fe169b00ae2fa1",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2d": {
+      "post2": "0x5fc0",
+      "ghost_front": "0x5fd0",
+      "ghost_front.f": "0x5fd5",
+      "ghost_front.g": "0x5fe0",
+      "ghost_front.l": "0x5fe3",
+      "swp": "0x600f",
+      "swp.m": "0x6013",
+      "swp.k": "0x6019",
+      "swp.x": "0x6021"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xbbcc0",
+      "before": "00000000000000000000000000",
+      "after": "fa92cfa73e0120013cea5fd4c9",
+      "name": "Bank 2E: MIRAGE deposit remembers whether GHOST led (D45F = 1 / 2)"
+    },
+    {
+      "offset": "0xb8364",
+      "before": "3e01ea5fd4",
+      "after": "cdc07c0000",
+      "name": "MIRAGE deposit: remember the lead slot"
+    },
+    {
+      "offset": "0xb5fc0",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa5fd4f5216047062ecd1836f1fe02c02164d10e002afeffc8fe1f28030c18f579a7c8c52164d10601cd0f60c1c5216bd1062ccd0f60c1c52173d2060bcd0f60c1c521b5d2060bcd0f60c10d20d5c9581600793d28031918fa545d7d806f3001241a4f7e127922130520f6c9",
+      "name": "Bank 2D: v31 MIRAGE cleanup wrapper + GHOST back to slot 1"
+    },
+    {
+      "offset": "0xc4",
+      "before": "216047062e",
+      "after": "21c05f062d",
+      "name": "Home after-battle stub: far call post2 (2D) instead of mirage_post"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563330000000",
+      "after": "435245455059204d5520563331000000",
+      "name": "Branch identity"
+    }
+  ]
+}
