@@ -12,3 +12,4 @@ v34's extra gravestone pass right after every battle is removed again (after-bat
 base game's "vanish now, gravestone when you come back" applies to every trainer. v34's scripted-grunt kill indices stay.
 Tests: t44_v35.py vanish 23 / 41 / 33 - right after the battle the killed trainer is not drawn (image FF), a living
 trainer next to the player still is, and after re-entering the map the killed one is a gravestone.
+Regression (run_v35.sh, v33 suite + t44): PASS=251 FAIL=0. Creepy_Black_Mu_v35_mysave2_test.gb = v35 + the user's second save (Creepy_Black_Mu_user2.sav: Cerulean, BOULDERBADGE, GHOST).
