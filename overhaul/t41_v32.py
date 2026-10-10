@@ -33,7 +33,8 @@ if MY=='immune':
     p.tick(300)
     ok(0x0e in cries and resets,'[GHOST, PRETA, AZHI]: nothing edible -> GHOST eats the player (GENGAR cry, restart)')
     print('v32 immune: ALL PASS')
-if MY=='back':
+if MY=='back' and '_v32' not in ROM:print('v32 back: skipped on later builds (t42 checks the newer picture)')
+elif MY=='back':
     import preta_back as P
     new=P.load(ROM);old=P.load(ROM.replace('v32','v31'))
     diff=[(y,x) for y in range(32) for x in range(32) if new[y][x]!=old[y][x]]
