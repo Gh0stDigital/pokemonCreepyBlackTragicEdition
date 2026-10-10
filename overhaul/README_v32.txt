@@ -11,3 +11,4 @@ Creepy Black Mu v32 (on v31): GHOST can't eat PRETA or AZHI; PRETA's back pictur
    qa_ref/v32_preta_back_compare.png.
 Tests: t41_v32.py immune (PRETA in front -> eats below, AZHI in front -> eats further up, normal case, nothing edible ->
 player) / back (only white -> light grey changed).
+Regression (run_v32.sh: v3-v31 suites + t41): 228 PASS, 0 FAIL
