@@ -1,11 +1,11 @@
-# Re-check every hook ever added (v1-v33) against the CURRENT ROM with patchguard:
+# Re-check every hook ever added (v1-v34) against the CURRENT ROM with patchguard:
 #   - no jump elsewhere in the ROM lands inside a patched range (except reviewed, allow-listed ones)
 #   - stubs don't leave registers changed that the original code after the hook still reads, and don't
 #     re-run a replaced "call X" after changing X's inputs.
 # Usage (from overhaul/): python check_hooks.py [ROM]   -> exit code 1 on any unreviewed problem.
 import json,sys,hashlib
 from patchguard import check_hook,jumps_into,fo
-LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v33.gb'
+LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v34.gb'
 cur=open(LATEST,'rb').read()
 v1=bytearray(open('Creepy_Black_Mu_v1.gb','rb').read())
 # v1 had no byte log: original bytes from the asserts in edit/build.py

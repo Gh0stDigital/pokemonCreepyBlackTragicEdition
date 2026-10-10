@@ -9,6 +9,9 @@
 #     - CINNABAR GYM quiz trainers and GIOVANNI in the hideout: index 0 -> "But, it failed!" (not a stale kill).
 #   Every other battle keeps the index TalkToTrainer / the v14 leader engage set, as before. The v18 rule (no trainer
 #   phase for GIOVANNI at SILPH 11F) is kept. The map-load gravestone table (kill_chk2) is rebuilt with the 4 grunts.
+#   A killed trainer now turns into a gravestone right after the battle (before: only after leaving and re-entering
+#   the map, as the base game only checked graves at map load): after every real battle (home stub 0:00C0, carry set)
+#   the gravestone pass 3:4E85 runs again and the sprite graphics are reloaded (5:785B).
 import json
 from patchlib import *
 from patchguard import fo
@@ -20,6 +23,7 @@ rom=Rom('Creepy_Black_Mu_v33.gb',V33_SHA)
 r=rom.r;R=bytes(r)
 w=lambda o:R[o]|R[o+1]<<8
 BANK=0x2d;CODE=0x6100;TAB=0x7180;TMP=0xd470
+POST2=int(json.load(open('manifest_v31.json'))['labels']['bank2d']['post2'],16)
 #            map  opponent(class+200) set  sprite  kill index
 SCRIPTED=[(0x03,230,5,2,0x1fc),   # CERULEAN: Rocket thief
           (0x23,230,6,1,0x1fd),   # ROUTE 24: NUGGET BRIDGE Rocket
@@ -75,10 +79,19 @@ phase2:                          ; F:46EC trainer phase: a = species out (0 = no
     ret
 .no:pop af
     jr .l
+post3:                           ; after NewBattle (0:00C0): carry = a battle happened
+    push af
+    call {POST2}
+    pop af
+    ret nc
+    farcall $4e85,3                 ; killed trainers -> gravestone picture
+    farcall $785b,5                 ; reload the map sprites' tiles
+    ret
 stab:
     db {",".join(str(x) for x in stab)}
 ''',CODE)
 assert CODE+len(code)<0x6400,hex(CODE+len(code))
+POST=0
 rom.put(fo(BANK,CODE),code,'Bank 2D: v34 trainer phase (v18 rule + scripted trainers\' kill index)')
 F=fo(0xf,0x7dcc);old=R[F:F+20]
 assert old[:3]==bytes.fromhex('fa31d0')
@@ -111,5 +124,7 @@ rom.put(fo(BANK,TAB),bytes(ptrs)+bytes(body),'Bank 2D: v34 map -> (sprite, kill 
 KC=int(json.load(open('manifest_v29.json'))['labels']['bank2d']['kill_chk2'],16)
 assert R[fo(BANK,KC)+0x10:fo(BANK,KC)+0x13]==bytes.fromhex('110065')
 rom.data(fo(BANK,KC)+0x11,TAB.to_bytes(2,'little'),'kill_chk2: gravestone table -> v34 table','0065')
+assert R[0xc4:0xc9]==bytes([0x21])+POST2.to_bytes(2,'little')+bytes([0x06,BANK])
+rom.data(0xc5,L['post3'].to_bytes(2,'little'),'After-battle stub -> post3 (gravestones right after a kill)',POST2.to_bytes(2,'little'))
 rom.finish('Creepy_Black_Mu_v34.gb','manifest_v34.json','CREEPY MU V34',extra=dict(labels=dict(bank2d={k:hex(v) for k,v in L.items()}),
     scripted=[dict(map=hex(a),opponent=b,set=c,sprite=d,index=hex(e)) for a,b,c,d,e in SCRIPTED],nokill=[dict(map=hex(a),opponent=b,set=c) for a,b,c in NOKILL]))

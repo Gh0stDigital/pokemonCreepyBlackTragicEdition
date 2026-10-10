@@ -6,7 +6,7 @@ import preta_back as P
 def ok(c,msg):
     print(('PASS ' if c else 'FAIL ')+msg,flush=True)
     if not c:sys.exit(1)
-new=P.load(ROM);old=P.load(ROM.replace('v33','v32'))
+new=P.load(ROM);old=P.load(str(__import__('pathlib').Path(ROM).with_name('Creepy_Black_Mu_v32.gb')))   # vs v32: the v33 change, also on later builds
 diff=[(y,x) for y in range(32) for x in range(32) if new[y][x]!=old[y][x]]
 ok(all(old[y][x]==0 and new[y][x] in (1,2) for y,x in diff),'%d body pixels white -> grey, nothing else changed'%len(diff))
 bg=P.outside(old)
