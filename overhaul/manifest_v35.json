@@ -1,0 +1,39 @@
+{
+  "input": "Creepy_Black_Mu_v34.gb",
+  "input_sha256": "f9040003b627db663f4a73fe30fe274fa0e61cd611a1218132fe807264eb5063",
+  "sha256": "dc9dd28c7d8a5e3420b3ac3d40a4e42d855d883f18d0b2813de7412982ae65f9",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2d": {
+      "killed13": "0x6200",
+      "killed13.o": "0x621d"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xb6200",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000",
+      "after": "21fb4d0603cd1836f0e5a7c0f0da5f16c11afe49c8cd00643e0028013ce0e5c9",
+      "name": "Bank 2D: v35 predef 0x13 (killed trainer? base list + v29/v34 table + NPC list)"
+    },
+    {
+      "offset": "0x4feb2",
+      "before": "03fb4d",
+      "after": "2d0062",
+      "name": "Predef 0x13 -> killed13 (2D): every killed trainer vanishes at once"
+    },
+    {
+      "offset": "0xc5",
+      "before": "4561",
+      "after": "c05f",
+      "name": "After-battle stub -> post2 again (no extra gravestone pass)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563334000000",
+      "after": "435245455059204d5520563335000000",
+      "name": "Branch identity"
+    }
+  ]
+}
