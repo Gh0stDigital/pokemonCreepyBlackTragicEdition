@@ -16,3 +16,4 @@ Creepy Black Mu v34 (on v33): cursed trainers turn into gravestones right away; 
 Tests: t43_v34.py instant 23 / 41 / 33 (NUGGET BRIDGE, CERULEAN GYM trainer, VIRIDIAN FOREST: gravestone right after
 the battle, others untouched). The full CERULEAN flow (BLUE, then the bridge with every trainer by sight and CURSE) was
 played in the emulator: the Rocket got $1FD and all six bridge kills were gravestones (qa_ref/v34_instant_graves.png).
+Regression (run_v34.sh: v3-v33 suites + t43): 248 PASS, 0 FAIL
