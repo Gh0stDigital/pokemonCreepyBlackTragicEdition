@@ -11,3 +11,4 @@ Repointed like v27: BLACK's species header, YOU-as-BLACK's header and the LoadPl
 Tests: t35_v25.py backpic now also counts pixels outside the visible 28x28 (v27: 139, v37: 0) and fails on any
 (v26/v27 pictures exempt); qa_ref/v37_battle_compare.png = v36 vs v37 in a real battle as BLACK, qa_ref/v37_back_fit.png.
 run_v37.sh = run_v36.sh on v37. Static: check_hooks.py 91 hooks, 0 problems.
+Regression (run_v37.sh): PASS=271 FAIL=0.
