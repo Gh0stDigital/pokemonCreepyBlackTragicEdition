@@ -1,0 +1,83 @@
+{
+  "input": "Creepy_Black_Mu_v35.gb",
+  "input_sha256": "dc9dd28c7d8a5e3420b3ac3d40a4e42d855d883f18d0b2813de7412982ae65f9",
+  "sha256": "c2179afa6a02cf44771854f82e55b47482d2a2a9214eed99c0a7e04f239d005a",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank15": {
+      "lvcap": "0x6a90"
+    },
+    "bank5": {
+      "skip0": "0x7f90",
+      "skip0.none": "0x7f98"
+    },
+    "bank14": {
+      "after": "0x6b40",
+      "after.p": "0x6b55",
+      "blue": "0x6b5b"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x56a90",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd5d151664fab5d0fe1fc0e5f8042a666fc501110009c17ee11632fe33d857c9",
+      "name": "Bank 15: v36 GHOST level cap (Lv50)"
+    },
+    {
+      "offset": "0x55308",
+      "before": "cd5d151664",
+      "after": "cd906a0000",
+      "name": "GainExperience: GHOST max level 50"
+    },
+    {
+      "offset": "0xba96f",
+      "before": "64",
+      "after": "32",
+      "name": "AGATHA's quest: GHOST must be Lv50 (was Lv100)"
+    },
+    {
+      "offset": "0x17f90",
+      "before": "000000000000000000000000",
+      "after": "7ea72804111dc2c9d1c35a79",
+      "name": "Bank 5: v36 sprite loader skips picture 0 (hidden object)"
+    },
+    {
+      "offset": "0x1788d",
+      "before": "111dc2",
+      "after": "cd907f",
+      "name": "LoadMapSpriteTilePatterns: skip picture 0 (no garbage over the map tiles)"
+    },
+    {
+      "offset": "0xbbaee",
+      "before": "0086888e95808d8d889c7f83a0acad4fb3a7a0b37fa2b4abb3e8e8e8e758",
+      "after": "004f83a0acad7fb3a7a0b37fa2b4abb3e8e8e85800000000000000000000",
+      "name": "GIOVANNI SILPH defeat text without his name (engine prints it)"
+    },
+    {
+      "offset": "0xb7800",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0096a7a0b3e8e8e87fb6a7a0b34fa7a0afafa4ada4a37fb3ae7fb8aeb4f45552e65193a7a0b37fb3a7a8ada67fa8b2adbe4fa07fadaeb1aca0ab7f548c8e8de85180ada37fb8aeb4e8e8e84fb8aeb4e4a47fadaeb37fb3a7a455b2a0aca47fa4a8b3a7a4b1e85192aeaca4b3a7a8ada67fa3a0b1aa4fa6aeb37fa8adb3ae7fb8aeb4e85588adb3ae7fa1aeb3a77faea555b8aeb4e851887fa3aeadbe7fa6a4b37fa8b3e84f81b4b37f887fa2a0ad7fa5a4a4ab55a8b3e8e8e85189b4b2b37fa1a4a0b3a8ada67fb8aeb44fb6aeadbe7fa1a47fa4adaeb4a6a7e8558daeb37faba8aaa47fb3a7a8b2e85188bcab7fa5a8ada37fa07fb6a0b84fb3ae7faeb5a4b1a2aeaca47fb3a7a0b355a3a0b1aa7fafaeb6a4b1e751887fb2b6a4a0b17fa8b3f44f52e757",
+      "name": "Bank 2D: v36 BLUE after the SILPH battle (GHOST route)"
+    },
+    {
+      "offset": "0x52b40",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0821d14b062ecd183621d25efa51d4a72803215b6bcd943cc304251700782d50",
+      "name": "Bank 14: v36 SILPH 7F BLUE after-battle wrapper"
+    },
+    {
+      "offset": "0x51d5b",
+      "before": "186b",
+      "after": "406b",
+      "name": "SILPH 7F text 15 (BLUE after a win) -> v36 wrapper"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563335000000",
+      "after": "435245455059204d5520563336000000",
+      "name": "Branch identity"
+    }
+  ]
+}
