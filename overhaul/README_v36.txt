@@ -34,3 +34,4 @@ Tests: t45_v36.py (run_v36.sh = run_v35.sh + t45):
   blue        GHOST route: new lines ("happened to you", "dark power"), not "moving on up", hero mode set.
   blue_normal off the GHOST route: original text.
 Static: check_hooks.py 91 hooks, 0 problems.
+Regression (run_v36.sh = run_v35.sh + t45): PASS=271 FAIL=0.
