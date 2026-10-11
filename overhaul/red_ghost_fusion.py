@@ -124,6 +124,27 @@ def fuse_back_shift(r,dx=2,reach=2,dy=4):
         for x in range(W):
             if sil[y][x] and 0<=y+dy<H and 0<=x+dx<W:out[y+dy][x+dx]=3
     return aura(out,reach) if reach else out
+VIS=28                                                # the battle screen shows only the top-left 28x28 of the 32x32 back pic (7x7 tiles)
+def fuse_back_fit(r,reach=2):
+    """v37 back view: same silhouette + halo as v27, scaled so silhouette AND halo fit the visible 28x28 (v27 was cut off at the
+    right and bottom in battle): VIS-2*reach wide, flush with the bottom row, centred; nothing outside the 28x28"""
+    sil=fuse_back(r,halo=False);H=W=32
+    ys=[y for y in range(H) for x in range(W) if sil[y][x]];xs=[x for y in range(H) for x in range(W) if sil[y][x]]
+    y0,y1,x0,x1=min(ys),max(ys),min(xs),max(xs)
+    im=Image.new('L',(x1-x0+1,y1-y0+1),0)
+    for y in range(y0,y1+1):
+        for x in range(x0,x1+1):
+            if sil[y][x]:im.putpixel((x-x0,y-y0),255)
+    k=(VIS-2*reach)/im.width;w=VIS-2*reach;h=min(VIS-reach,round(im.height*k))
+    sm=im.resize((w,h),Image.BOX);out=[[0]*W for _ in range(H)];ox=reach;oy=VIS-h
+    for y in range(h):
+        for x in range(w):
+            if sm.getpixel((x,y))>=128:out[oy+y][ox+x]=3
+    out=aura(out,reach)
+    for y in range(H):
+        for x in range(W):
+            if y>=VIS or x>=VIS:out[y][x]=0
+    return out
 def to_image(g,scale=4):
     pal=[255,170,85,0];H,W=len(g),len(g[0]);im=Image.new('L',(W,H))
     for y in range(H):

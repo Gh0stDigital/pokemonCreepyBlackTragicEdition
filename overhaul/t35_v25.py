@@ -321,6 +321,9 @@ elif MODE=='backpic':
     solid=[(y,x) for y in range(H) for x in range(W) if min(y,x,W-1-x)<1 and g[y][x]==3]
     dark=sum(1 for row in g for c in row if c==3)
     print('back pic %dx%d, dark pixels %d, top-2-rows non-white %d, solid on outer edge %d'%(H,W,dark,len(top),len(solid)))
-    lo,hi=(250,600) if 'v26' in mf else (400,700)
+    lo,hi=(250,600) if 'v26' in mf else (400,700) if 'v27' in mf else (300,600)   # v37: scaled to fit the visible 28x28
+    cut=sum(1 for y in range(H) for x in range(W) if (y>=28 or x>=28) and g[y][x])   # battle shows only the top-left 28x28
+    print('pixels outside the visible 28x28: %d'%cut)
+    if 'v26' not in mf and 'v27' not in mf:assert cut==0,'part of the picture is cut off in battle'
     assert not top and not solid and lo<dark<hi
     print('PASS BLACK back picture: top margin empty, no solid edge pixels, silhouette solid',flush=True)
