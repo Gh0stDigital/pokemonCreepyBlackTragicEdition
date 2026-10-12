@@ -74,7 +74,9 @@ elif MODE=='refuse':
     t=consume(2,0);print('PRETA:',t[-120:],[hex(x) for x in party()])
     ok('consume that' in t and party()==p0,'PRETA can\'t be consumed ("BLACK can\'t consume that.")')
     t=consume(1,cancel=True);print('cancel:',t[-120:],[hex(x) for x in party()])
-    ok(party()==p0 and exp(0)==e0 and moves(0)[1]==0,'cancelling the move choice keeps everything as it was')
+    if VERSION>=46:                                                     # v46: taking a move is optional
+        ok(party()==[BLK,PRETA] and exp(0)>e0 and moves(0)[1]==0 and 'consumed' in t,'B at the move choice: CHARMANDER consumed anyway, no move taken')
+    else:ok(party()==p0 and exp(0)==e0 and moves(0)[1]==0,'cancelling the move choice keeps everything as it was')
 elif MODE=='normal':
     load('pallet_with_ghost');make_black()
     SP=fo(0x2d,int(L['s_preta'],16));n=m[0xd163];m[0xd164+n]=PRETA;m[0xd164+n+1]=0xff;m[0xd163]=n+1
