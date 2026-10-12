@@ -160,7 +160,7 @@ elif MODE=='climax':
     sheet.save(S+'v25_climax_sheet.png')
     T(300)
     print('after: pos',pos(),'RIT',m[RIT],'BLACK',m[0xd46c],'name',''.join(cm.get(v,'') for v in m[0xd158:0xd163]),'party',[hex(x) for x in party()],'D057',m[0xd057],'D059',m[0xd059])
-    assert m[0xd46c]==1 and m[RIT]==6 and party()==[0xb0] and m[0xd057]==0
+    assert m[0xd46c]==1 and m[RIT]==6 and party()==([0xb0] if VERSION<38 else [0x7f,0xb0,0xb6,0xb7]) and m[0xd057]==0   # v38: BLACK + PRETA + AZHI join
     assert ''.join(cm.get(v,'') for v in m[0xd158:0xd15d])=='BLACK'
     p.screen.image.save(S+'v25_after_climax.png');save('v25_black_'+ROMTAG)
     print('PASS the player is BLACK (name, flag), GHOST and ????? left the party, the battle is over',flush=True)

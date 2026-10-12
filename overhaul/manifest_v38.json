@@ -1,0 +1,263 @@
+{
+  "input": "Creepy_Black_Mu_v37.gb",
+  "input_sha256": "c7593900fa2c1b0bfd26d930700ff3db403c59096eb2e31346cb73495c102fc5",
+  "sha256": "c511ada7c0669642d7827b9034e4bf2ed2f786cae9f6807808d582f915dd7488",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "GetMonHeader exit -> v38 header (species 86), then v25/v23/v3",
+      "same site as v3/v23/v25; hits are operand/data bytes"
+    ]
+  ],
+  "labels": {
+    "bank2d": {
+      "bank_for38": "0x7b00",
+      "alive_chk": "0x7b0e",
+      "alive_chk.c": "0x7b1e",
+      "item_party": "0x7b24",
+      "item_party.no": "0x7b31",
+      "name_ot": "0x7b39",
+      "name_ot.no": "0x7b49",
+      "deposit": "0x7b4b",
+      "deposit.no": "0x7b55",
+      "black_join": "0x7b64",
+      "black_join.a": "0x7b85",
+      "has_species": "0x7b94",
+      "has_species.p": "0x7b97",
+      "has_species.box": "0x7ba1",
+      "has_species.q": "0x7baa",
+      "has_species.yes": "0x7bb3",
+      "add_mon": "0x7bb6",
+      "add_mon.box": "0x7c0e",
+      "put_nick": "0x7c52",
+      "put_ot": "0x7c68",
+      "src_struct": "0x7c79",
+      "set_otid": "0x7c82",
+      "to_front": "0x7c8f",
+      "to_front.l": "0x7c93",
+      "swap": "0x7cc4",
+      "swap.s": "0x7cd3",
+      "black_step": "0x7cde",
+      "black_step.f": "0x7cf0",
+      "black_step.got": "0x7d01",
+      "s_black": "0x7d10",
+      "s_preta": "0x7d3c",
+      "s_azhi": "0x7d68",
+      "n_black": "0x7d94",
+      "n_preta": "0x7d9f",
+      "n_azhi": "0x7daa"
+    },
+    "home": {
+      "alive_chk": "0x1",
+      "item_party": "0x11",
+      "name_ot": "0x19",
+      "deposit": "0x21"
+    },
+    "bank15": {
+      "dc_menu": "0x6ac0",
+      "dc_menu.no": "0x6acd",
+      "exp_skip": "0x6ad5",
+      "t_dc": "0x6ae9"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xb7f00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0088b37fb6aeadbe7fa7a0b5a47fa0adb84fa4a5a5a4a2b3e85800818b80828a7fa2a0adbe7fa1a44fb2b3aeb1a4a37fa0b6a0b8e85800818b80828a7fb6aeadbe7faba4a0b5a44fb8aeb4b17fb2a8a3a4e858",
+      "name": "Bank 2D: v38 texts"
+    },
+    {
+      "offset": "0xb7b00",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa91cffe86c23d443e04ea70d4c9fa14d0fe7f20092115d02ab6200236012115d02ab6c9cd2b14d8fa91cffe7f2802a7c921007fcd943c37c9fa91cffe7f280921305a0607cd1836c937c9fa91cffe7f2803c30814211a7fcd943cf8043ee8223e5477c93e06ea67d421107d11947dcdb67bcd8f7c06b6cd947b2009213c7d119f7dcdb67b06b7cd947bc021687d11aa7dc3b67b2164d12afeff2805b820f81812fa80daa7c84f2181da2ab828050d20f9afc9f601c97dea57d47cea58d47bea59d47aea5ad4fa63d1fe0630414f3cea63d106002164d109fa57d45ffa58d4571a2236ff79f5216bd1012c00cdbb3a545dd5cd797c012c00cdb500e1cd827cf1f52173d2cd687cf121b5d2c3527cfa80dafe14d04f3cea80da06002181da09fa57d45ffa58d4571a2236ff79f52196da012100cdbb3a545dd5cd797c012100cdb500e1cd827cf1f5212addcd687cf12106de010b00cdbb3a545dfa59d46ffa5ad467010b00c3b500010b00cdbb3a545d2158d1010b00c3b500fa57d46ffa58d467c9010c0009fa59d322fa5ad377c9fa63d13da7c8f52164d1010100cdc47cf1f5216bd1012c00cdc47cf1f52173d2010b00cdc47cf1f521b5d2010b00cdc47cf13d18cfc53dcdbb3ac1545de5626b09545de11a477e127822130d20f6c9fa6cd4a7c8e1fa63d1a7c84f2164d1116bd12afe7f280ce5212c0019545de10d20f0c9626b232aa7c07efe05d023233600c97f002b0100080803a5000000000000000100000000000000000000ffff0100000001002b001e001c001e0028b600873200080500a90f3946000002625a00000000000000000000ffff0a1e0f0f3200870087007d0064005ab7009b320008022da813527e000002625a00000000000000000000ffff000f0a0532009b007d005500960050818b80828a5050505050508f918493805050505050508099878850505050505050",
+      "name": "Bank 2D: v38 BLACK party member (join, checks, far stub targets)"
+    },
+    {
+      "offset": "0x9",
+      "before": "000000",
+      "after": "c31836",
+      "name": "Home 0x09: shared \"jp Bankswitch\" for the v38 far stubs"
+    },
+    {
+      "offset": "0x1",
+      "before": "00000000000000",
+      "after": "210e7b062d1801",
+      "name": "Home 0x01: far stub -> 2D alive_chk"
+    },
+    {
+      "offset": "0x11",
+      "before": "00000000000000",
+      "after": "21247b062d18f1",
+      "name": "Home 0x11: far stub -> 2D item_party"
+    },
+    {
+      "offset": "0x19",
+      "before": "00000000000000",
+      "after": "21397b062d18e9",
+      "name": "Home 0x19: far stub -> 2D name_ot"
+    },
+    {
+      "offset": "0x21",
+      "before": "00000000000000",
+      "after": "214b7b062d18e1",
+      "name": "Home 0x21: far stub -> 2D deposit"
+    },
+    {
+      "offset": "0x165a",
+      "before": "3d44",
+      "after": "007b",
+      "name": "UncompressMonSprite bank choice -> bank_for38 (species 86 in bank 4)"
+    },
+    {
+      "offset": "0x3beb0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fab5d0fe86c2417e21cc7e11b9d0061b2a12130520fa3e86eab8d0c9010101010100000000772a6f2a6f00000000000000000000000000",
+      "name": "Bank E: header for species 86 (RED trainer picture, evolution scene)"
+    },
+    {
+      "offset": "0x15c6",
+      "before": "cd417e",
+      "after": "cdb07e",
+      "name": "GetMonHeader exit -> v38 header (species 86), then v25/v23/v3"
+    },
+    {
+      "offset": "0x410b3",
+      "before": "00",
+      "after": "98",
+      "name": "Species 86: dex slot 152 like BLACK (the front-picture loader refuses dex 0)"
+    },
+    {
+      "offset": "0x39613",
+      "before": "000000",
+      "after": "0700ff",
+      "name": "Species 86 cry = GENGAR (never heard: evolution plays the new species)"
+    },
+    {
+      "offset": "0xb4514",
+      "before": "1f",
+      "after": "86",
+      "name": "Climax evolution: start from RED (species 86) instead of GHOST"
+    },
+    {
+      "offset": "0xb453f",
+      "before": "1f",
+      "after": "86",
+      "name": "Climax evolution: start from RED (species 86) instead of GHOST"
+    },
+    {
+      "offset": "0x13b00",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa6cd4a7112a6f010104c811c04101012dc9",
+      "name": "Bank 4: trainer card picture (BLACK TAMER when BLACK)"
+    },
+    {
+      "offset": "0x134e6",
+      "before": "112a6f010104",
+      "after": "cd007b000000",
+      "name": "DrawTrainerInfo: BLACK TAMER picture"
+    },
+    {
+      "offset": "0xb46b4",
+      "before": "3e06ea67d4c9",
+      "after": "c3647b000000",
+      "name": "do_post end -> black_join (BLACK, PRETA, AZHI join)"
+    },
+    {
+      "offset": "0x3c236",
+      "before": "2115d02ab6",
+      "after": "cd01000000",
+      "name": "Player mon fainted? check: BLACK keeps 1 HP"
+    },
+    {
+      "offset": "0x3c53a",
+      "before": "2115d02ab6",
+      "after": "cd01000000",
+      "name": "Player mon fainted? check: BLACK keeps 1 HP"
+    },
+    {
+      "offset": "0x3c54d",
+      "before": "2115d02ab6",
+      "after": "cd01000000",
+      "name": "Player mon fainted? check: BLACK keeps 1 HP"
+    },
+    {
+      "offset": "0x3c5e7",
+      "before": "2115d02ab6",
+      "after": "cd01000000",
+      "name": "Player mon fainted? check: BLACK keeps 1 HP"
+    },
+    {
+      "offset": "0x3cdf1",
+      "before": "2115d02ab6",
+      "after": "cd01000000",
+      "name": "Player mon fainted? check: BLACK keeps 1 HP"
+    },
+    {
+      "offset": "0xdda8",
+      "before": "cd2b14",
+      "after": "cd1100",
+      "name": "Item party menu: no item works on BLACK"
+    },
+    {
+      "offset": "0xde33",
+      "before": "cd2b14",
+      "after": "cd1100",
+      "name": "Item party menu: no item works on BLACK"
+    },
+    {
+      "offset": "0xe662",
+      "before": "cd2b14",
+      "after": "cd1100",
+      "name": "Item party menu: no item works on BLACK"
+    },
+    {
+      "offset": "0xe81a",
+      "before": "cd2b14",
+      "after": "cd1100",
+      "name": "Item party menu: no item works on BLACK"
+    },
+    {
+      "offset": "0x1da95",
+      "before": "cd305a",
+      "after": "cd1900",
+      "name": "Name Rater: BLACK can't be renamed"
+    },
+    {
+      "offset": "0x215da",
+      "before": "fa91cfcd0814",
+      "after": "cd2100000000",
+      "name": "PC deposit: BLACK can't be stored"
+    },
+    {
+      "offset": "0x56ac0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd2b14d8fa91cffe7f2802a7c921e96acd943c37c9cdc13efa92cf5f16002164d1197efe7fc00e00c917367f2d50",
+      "name": "Bank 15: v38 Day Care / battle experience (BLACK)"
+    },
+    {
+      "offset": "0x562a4",
+      "before": "cd2b14",
+      "after": "cdc06a",
+      "name": "Day Care: BLACK can't be left there"
+    },
+    {
+      "offset": "0x55271",
+      "before": "cdc13e",
+      "after": "cdd56a",
+      "name": "GainExperience: BLACK gains no battle experience"
+    },
+    {
+      "offset": "0xb44c9",
+      "before": "fa6cd4a7c0",
+      "after": "cdde7c0000",
+      "name": "hunger_wrap: BLACK branch -> black_step (poison can't kill BLACK)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563337000000",
+      "after": "435245455059204d5520563338000000",
+      "name": "Branch identity"
+    }
+  ]
+}
