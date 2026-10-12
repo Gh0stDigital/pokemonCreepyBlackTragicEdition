@@ -36,3 +36,5 @@ works), shatter (LORELEI: flash + shatter, BLACK out with its back picture, RUN/
 kills, the way to BRUNO opens), agatha (empty room, way to LANCE), normal (not BLACK: CURSE as before, AGATHA there).
 run_v44.sh = run_v43.sh + t52.
 Static: check_hooks.py 114 hooks, 0 problems.
+Regression (run_v44.sh): PASS=356 FAIL=0 (v43 suite + 37 t52 checks; every test keeps its v43 count).
+t28_v14 koga_kill still stops on its old test-side "no path" assertion (also on v40-v43).
