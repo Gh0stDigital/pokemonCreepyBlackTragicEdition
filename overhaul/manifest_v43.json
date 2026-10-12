@@ -1,7 +1,7 @@
 {
   "input": "Creepy_Black_Mu_v42.gb",
   "input_sha256": "8c0fff599dd64158059f132e17ed6779e8f8ab00b5c9c62c0afa37d7a96621be",
-  "sha256": "3f2eeca01010f1f4cf0d604cc8f539aabfc7e30b5147235afabf310b157da00c",
+  "sha256": "ffc97a4d7a823e6f5e46936f4c323f027c7b6695de2108fb308cd62d038e0cee",
   "size": 1048576,
   "reviewed_guard_exceptions": [],
   "labels": {
@@ -41,8 +41,8 @@
     },
     {
       "offset": "0x17fb0",
-      "before": "00000000000000000000000000000000",
-      "after": "cd7b793803cd5f78210060062fc31836",
+      "before": "00000000000000000000000000000000000000000000000000",
+      "after": "cd7b793803cd5f78f5c5d5e5210060062fcd1836e1d1c1f1c9",
       "name": "Bank 5: v43 InitMapSprites wrapper (then ball_fix)"
     },
     {

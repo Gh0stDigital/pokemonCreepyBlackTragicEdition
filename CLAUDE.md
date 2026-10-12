@@ -6,7 +6,7 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 
 ## Layout
 - `Creepy_Black_Mu_v1.gb` … `v43.gb` (root and `overhaul/`): builds. Latest = **v43**
-  (SHA-256 3f2eeca01010f1f4cf0d604cc8f539aabfc7e30b5147235afabf310b157da00c).
+  (SHA-256 ffc97a4d7a823e6f5e46936f4c323f027c7b6695de2108fb308cd62d038e0cee).
 - Test ROMs `Creepy_Black_Mu_vN_test.gb` (`build_vN_test.py`): vN + a built-in save (GHOST route, CHARMANDER, just after
   the POKéDEX; made by `make_save_v14.py`, packed into 2E:6000) installed when the cartridge has no save (`t29_testrom.py`).
   Keep 2E:6000–67FF free in the main builds for it. `Creepy_Black_Mu_v19…v43_chamber_test.gb` = vN + a test-only save on Tower 7F
@@ -120,6 +120,9 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 - Outdoor maps load only their sprite set: a picture outside the set gets a garbage VRAM slot (InitOutsideMapSprites' lookup
   runs past wSpriteSet) and is drawn with other sprites' tiles. Four-tile (still) slots: 0B = $8780, 0C = $87C0 (below the font
   at $8800); v43 ball_fix puts the ball there after every InitMapSprites (5:785B -> 5:7FB0). Check new map sprites on screen.
+- A wrapper around a game routine must return exactly what the routine returned: InitMapSprites returns carry set on
+  outdoor maps and MIRAGE code depends on it; v43's first build tail-called a far routine there (carry/registers lost)
+  and the game reset after every MIRAGE battle (caught by t40). Push af/bc/de/hl around the far call.
 - Gravestones are silent: talking to a killed trainer's grave prints nothing (the object is found, no text runs).
 - Hunger engine = v30 `hunger2` (2D:5E00, via hunger_wrap): warnings at 100/50/25 steps left (DisplayTextID ids F1-F3),
   victim = nearest edible slot in front of GHOST, else below it (v32 `victim2` 2D:6080: PRETA B6 / AZHI B7 are never eaten). D469 is NOT free (bank 1 writes the animation id there every battle).

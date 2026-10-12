@@ -5,7 +5,7 @@
 # The normal release stays Creepy_Black_Mu_v43.gb. The save (made on v14 by make_save_v14.py) only holds game RAM, which v15-v18 did not change.
 from patchlib import *
 from patchguard import fo
-V43_SHA='3f2eeca01010f1f4cf0d604cc8f539aabfc7e30b5147235afabf310b157da00c'
+V43_SHA='ffc97a4d7a823e6f5e46936f4c323f027c7b6695de2108fb308cd62d038e0cee'
 rom=Rom('Creepy_Black_Mu_v43.gb',V43_SHA)
 sav=(ROOT/'Creepy_Black_Mu_v25_ritual.sav').read_bytes();assert len(sav)==0x8000
 LO,HI=0xa598,0xb523                                   # sGameData .. sMainDataCheckSum (all LoadSAV reads)

@@ -1,7 +1,7 @@
 {
   "input": "Creepy_Black_Mu_v43.gb",
-  "input_sha256": "3f2eeca01010f1f4cf0d604cc8f539aabfc7e30b5147235afabf310b157da00c",
-  "sha256": "c59486b20f6ce55ab9a7eb881ff8e64ca3356561845494a6381bb781e95a7e64",
+  "input_sha256": "ffc97a4d7a823e6f5e46936f4c323f027c7b6695de2108fb308cd62d038e0cee",
+  "sha256": "1d4d3b605b35741c073c2e39038c5d6ebad06131eeaf91b00d09aaff59d6da93",
   "size": 1048576,
   "reviewed_guard_exceptions": [],
   "packed": 864,

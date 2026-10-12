@@ -131,11 +131,21 @@ init_w:
     call $797b                   ; InitOutsideMapSprites
     jr c,.out
     call $785f                   ; indoor part of InitMapSprites
-.out:
+.out:                            ; keep a/flags (carry = outdoor map) and every register as InitMapSprites left them
+    push af
+    push bc
+    push de
+    push hl
     ld hl,{L['ball_fix']:#x}
     ld b,$2f
-    jp $3618
+    call $3618
+    pop hl
+    pop de
+    pop bc
+    pop af
+    ret
 ''',W5)
+assert len(c5)<=0x30
 rom.put(fo(5,W5),c5,'Bank 5: v43 InitMapSprites wrapper (then ball_fix)')
 rom.code(fo(5,0x785b),'c3'+le(W5),'InitMapSprites -> init_w (ball graphics after every sprite load)','cd7b79')
 rom.finish('Creepy_Black_Mu_v43.gb','manifest_v43.json','CREEPY MU V43',extra=dict(labels={'bank2f':{k:hex(v) for k,v in L.items()},'bank5':{k:hex(v) for k,v in L5.items()}}))

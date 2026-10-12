@@ -1,6 +1,6 @@
 Creepy Black Mu v43 (on v42): the black ball on the map is the POKe BALL of the battle throw, blacked out.
 
-SHA-256: 3f2eeca01010f1f4cf0d604cc8f539aabfc7e30b5147235afabf310b157da00c
+SHA-256: ffc97a4d7a823e6f5e46936f4c323f027c7b6695de2108fb308cd62d038e0cee
 
 A BANEd NPC turns into the POKe BALL that the battle's throw animation shows (as it lies after landing), all black,
 with the seam between the halves (light grey) and the shine (dark grey) kept so it still reads as a ball.
@@ -17,7 +17,8 @@ Technical:
   0C, and the ball tiles are copied there (CopyVideoData while the font is loaded, else a direct copy, like the game's
   own loader).
 - InitMapSprites (5:785B, map load and every redraw after menus/text) -> 5:7FB0 init_w: the original code, then
-  ball_fix. bane_npc's call to add_bane (2F:50C3) -> bane_add: add_bane, then ball_fix (the ball shows at once).
+  ball_fix (all registers and the carry flag kept: MIRAGE code needs them; a first build lost them and the game
+  reset after a MIRAGE battle, caught by t40). bane_npc's call to add_bane (2F:50C3) -> bane_add: add_bane, then ball_fix (the ball shows at once).
 
 Tests: t51_v43.py look (Pallet: after the BANE and after coming back the ball's slot holds the ball tiles, no other
 sprite shares it, the spared NPC's graphics are unchanged), indoor (BLUE's house: same). Both fail on v42.
