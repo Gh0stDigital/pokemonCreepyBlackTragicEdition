@@ -21,3 +21,4 @@ call -> 1:ishm41 (BANE counts as an HM). LearnMove's result is read from BLACK's
 
 Tests: t49_v41.py (consume, full, refuse, normal); run_v41.sh = run_v40.sh + t49.
 Static: check_hooks.py 110 hooks, 0 problems (reviewed: 4:71C4 returns the handler in hl on purpose).
+Regression (run_v41.sh = run_v40.sh + t49): PASS=320 FAIL=0.
