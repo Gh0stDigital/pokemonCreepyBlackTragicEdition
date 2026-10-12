@@ -1,0 +1,61 @@
+{
+  "input": "Creepy_Black_Mu_v42.gb",
+  "input_sha256": "8c0fff599dd64158059f132e17ed6779e8f8ab00b5c9c62c0afa37d7a96621be",
+  "sha256": "3f2eeca01010f1f4cf0d604cc8f539aabfc7e30b5147235afabf310b157da00c",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2f": {
+      "ball_fix": "0x6000",
+      "ball_fix.p1": "0x6007",
+      "ball_fix.n1": "0x601d",
+      "ball_fix.p2": "0x602b",
+      "ball_fix.n2": "0x603a",
+      "ball_fix.d": "0x604f",
+      "ball_fix.vb": "0x6063",
+      "bane_add": "0x606d"
+    },
+    "bank5": {
+      "init_w": "0x7fb0",
+      "init_w.out": "0x7fb8"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xbd159",
+      "before": "0000000003030f0f1f1f1f1f3f3f3f2000000000c0c0f0f0f8f8f8f8fcfcfc043f3f3f3f1f1f1f1f0f0f030300000000fcfcfcfcf8f8f8f8f0f0c0c000000000",
+      "after": "000000000000000003030f0f1e1f1e1f0000000000000000c0c0f0f078f878f83f3f3f3f3f3f3f3f1f101f1f0f0f0303fcfcfcf4fcecfc1cf8f8f8f8f0f0c0c0",
+      "name": "Sprite 47 (black ball on the map) = the battle-throw POKe BALL, blacked out"
+    },
+    {
+      "offset": "0xbe000",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2110c1060f0e0c7ea72812fe47280ee5247df60e6f7ee1fe0c20020e0b7dc6106f0520e32110c1060f16007efe47200ae5247df60e6f71e116017dc6106f0520ea7aa7c821c08779fe0c2803218087fac4cfcb47200d545d2159510140003e2fc32418115951062f0e04c37518cdd750c30060",
+      "name": "Bank 2F: v43 ball_fix (black ball graphics in a four-tile sprite slot)"
+    },
+    {
+      "offset": "0xbd0c3",
+      "before": "cdd750",
+      "after": "cd6d60",
+      "name": "bane_npc: call add_bane -> bane_add (+ ball graphics)"
+    },
+    {
+      "offset": "0x17fb0",
+      "before": "00000000000000000000000000000000",
+      "after": "cd7b793803cd5f78210060062fc31836",
+      "name": "Bank 5: v43 InitMapSprites wrapper (then ball_fix)"
+    },
+    {
+      "offset": "0x1785b",
+      "before": "cd7b79",
+      "after": "c3b07f",
+      "name": "InitMapSprites -> init_w (ball graphics after every sprite load)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563432000000",
+      "after": "435245455059204d5520563433000000",
+      "name": "Branch identity"
+    }
+  ]
+}
