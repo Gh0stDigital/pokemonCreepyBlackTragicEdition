@@ -136,7 +136,7 @@ Never overwrite an earlier ROM; build a new version (v6, v7, …) and keep ROM l
 - Home far stubs since v38: the unused bytes after the RST vectors (0x01-0x07, 0x11-0x17, 0x19-0x1F, 0x21-0x27 used; 0x29 = v39 bane_move; 0x31,
   0x39 still free; 0x09 = shared `jp Bankswitch`): `21 lo hi 06 bank 18 xx` (7 bytes) per stub. No code executes RST 00-38.
 - **Banks 2F-3F are completely empty** (the game never used them): v39+ code lives in 2F.
-- AddPartyMon (0:395B) with wMonDataLocation (CC49) = \$10 adds to the player's party WITHOUT the nickname prompt (naming only when
+- AddPartyMon (0:395B) with wMonDataLocation (CC49) = $10 adds to the player's party WITHOUT the nickname prompt (naming only when
   CC49 == 0; party/enemy choice uses the low nibble). It reuses the name buffer CD6D: call GetMonName (0:2FCF) after it.
 - AddNTimes is 0:3ABB in this ROM (0:3A87 is vanilla Red's address = a different routine here: v38's first build crashed).
 - Home bank has no free bytes; v25 freed 43 (0:1667-0:1691) by making UncompressMonSprite's bank choice a 2D far call.
