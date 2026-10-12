@@ -122,7 +122,7 @@ elif MODE=='agatha':
     m[0xd16b+44*gi+33]=49;t=talk();print('Lv49:',t[-120:])
     ok('too weak' in t and m[0xd464]==3,'AGATHA: GHOST Lv49 is still too weak')
     m[0xd16b+44*gi+33]=50;t=talk();print('Lv50:',t[-160:])
-    ok('devotion' in t and m[0xd464]==4,'AGATHA: GHOST Lv50 is enough (HELIX FOSSIL back, consort stage)')
+    ok(('devotion' in t if VERSION<46 else 'truly love' in t) and m[0xd464]==4,'AGATHA: GHOST Lv50 is enough (HELIX FOSSIL back, consort stage)')
 elif MODE=='cap':
     def exp(i):b=0xd16b+44*i;return m[b+14]<<16|m[b+15]<<8|m[b+16]
     def battle(species,lv,ex):

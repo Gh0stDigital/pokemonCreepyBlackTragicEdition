@@ -108,7 +108,7 @@ elif MODE=='full':
     set_bag([(MB,1)]);ghost_level(40)
     t=agatha(answer='yes');print('3:',t[-200:]);assert 'handed' in t and MB not in bag() and m[0xd464]==3 and 'too weak' in t
     ghost_level(100)
-    t=agatha();print('4:',t[-200:]);assert 'devotion' in t and 'LAVENDER' in t and m[0xd464]==4 and bag().get(HELIX)==1
+    t=agatha();print('4:',t[-200:]);assert ('devotion' in t if VERSION<46 else 'truly love' in t) and 'LAVENDER' in t and m[0xd464]==4 and bag().get(HELIX)==1
     print('PASS AGATHA: relics, vessel, GHOST power, HELIX FOSSIL back for the consort')
     st=io.BytesIO();p.save_state(st)
     # MISTY: beaten (badge event + TM), gets the shell

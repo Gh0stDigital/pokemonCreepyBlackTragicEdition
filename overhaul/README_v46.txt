@@ -32,3 +32,7 @@ Technical:
 - Tests: t54_v46.py (start, ball, lv100, gates, agatha). t47's dark-pixel ball check kept for v39-v45; t49 refuse now
   expects "B = consumed without a move" from v46 on. run_v46.sh = run_v45.sh + t54.
 Static: check_hooks.py 120 hooks, 0 problems.
+Regression (run_v46.sh): PASS=391 FAIL=0 after updating two tests (v45 suite + 18 t54 checks).
+The first run failed t31 full and t45 agatha: they looked for "devotion", a word of the AGATHA line that change 1
+replaced; they now expect "truly love" from v46 on and pass (consort scene unchanged otherwise).
+t28_v14 koga_kill still stops on its old test-side "no path" assertion (also on v40-v45).
