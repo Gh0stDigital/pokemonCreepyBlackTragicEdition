@@ -24,3 +24,4 @@ Tests: t46_v38.py (join, owned, card, faint, exp, items, pc, daycare, poison; ea
 expects BLACK + CHARMANDER + PRETA + AZHI. run_v38.sh = run_v37.sh + t46. Static: check_hooks.py 107 hooks, 0 problems
 (one reviewed operand misread at 2D:44C9).
 Known (unchanged from before): in the Day Care menu the first party slot can't be picked (also on v37).
+Regression (run_v38.sh = run_v37.sh + t46): PASS=292 FAIL=0.
