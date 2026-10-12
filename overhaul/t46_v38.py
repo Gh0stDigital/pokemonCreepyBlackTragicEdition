@@ -85,11 +85,11 @@ def to_menu():
         press_('a',60)
     return False
 def yes():
-    """BLACK: the person panics and offers CURSE first -> NO (usual dialogue); then YES to the real question"""
+    """BLACK: the person panics and offers CURSE (v40+: BANE) first -> NO (usual dialogue); then YES to the real question"""
     cursed=False
     for k in range(30):
         t=' '.join(txt())
-        if 'YES' in t and 'CURSE' in allt() and not cursed:cursed=True;press_('down',20);press_('a',90);continue
+        if 'YES' in t and ('CURSE' in allt() or 'BANE them' in allt()) and not cursed:cursed=True;press_('down',20);press_('a',90);continue
         if 'YES' in t:press_('a',90);return True
         press_('a',60)
     return False
