@@ -89,7 +89,9 @@ elif MODE in ('silph','normal','chain'):
             ok(new and new!=rep and new in CAND and base(new)!=base(rep),'CURSing the replacement rolls a new one (%s)'%hex(new))
 elif MODE=='champion':                                    # hero-mode Champion: his MEWTWO line was CURSEd before
     rep=[c for c in CAND if base(c)==c and stage(c,70)!=c][-1];k=FAMS.index(0x83)
-    load('blue_hero');m[0xd64c]=1;m[TBL+k]=rep
+    load('blue_hero');m[0xd64c]=1
+    prior=tbl();print('replacements already in blue_hero (earlier CURSEs in the chain):',[hex(x) for x in prior])
+    m[TBL:TBL+len(FAMS)]=[0]*len(FAMS);m[TBL+k]=rep           # only the MEWTWO line replaced
     for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x78
     for d in ('up','down','left','right'):
         if m[0xd35e]==0x78:break

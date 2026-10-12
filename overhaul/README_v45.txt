@@ -33,3 +33,7 @@ kills: SILPH team unchanged), silph (PIDGEY line replaced: the slot holds the re
 stage, the rest unchanged), chain (CURSE the replacement: a new one is rolled), champion (hero Champion: MEWTWO's slot
 holds the Lv70 replacement). run_v45.sh = run_v44.sh + t53.
 Static: check_hooks.py 116 hooks, 0 problems.
+Regression (run_v45.sh): PASS=373 FAIL=0 after a test-side fix (v44 suite + 17 t53 checks; every test keeps its v44 count).
+The first run failed t53 champion: the chain's blue_hero state already carries real replacements from the Tower/SILPH CURSEs
+(4 lines replaced in his Champion team, i.e. the feature working through the story); the test now clears the table first.
+t28_v14 koga_kill still stops on its old test-side "no path" assertion (also on v40-v44).
