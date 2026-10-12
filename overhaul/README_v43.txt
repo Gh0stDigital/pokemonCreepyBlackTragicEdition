@@ -24,3 +24,5 @@ Tests: t51_v43.py look (Pallet: after the BANE and after coming back the ball's 
 sprite shares it, the spared NPC's graphics are unchanged), indoor (BLUE's house: same). Both fail on v42.
 run_v43.sh = run_v42.sh + t51.
 Static: check_hooks.py 112 hooks, 0 problems.
+Regression (run_v43.sh): PASS=319 FAIL=0 (v42 suite + 9 t51 checks; every test keeps at least its v42 count).
+t28_v14 koga_kill still stops on its old test-side "no path" assertion (also on v40-v42).
