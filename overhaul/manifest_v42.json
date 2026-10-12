@@ -1,0 +1,39 @@
+{
+  "input": "Creepy_Black_Mu_v41.gb",
+  "input_sha256": "4630edb47863963a8bd1595a0ec44c1b4af60927de8de31ba4e0bad85cdaa657",
+  "sha256": "8c0fff599dd64158059f132e17ed6779e8f8ab00b5c9c62c0afa37d7a96621be",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2d": {
+      "setball": "0x7eb0",
+      "still": "0x7eb5"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xb7eb0",
+      "before": "000000000000000000000000000000",
+      "after": "6b26c136477bf6066f26c236ffafc9",
+      "name": "Bank 2D: v42 waiting black ball stays put (C2x6 = FF)"
+    },
+    {
+      "offset": "0xb7e4a",
+      "before": "6b26c13647afc9",
+      "after": "c3b07e00000000",
+      "name": "load40: waiting ball -> setball (picture + STAY)"
+    },
+    {
+      "offset": "0xb7e5c",
+      "before": "3818",
+      "after": "3857",
+      "name": "frame40: waiting ball -> still (STAY, then draw)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563431000000",
+      "after": "435245455059204d5520563432000000",
+      "name": "Branch identity"
+    }
+  ]
+}
