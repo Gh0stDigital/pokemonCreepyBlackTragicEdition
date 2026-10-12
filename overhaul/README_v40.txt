@@ -21,3 +21,4 @@ trampoline at 0x31 (ldh [hLoadedROMBank],a / ld [$2000],a / jp hl: same stack). 
 
 Tests: t48_v40.py (bane, persist, overflow, trainer); t36 panic hands over to t48 on v40+. run_v40.sh = run_v39.sh + t48.
 Static: check_hooks.py 109 hooks, 0 problems.
+Regression (run_v40.sh = run_v39.sh + t48): PASS=304 FAIL=1 - the one failure was a test bug (t46 daycare answered YES to the new "BANE them?" question); fixed in t46, the mode passes on v40 and v41.
