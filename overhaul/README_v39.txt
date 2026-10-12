@@ -22,3 +22,4 @@ without the naming screen. The black POKe BALL: qa_ref/v39_black_ball.png (7x7 t
 
 Tests: t47_v39.py (wild, wildbox, immune, trainer, migrate); run_v39.sh = run_v38.sh + t47.
 Static: check_hooks.py 109 hooks, 0 problems.
+Regression (run_v39.sh = run_v38.sh + t47): PASS=307 FAIL=0.

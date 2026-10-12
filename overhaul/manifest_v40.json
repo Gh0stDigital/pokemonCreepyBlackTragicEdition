@@ -1,0 +1,104 @@
+{
+  "input": "Creepy_Black_Mu_v39.gb",
+  "input_sha256": "1b3046fe67929504a5c561d8ecbc477754873dd6e5d5b0b4aebfc3cd833b6217",
+  "sha256": "9b79453a00034a6c7c1676c63bc7acddb7367018b0f0dc680085a132e9b4233d",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2f": {
+      "npc_talk3": "0x5000",
+      "npc_talk3.old": "0x502e",
+      "find_pending": "0x5036",
+      "find_pending.l": "0x503b",
+      "find_pending.n": "0x5055",
+      "pickup": "0x505d",
+      "collect": "0x5068",
+      "collect.b": "0x5078",
+      "collect.nb": "0x5081",
+      "collect.give": "0x509d",
+      "bane_npc": "0x50a0",
+      "add_bane": "0x50d7",
+      "add_bane.f": "0x50dc",
+      "add_bane.put": "0x50f4",
+      "add_pending": "0x5100",
+      "add_pending.put0": "0x5126",
+      "add_pending.put1": "0x512b",
+      "add_pending.w": "0x512e",
+      "t_ground": "0x513b",
+      "sheet": "0x5159"
+    },
+    "bank2d": {
+      "load40": "0x7e40",
+      "frame40": "0x7e51",
+      "frame40.l": "0x7e6b",
+      "frame40.nx": "0x7e73",
+      "frame40.draw": "0x7e76",
+      "frame40.hide": "0x7e78",
+      "pend2d": "0x7e7b",
+      "pend2d.l": "0x7e80",
+      "pend2d.n": "0x7e96"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xbd000",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a72828f08ca7282347fae1d4b8381c48cd36503016e5218f700601cd1836e1cd5d50f8043e0c223e2a77c93e2d21195fc331002122d70602fa5ed3be2014237e2bb9200ee523237ee1a72806febf300237c92323230520e0a7c923237e36002b36002b3600ea91cfea1ed1ead8cffa56d306080e050f3006f579c6054ff10520f479ea27d1fa63d1fe06380e21e76b060fcd1836fa91cfea1ed1c3b040cdaf41ea57d4218c41062ecd1836fa57d4cdff130e1ecd7337fa13cfcb376f26c13647cdd750cd005121a841062ecd1836213b51c3943c2171d40e0a237ea72813230d20f72173d41171d4011200cdb5002184d4fa13cff680772bfa5ed377c92124d77ea7281f2127d77ea7281dfa24d7cd68502125d71122d7010300cdb500afea27d718da2122d718032125d7fa5ed322fa13cf22fa57d477c9008eadabb87fa07fa1aba0a2aa4fa1a0abab7fb1a4aca0a8adb2e8e8e8580000000003030f0f1f1f1f1f3f3f3f2000000000c0c0f0f0f8f8f8f8fcfcfc043f3f3f3f1f1f1f1f0f0f030300000000fcfcfcfcf8f8f8f8f0f0c0c000000000",
+      "name": "Bank 2F: v40 BANE on the map (question YES, black ball, pickup)"
+    },
+    {
+      "offset": "0x17c55",
+      "before": "40534004",
+      "after": "5951402f",
+      "name": "Sprite 47 (unused) = black POKe BALL (bank 2F)"
+    },
+    {
+      "offset": "0xb7e40",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "7bcb374fcd7b7ed200646b26c13647afc9cd0064c07bcb374fcd7b7e381879f6804ffa5ed3472171d4160a2ab82a2003b928051520f5afc9f601c92122d70602fa5ed3be2010237e2bb9200ae523237ee1a7280237c92323230520e4a7c9",
+      "name": "Bank 2D: v40 map-load / per-frame checks (BANEd NPCs hidden, waiting balls drawn)"
+    },
+    {
+      "offset": "0x1689",
+      "before": "0064",
+      "after": "407e",
+      "name": "Map-load kill stub -> load40 (waiting balls), then kill_chk2"
+    },
+    {
+      "offset": "0xb6216",
+      "before": "0064",
+      "after": "517e",
+      "name": "killed13: kill_chk2 -> frame40 (BANEd NPCs hidden)"
+    },
+    {
+      "offset": "0x31",
+      "before": "000000000000",
+      "after": "e0b8ea0020e9",
+      "name": "Home 0x31: bank-switch trampoline (ldh [hLoadedROMBank],a / ld [$2000],a / jp hl)"
+    },
+    {
+      "offset": "0x2950",
+      "before": "062d21195f",
+      "after": "062f210050",
+      "name": "DisplayTextID init -> npc_talk3 (2F: black ball pickup, then npc_talk2)"
+    },
+    {
+      "offset": "0xb5c00",
+      "before": "0093a7a4b87fa0b1a47fb2a7a0aaa8ada6e84f82949192847fb3a7a4ace657",
+      "after": "0093a7a4b87fa0b1a47fb2a7a0aaa8ada6e84f81808d847fb3a7a4ace65700",
+      "name": "v28 question: \"BANE them?\""
+    },
+    {
+      "offset": "0xb4882",
+      "before": "3e0ecdff13218c41062e",
+      "after": "21a050062fcd18361823",
+      "name": "v28 YES: BANE (black screen, cry of a random uncaught POKeMON, black ball) instead of the gravestone"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563339000000",
+      "after": "435245455059204d5520563430000000",
+      "name": "Branch identity"
+    }
+  ]
+}

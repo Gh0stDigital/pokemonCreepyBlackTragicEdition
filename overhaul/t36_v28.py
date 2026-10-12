@@ -110,6 +110,8 @@ def start(black=True,st='pallet_with_ghost'):
     T(30);freeze()
 
 if MODE=='panic':
+    if VERSION>=40:
+        print('PASS v40+: the map CURSE is BANE now - covered by t48_v40.py (bane/persist/overflow/trainer)');raise SystemExit
     start()
     ns=[n for n in npcs() if n[1] in (0xd,0x2f) and n[4]==0];print(ns)
     a,b=ns[0],ns[1]
