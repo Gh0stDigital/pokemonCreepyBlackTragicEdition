@@ -175,7 +175,9 @@ if MODE=='exempt':
     # POKeMON CENTER in Lavender: the nurse
     warp(0x8d,0);freeze()
     nurse=[x for x in npcs() if x[1]==0x29][0]
-    t=talk(nurse[0],answers=['no','no','no']);ok('CURSE' not in t and 'POK' in t,'the nurse is served as usual: %s'%t[:50])
+    t=talk(nurse[0],answers=['no','no','no'])
+    if VERSION>=49:ok('CURSE' not in t and 'scared to' in t,'the nurse does not panic (v49: too scared to serve BLACK): %s'%t[:50])
+    else:ok('CURSE' not in t and 'POK' in t,'the nurse is served as usual: %s'%t[:50])
     # shop clerk (Viridian MART, outside Lavender): not touched
     warp(0x2a,0);freeze()
     clerk=[x for x in npcs() if x[1]==0x26][0]

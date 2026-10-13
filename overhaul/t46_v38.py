@@ -240,6 +240,29 @@ elif MODE=='daycare':
         yes();to_menu();press_('down',20);press_('a',120)
         for k in range(8):press_('a',60)
         return allt()
+    if VERSION>=49:                                       # v49: the Day Care / Name Rater don't serve BLACK at all
+        warp(0x48,0,black2);bfs_to(4,2);p.button('up',8);T(30);seen.clear();press_('a',90)
+        for k in range(10):
+            if 'YES' in ' '.join(txt()):press_('down',20)
+            press_('a',60)
+        t=allt();print('DAYCARE as BLACK:',t[-150:]);ok('too much to help' in t and party()==[CHAR,BLK],'Day Care: too scared to serve BLACK (v49), party unchanged')
+        warp(0xe5,0,black2);bfs_to(4,5);p.button('up',8);T(30);seen.clear();press_('a',90)
+        for k in range(10):
+            if 'YES' in ' '.join(txt()):press_('down',20)
+            press_('a',60)
+        t=allt();print('RATER as BLACK:',t[-150:]);ok('too much to help' in t and 'like me to give' not in t,'Name Rater: too scared to serve BLACK (v49)')
+        def normal():lead(CHAR)
+        warp(0x48,0,normal);bfs_to(4,2);p.button('up',8);T(30);seen.clear();press_('a',90)
+        yes();to_menu();press_('a',120)
+        for k in range(8):press_('a',60)
+        t=allt();print('DAYCARE normal:',t[-150:]);ok(CHAR not in party() or 'raise' in t.lower(),'not BLACK: the Day Care takes CHARMANDER as before')
+        warp(0xe5,0,normal);bfs_to(4,5);p.button('up',8);T(30);seen.clear();press_('a',90)
+        yes();to_menu();press_('a',120)
+        for k in range(8):
+            if 'YES' in ' '.join(txt()):break
+            press_('a',60)
+        t=allt();print('RATER normal:',t[-150:]);ok('like me to give' in t or 'decent' in t,'not BLACK: the Name Rater offers CHARMANDER a new name as before')
+        raise SystemExit
     t=daycare(1);print('DAYCARE BLACK:',t[-150:]);ok('your side' in t and BLK in party(),'Day Care: BLACK won\'t be left there')
     t=daycare(0) if False else daycare_char();print('DAYCARE CHARMANDER:',t[-200:]);ok(CHAR not in party() or 'raise' in t.lower(),'Day Care: CHARMANDER is accepted as before (normal case)')
     def rater(slot):

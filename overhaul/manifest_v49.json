@@ -1,0 +1,272 @@
+{
+  "input": "Creepy_Black_Mu_v48.gb",
+  "input_sha256": "de46558fa472bda5e2dacf6376b227cb476af9b799cd64643ad4e9c42d0d53a0",
+  "sha256": "aa20ca46756462e41f7d424ffdb6b3f26f34a5dded5257fd2a8d56e8887f6837",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Enemy turn: too scared of GHOST and of BLACK (not MOON STONE / MIRAGE / PRETA / AZHI)",
+      "hits are home bytes \"ld [$c4f2],a / call $1b67\" (0:1ACC ...) misread as call nz,$67cd; nothing jumps into F:67C8-67D7"
+    ]
+  ],
+  "labels": {
+    "bank2f": {
+      "scared49": "0x7900",
+      "scared49.yes": "0x7921",
+      "scared49.no": "0x7929",
+      "t_scared": "0x792c",
+      "imm49": "0x7931",
+      "imm49.p": "0x793c",
+      "imm49.t": "0x794b",
+      "imm49.s": "0x795c",
+      "imm49.q": "0x7966",
+      "imm49.skip": "0x7974",
+      "imm_black": "0x797c",
+      "imm_pa": "0x798a",
+      "primary": "0x7994",
+      "t_noaff": "0x7999",
+      "hi49": "0x799e",
+      "trade49": "0x79ab",
+      "trade49.no": "0x79b9",
+      "svc": "0x79bf",
+      "sv0": "0x79ca",
+      "sv1": "0x79d3",
+      "sv2": "0x79dc",
+      "sv3": "0x79e5",
+      "sv4": "0x79ee",
+      "sv5": "0x79f7",
+      "t_nurse": "0x7a00",
+      "t_shop": "0x7a38",
+      "t_other": "0x7a6a",
+      "t_hi": "0x7a94"
+    },
+    "bank1": {
+      "nurse49": "0x7e40",
+      "mart49": "0x7e4f",
+      "tf_nurse": "0x7e59"
+    },
+    "bank4": {
+      "tow49": "0x7b80",
+      "tow49.no": "0x7b96"
+    },
+    "bank14": {
+      "prize49": "0x7f60",
+      "prize49.no": "0x7f6b",
+      "tf_shop": "0x7f73"
+    }
+  },
+  "services": [
+    {
+      "map": "0x48",
+      "t": "0x1",
+      "name": "DAY CARE",
+      "bank": "0x15",
+      "entry": "0x6252",
+      "text": "0x6254",
+      "stub": "0x6afe"
+    },
+    {
+      "map": "0xe5",
+      "t": "0x1",
+      "name": "NAME RATER",
+      "bank": "0x7",
+      "entry": "0x5a64",
+      "text": "0x5a66",
+      "stub": "0x7f61"
+    },
+    {
+      "map": "0xaa",
+      "t": "0x1",
+      "name": "fossil revival",
+      "bank": "0x1d",
+      "entry": "0x5d34",
+      "text": "0x5d6c",
+      "stub": "0x7e2b"
+    },
+    {
+      "map": "0x44",
+      "t": "0x4",
+      "name": "MAGIKARP salesman",
+      "bank": "0x12",
+      "entry": "0x52db",
+      "text": "0x52ec",
+      "stub": "0x7b1c"
+    },
+    {
+      "map": "0x87",
+      "t": "0x2",
+      "name": "GAME CORNER coins",
+      "bank": "0x12",
+      "entry": "0x4c8c",
+      "text": "0x4ca9",
+      "stub": "0x7b21"
+    },
+    {
+      "map": "0x42",
+      "t": "0x1",
+      "name": "BIKE SHOP",
+      "bank": "0x7",
+      "entry": "0x574f",
+      "text": "0x5755",
+      "stub": "0x7f66"
+    }
+  ],
+  "changes": [
+    {
+      "offset": "0x8",
+      "before": "ff",
+      "after": "00",
+      "name": "Home 0x08: rst 08 = jp Bankswitch (far call: ld hl,addr / ld b,bank / rst 08)"
+    },
+    {
+      "offset": "0xbf900",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa14d0fe1f281afe7f201ecd52642819fa5dd4a72013fae5cffeb6280cfeb72808212c79cd943cafc9f601c917e3582250f0f3a7fad3cf2803facdcfea5ad44ff0f3a7fae5cf2803fa14d0217c79fe7f280a218a79feb62803feb7c02afeffc8b920f92194792afeff2809b920f8219979cd943cf8043ef2223672c90204050620212223243142434cff02062021243142434cff20314243ff17d05a225008fa6cd4a721947ac821387ac9fa6cd4a7200821d75a061cc31836216a7ac3943cfa6cd4a7ca1836216a7ac9082155620615c3bf790821675a0607c3bf7908216d5d061dc3bf790821ed520612c3bf790821aa4c0612c3bf79082156570607c3bf790093a7a47fadb4b1b2a47fa8b24fb2a7a0aaa8ada6e8e8e85192a7a47fa8b27fb3aeae7fb2a2a0b1a4a34fb3ae7fa7a4abaf7fb8aeb4e8580093a7a47fa2aba4b1aa7fa8b24fb2a7a0aaa8ada6e8e8e85193aeae7fb2a2a0b1a4a37fb3ae4fb2a4b1b5a47fb8aeb4e8580093a7a4b87fa0b1a47fb2a7a0aaa8ada64fb3aeae7facb4a2a77fb3ae7fa7a4abaf55b8aeb4e8e8e858179c652850",
+      "name": "Bank 2F: v49 scared POKeMON, status immunity, services refused"
+    },
+    {
+      "offset": "0x3e7c8",
+      "before": "fa14d0fe1f2009210659cd943cc37269",
+      "after": "210079062fcfca726900000000000000",
+      "name": "Enemy turn: too scared of GHOST and of BLACK (not MOON STONE / MIRAGE / PRETA / AZHI)"
+    },
+    {
+      "offset": "0x3f227",
+      "before": "f0f3a7fad3cf2803facdcf",
+      "after": "213179062fcffa5ad40000",
+      "name": "_JumpMoveEffect: status immunity of BLACK / PRETA / AZHI"
+    },
+    {
+      "offset": "0x13b80",
+      "before": "0000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a72810fa5ed3fe8e3809fe953005f13e01a7c9fa57ccc9",
+      "name": "Bank 4: v49 no Tower encounters as BLACK"
+    },
+    {
+      "offset": "0x138bc",
+      "before": "fa57cc",
+      "after": "cd807b",
+      "name": "TryDoWildEncounter: no encounters in POKeMON TOWER as BLACK"
+    },
+    {
+      "offset": "0x7e40",
+      "before": "000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a7ca533721597ecd943cf1c9fa6cd4a7fa36ccc8f1c917007a2f50",
+      "name": "Bank 1: v49 nurse / mart refuse BLACK"
+    },
+    {
+      "offset": "0x6fdf",
+      "before": "cd5337",
+      "after": "cd407e",
+      "name": "POKeMON Center nurse: BLACK refused"
+    },
+    {
+      "offset": "0x6c19",
+      "before": "fa36cc",
+      "after": "cd4f7e",
+      "name": "POKe MART: BLACK refused"
+    },
+    {
+      "offset": "0x2a83",
+      "before": "9c6528",
+      "after": "9e792f",
+      "name": "Mart greeting TX_FAR -> hi49 (BLACK: scared clerk)"
+    },
+    {
+      "offset": "0x53f60",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a720050645c3d53421737fcd943cf1c917387a2f50",
+      "name": "Bank 14: v49 prize vendor refuses BLACK"
+    },
+    {
+      "offset": "0x5271b",
+      "before": "0645cdd534",
+      "after": "cd607f0000",
+      "name": "GAME CORNER prize vendor: BLACK refused"
+    },
+    {
+      "offset": "0x4ff78",
+      "before": "1cd75a",
+      "after": "2fab79",
+      "name": "Predef 55 (in-game trade) -> trade49 (BLACK refused)"
+    },
+    {
+      "offset": "0x56afe",
+      "before": "0000000000",
+      "after": "17ca792f50",
+      "name": "Bank 15: v49 TX_FAR -> DAY CARE check"
+    },
+    {
+      "offset": "0x56252",
+      "before": "5462",
+      "after": "fe6a",
+      "name": "DAY CARE text -> BLACK check first"
+    },
+    {
+      "offset": "0x1ff61",
+      "before": "0000000000",
+      "after": "17d3792f50",
+      "name": "Bank 7: v49 TX_FAR -> NAME RATER check"
+    },
+    {
+      "offset": "0x1da64",
+      "before": "665a",
+      "after": "617f",
+      "name": "NAME RATER text -> BLACK check first"
+    },
+    {
+      "offset": "0x77e2b",
+      "before": "0000000000",
+      "after": "17dc792f50",
+      "name": "Bank 1D: v49 TX_FAR -> fossil revival check"
+    },
+    {
+      "offset": "0x75d34",
+      "before": "6c5d",
+      "after": "2b7e",
+      "name": "fossil revival text -> BLACK check first"
+    },
+    {
+      "offset": "0x4bb1c",
+      "before": "0000000000",
+      "after": "17e5792f50",
+      "name": "Bank 12: v49 TX_FAR -> MAGIKARP salesman check"
+    },
+    {
+      "offset": "0x492db",
+      "before": "ec52",
+      "after": "1c7b",
+      "name": "MAGIKARP salesman text -> BLACK check first"
+    },
+    {
+      "offset": "0x4bb21",
+      "before": "0000000000",
+      "after": "17ee792f50",
+      "name": "Bank 12: v49 TX_FAR -> GAME CORNER coins check"
+    },
+    {
+      "offset": "0x48c8c",
+      "before": "a94c",
+      "after": "217b",
+      "name": "GAME CORNER coins text -> BLACK check first"
+    },
+    {
+      "offset": "0x1ff66",
+      "before": "0000000000",
+      "after": "17f7792f50",
+      "name": "Bank 7: v49 TX_FAR -> BIKE SHOP check"
+    },
+    {
+      "offset": "0x1d74f",
+      "before": "5557",
+      "after": "667f",
+      "name": "BIKE SHOP text -> BLACK check first"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563438000000",
+      "after": "435245455059204d5520563439000000",
+      "name": "Branch identity"
+    }
+  ]
+}
