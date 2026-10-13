@@ -59,9 +59,10 @@ if MODE in ('bf','fireblast','dragonrage'):
     force={'bf':0xa8,'fireblast':0x7e,'dragonrage':0x52}[MODE];m[0xcfed]=m[0xcfee]=m[0xcfef]=m[0xcff0]=force
     seen=[];h0=[hp(i) for i in range(m[0xd163])];ehp=m[0xcfe6]<<8|m[0xcfe7]
     nm={'bf':'BLACK FLAME','fireblast':'FIRE BLAST','dragonrage':'DRAGON RAGE'}[MODE]
-    for t in range(4):                                          # PRETA: MACABRE until AZHI's move lands
+    for t in range(8):                                          # PRETA: MACABRE until AZHI's move lands
         hb=[hp(i) for i in range(m[0xd163])];run_turn(0,seen)
-        if any('used '+nm in x for x in seen) and not any('missed' in x for x in seen[-6:]):break
+        if MODE=='bf' and any('used '+nm in x for x in seen) and not any('missed' in x for x in seen[-6:]):break
+        if MODE!='bf' and hp(0)<hb[0]:break                     # (v50: the RNG order changed with the Lv25 PRETA; wait for a hit)
     for s in seen:
         if s.endswith('!') or s.endswith('▼'):print('  TEXT:',s)
     h1=[hp(i) for i in range(m[0xd163])];print('party',list(m[0xd164:0xd16b]),'HP',h0,'->',h1,'enemy HP',ehp,'->',m[0xcfe6]<<8|m[0xcfe7])

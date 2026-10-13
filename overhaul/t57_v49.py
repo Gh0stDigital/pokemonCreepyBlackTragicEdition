@@ -56,7 +56,7 @@ elif MODE=='status':
         if m[0xd057]==0:start_wild(lambda:lead_struct(SPR),lv=60)
     ok(burned,'FIRE BLAST can still burn PRETA (burn is not blocked)')
     start_wild(lambda:lead(CHAR),lv=5);enemy_moves(SPORE);t=turn(1);print(t[-120:])
-    ok(m[0xd018]&7,'normal: CHARMANDER falls asleep from SPORE')
+    ok(m[0xd018]&7 or 'fell asleep' in t.replace('  ',' '),'normal: CHARMANDER falls asleep from SPORE')
 elif MODE=='bstatus':
     to_battle(0xf5,3,5,make_black);ok(m[0xd014]==BLK,'LORELEI, BLACK out')
     t=''

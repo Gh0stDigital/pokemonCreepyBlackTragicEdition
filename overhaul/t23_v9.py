@@ -90,7 +90,7 @@ elif MODE=='candy':
     res={}
     for slot,name in ((0,'PRETA'),(1,'GHOST'),(2,'CHARMANDER')):
         res[name]=use_candy(slot);print(name,'level',res[name][0],'->',res[name][1],[s for s in res[name][2] if 'effect' in s or 'grew' in s][:2])
-    assert res['PRETA'][0]==res['PRETA'][1]==50 and res['GHOST'][0]==res['GHOST'][1] and res['CHARMANDER'][1]>res['CHARMANDER'][0]
+    assert res['PRETA'][0]==res['PRETA'][1]==(25 if VERSION>=50 else 50) and res['GHOST'][0]==res['GHOST'][1] and res['CHARMANDER'][1]>res['CHARMANDER'][0]
     assert any('effect' in s for s in res['PRETA'][2]+res['GHOST'][2])
     print('PASS Rare Candy refused for PRETA and GHOST, works on CHARMANDER')
 elif MODE=='center':

@@ -65,7 +65,7 @@ print('TEXT defy:',lines);print('sounds',[hex(x) for x in snd],'black frames',bl
 i=m[0xd163]-1;s=0xd16b+44*i
 st=list(m[s:s+44]);nick=''.join(cm.get(v,'?') for v in m[0xd2b5+11*i:0xd2b5+11*i+5]);ot=list(m[0xd273+11*i:0xd273+11*i+7])
 print('party',list(m[0xd164:0xd16b]),'count',before,'->',m[0xd163],'nick',nick,'struct',st,'OT',ot,'player',list(m[0xd158:0xd15f]),'bag',bag())
-assert m[0xd164+i]==0xb6 and nick=='PRETA' and st[33]==50 and st[8:12]==[0xa9,0x0f,0x39,0x46] and st[27:29]==[255,255] and (0x29,1) not in bag()
+assert m[0xd164+i]==0xb6 and nick=='PRETA' and st[33]==(25 if VERSION>=50 else 50) and st[8:12]==[0xa9,0x0f,0x39,0x46] and st[27:29]==[255,255] and (0x29,1) not in bag()
 assert 0xe8 in snd and black>0 and st[12:14]==list(m[0xd359:0xd35b]) and ot==list(m[0xd158:0xd15f]);print('PASS Preta awakened')
 t=talk();print('TEXT hint:',t);assert any('valuable' in x for x in t);print('PASS hint')
 save('v6_with_preta')

@@ -47,4 +47,4 @@ if MODE=='turns':
     print('PASS PRETA revived after %d turns'%turns)
 else:
     assert fainted_turn and revived_turn is None
-assert preta_hp()==135 and m[0xd164]==0xb6 and m[0xd461]==0;print('PASS PRETA at full HP after the battle')
+assert preta_hp()==(m[0xd18d]<<8|m[0xd18e]) and m[0xd164]==0xb6 and m[0xd461]==0;print('PASS PRETA at full HP after the battle')
