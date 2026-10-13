@@ -89,7 +89,7 @@ def yes():
     cursed=False
     for k in range(30):
         t=' '.join(txt())
-        if 'YES' in t and ('CURSE' in allt() or 'BANE them' in allt()) and not cursed:cursed=True;press_('down',20);press_('a',90);continue
+        if 'YES' in t and ('CURSE' in allt() or 'BANE them' in allt() or 'METAMORPHOSIS?' in allt()) and not cursed:cursed=True;press_('down',20);press_('a',90);continue
         if 'YES' in t:press_('a',90);return True
         press_('a',60)
     return False

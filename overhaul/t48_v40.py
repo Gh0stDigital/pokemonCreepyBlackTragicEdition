@@ -21,7 +21,7 @@ if MODE=='bane':
     start()
     ns=[n for n in npcs() if n[1] in (0xd,0x2f) and n[4]==0];a,b=ns[0],ns[1];p0=party()
     t=talk(a[0],answers=['no'])
-    ok('BANE them?' in t and 'CURSE' not in t,'the panicking NPC is asked "BANE them?"')
+    ok(('METAMORPHOSIS?' if VERSION>=47 else 'BANE them?') in t and 'CURSE' not in t,'the panicking NPC is asked "BANE them?"')
     ok(killed()==[] and pic(a[0])!=0x47,'NO: nothing happens to them (the usual dialogue)')
     t=bane(b[0]);shot('v40_ball');print(t[-120:])
     pd=pending();print('pending',pd,'kill list',killed(),'pic',hex(pic(b[0])),'drawn',drawn(b[0]))
@@ -66,4 +66,4 @@ elif MODE=='trainer':
     for i in range(15):
         if m[0xd057]:break
         press_('a',120)
-    ok(m[0xd057]==2 and 'BANE them' not in allt(),'talking to a trainer as BLACK starts its battle (no BANE question)')
+    ok(m[0xd057]==2 and 'BANE them' not in allt() and 'METAMORPHOSIS?' not in allt(),'talking to a trainer as BLACK starts its battle (no BANE question)')

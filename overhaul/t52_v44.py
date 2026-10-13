@@ -57,7 +57,7 @@ def use_move(slot,frames=400,in_moves=False):
 def read_until_menu(n=12):
     for i in range(n):
         t=clean(' '.join(txt()))
-        if ('FIGHT' in t and 'RUN' in t) or 'BANE' in t and '▶' in ''.join(txt()):return
+        if ('FIGHT' in t and 'RUN' in t) or ('BANE' in t or 'METAMORPH' in t) and '▶' in ''.join(txt()):return
         press_('a',70)
 if MODE=='block':
     for mapid,cls,name in ((0xf5,0x2c,'LORELEI'),(0xf6,0x21,'BRUNO'),(0x71,0x2f,'LANCE')):
@@ -68,7 +68,7 @@ if MODE=='block':
         lo=use_move(0,300);read_until_menu();t=allt()
         print(name,'flash min BGP',hex(lo),'|',t[-260:])
         ok(lo==0,'%s: a light flashes (BGP white)'%name)
-        ok('strange power' in t and 'BANE!' in t,'%s: "A strange power blocks the move BANE!"'%name)
+        ok('strange power' in t and ('METAMORPHOSIS!' if VERSION>=47 else 'BANE!') in t,'%s: "A strange power blocks the move BANE!"'%name)
         ok('MOON STONE' in t and name in t,'%s comments on the MOON STONE'%name)
         ok(m[0xd057]==2 and ehp()==e0 and php()==p0 and m[0xd05a]!=3,'no turn passed (HP unchanged), still fighting')
         if mapid==0xf5:

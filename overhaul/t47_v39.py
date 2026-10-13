@@ -52,7 +52,7 @@ def owned(dex):return bool(m[0xd2f7+(dex-1)//8]&(1<<((dex-1)&7)))
 if MODE=='wild':
     best=wild(0xa5);pt=party();t=allt()
     print('party',[hex(x) for x in pt],'nicks',[nick(i) for i in range(len(pt))],'ball pixels',best,'in battle',m[0xd057])
-    ok('BLACK used BANE' in t and 'joined your party' in t,'"BLACK used BANE!" / "RATTATA joined your party."')
+    ok(('BLACK used BANE' in t or (VERSION>=47 and 'METAMORPHOSIS' in t)) and 'joined your party' in t,'"BLACK used BANE!" / "RATTATA joined your party."')
     ok(best>40,'the black POKe BALL stands in the enemy picture (%d dark pixels)'%best)
     ok(pt==[BLK,CHAR,0xa5] and nick(2)=='RATTATA' and m[0xd057]==0,'RATTATA joined (nickname RATTATA) and the battle is over')
     b=0xd16b+44*2;ok(m[b+33]==5 and (m[b+12],m[b+13])==(m[0xd359],m[0xd35a]),'it is Lv5 with the player\'s OT')

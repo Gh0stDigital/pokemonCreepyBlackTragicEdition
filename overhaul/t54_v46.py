@@ -91,7 +91,7 @@ elif MODE=='gates':
     press_(face,20);seen.clear();press_('a',90)
     for k in range(20):
         t=' '.join(txt())
-        if 'YES' in t and 'BANE' in allt():press_('down',20);press_('a',90);continue
+        if 'YES' in t and ('BANE' in allt() or 'METAMORPHOSIS?' in allt()):press_('down',20);press_('a',90);continue
         press_('a',60)
     t=allt();print('guard talk:',t[-200:])
     ok('scared' in t or 'shaking' in t,'a Route 23 guard as BLACK: too scared ("G-go ahead...")')

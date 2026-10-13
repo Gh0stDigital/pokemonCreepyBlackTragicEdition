@@ -6,6 +6,9 @@
 #  normal  - CHARMANDER's submenu has no CONSUME; PRETA's field moves (CUT/SURF/STRENGTH) are listed as before
 import sys,json,re
 MY=sys.argv[1]
+import os as _os,re as _re
+if int(_re.search(r'_v(\d+)',_os.environ.get('CB_ROM','')).group(1))>=47:
+    print('SKIP CONSUME was replaced by the party-menu CURSE in v47 (t55_v47.py curse)');sys.exit(0)
 sys.argv=['x','none'];exec(open('t46_v38.py').read().split("if MODE in ('join','owned'):")[0]);MODE=MY
 B=0xd16b
 def stats(i):b=B+44*i;return [m[b+34+2*j]<<8|m[b+35+2*j] for j in range(5)]

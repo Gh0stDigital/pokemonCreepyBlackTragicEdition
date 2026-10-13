@@ -1,0 +1,179 @@
+{
+  "input": "Creepy_Black_Mu_v46.gb",
+  "input_sha256": "ad8f26d1a867508a7ec7d08066fbb8b6371bea253d3e43de1fe684558995d6f2",
+  "sha256": "2aa24b869b140f5f4071365ac8308266ebd84d368c8bcb6cd351a7356297e1d3",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2f": {
+      "meta_ball": "0x7600",
+      "mark_party": "0x761d",
+      "mark_box": "0x7632",
+      "blacken": "0x763d",
+      "blacken.l": "0x764c",
+      "back47": "0x7657",
+      "back47.copy": "0x7686",
+      "front47": "0x7693",
+      "mig47": "0x76a3",
+      "mig47.f": "0x76a9",
+      "mig47.got": "0x76bb",
+      "mig47.m": "0x76c4",
+      "mig47.p": "0x76d0",
+      "bmoves": "0x76d7",
+      "t_used": "0x76df",
+      "t_full": "0x76fa",
+      "t_ask": "0x7716"
+    },
+    "bank4": {
+      "st47": "0x7b60"
+    },
+    "bank1c": {
+      "icon47": "0x7cc0",
+      "icon47.l": "0x7cdd"
+    },
+    "bank2d": {
+      "step47": "0x7f60"
+    }
+  },
+  "mark": 1,
+  "changes": [
+    {
+      "offset": "0xb0636",
+      "before": "81808d8450000000000000000000",
+      "after": "8c8493808c8e918f878e92889250",
+      "name": "Move name AA: BANE -> METAMORPHOSIS"
+    },
+    {
+      "offset": "0xbf600",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "f5f0f3f5afe0f33e55ea7cd00e03cd73373e08cdc13ef1e0f3f1c38740fa63d13d2172d1012c00cdbb3a3601210b42c3943c3e01ea9dda212342c3943c3e0aea0000afea00402188a10188012ab63222230b78b120f6c9fa2fcc4f06002164d109fad9cfbe201f792172d1012c00cdbb3a7efe012010cd3d761188a12110930e31062fcd75182100801110930e31062fc37518cd3d761188a12100900e31062fc375182164d1116bd12afeffc8fe7f280ae5212c0019545de118ee2108001911d77606041a22130520fa0111000906041a22130520fac9aaa500000a01000000818b80828a7fb4b2a4a34f8c8493808c8e918f878e928892e7580093a7a47f8f827fa8b27fa5b4ababe84f88b37fa5a0a8aba4a3e7580093a7a4b87fa0b1a47fb2a7a0aaa8ada6e84f8c8493808c8e918f878e928892e657",
+      "name": "Bank 2F: v47 METAMORPHOSIS (animation, mark, black pictures), BLACK moves"
+    },
+    {
+      "offset": "0xbc0de",
+      "before": "210b42",
+      "after": "c31d76",
+      "name": "give (party): mark the new member first"
+    },
+    {
+      "offset": "0xbc0f8",
+      "before": "212342",
+      "after": "c33276",
+      "name": "give (box): mark the new box POKeMON first"
+    },
+    {
+      "offset": "0xbc040",
+      "before": "cd8740",
+      "after": "cd0076",
+      "name": "METAMORPHOSIS: THUNDERBOLT animation before the black ball"
+    },
+    {
+      "offset": "0xbc167",
+      "before": "cd8740",
+      "after": "cd0076",
+      "name": "METAMORPHOSIS: THUNDERBOLT animation before the black ball"
+    },
+    {
+      "offset": "0xbc02b",
+      "before": "21f941",
+      "after": "21df76",
+      "name": "METAMORPHOSIS text: t_used"
+    },
+    {
+      "offset": "0xbc037",
+      "before": "21f941",
+      "after": "21df76",
+      "name": "METAMORPHOSIS text: t_used"
+    },
+    {
+      "offset": "0xbc031",
+      "before": "213c42",
+      "after": "21fa76",
+      "name": "METAMORPHOSIS text: t_full"
+    },
+    {
+      "offset": "0xb5c00",
+      "before": "0093a7a4b8",
+      "after": "1716772f50",
+      "name": "Map question -> \"METAMORPHOSIS?\" (TX_FAR to 2F)"
+    },
+    {
+      "offset": "0x3f20e",
+      "before": "2100801110930e31",
+      "after": "215776062fc31836",
+      "name": "LoadMonBackPic: marked POKeMON -> black back picture"
+    },
+    {
+      "offset": "0x13b60",
+      "before": "0000000000000000000000000000000000",
+      "after": "cdb313fa9fcffe01c0219376062fc31836",
+      "name": "Bank 4: v47 status screen black front picture"
+    },
+    {
+      "offset": "0x12aba",
+      "before": "cdb313",
+      "after": "cd607b",
+      "name": "StatusScreen: marked POKeMON -> black front picture"
+    },
+    {
+      "offset": "0x73cc0",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd0159f08c2172d1012c00cdbb3a7efe01c0f08ccb37c6036f26c30604cbe6e5115b0919cbe6e17dc6046f0520ef3effe049c9",
+      "name": "Bank 1C: v47 black party icons (OBP1)"
+    },
+    {
+      "offset": "0x718b9",
+      "before": "cd0159",
+      "after": "cdc07c",
+      "name": "Party icon: marked POKeMON -> black (OBP1)"
+    },
+    {
+      "offset": "0x7dd4",
+      "before": "828e8d92948c8450",
+      "after": "8294919284505050",
+      "name": "Field move name: CONSUME -> CURSE"
+    },
+    {
+      "offset": "0xbd630",
+      "before": "0082aeadb2b4aca47fb6a7a8a2a74f548c8e8de658",
+      "after": "0082b4b1b2a47fb6a7a8a2a74f548c8e8de658e658",
+      "name": "CURSE prompt: \"Curse which #MON?\""
+    },
+    {
+      "offset": "0xbd42c",
+      "before": "cd1275285a",
+      "after": "c38b540000",
+      "name": "CURSE (party menu): consume at once, no move taken"
+    },
+    {
+      "offset": "0xb7d18",
+      "before": "aa000000",
+      "after": "aaa50000",
+      "name": "BLACK struct: METAMORPHOSIS, CURSE"
+    },
+    {
+      "offset": "0xb7d2d",
+      "before": "0a000000",
+      "after": "0a010000",
+      "name": "BLACK struct: PP"
+    },
+    {
+      "offset": "0xb7f60",
+      "before": "00000000000000000000000000000000",
+      "after": "fa6cd4a7c821a376062fcd1836c3de7c",
+      "name": "Bank 2D: v47 BLACK step (moves, then black_step)"
+    },
+    {
+      "offset": "0xb44ca",
+      "before": "c97d",
+      "after": "607f",
+      "name": "hunger_wrap BLACK branch -> step47 (fixed moves, full PP)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563436000000",
+      "after": "435245455059204d5520563437000000",
+      "name": "Branch identity"
+    }
+  ]
+}
