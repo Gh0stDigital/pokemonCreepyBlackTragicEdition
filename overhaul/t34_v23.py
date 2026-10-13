@@ -34,14 +34,14 @@ def bfs_to(y,x,maxn=900):
         for d,(dy,dx) in (('up',(-1,0)),('down',(1,0)),('left',(0,-1)),('right',(0,1))):
             n=(c[0]+dy,c[1]+dx)
             if n in prev:continue
-            rest(st[c]);p.button(d,8);p.tick(24)
+            rest(st[c]);p.button(d,8);p.tick(40 if VERSION>=53 else 24)
             if m[0xd35e]!=mp or m[0xd057] or box():continue
             if (m[0xd361],m[0xd362])==n:prev[n]=(c,d);st[n]=snap();q.append(n)
     assert (y,x) in prev,('no path',(y,x),sorted(prev))
     path=[];c=(y,x)
     while prev[c]:c,d=prev[c];path.append(d)
     rest(st[start])
-    for d in reversed(path):p.button(d,8);T(24)
+    for d in reversed(path):p.button(d,8);T(40 if VERSION>=53 else 24)
     T(10)
 def spr(k):return (hex(m[0xc100+16*k]),m[0xc204+16*k]-4,m[0xc205+16*k]-4)
 def bag():return [(m[0xd31e+2*i],m[0xd31f+2*i]) for i in range(m[0xd31d])]
@@ -54,6 +54,7 @@ def nick(i):return ''.join(cm.get(v,'') for v in m[0xd2b5+11*i:0xd2b5+11*i+10]).
 def tower(stage=5,consort=1):
     load('pallet_with_ghost');m[0xd455]=255
     m[0xd769]|=0x8e;m[0xd7e0]|=0x80;m[0xd5ae]|=0x0f;m[0xd464]=stage;m[0xd465]=consort
+    if VERSION>=53:m[0xd466]|=0x18                      # v53: the secret door is open only after AGATHA's talk (bits 3, 4)
     for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x94
     for i in range(6):
         if m[0xd35e]==0x94:break

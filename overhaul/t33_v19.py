@@ -40,6 +40,7 @@ def bfs_to(y,x,maxn=900):
 def tower(stage,consort=1):
     load('pallet_with_ghost');m[0xd455]=255
     m[0xd769]|=0x8e;m[0xd7e0]|=0x80;m[0xd5ae]|=0x0f;m[0xd464]=stage;m[0xd465]=consort
+    if VERSION>=53:m[0xd466]|=0x18                      # v53: the secret door is open only after AGATHA's talk (bits 3, 4)
     for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x94
     for i in range(6):
         if m[0xd35e]==0x94:break
