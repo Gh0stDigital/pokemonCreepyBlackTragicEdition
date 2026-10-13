@@ -54,7 +54,7 @@ def find_mirage(want):
 if MODE in ('bf','fireblast','dragonrage'):
     intro=find_mirage(0xb7);print('INTRO:',intro)
     print('enemy moves',[hex(x) for x in m[0xcfed:0xcff1]],'party',list(m[0xd164:0xd16b]),'HP',[hp(i) for i in range(m[0xd163])])
-    assert list(m[0xcfed:0xcff1])==[0xa8,0x13,0x52,0x7e]
+    assert list(m[0xcfed:0xcff1])==[0xa8,0x13,0x52,0x8f if VERSION>=48 else 0x7e]   # v48: SKY ATTACK instead of FIRE BLAST
     assert any('????? wants to fight' in x or '?????' in x for x in intro) and any('sent out AZHI' in x for x in intro) and not any('TAMER' in x for x in intro)
     force={'bf':0xa8,'fireblast':0x7e,'dragonrage':0x52}[MODE];m[0xcfed]=m[0xcfee]=m[0xcfef]=m[0xcff0]=force
     seen=[];h0=[hp(i) for i in range(m[0xd163])];ehp=m[0xcfe6]<<8|m[0xcfe7]

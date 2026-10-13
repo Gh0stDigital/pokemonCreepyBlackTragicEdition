@@ -19,6 +19,7 @@ else:
     sys.argv=['x','none'];exec(open('t47_v39.py').read().split("if MODE=='wild':")[0]);MODE=MY55
 MAN=json.load(open('manifest_v47.json'));MARK=MAN['mark']
 META,CURSE=0xaa,0xa5
+BMOVES=[META,CURSE,0xab,0xac] if VERSION>=48 else [META,CURSE,0,0];BPP=[10,1,15,1] if VERSION>=48 else [10,1,0,0]
 def marked(i):return m[0xd16b+44*i+7]==MARK
 def colors(addr,n=784):
     c=[0,0,0,0]
@@ -96,12 +97,12 @@ elif MODE=='curse':
     ok('Curse which' in t,'"Curse which POKeMON?"')
     ok('Take which' not in t and 'consumed' in t,'no move choice: "BLACK consumed CHARMANDER!"')
     ok(party()==[BLK] and exp(0)==e0+ec,"CHARMANDER is gone, BLACK gained its experience (%d)"%ec)
-    ok(list(m[B+8:B+12])==[META,CURSE,0,0],'BLACK still knows METAMORPHOSIS + CURSE')
+    ok(list(m[B+8:B+12])==BMOVES,'BLACK still knows METAMORPHOSIS + CURSE (and v48\'s moves)')
 elif MODE=='moves':
     load('pallet_with_ghost');make_black();m[0xd16b+8:0xd16b+12]=[META,0x0a,0,0];m[0xd16b+29:0xd16b+33]=[3,5,0,0];T(20)
     p.button('up',8);T(30);p.button('down',8);T(30)
     mv=list(m[0xd16b+8:0xd16b+12]);pp=list(m[0xd16b+29:0xd16b+33]);print('moves',[hex(x) for x in mv],'pp',pp)
-    ok(mv==[META,CURSE,0,0] and pp==[10,1,0,0],'after a step BLACK knows METAMORPHOSIS + CURSE with full PP')
+    ok(mv==BMOVES and pp==BPP,'after a step BLACK knows METAMORPHOSIS + CURSE with full PP')
     load('pallet_with_ghost');lead(CHAR);T(20);mv0=list(m[0xd16b+8:0xd16b+12])
     p.button('up',8);T(30);p.button('down',8);T(30)
     ok(list(m[0xd16b+8:0xd16b+12])==mv0,'normal: a CHARMANDER\'s moves are untouched')

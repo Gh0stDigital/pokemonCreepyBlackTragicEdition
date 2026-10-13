@@ -1,0 +1,151 @@
+{
+  "input": "Creepy_Black_Mu_v47.gb",
+  "input_sha256": "2aa24b869b140f5f4071365ac8308266ebd84d368c8bcb6cd351a7356297e1d3",
+  "sha256": "de46558fa472bda5e2dacf6376b227cb476af9b799cd64643ad4e9c42d0d53a0",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Charge text: GHOST WALK \"faded into dark!\"",
+      "hits at F:79CC-79E8 are the old routine's own jr z to its ret; F:455F/F:475E are operand bytes of \"ld [$cd6a],a / call $4679\" misread"
+    ]
+  ],
+  "labels": {
+    "bank2f": {
+      "anim48": "0x7800",
+      "anim48.l": "0x780b",
+      "anim48.def": "0x7816",
+      "anim48.play": "0x7818",
+      "amap": "0x7834",
+      "inv48_on": "0x7841",
+      "inv48_on.p": "0x784c",
+      "inv48_on.l": "0x7854",
+      "inv48_off": "0x786f",
+      "invtab": "0x7879",
+      "pre48": "0x7882",
+      "pre48.n": "0x78aa",
+      "pre48.m": "0x78be",
+      "pre48.at": "0x78c5",
+      "pre48.dead": "0x78dc",
+      "pre48.nx": "0x78dd",
+      "pre48.done": "0x78e0",
+      "forbid48": "0x78e5",
+      "t_faded": "0x78ec"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x3bd48",
+      "before": "000000000000",
+      "after": "ab2b5a1bf20f",
+      "name": "Move data AB = GHOST WALK (FLY effect, 90, typeless, 95%, 15 PP)"
+    },
+    {
+      "offset": "0x3bd4e",
+      "before": "000000000000",
+      "after": "ac01011bff01",
+      "name": "Move data AC = DAMNATION (CURSE effect, 1 PP)"
+    },
+    {
+      "offset": "0xb0644",
+      "before": "000000000000000000000000000000000000000000",
+      "after": "86878e92937f96808b8a5083808c8d8093888e8d50",
+      "name": "Move names AB/AC: GHOST WALK, DAMNATION"
+    },
+    {
+      "offset": "0xbf800",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa7cd047fea738102134782afeff2806b82a20f718023ea3c5ea7cd0cd223e3e08cdc13ec178fea7d8fea9d021c744062ec31836a7a3a87ea998aa55ab0fac3ffff0f3a7fad2cf2803facccf4ffa7cd0472179782afeffc8b92a20f8b820f5f0472fe047f0482fe048f0492fe049c9f047fe1bc03ee4e047c9a87ea998ab0fab64fffadcccfeacc20040fae5cffeb7c83e01ea39ccfa57d0fe02c0fa5dd4a7c0fae5cff5fae8cf4f060078b9282ffa9cd8b8282c382ac57821a5d8112c00a72804193d18f92ab62813af3277c1c5219dd8581600197eeae5cfcd8f68c10418caf1eae5cfc9a5a7a8a9aaacff004fa5a0a3a4a37fa8adb3ae7fa3a0b1aae758",
+      "name": "Bank 2F: v48 animations (map, negative palette), DAMNATION, MOON STONE list"
+    },
+    {
+      "offset": "0x3ff53",
+      "before": "fea7daed6f47fea83e7e28",
+      "after": "ea7cd0210078062fc31836",
+      "name": "Move animation (both sides) -> 2F anim48 (map + negative palette)"
+    },
+    {
+      "offset": "0x7bfd1",
+      "before": "00000000000000000000000000000000000000000000",
+      "after": "cd304e214178062fc31836cd8237216f78062fc31836",
+      "name": "Bank 1E: v48 negative-palette stubs"
+    },
+    {
+      "offset": "0x78d65",
+      "before": "cd304e",
+      "after": "cdd17f",
+      "name": "MoveAnimation: negative palette for the marked moves"
+    },
+    {
+      "offset": "0x78d98",
+      "before": "cd8237",
+      "after": "cddc7f",
+      "name": "MoveAnimation end: normal palette back"
+    },
+    {
+      "offset": "0x2a",
+      "before": "0040",
+      "after": "8278",
+      "name": "Home 0x29 stub -> pre48 (DAMNATION), then bane_move"
+    },
+    {
+      "offset": "0xbe41d",
+      "before": "1d65",
+      "after": "e578",
+      "name": "MOON STONE: DAMNATION blocked too"
+    },
+    {
+      "offset": "0x3fe99",
+      "before": "0000000000",
+      "after": "17ec782f50",
+      "name": "Bank F: TX_FAR \"faded into dark!\" (GHOST WALK)"
+    },
+    {
+      "offset": "0x3f9c4",
+      "before": "fa3dcdfe0d21f0792821fe4c21f579281afe8221fa792813fe8f21ff79280cfe1321047a2805fe5b21097ac9",
+      "after": "fa3dcdfe0d21f079c8fe4c21f579c8fe8221fa79c8fe8f21ff79c8fe1321047ac8fe5b21097ac821997ec900",
+      "name": "Charge text: GHOST WALK \"faded into dark!\""
+    },
+    {
+      "offset": "0xbf6d7",
+      "before": "aaa500000a010000",
+      "after": "aaa5abac0a010f01",
+      "name": "BLACK moves: METAMORPHOSIS, CURSE, GHOST WALK, DAMNATION"
+    },
+    {
+      "offset": "0xb7d18",
+      "before": "aaa50000",
+      "after": "aaa5abac",
+      "name": "BLACK struct: four moves"
+    },
+    {
+      "offset": "0xb7d2d",
+      "before": "0a010000",
+      "after": "0a010f01",
+      "name": "BLACK struct: PP"
+    },
+    {
+      "offset": "0xb7d73",
+      "before": "7e",
+      "after": "8f",
+      "name": "AZHI struct: SKY ATTACK"
+    },
+    {
+      "offset": "0xb7d85",
+      "before": "00",
+      "after": "0a",
+      "name": "AZHI struct: BLACK FLAME PP 10 (v38 gave 0: its PP helper only knew the old move table)"
+    },
+    {
+      "offset": "0x3bcca",
+      "before": "7e",
+      "after": "8f",
+      "name": "MIRAGE AZHI: SKY ATTACK"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563437000000",
+      "after": "435245455059204d5520563438000000",
+      "name": "Branch identity"
+    }
+  ]
+}
