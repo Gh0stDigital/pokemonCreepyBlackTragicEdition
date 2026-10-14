@@ -6,6 +6,7 @@
 #       next room by himself; BLUE's object is gone for good
 #   Hall of Fame room (map 76, bank 16), as BLACK: its own script. The player walks in a few steps, AGATHA enters (her sprite replaces
 #     OAK's object in a BLACK-only object list), speaks (her "after the Elite Four" speech), and the player is free to move again.
+#     LANCE's defeat speech gets the 'Agatha... Was this your plan all along...?' line.
 #     Later talks: the last three lines. D876 = scene stage (0 none, 1 BLUE beaten, 2 walking, 3 AGATHA walking in, 4 done).
 import json
 from patchlib import *
@@ -41,6 +42,7 @@ T={'t_before':convo(["RED... No... BLACK...","So, it really has come down to thi
   "I thought the old fool was no longer a threat. But those MOON STONES the trainers carried...",
   "He must still be involved!","OAK must be eliminated!",
   "Once you've dealt with him, return to the # TOWER.","There, we shall begin the final ritual!"]),
+ 't_lance_def':convo(["Impossible... This power...","Could it be the one spoken of in my ancestors' legends?","Agatha... Was this your plan all along...?","No... This cannot be how it ends!"]),
  't_again':convo(["OAK must be eliminated!","Once you've dealt with him, return to the # TOWER.","There, we shall begin the final ritual!"])}
 B30=0x30;TXT30=0x6700;CODE30=0x6e00
 assert not any(R[fo(B30,TXT30):fo(B30,0x7400)])
@@ -347,4 +349,16 @@ assert j==60 and not any(R[STAB+j+1:STAB+j+16]),j
 LH=fo(0x16,0x6397);lidx=R[LH+10]|R[LH+11]<<8;assert lidx==0x1b3,hex(lidx)
 ents=b''.join(bytes([0x78,200+BLUE,sn,lidx&255,lidx>>8]) for sn in (1,2,3))+b'\xff'
 rom.code(STAB+j,ents,"v34 scripted-trainer table: the Champion (map 78, RIVAL3 sets 1-3) -> LANCE's kill index (so BANE / CURSE can kill BLUE)",'ff'+'00'*15)
+
+# ---- v28's NPC takeover (BLACK): AGATHA (picture 39) is a story person too, in the Hall of Fame as in the TOWER
+EX=0x7e10
+assert not any(R[fo(0x2d,EX):fo(0x2d,EX)+16])
+old_ex=R[fo(0x2d,0x490f):fo(0x2d,0x490f)+11];assert old_ex.hex()=='050938262 92a010203 33ff'.replace(' ','')
+rom.put(fo(0x2d,EX),old_ex[:-1]+bytes([0x39,0xff]),'Bank 2D: v58 exempt pictures (v28 list + AGATHA 39)')
+o=fo(0x2d,0x4834);assert R[o:o+3].hex()=='210f49'
+rom.data(o+1,bytes.fromhex(le(EX)),'v28 npc_talk: exempt_pics -> v58 list (+AGATHA)','0f49')
+
+# ---- LANCE's defeat speech (v57) gets the AGATHA line: repoint the TX_FAR in his chooser (16:702B)
+FS=fo(0x16,0x702b);assert R[FS:FS+5].hex()=='1728653050'
+rom.data(FS+1,bytes.fromhex(le(L30t['t_lance_def'])),"LANCE's defeat speech -> v58 text (+ the AGATHA line)",'2865')
 rom.finish('Creepy_Black_Mu_v58.gb','manifest_v58.json','CREEPY MU V58',extra=dict(labels=dict(bank1d={k:hex(v) for k,v in L1d.items()},bank16={k:hex(v) for k,v in L16.items()},bank30={k:hex(v) for k,v in L30.items()},bank2f={k:hex(v) for k,v in L2f.items()})))

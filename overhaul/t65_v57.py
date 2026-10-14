@@ -23,7 +23,7 @@ if MODE=='black':
         if k%90==0:p.button('a',8)
     t=allt().replace('  ',' ');print('to phase:',t[-500:])
     i=t.find('Impossible');print('DEFEAT CTX',t[max(0,i-60):i+40])
-    ok("Impossible" in t and "ancestors" in t and "cannot be how" in t,'the new defeat speech')
+    ok("Impossible" in t and "ancestors" in t and "cannot be how" in t and (VERSION<58 or "was this your plan" in t.replace("Was","was")),'the new defeat speech')
     use_move(0,300,in_moves=True)
     for i in range(30):
         if m[0xd057]==0:break
