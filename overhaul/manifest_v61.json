@@ -1,0 +1,27 @@
+{
+  "input": "Creepy_Black_Mu_v60.gb",
+  "input_sha256": "e1452074130a55008cbab105c3ef5297d07a4453260fef05694cd08713ac756c",
+  "sha256": "c5862a053b948acfe3ff6eb96f2a52b0fbbe13e46b2689ab32974e93c54ceb42",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0x3bef0",
+      "before": "ff3a953836388d3a680000000000",
+      "after": "ff386a3869386838283a953caa00",
+      "name": "BILL's party: FLAREON, VAPOREON, JOLTEON, CHANSEY, ALAKAZAM, PORYGON"
+    },
+    {
+      "offset": "0x399cf",
+      "before": "7d62",
+      "after": "2857",
+      "name": "Class 26 (BILL) picture = the PSYCHIC trainer's"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563630000000",
+      "after": "435245455059204d5520563631000000",
+      "name": "Branch identity"
+    }
+  ]
+}
