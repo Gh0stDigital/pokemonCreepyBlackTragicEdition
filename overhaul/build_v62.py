@@ -243,6 +243,22 @@ ending62:
     ld a,{LAV_BANK}
     ld [$d35c],a
     call $2337
+    call $193c                      ; a clean screen for the credits: no map, no sprites, BG map 9800, the font
+    xor a
+    ld hl,$c300
+    ld b,160
+.o2:ld [hl+],a
+    dec b
+    jr nz,.o2
+    ld a,1
+    ldh [$ba],a
+    xor a
+    ldh [$bb],a
+    ldh [$bc],a
+    ld a,$98
+    ldh [$bd],a
+    call $36ba
+    call $36da
     ld hl,$418e
     ld b,$1d
     call {BANKSW:#x}

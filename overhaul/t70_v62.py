@@ -86,3 +86,10 @@ elif MODE=='block':                                  # BLACK leads: BANE is refu
     lo=use_move(0,300);read_until_menu();t=allt().replace('  ',' ');print('forbidden:',t[-300:],flush=True)
     ok('strange power' in t and 'I was right' in t and 'MOON STONES' in t,'a forbidden move is refused with his line')
     ok(m[0xd057]==2 and ehp()==e0 and php()==p0,'no turn passed')
+elif MODE=='normal':                                 # D876 < 6 (BLACK) or the GHOST route: MEWTWO is as before
+    for label,st,black in (('BLACK before the OAK stage',5,True),('GHOST route',6,False)):
+        def sup():
+            make_black();m[0xd867]|=2;m[0xd876]=st
+            if not black:m[0xd46c]=0
+        warp(0xe3,0,sup);T(60)
+        ok(m[0xc110]==5 and m[0xd877]==0,'%s: object 1 is still the MEWTWO picture, no scene'%label)
