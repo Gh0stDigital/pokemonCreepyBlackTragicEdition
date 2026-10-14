@@ -54,7 +54,7 @@ if MODE=='scene':
         if k%90==0:p.button('a',8)
     tt=allt().replace('  ',' ');print('to phase:',tt[-300:],flush=True)
     ok('shatters' not in tt,'no MOON STONE shatter text for him')
-    keys=['couldnt prevent','Forgive me','fool all along','How foolish','Pandora','unleash']
+    keys=['prevent this fate','Forgive me','fool all along','How foolish','Pandora','unleash']
     print([k for k in keys if k not in tt.replace("'","")])
     ok(all(k in tt.replace("'","") for k in keys),'his defeat speech')
     seen.clear();use_move(0,300,in_moves=True)
@@ -62,7 +62,9 @@ if MODE=='scene':
         if m[0xd057]==0:break
         press_('a',100)
     ok(m[0xd057]==0,'the battle is over (BANE)')
-    T(60)
+    for i in range(80):
+        if m[0xd876]==7:break
+        press_('a',40)
     print('stage',m[0xd876],'music',hex(m[0xcfca]),hex(m[0xd35b]),flush=True)
     ok(m[0xd876]==7,'D876 = 7: the end')
 elif MODE=='block':                                  # BLACK leads: BANE is refused with his line
