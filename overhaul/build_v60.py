@@ -118,6 +118,10 @@ bill60:
     call .hide13
     ld c,40                         ; a moment, then BILL steps out of his machine
     call $3773
+    ld a,$62                        ; the engine's own ShowObject for BILL (toggle 62)
+    ld [$cc4d],a
+    ld a,$16
+    call $3ec1
     ld b,4
     ld c,4
     call place60
