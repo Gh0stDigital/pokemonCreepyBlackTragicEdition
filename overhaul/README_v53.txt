@@ -39,4 +39,4 @@ Technical:
   step. run_v53.sh = run_v52.sh + t61. The v53 chamber test ROM (stage 5, saved with the old open door) now starts with the
   door closed: talk to AGATHA to see the new scene.
 Static: check_hooks.py 138 hooks, 0 problems.
-Regression (run_v53.sh): in progress when committed; targeted t61 modes (lore, door, altar, ritualstash) pass.
+Regression (run_v53.sh): 530 PASS, 1 FAIL: t53 tower (BLUE's Tower fight uses GHOST, which refuses in the Tower since v51: a test issue, fixed in the v54 test files by fighting with the map id set elsewhere). t61 modes (lore, door, altar, ritualstash) pass.

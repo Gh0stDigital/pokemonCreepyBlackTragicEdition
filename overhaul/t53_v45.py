@@ -47,7 +47,9 @@ if MODE=='tower':
         press_('a',90)
     team=enemy();print('Tower team',[(l,hex(s)) for l,s in team])
     ok(m[0xd057]==2 and m[0xd031]==0x2a,'BLUE battle at the Tower')
-    fight_with_curse();after_battle(30)
+    TW=m[0xd35e]
+    if VERSION>=51:m[0xd35e]=0                          # GHOST refuses in the Tower since v51: fight as if elsewhere
+    fight_with_curse();m[0xd35e]=TW;after_battle(30)
     t=tbl();print('table',[hex(x) for x in t])
     killed=[FAMS.index(base(s)) for l,s in team]
     ok(all(t[k] for k in killed),'every CURSEd line got a replacement (%d)'%len(killed))
