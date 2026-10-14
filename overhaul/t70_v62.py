@@ -25,8 +25,8 @@ if MODE=='scene':
         if box():shot('v70_scene2');break
     print('scene: pic?','last music',hex(m[0xcfca]),flush=True)
     t=allt().replace('  ',' ')
-    for i in range(70):
-        if m[0xd057]:break
+    for i in range(300):
+        if m[0xd057] or m[0xd877]==0x11:break
         if box():press_('a',80)
         else:T(20)
     t=allt().replace('  ',' ');print('speech:',t[-300:],flush=True)

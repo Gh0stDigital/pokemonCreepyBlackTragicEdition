@@ -173,8 +173,13 @@ scene62:
 .o: ld [hl+],a
     dec b
     jr nz,.o
-    ld a,1                          ; the cleared tile map must reach the screen
+    ld a,1                          ; the cleared tile map must reach the screen (BG map 9800, like the first scene of the game)
     ldh [$ba],a
+    xor a
+    ldh [$bb],a
+    ldh [$bc],a
+    ld a,$98
+    ldh [$bd],a
     ld a,$13                        ; PROF. OAK's picture (13:615F), centred, like the first scene of the game
     ld de,$615f
     call $3725
@@ -189,6 +194,8 @@ scene62:
     ldh [$e1],a
     ld a,1
     call $3ec1
+    call $36ba                      ; the font and the text box tiles again
+    call $36da
     ld c,3
     call $3773
     ld hl,fadein
@@ -205,6 +212,8 @@ scene62:
     call {PRINTTEXT:#x}
     call $2105
     call $30a2                      ; the map again
+    ld a,$9c
+    ldh [$bd],a
     call $2123
     ld hl,{Lt['t_defeat']:#x}
     ld de,{Lt['t_lose']:#x}
