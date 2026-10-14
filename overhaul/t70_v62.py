@@ -10,14 +10,14 @@ def setup():
     b=0xd16b+44;m[b+9]=0x0a;m[b+30]=35
     m[0xd867]|=2;m[0xd876]=6
 def to_oak():
-    bfs_to(13,26,maxn=2000);p.button('right',8);T(30)
+    pass                                              # MEWTWO's spot is across the water (SURF): the scene is requested by hand (what his text does)
 if MODE=='scene':
     warp(0xe3,0,setup)
     to_oak()
     print('at',pos(),'objects',[(i,hex(m[0xc100+16*i]),m[0xc204+16*i]-4,m[0xc205+16*i]-4) for i in range(1,4)],flush=True)
     ok(m[0xc110]==3,'object 1 is OAK (picture 3)')
     shot('v70_oak_cave')
-    seen.clear();press_('a',60)
+    m[0xd877]=0x10;seen.clear()
     mus=[]
     for i in range(30):
         T(10)
@@ -32,3 +32,40 @@ if MODE=='scene':
     t=allt().replace('  ',' ');print('speech:',t[-300:],flush=True)
     keys=['So youve found me','BILL would buy me','Forgive me','mistakes','I was a fool','ambitions of that clan','gave the LEAGUE','mountain goddess','ocean god','BLUE must have failed',"MEWTWO",'one chance left',"I'm sorry",'make things right','fix everything']
     print([k for k in keys if k not in t.replace("'","")])
+
+    ok(all(k in t.replace("'","") for k in keys),"OAK's speech")
+    for i in range(60):
+        if m[0xd057]:break
+        press_('a',100)
+    T(200)
+    n=m[0xd89c];sp=list(m[0xd89d:0xd89d+n])
+    from patchlib import enc
+    print('battle',m[0xd057],'class',m[0xd031],'party',[hex(x) for x in sp],'pic',hex(m[0xd033]|m[0xd034]<<8),bytes(m[0xd04a:0xd04a+9]).hex(),flush=True)
+    ok(m[0xd057]==2 and m[0xd031]==26,'a trainer battle (class 26)')
+    ok(sp==[0x2a,0x9a,0x4a,0x4b,0x49,0x15],'MR. MIME, VENUSAUR, ARTICUNO, ZAPDOS, MOLTRES, MEW (last)')
+    ok((m[0xd033]|m[0xd034]<<8)==0x615f and bytes(m[0xd04a:0xd04a+9])==bytes(enc('PROF.OAK'))+b'\x50',"his picture and the name PROF.OAK")
+    shot('v70_oak_battle')
+    m[0xd89c]=1;wait_menu()
+    e0=m[0xcfe6]<<8|m[0xcfe7]
+    seen.clear();use_move(0,300);read_until_menu();tt=allt().replace('  ',' ')
+    print('forbidden:',tt[-300:],flush=True)
+    ok('strange power' in tt and 'I was right' in tt and 'MOON STONES' in tt,'a forbidden move is refused with his line')
+    menu('fight');m[0xcc26]=1;T(4);seen.clear();p.button('a',8)
+    for k in range(2500):
+        p.tick()
+        if k%4==0:T(1)
+        if m[0xd05a]==3 and 'FIGHT' in clean(' '.join(txt())):break
+        if k%90==0:p.button('a',8)
+    tt=allt().replace('  ',' ');print('to phase:',tt[-300:],flush=True)
+    ok('shatters' not in tt,'no MOON STONE shatter text for him')
+    keys=['couldnt prevent','Forgive me','fool all along','How foolish','Pandora','unleash']
+    print([k for k in keys if k not in tt.replace("'","")])
+    ok(all(k in tt.replace("'","") for k in keys),'his defeat speech')
+    seen.clear();use_move(0,300,in_moves=True)
+    for i in range(30):
+        if m[0xd057]==0:break
+        press_('a',100)
+    ok(m[0xd057]==0,'the battle is over (BANE)')
+    T(60)
+    print('stage',m[0xd876],'music',hex(m[0xcfca]),hex(m[0xd35b]),flush=True)
+    ok(m[0xd876]==7,'D876 = 7: the end')
