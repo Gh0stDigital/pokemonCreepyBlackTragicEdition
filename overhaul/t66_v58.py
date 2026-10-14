@@ -59,7 +59,7 @@ if MODE=='black':
         if box():press_('a',80)
         else:T(20)
     t=allt().replace('  ',' ');print('AGATHA:',t[-300:],flush=True)
-    keys=['It is done','Those fools','ancestors are smiling','not yet finished','traitor of our clan','MOON STONES','OAK must be eliminated','final ritual']
+    keys=['It is done','Those fools','ancestors are smiling','not yet finished','had hoped to avoid','must be settled','How curious','given up interfering','perhaps I was mistaken','traitor of our clan','remains a threat','must be eliminated','final ritual']
     print([k for k in keys if k not in t])
     ok(all(k in t for k in keys),"AGATHA's speech")
     ok(m[0xd876]==4,'the scene is over')
@@ -75,3 +75,11 @@ if MODE=='black':
     ok(m[0xd35e]==0x78,'back in the Champion\'s room')
     T(200)
     ok(m[0xd057]==0 and m[0xc110]==0 and not box(),'BLUE is gone and the cut-scene does not start again')
+elif MODE=='normal':
+    def setup2():lead(GHOST);m[0xd64c]=1
+    warp(0x78,0,setup2)
+    for i in range(30):
+        if m[0xd057]:break
+        press_('a',120)
+    t=allt().replace('  ',' ');print('normal:',t[-300:],m[0xd46c],m[0xd64c])
+    ok(m[0xd46c]==0 and 'No... BLACK' not in t and m[0xd876]==0,'GHOST route: not the BLACK speech, no stage')

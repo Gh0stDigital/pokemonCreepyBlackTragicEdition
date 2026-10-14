@@ -37,13 +37,13 @@ T={'t_before':convo(["RED... No... BLACK...","So, it really has come down to thi
   "Could we have just been two rivals, trying to be the best?","Maybe... Deep down...","That's all I ever wanted..."]),
  't_agatha':convo(["Hahaha! Yes... It is done!","Those fools are no more! For too long, I've endured their arrogance!",
   "Our ancestors are smiling upon us this day!","But BLACK... Your work is not yet finished.",
-  "I had hoped it wouldn't come to this... But for our victory to be complete, it must be done!",
-  "You must find the traitor of our clan... OAK!",
-  "I thought the old fool was no longer a threat. But those MOON STONES the trainers carried...",
-  "He must still be involved!","OAK must be eliminated!",
-  "Once you've dealt with him, return to the # TOWER.","There, we shall begin the final ritual!"]),
+  "There is one matter I had hoped to avoid...","For our victory to be complete, it must be settled!",
+  "The MOON STONES those trainers carried... How curious...","I thought the old fool had given up interfering with our clan!",
+  "But perhaps I was mistaken...","Go, BLACK! Find the traitor of our clan... OAK!",
+  "If he is behind this, he remains a threat to us!","He must be eliminated!",
+  "Once you've dealt with him, return to # TOWER.","There, we shall begin the final ritual!"]),
  't_lance_def':convo(["Impossible... This power...","Could it be the one spoken of in my ancestors' legends?","Agatha... Was this your plan all along...?","No... This cannot be how it ends!"]),
- 't_again':convo(["OAK must be eliminated!","Once you've dealt with him, return to the # TOWER.","There, we shall begin the final ritual!"])}
+ 't_again':convo(["He must be eliminated!","Once you've dealt with him, return to # TOWER.","There, we shall begin the final ritual!"])}
 B30=0x30;TXT30=0x6700;CODE30=0x6e00
 assert not any(R[fo(B30,TXT30):fo(B30,0x7400)])
 c30t,L30t=asm(''.join(f"{k}: db {','.join(str(x) for x in v)}\n" for k,v in T.items()),TXT30)
