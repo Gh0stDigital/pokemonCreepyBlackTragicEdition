@@ -35,9 +35,9 @@ if MODE=='scene':
 
     ok(all(k in t.replace("'","") for k in keys),"OAK's speech")
     for i in range(60):
-        if m[0xd057]:break
+        if m[0xd057] and m[0xd89c]:break
         press_('a',100)
-    T(200)
+    T(100)
     n=m[0xd89c];sp=list(m[0xd89d:0xd89d+n])
     from patchlib import enc
     print('battle',m[0xd057],'class',m[0xd031],'party',[hex(x) for x in sp],'pic',hex(m[0xd033]|m[0xd034]<<8),bytes(m[0xd04a:0xd04a+9]).hex(),flush=True)
