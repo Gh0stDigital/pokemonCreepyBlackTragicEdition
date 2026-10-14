@@ -17,7 +17,6 @@ rom=Rom('Creepy_Black_Mu_v57.gb',V57_SHA)
 r=rom.r;R=bytes(r)
 M44=json.load(open('manifest_v44.json'))['labels']['bank2f']
 M54=json.load(open('manifest_v54.json'))['labels']['bank30']
-OBJSEL54=int(M54['objsel54'],16)
 PRINTTEXT,TEXTEND,BANKSW=0x3c94,0x2504,0x3618
 BLACKF,STAGE=0xd46c,0xd876
 BLUE=0x2b
@@ -50,22 +49,31 @@ assert TXT30+len(c30t)<CODE30
 rom.put(fo(B30,TXT30),c30t,'Bank 30: v58 BLUE / AGATHA texts')
 
 # ---- bank 16 (Hall of Fame): chooser stubs + BLACK object list; addresses first (code in bank 30 needs obj58)
-B16=0x7100;B16OBJ=0x7200
+B16=0x7100
 assert not any(R[fo(0x16,B16):fo(0x16,0x8000)])
 HOFS=0x649e;TXT=0x656a
 code30,L30=asm(f'''
-; ---- LoadMapHeader's object list: the Hall of Fame as BLACK has AGATHA's object (instead of OAK's); everything else as v54
-objsel58:
-    ld a,[$d35e]
-    cp $76
-    jp nz,{OBJSEL54:#x}
-    ld a,[{BLACKF:#x}]
-    and a
-    jp z,{OBJSEL54:#x}
-    ld hl,{B16OBJ:#x}
-    ret
-; ---- Hall of Fame map script as BLACK
+; ---- Hall of Fame map script as BLACK. OAK's object (picture 03) becomes AGATHA's (picture 39) on the first frame of every visit
+;      (picture, InitMapSprites for her tiles); she is hidden until the scene (stage 1-3) and stands at (4,5) afterwards (stage 4).
 hof58:
+    ld a,[$c110]
+    cp 3
+    jr nz,.ready
+    ld a,$39
+    ld [$c110],a
+    ld hl,$785b
+    ld b,5
+    call {BANKSW:#x}
+    ld a,[{STAGE:#x}]
+    cp 4
+    jr c,.ready
+    ld b,5
+    ld c,4
+    call place58
+    xor a
+    ld [$c119],a
+    ret
+.ready:
     ld a,[{STAGE:#x}]
     and a
     jr z,.hide
@@ -100,36 +108,11 @@ hof58:
     ld a,[$cd38]
     and a
     ret nz
-    ld a,$39                        ; AGATHA comes in through the door the player used
-    ld [$c110],a
+    ld b,7                          ; AGATHA comes in through the door the player used
+    ld c,4
+    call place58
     ld a,4
     ld [$c119],a
-    ld a,11
-    ld [$c214],a
-    ld a,8
-    ld [$c215],a
-    ld a,$ff
-    ld [$c216],a
-    ld a,[$d361]
-    ld b,a
-    ld a,7
-    sub b
-    add a
-    add a
-    add a
-    add a
-    add $3c
-    ld [$c114],a
-    ld a,[$d362]
-    ld b,a
-    ld a,4
-    sub b
-    add a
-    add a
-    add a
-    add a
-    add $40
-    ld [$c116],a
     ld a,1
     ldh [$8c],a
     ld de,mv58
@@ -150,13 +133,43 @@ hof58:
     ld a,4
     ld [{STAGE:#x}],a
     ret
+; AGATHA (object 1) shown at map y = b, x = c
+place58:
+    ld a,$39
+    ld [$c110],a
+    ld a,b
+    add 4
+    ld [$c214],a
+    ld a,c
+    add 4
+    ld [$c215],a
+    ld a,$ff
+    ld [$c216],a
+    ld a,[$d361]
+    ld d,a
+    ld a,b
+    sub d
+    add a
+    add a
+    add a
+    add a
+    add $3c
+    ld [$c114],a
+    ld a,[$d362]
+    ld d,a
+    ld a,c
+    sub d
+    add a
+    add a
+    add a
+    add a
+    add $40
+    ld [$c116],a
+    ret
 walk58: db $40,3,$ff
 mv58: db $40,$40,$ff
 ''',CODE30)
-rom.put(fo(B30,CODE30),code30,'Bank 30: v58 objsel58 (Hall of Fame list as BLACK) + hof58 (the scene)')
-# the BLACK object list (bank 16): OAK's object -> AGATHA at (4,5)
-old_obj=R[fo(0x16,0x6571):fo(0x16,0x6571)+18];assert old_obj.hex()=='0302070402780705037800010306'+'09ffd001'
-newobj=bytearray(old_obj);newobj[14:]=bytes([0x39,0x09,0x08,0xff,0xd0,0x01])
+rom.put(fo(B30,CODE30),code30,'Bank 30: v58 hof58 (the Hall of Fame scene as BLACK)')
 c16,L16=asm(f'''
 hof_s:
     ld a,[{BLACKF:#x}]
@@ -182,17 +195,13 @@ far_short: db $17,{L30t['t_again']&255},{L30t['t_again']>>8},{B30},$50
 ''',B16)
 assert B16+len(c16)<0x7200
 assert L16['hof_s']==B16
-assert not any(R[fo(0x16,B16OBJ):fo(0x16,B16OBJ)+18])
 rom.put(fo(0x16,B16),c16,'Bank 16: v58 Hall of Fame script / text choosers (BLACK)')
-rom.put(fo(0x16,B16OBJ),bytes(newobj),'Bank 16: v58 Hall of Fame object list as BLACK (AGATHA)')
 
 # ---- map headers: Hall of Fame script (+7) and text table entry; Champion's room script (+7)
 HH=fo(0x16,0x6492);assert R[HH+7:HH+9].hex()=='9e64'
 rom.data(HH+7,bytes.fromhex(le(L16['hof_s'])),'Hall of Fame map script -> v58 (BLACK: the AGATHA scene)','9e64')
 assert R[fo(0x16,TXT):fo(0x16,TXT)+2].hex()=='6c65'
 rom.data(fo(0x16,TXT),bytes.fromhex(le(L16['ag_text'])),'Hall of Fame text 1 -> v58 chooser (OAK / AGATHA)','6c65')
-assert R[0x112e:0x1131].hex()=='21'+le(OBJSEL54)
-rom.data(0x112f,bytes.fromhex(le(L30['objsel58'])),'LoadMapHeader: objsel54 -> objsel58 (Hall of Fame list as BLACK, else as v54)',le(OBJSEL54))
 
 # ---- bank 1D: Champion's room
 B1D=0x7ea8
@@ -264,7 +273,7 @@ s3_58:
     ld a,10                          ; the cleanup script waits for the walk
     ld [$d64c],a
     ret
-walk: db $40,5,$ff
+walk: db $40,4,$ff
 """,B1D)
 rom.put(fo(0x1d,B1D),c1d,"Bank 1D: v58 Champion's room as BLACK (scene start, speeches, no Oak / Hall of Fame)")
 CH=fo(0x1d,0x5f11);assert R[CH+7:CH+9].hex()=='1d5f'

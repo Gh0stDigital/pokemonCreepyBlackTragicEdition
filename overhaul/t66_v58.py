@@ -36,41 +36,42 @@ if MODE=='black':
     keys=['...RED...','end up this way','different','two rivals','Deep down','all I ever wanted']
     print([k for k in keys if k not in t])
     ok(all(k in t for k in keys),'the new defeat speech')
-    cnt={'s':0,'c':0}
-    p.hook_register(0x1d,0x7f0e,lambda c:cnt.__setitem__('s',cnt['s']+1),None)
-    p.hook_register(0x1d,0x7ea8,lambda c:cnt.__setitem__('c',cnt['c']+1),None)
     seen.clear();use_move(0,300,in_moves=True)
     for i in range(30):
         if m[0xd057]==0:break
         press_('a',100)
     print('after bane:',allt()[-500:],m[0xd057],m[0xd05a],hex(m[0xd4ae]),hex(m[0xd4af]))
     ok(m[0xd057]==0,'the battle is over (BANE)')
-    seen.clear()
-    maps=set();texts=[]
-    for i in range(14):
-        press_('a',60);maps.add(m[0xd35e])
-    seen.clear()
-    for i in range(60):
-        T(30);maps.add(m[0xd35e])
-    print('hooks',cnt)
-    print('state',m[0xd64c],m[0xd057],m[0xd867],m[0xd876],m[0xcd6b],m[0xcd38],hex(m[0xda39]))
-    print('maps seen',[hex(x) for x in maps],'pos',pos(),'d876',m[0xd876])
+    seen.clear();maps=set()
+    for i in range(40):
+        if box():press_('a',60)
+        else:T(20)
+        maps.add(m[0xd35e])
+        if m[0xd876]>=3 and m[0xd35e]==0x76:break
+    print('maps seen',[hex(x) for x in maps],'pos',pos(),'d876',m[0xd876],flush=True)
     ok(0x76 in maps,'the player walked into the Hall of Fame by himself')
     ok(m[0xd867]&2 and list(m[0xd863:0xd867])==flags0[:4],'the Champion is beaten; the Elite Four flags are unchanged (no reset)')
     ok(0x03 not in [m[0xc100+16*i] for i in range(1,5)],'no Oak anywhere')
-    # AGATHA
-    for i in range(80):
+    ok(m[0xc110]==0x39,'AGATHA (picture 39) is in the room')
+    seen.clear()
+    for i in range(120):
         if m[0xd876]==4:break
         if box():press_('a',80)
         else:T(20)
-    t=allt().replace('  ',' ');print('AGATHA:',t[-300:])
-    keys=['It is done','Those fools','ancestors are smiling','not yet finished','traitor of our clan','OAK','MOON STONES','OAK must be eliminated','final ritual']
+    t=allt().replace('  ',' ');print('AGATHA:',t[-300:],flush=True)
+    keys=['It is done','Those fools','ancestors are smiling','not yet finished','traitor of our clan','MOON STONES','OAK must be eliminated','final ritual']
     print([k for k in keys if k not in t])
     ok(all(k in t for k in keys),"AGATHA's speech")
-    ok(m[0xd876]==4 and m[0xc110]==0x39,'the scene is over, AGATHA stands there')
-    y0=pos()[2];p.button('up',8);T(30);p.button('down',8);T(30)
-    ok(pos()[2]!=y0 or True,'(free)')
-    p.button('right',8);T(30);x1=pos()[1];p.button('right',8);T(30)
-    ok(not box() and m[0xcd6b]==0,'the player can move again (joypad free)')
+    ok(m[0xd876]==4,'the scene is over')
+    T(30)
+    ok(not box() and m[0xcd6b]==0,'the player is free (no text, joypad not ignored)')
+    y0=pos()[2];p.button('left',8);T(30);p.button('right',8);T(30)
+    p.button('left',8);T(30)
+    ok(pos()[1]!=4,'the player moves freely')
     shot('v58_agatha')
-    bfs_to(5,4,maxn=200) if False else None
+    # leave and come back: the short talk; the champion's room is quiet
+    bfs_to(7,4,maxn=200)
+    p.button('down',8);T(120)
+    ok(m[0xd35e]==0x78,'back in the Champion\'s room')
+    T(200)
+    ok(m[0xd057]==0 and m[0xc110]==0 and not box(),'BLUE is gone and the cut-scene does not start again')
