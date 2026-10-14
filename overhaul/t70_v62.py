@@ -46,10 +46,6 @@ if MODE=='scene':
     ok((m[0xd033]|m[0xd034]<<8)==0x615f and bytes(m[0xd04a:0xd04a+9])==bytes(enc('PROF.OAK'))+b'\x50',"his picture and the name PROF.OAK")
     shot('v70_oak_battle')
     m[0xd89c]=1;wait_menu()
-    e0=m[0xcfe6]<<8|m[0xcfe7]
-    seen.clear();use_move(0,300);read_until_menu();tt=allt().replace('  ',' ')
-    print('forbidden:',tt[-300:],flush=True)
-    ok('strange power' in tt and 'I was right' in tt and 'MOON STONES' in tt,'a forbidden move is refused with his line')
     menu('fight');m[0xcc26]=1;T(4);seen.clear();p.button('a',8)
     for k in range(2500):
         p.tick()
@@ -69,3 +65,22 @@ if MODE=='scene':
     T(60)
     print('stage',m[0xd876],'music',hex(m[0xcfca]),hex(m[0xd35b]),flush=True)
     ok(m[0xd876]==7,'D876 = 7: the end')
+elif MODE=='block':                                  # BLACK leads: BANE is refused with his line
+    def setup3():
+        make_black();m[0xd16b+29]=20
+        m[0xd867]|=2;m[0xd876]=6
+    warp(0xe3,0,setup3)
+    m[0xd877]=0x10
+    for i in range(300):
+        if m[0xd877]==0x11 or m[0xd057]:break
+        if box():press_('a',60)
+        else:T(15)
+    for i in range(60):
+        if m[0xd057] and m[0xd89c]:break
+        press_('a',100)
+    T(100);m[0xd89c]=1;wait_menu()
+    ok(m[0xd031]==26 and m[0xd014]==BLK,'OAK fights BLACK')
+    e0,p0=ehp(),php()
+    lo=use_move(0,300);read_until_menu();t=allt().replace('  ',' ');print('forbidden:',t[-300:],flush=True)
+    ok('strange power' in t and 'I was right' in t and 'MOON STONES' in t,'a forbidden move is refused with his line')
+    ok(m[0xd057]==2 and ehp()==e0 and php()==p0,'no turn passed')

@@ -47,7 +47,7 @@ assert not any(R[fo(B31,TXT31):fo(B31,TXT31)+len(tx)])
 rom.put(fo(B31,TXT31),tx,"Bank 31: v62 PROF. OAK's speeches")
 
 # ---- trainer class 26: party no. 2 = PROF.OAK (MR. MIME 60, VENUSAUR 62, ARTICUNO 64, ZAPDOS 64, MOLTRES 64, MEW 70 last)
-PARTY2=0x7efd
+PARTY2=0x7efe
 assert not any(R[fo(0xe,PARTY2):fo(0xe,PARTY2)+16]),'bank E space'
 assert R[fo(0xe,0x7ef0):fo(0xe,0x7ef0)+14].hex()=='ff386a386938683828 3a95 3c aa00'.replace(' ','') or True
 rom.put(fo(0xe,PARTY2),bytes([0xff,60,0x2a,62,0x9a,64,0x4a,64,0x4b,64,0x49,70,0x15,0]),"Bank E: v62 PROF.OAK's party (class 26, trainer 2)")

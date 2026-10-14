@@ -1,7 +1,7 @@
 {
   "input": "Creepy_Black_Mu_v61.gb",
   "input_sha256": "c5862a053b948acfe3ff6eb96f2a52b0fbbe13e46b2689ab32974e93c54ceb42",
-  "sha256": "856981613cdf8405f82488c80332bd40d4bcd8e778f3429ccd6f28f2e4747637",
+  "sha256": "38b6cdcb6ea63c01e5dfa3f69774ad13fbe94595adea48984142108fa3950794",
   "size": 1048576,
   "reviewed_guard_exceptions": [
     [
@@ -47,7 +47,7 @@
       "name": "Bank 31: v62 PROF. OAK's speeches"
     },
     {
-      "offset": "0x3befd",
+      "offset": "0x3befe",
       "before": "0000000000000000000000000000",
       "after": "ff3c2a3e9a404a404b4049461500",
       "name": "Bank E: v62 PROF.OAK's party (class 26, trainer 2)"
