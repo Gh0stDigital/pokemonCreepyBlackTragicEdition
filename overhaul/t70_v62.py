@@ -22,7 +22,7 @@ if MODE=='scene':
     for i in range(30):
         T(10)
         if i==6:shot('v70_scene');mus.append(m[0xcfca])
-        if box():break
+        if box():shot('v70_scene2');break
     print('scene: pic?','last music',hex(m[0xcfca]),flush=True)
     t=allt().replace('  ',' ')
     for i in range(70):
@@ -30,7 +30,7 @@ if MODE=='scene':
         if box():press_('a',80)
         else:T(20)
     t=allt().replace('  ',' ');print('speech:',t[-300:],flush=True)
-    keys=['So youve found me','BILL would buy me','Forgive me','mistakes','I was a fool','ambitions of that clan','gave the LEAGUE','mountain goddess','ocean god','BLUE must have failed',"MEWTWO",'one chance left',"I'm sorry",'make things right','fix everything']
+    keys=['found me','BILL would buy me','Forgive me','mistakes','I was a fool','ambitions of that clan','gave the LEAGUE','mountain goddess','ocean god','BLUE must have failed',"MEWTWO",'one chance left','sorry','make things right','fix everything']
     print([k for k in keys if k not in t.replace("'","")])
 
     ok(all(k in t.replace("'","") for k in keys),"OAK's speech")

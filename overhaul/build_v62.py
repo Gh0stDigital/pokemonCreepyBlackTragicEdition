@@ -167,6 +167,14 @@ scene62:
     call $23de
     call $2105                      ; fade to white
     call $193c                      ; clear the screen
+    xor a                           ; no sprites over it
+    ld hl,$c300
+    ld b,160
+.o: ld [hl+],a
+    dec b
+    jr nz,.o
+    ld a,1                          ; the cleared tile map must reach the screen
+    ldh [$ba],a
     ld a,$13                        ; PROF. OAK's picture (13:615F), centred, like the first scene of the game
     ld de,$615f
     call $3725
@@ -181,6 +189,8 @@ scene62:
     ldh [$e1],a
     ld a,1
     call $3ec1
+    ld c,3
+    call $3773
     ld hl,fadein
     ld b,6
 .f: ld a,[hl+]
@@ -189,6 +199,8 @@ scene62:
     call $3773
     dec b
     jr nz,.f
+    xor a                           ; the player must be able to dismiss the text
+    ld [$cd6b],a
     ld hl,{Lt['t_speech']:#x}
     call {PRINTTEXT:#x}
     call $2105
