@@ -1,0 +1,27 @@
+{
+  "input": "Creepy_Black_Mu_v63.gb",
+  "input_sha256": "0015301cb0e5c92d91631d9f24b2328e7af329d8ed3edb84aee8def5eeabd5f0",
+  "sha256": "d27e47f719ab121cd3656e694a16ba044227cce0038d6e0f952f384fab66194a",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0x5a5d6",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "03030704027807050378010002ae0001030609ffd00117c7070417c70705f4c60100",
+      "name": "Bank 16: v64 HALL OF FAME object data with the secret warp (1,0) -> LEAGUE lobby (map AE, warp 2)"
+    },
+    {
+      "offset": "0x5a49c",
+      "before": "7165",
+      "after": "d665",
+      "name": "HALL OF FAME header: object pointer -> v64 data"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563633000000",
+      "after": "435245455059204d5520563634000000",
+      "name": "Branch identity"
+    }
+  ]
+}
