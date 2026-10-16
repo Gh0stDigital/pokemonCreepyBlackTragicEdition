@@ -1,0 +1,32 @@
+{
+  "input": "Creepy_Black_Mu_v67.gb",
+  "input_sha256": "d8ff15fe722ac08f8531e5db60f8877ee1c57f1e72cb3cebe8e1f90224bb310e",
+  "sha256": "fcb986bb67fb924bfc1ded661525b3c15a1615c4b9e02a009ace2084a7d316f0",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Mirage roll: counter test + chance -> m68",
+      "the replaced block is only entered from its start (mirage_start falls through); m68 ends with a jp to the roll at 2E:4326"
+    ]
+  ],
+  "changes": [
+    {
+      "offset": "0xb8280",
+      "before": "00000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a7c0fa5cd4a7c84f21000011a400190d20fc7cfe4038023e40c32643",
+      "name": "Bank 2E: v68 MIRAGE chance (grows to 25% at 100 victims, none as BLACK)"
+    },
+    {
+      "offset": "0xb8310",
+      "before": "fa5cd4a7c84fafc6023809fe4030050d20f518023e40",
+      "after": "c3804200000000000000000000000000000000000000",
+      "name": "Mirage roll: counter test + chance -> m68"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563637000000",
+      "after": "435245455059204d5520563638000000",
+      "name": "Branch identity"
+    }
+  ]
+}
