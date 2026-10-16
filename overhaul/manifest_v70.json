@@ -1,0 +1,45 @@
+{
+  "input": "Creepy_Black_Mu_v69.gb",
+  "input_sha256": "61abed96f2b3276a2376b5aa71b069ce7c9706094a3a8febc0191ef1a4e9e6bc",
+  "sha256": "d180c227515d5f02a1486f9bd7ca7f2afc5fe43357550fb3575bf6fa4e779ee6",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Cerulean thief after battle: text through s03 (skipped when he is dead)",
+      "the stub ends in the original jp DisplayTextID or a far call; nothing after the call reads a register",
+      "['jump from file $194e7 lands inside the patch at $54be']"
+    ]
+  ],
+  "changes": [
+    {
+      "offset": "0x53100",
+      "before": "000000000000000000",
+      "after": "fa4fd4cb6fc0c34d29",
+      "name": "Bank 14: v70 NUGGET BRIDGE Rocket: dead = no after-battle text"
+    },
+    {
+      "offset": "0x5143b",
+      "before": "cd4d29",
+      "after": "cd0071",
+      "name": "Route 24 Rocket after battle: text through s24 (skipped when he is dead)"
+    },
+    {
+      "offset": "0x1b000",
+      "before": "00000000000000000000000000000000",
+      "after": "fa4fd4cb67ca4d29217248061dc31836",
+      "name": "Bank 06: v70 CERULEAN thief: dead = no after-battle text, the event goes on"
+    },
+    {
+      "offset": "0x194bd",
+      "before": "cd4d29",
+      "after": "cd0070",
+      "name": "Cerulean thief after battle: text through s03 (skipped when he is dead)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563639000000",
+      "after": "435245455059204d5520563730000000",
+      "name": "Branch identity"
+    }
+  ]
+}
