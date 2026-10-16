@@ -1,0 +1,45 @@
+{
+  "input": "Creepy_Black_Mu_v71.gb",
+  "input_sha256": "259eda58e913ee29e97f542dfca03c284a10516cf8df765a1a2b435cba24a5ef",
+  "sha256": "7a7ba17160c90ad23dd484c8c76213ad6ebadd447c33767b2d002fbeed6e27a2",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0x17b3a",
+      "before": "43",
+      "after": "05",
+      "name": "Sprite set 12: position 9 = walker 05 (was SNORLAX 43, which only works at position 10/11)"
+    },
+    {
+      "offset": "0x17a98",
+      "before": "0c",
+      "after": "08",
+      "name": "ROUTE 12 south set (position table F4, B): 12 -> 8 (vanilla set 8 ends 3D, 43 SNORLAX)"
+    },
+    {
+      "offset": "0x17f9c",
+      "before": "000000000000000000000000000000",
+      "after": "20040cc3087a79fe0bda017ac3f17f",
+      "name": "Bank 5: v72 sprite slot lookup stub"
+    },
+    {
+      "offset": "0x17ff1",
+      "before": "000000000000000000000000",
+      "after": "78fe49c2017aaf774fc3087a",
+      "name": "Bank 5: v72 sprite slot lookup stub, not found (gravestone -> hidden)"
+    },
+    {
+      "offset": "0x17a05",
+      "before": "20fa0c",
+      "after": "c39c7f",
+      "name": "InitOutsideMapSprites picture lookup: bounded, hides a missing gravestone"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563731000000",
+      "after": "435245455059204d5520563732000000",
+      "name": "Branch identity"
+    }
+  ]
+}
