@@ -1,0 +1,69 @@
+{
+  "input": "Creepy_Black_Mu_v72.gb",
+  "input_sha256": "7a7ba17160c90ad23dd484c8c76213ad6ebadd447c33767b2d002fbeed6e27a2",
+  "sha256": "789db83fc9afcfe85773d64029e3441291ed206edf028661189cfd7ae72a580c",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xc9000",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "008f91849380bd7fb2a8a6a7b34fb4adb5a4a8aba4a37fb3a7a45586878e9293bd7fa8a3a4adb3a8b3b8e758008c91e8859489889c7f87a0b27facb84f858b9493847fa7a4abafa4a37fb8aeb4e6518086809387807fa8b27fb2b3a8abab4fa8ad7fb3a7a47f938e968491e85192a7a47faca0b87fa7a0b5a44fb2aeaca4b3a7a8ada67fb3ae7fa6a8b5a455b8aeb47fa0b27fb3a7a0adaab255b3aeaee857",
+      "name": "Bank 32: v73 texts (PRETA unveils the ghost, FUJI mentions AGATHA)"
+    },
+    {
+      "offset": "0x5a800",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2164d12afeff2808feb620f7211468c9214f4ec91700503250fa52d4a7c0c34d29",
+      "name": "Bank 16: v73 PRETA unveils text + SNORLAX cursed stub"
+    },
+    {
+      "offset": "0x58e0d",
+      "before": "214f4e",
+      "after": "cd0068",
+      "name": "Ghost unveiled text: PRETA's own text"
+    },
+    {
+      "offset": "0x59661",
+      "before": "cd4d29",
+      "after": "cd1968",
+      "name": "SNORLAX after battle 5661: text unless CURSE was used"
+    },
+    {
+      "offset": "0x599a5",
+      "before": "cd4d29",
+      "after": "cd1968",
+      "name": "SNORLAX after battle 59a5: text unless CURSE was used"
+    },
+    {
+      "offset": "0xbaa7c",
+      "before": "008086809387809c7f87acafa7e74f93a7a4b2a47f918e828a849355a1b1a0b3b27fb3a8a4a37faca47fb4af51b6a8b3a77faeaba37f85948988e74f86a4b37fb1a8a37faea57fb3a7a4acf455a2a7a8aba3e758",
+      "after": "008086809387809c7f87acafa7e74f93a7a4b2a47f918e828a849355a1b1a0b3b27fa6aeb37faca451a0ada37faeaba37f85948988e74f86a4b37fb1a8a37faea57fb3a7a4acf455a2a7a8aba3e7580000000000",
+      "name": "AGATHA's hostage speech without \"tied me up\""
+    },
+    {
+      "offset": "0x1f72b",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa51d4a72811fa6cd4a7200bfa66d4cb4f2004214677c9217059c9172c503250",
+      "name": "Bank 7: v73 FUJI mentions AGATHA"
+    },
+    {
+      "offset": "0x1d953",
+      "before": "217059",
+      "after": "cd2b77",
+      "name": "FUJI at home, after the FLUTE: text chooser"
+    },
+    {
+      "offset": "0xc6776",
+      "before": "1a17",
+      "after": "1c24",
+      "name": "SAFFRON shamaness: (y22,x19) at SILPH CO.'s door -> (y24,x32)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563732000000",
+      "after": "435245455059204d5520563733000000",
+      "name": "Branch identity"
+    }
+  ]
+}
