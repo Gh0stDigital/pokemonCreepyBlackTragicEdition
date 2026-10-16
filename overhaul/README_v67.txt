@@ -22,3 +22,9 @@ SHA-256 d8ff15fe722ac08f8531e5db60f8877ee1c57f1e72cb3cebe8e1f90224bb310e
   MISTY. ReadTrainerHeaderInfo reads the header from whatever bank is mapped. Far-call stubs: Bankswitch clobbers a, b, c (and hl is the vehicle); d, e and the flags survive.
 - Tests: t75_v67.py shock (CERULEAN: JR TRAINER killed -> D839, other trainer / beaten trainer / MISTY texts), sulk, normal, abandon, leaders (PEWTER both ways; the harness could not
   reach the other leaders), t28_v14.py misty_kill / misty_win / brock_kill (v14's revenge line still works; koga_kill's walk fails on v66 as well). run_v67.sh = run_v66.sh + t75.
+
+ALL-GYMS CHECK (t75 modes leaders / trainers / abandon_all / killall): the gym puzzles block a walk to the leaders, so the test moves the
+leader / a trainer onto the tile above the player and talks to it. Results on v67: every leader (PEWTER, VERMILION, CELADON, FUCHSIA,
+SAFFRON, VIRIDIAN) has the usual speech when the gym is calm and the shock line when its D839 bit is set; CINNABAR keeps BLAINE's usual speech
+(quiz gym, can't be shocked); an unbeaten trainer in each of the 7 killable gyms says the avenge line; killing one with CURSE sets the murder flag
+and only that gym's shock bit; with the leader's kill bit set, all 8 gyms are abandoned once armed (D842) and nobody leaves during the visit of the kill.

@@ -18,18 +18,83 @@ def talk_to(sy,sx,face,tag):
     return allt().replace("'","")
 def gym_state():
     return (m[0xd839],list(m[0xd83a:0xd840]),m[0xd453])
+if MODE=='trainers':
+    def summon(i):
+        y,x=m[0xd361],m[0xd362];b1=0xc100+i*16;b2=0xc200+i*16
+        m[b1+4]=0x2c;m[b1+6]=0x40;m[b2+4]=y-1+4;m[b2+5]=x+4;m[b2+6]=0xff
+    def talk_up(i):
+        summon(i);T(10);p.button('up',8);T(20);seen.clear()
+        for k in range(30):
+            if m[0xd057] or (not box() and k>12):break
+            press_('a',70)
+        return allt().replace("'","")
+    for name,mp,g in (('PEWTER',0x36,0),('CERULEAN',0x41,1),('VERMILION',0x5c,2),('CELADON',0x86,3),('FUCHSIA',0x9d,4),('SAFFRON',0xb2,5),('VIRIDIAN',0x2d,7)):
+        warp_from_pallet(mp,0);m[0xd887]=0;m[0xd839]|=1<<g
+        t=talk_up(2)
+        print(name,'trainer 2:',t[:150],flush=True)
+        ok(any(k in t for k in ('teammate','avenge','killed one of','dead because','Our ')),'%s: an unbeaten trainer says the avenge line (shock)'%name)
+    print('t75 done',flush=True);sys.exit(0)
+if MODE=='abandon_all':
+    for name,mp,g,idx in (('PEWTER',0x36,0,12),('CERULEAN',0x41,1,26),('VERMILION',0x5c,2,27),('CELADON',0x86,3,28),('FUCHSIA',0x9d,4,29),('SAFFRON',0xb2,5,30),('CINNABAR',0xa6,6,31),('VIRIDIAN',0x2d,7,32)):
+        for armed in (False,True):
+            warp_from_pallet(mp,0);m[0xd887]=0
+            m[0xd4a4+(idx>>3)]|=1<<(idx&7)
+            if armed:m[0xd842]|=1<<g
+            # reload the map the way the game does after a menu / warp: re-enter via the stored warp
+            load('pallet_with_ghost');lead(0x1f);m[0xd16b+29]=0x3f;m[0xd455]=255
+            m[0xd4a4+(idx>>3)]|=1<<(idx&7)
+            if armed:m[0xd842]|=1<<g
+            for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=mp
+            for i in range(6):
+                if m[0xd35e]==mp:break
+                walk('up',1)
+            T(120)
+            n=m[0xd4e1];pics=[m[0xc100+i*16] for i in range(2,n+1)]
+            live=sum(1 for q in pics if q)
+            print(name,'armed' if armed else 'unarmed','sprites',n,'pics',pics,flush=True)
+            ok((live==0)==armed,'%s: %s'%(name,'abandoned (everyone but the grave is gone)' if armed else 'leader dead this visit: nobody leaves'))
+    print('t75 done',flush=True);sys.exit(0)
+if MODE=='killall':
+    def summon(i):
+        y,x=m[0xd361],m[0xd362];b1=0xc100+i*16;b2=0xc200+i*16
+        m[b1+4]=0x2c;m[b1+6]=0x40;m[b2+4]=y-1+4;m[b2+5]=x+4;m[b2+6]=0xff
+    for name,mp,g in (('PEWTER',0x36,0),('VERMILION',0x5c,2),('CELADON',0x86,3),('FUCHSIA',0x9d,4),('SAFFRON',0xb2,5),('VIRIDIAN',0x2d,7)):
+        warp_from_pallet(mp,0);m[0xd887]=0
+        summon(2);T(10);p.button('up',8);T(20);seen.clear()
+        for i in range(30):
+            if m[0xd057]:break
+            press_('a',60)
+        idx=m[0xd4ae]<<8|m[0xd4af]
+        print(name,'battle',m[0xd057],'idx',idx,flush=True)
+        if not m[0xd057]:ok(False,'%s: battle starts'%name);continue
+        fight()
+        for i in range(30):press_('a',90)
+        print(name,gym_state(),flush=True)
+        ok(m[0xd453]==1 and m[0xd839]&(1<<g)==(1<<g) and m[0xd839]==(1<<g),'%s: killed with CURSE -> murder flag and this gym (bit %d) alone in SHOCK'%(name,g))
+    print('t75 done',flush=True);sys.exit(0)
 if MODE=='leaders':
     GY=[('PEWTER',0x36,0,[(0xd755,0x04)],(2,4),'student','The rock stands'),('VERMILION',0x5c,2,[(0xd773,0x1c)],(2,5),'my boys','fry you'),
-        ('CELADON',0x86,3,[(0xd77c,0xfc),(0xd77d,0x01)],(4,4),'flowers wilt','students'),('VIRIDIAN',0x2d,7,[(0xd751,0xfc),(0xd752,0x03)],(2,2),'my men','BOSS')]
+        ('CELADON',0x86,3,[(0xd77c,0xfc),(0xd77d,0x01)],(4,4),'flowers wilt','students'),('FUCHSIA',0x9d,4,[(0xd792,0xfc),(0xd793,0x01)],(11,4),'ninja dead','x'),('SAFFRON',0xb2,5,[(0xd7b3,0xfc),(0xd7b4,0x01)],(9,9),'foresaw the death','x'),('CINNABAR',0xa6,6,[],(4,3),'\x00no shock line here','x'),('VIRIDIAN',0x2d,7,[(0xd751,0xfc),(0xd752,0x03)],(2,2),'my men','BOSS')]
+    def summon(i):
+        """put sprite i (a gym leader / trainer) on the tile above the player: the gyms' puzzles block a real walk"""
+        y,x=m[0xd361],m[0xd362]
+        b1=0xc100+i*16;b2=0xc200+i*16
+        m[b1+4]=0x2c;m[b1+6]=0x40;m[b1+2]=1 if m[b1+2]==0xff else m[b1+2]
+        m[b2+4]=y-1+4;m[b2+5]=x+4;m[b2+6]=0xff
+    def talk_up(i):
+        summon(i);T(10);p.button('up',8);T(20);seen.clear()
+        for k in range(30):
+            if m[0xd057] or (not box() and k>12):break
+            press_('a',70)
+        return allt().replace("'","")
     for name,mp,g,flags,(sy,sx),k1,k2 in GY:
         for shocked in (False,True):
             warp_from_pallet(mp,0);m[0xd887]=0
             for a,mk in flags:m[a]|=mk
             if shocked:m[0xd839]|=1<<g
-            try:
-                t=talk_to(sy,sx,'up',name)
-            except AssertionError as e:
-                print('SKIP',name,'no path',flush=True);break
+            if name=='CINNABAR':shocked=False      # quiz gym: cannot be shocked, the usual speech both times
+            t=talk_up(1)
+            print(name,shocked,t[:200],flush=True)
             ok((k1 in t)==shocked,'%s: %s'%(name,'the leader has the shock line' if shocked else 'not shocked: the leader\'s usual speech'))
     print('t75 done',flush=True);sys.exit(0)
 else:
