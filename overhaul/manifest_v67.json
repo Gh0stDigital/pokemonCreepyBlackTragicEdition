@@ -1,0 +1,223 @@
+{
+  "input": "Creepy_Black_Mu_v66.gb",
+  "input_sha256": "953bb05ccf54e374bdc5fa71837849058e20e12e73b4ef99ab0af6d4fc770d2c",
+  "sha256": "d8ff15fe722ac08f8531e5db60f8877ee1c57f1e72cb3cebe8e1f90224bb310e",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Home 0:00CE: TalkToTrainer text dispatch -> far call to bank 31 rdisp (shock / sulk; v14 revenge as fallback)",
+      "v14 stub body replaced; its only entry is 0:00CE (call from TalkToTrainer); the stub reproduces the old tail jp 7A00 / jp PrintText"
+    ],
+    [
+      "Gym leader (shock bit 0): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "[\"jp $3c94 at 17:7d16 with changed ['h', 'l']\", \"call $3c94 at 17:4c03 with changed ['h', 'l']\"]"
+    ],
+    [
+      "Gym leader (shock bit 1): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "[\"jp $3c94 at 17:7d28 with changed ['h', 'l']\", \"call $3c94 at 17:4c03 with changed ['h', 'l']\"]"
+    ],
+    [
+      "Gym leader (shock bit 2): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "[\"jp $3c94 at 17:7d3a with changed ['h', 'l']\", \"call $3c94 at 17:4c03 with changed ['h', 'l']\"]"
+    ],
+    [
+      "Gym leader (shock bit 5): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "[\"jp $3c94 at 17:7d4c with changed ['h', 'l']\", \"call $3c94 at 17:4c03 with changed ['h', 'l']\"]"
+    ],
+    [
+      "Gym leader (shock bit 3): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "[\"jp $3c94 at 12:7b30 with changed ['h', 'l']\"]"
+    ],
+    [
+      "Gym leader (shock bit 4): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "[\"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7f52 with changed ['h', 'l']\"]"
+    ],
+    [
+      "Gym leader (shock bit 7): pre-battle text through the shock stub",
+      "the stub swaps hl (the text) on purpose and tail-jumps to PrintText; nothing else changes",
+      "['jump from file $74a51 lands inside the patch at $4aa4', \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7a2a with changed ['h', 'l']\", \"jp $3c94 at 1d:7f64 with changed ['h', 'l']\"]"
+    ]
+  ],
+  "labels": {
+    "bank31": {
+      "bitmask": "0x7000",
+      "bitmask.l": "0x7006",
+      "bitmask.e": "0x7007",
+      "killtest": "0x700b",
+      "killtest.g": "0x7017",
+      "killtest.n": "0x7023",
+      "killtest.s": "0x7029",
+      "gymfind": "0x7030",
+      "gymfind.l": "0x7035",
+      "gymfind.f": "0x7043",
+      "gymfind.nf": "0x7046",
+      "stabfind": "0x7049",
+      "stabfind.l": "0x704f",
+      "stabfind.nx": "0x705f",
+      "stabfind.f": "0x7062",
+      "stabfind.nf": "0x7065",
+      "pick": "0x7068",
+      "var3": "0x7071",
+      "r2": "0x707b",
+      "r2.spared": "0x70b4",
+      "r2.done": "0x70d2",
+      "rdisp": "0x70d8",
+      "rdisp.sh": "0x70fe",
+      "rdisp.nl": "0x7114",
+      "rdisp.go": "0x7116",
+      "rdisp.lb": "0x7130",
+      "rdisp.after": "0x713b",
+      "rdisp.la": "0x714e",
+      "rdisp.sulk": "0x7153",
+      "rdisp.say": "0x7180",
+      "rdisp.dead": "0x7185",
+      "rdisp.van": "0x718e",
+      "gymhide": "0x7190",
+      "gymhide.l": "0x71b8",
+      "armall": "0x71d0",
+      "armall.l": "0x71d3",
+      "armall.n": "0x71f1",
+      "im67": "0x71f8",
+      "gtab": "0x71fe",
+      "stab": "0x721f",
+      "tshock": "0x7275",
+      "tafter": "0x727b",
+      "tsulk": "0x7281",
+      "lshock": "0x7287"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xc7600",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0096a7a0b37fa3a8a37fb8aeb47fa3ae4fb3ae7faeb4b17fb3a4a0acaca0b3a4e6e75188bcab7fa0b5a4ada6a47fb3a7a4ace7580098aeb47faaa8ababa4a37faeada47faea54fb4b2e77f8c94918384918491e751887fb6aeadbe7faba4b37fb8aeb44fa6a4b37fa0b6a0b87fb6a8b3a77fa8b3e758008eb4b17fa5b1a8a4ada37fa8b24fa3a4a0a37fa1a4a2a0b4b2a47faea555988e94e75198aeb4bcab7fafa0b87fa5aeb14fb3a7a8b2e758008c94918384918491e77f86a4b37faeb4b34faea57faeb4b17fa6b8ace758008eb4b17fb3a4a0acaca0b3a47fa8b24fa3a4a0a3e8e8e87f8ba4a0b5a4e75800887fa2a0adbe7fa4b5a4ad7fabaeaeaa4fa0b37fb8aeb4e77f868ee7580098aeb47fa0b1a47fa4b5a8abe8e8e84f89b4b2b37faba4a0b5a4e8580083aeadbe7fabaeaeaa7fa0b37faca4e84f96a7a0b37fa07facaeadb2b3a4b1e8e8e85586ae7fa0b6a0b8e8580098aeb4b17fa2b1b4a4abb3b84fb2a8a2aaa4adb27faca4e8558faba4a0b2a47faba4a0b5a4e8580098aeb47faaa8ababa4a37facb84fb2b3b4a3a4adb3e75193a7a47fb1aea2aa7fb2b3a0ada3b2e84f98aeb4b17fb2a8ad7fb6aeadbee7580098aeb47faaa8ababa4a37facb84fa5b1a8a4ada3e75193a7a47fb6a0b3a4b17fb6a8abab4fb6a0b2a77fb8aeb47fa0b6a0b8f455acb4b1a3a4b1a4b1e7580098aeb47faaa8ababa4a37faeada47faea54facb87fa1aeb8b2e75188bcab7fa5b1b87fb8aeb4f44fb8aeb47facaeadb2b3a4b1e758008cb87fa5abaeb6a4b1b27fb6a8abb34fa0b37fb8aeb4b17fb2a8adb2e8e8e85198aeb47faaa8ababa4a37faeada47faea54facb87fb2b3b4a3a4adb3b2e75800807fada8ada9a07fa3a4a0a37fa1b84fb8aeb4b17fa7a0ada3e8e8e851887fb6aeadbe7faca0aaa47fa8b34fb0b4a8a2aaf47fa5a8a4ada3e75800887fa5aeb1a4b2a0b67fb3a7a44fa3a4a0b3a77faea57facb855a3a8b2a2a8afaba4e8e8e8518daeb67fb8aeb47fb6a8abab4fa9aea8ad7fb3a7a4ace7580087a0a7a0a7a0e77f98aeb44faaa8ababa4a37facb87faca4ade75188bcab7fa1b4b1ad7fb8aeb44fb3ae7fa0b2a7a4b2e7580098aeb47faaa8ababa4a37facb84faca4ade67f85aeaeabe7518daeb67fb8aeb47fa5a0a2a44fb3a7a47f818e9292e7580098aeb47fa0b1a47fa04f8c94918384918491e77f8ba4a0b5a455acb87fa6b8ace758",
+      "name": "Bank 31: v67 gym shock / sulk texts"
+    },
+    {
+      "offset": "0xc7000",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "473e01041801870520fcc9c5d57ca711a4d428031130d47dcb3fcb3fcb3f835f3001147de60747041a0f0520fcd1c1c9c54f21fe717efeff280cb928062323232318f2c137c9c1a7c9d5111f7206001a134f1a13feff280dbc200479bd28030418edd137c9d1a7c9875f1600192a666fc9faafd4e603fe03c0afc9fa55cc4f0601cdfc31fa5ed3cd30703046e5faaed467faafd46fcd4970d13037cd0b70301478fe22302d131acd00704ffa39d8b1ea39d8181efa52d4a7281878cb3fcb3fcb3f5f1600213ad81978e607cd00704f7eb177fa13d7fec8c97aea45d8fa5ed3cd3070d28e71232aea46d82a4f7e476069cd0b70da8571fa46d85ffa39d81c0f1d20fc9f57faaed4b8200afaafd4b920041e0118021e00fa45d8a7201f7aa7ca8e717ba7200bcd7170217572cd68701850fa46d8218772cd687018457aa728147ba7200bcd7170217b72cd68701832214879182dfaaed467faafd46fcd4970302e78cb3fcb3fcb3f5f1600213ad81978e607cd0070a62817cd7170218172cd6870cd943c37c9fa45d8a72003f601c9afc9fa5ed3cd3070d2d071232a5f2a4f7e6769cd0b70d07bcd00704ffa42d8a1c8fae1d4fe02d8470e0279cb375f16c1af12147bc6045f3eff121c120c78b930e9c921fe717efeffc8e5232a5f2a4f7e6769cd0b70300c7bcd00704ffa42d8b1ea42d8e12323232318dbcd0066c3907136000c0041011a005c021b0086031c009d041d00b2051e00a6061f002d072000ff0d00b401b501b601b701b801050106010701080109010a010b01f301f401f501f601f701f801bd01be01bf01c001c101c201c301eb01ec01ed01ee01ef01f001f101f2010c001a001b001c001d001e001f002000ffff007634767676ae76cd76ed760b77287755777d77b577f4772a786a78a578e4781779",
+      "name": "Bank 31: v67 gym shock mode (r2, rdisp, gymhide, tables)"
+    },
+    {
+      "offset": "0xce",
+      "before": "f0b8fe172809fe122805fe1dc2943cc3007a",
+      "after": "e5d55121d8700631cfd1e1d8c2007ac3943c",
+      "name": "Home 0:00CE: TalkToTrainer text dispatch -> far call to bank 31 rdisp (shock / sulk; v14 revenge as fallback)"
+    },
+    {
+      "offset": "0x322c",
+      "before": "c3943c",
+      "after": "c3ce00",
+      "name": "TalkToTrainer: after-battle text through the dispatcher"
+    },
+    {
+      "offset": "0x32d9",
+      "before": "0601cdfc31fa13d7fec8",
+      "after": "217b700631cf00000000",
+      "name": "EndTrainerBattle: set flag + class test -> far call to bank 31 r2 (shock / sulk bookkeeping)"
+    },
+    {
+      "offset": "0x17fd1",
+      "before": "0066",
+      "after": "f871",
+      "name": "InitMapSprites stub -> im67 (shamanesses, abandoned gyms)"
+    },
+    {
+      "offset": "0x5fd0c",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb47280321197dc3943c177d773150",
+      "name": "Bank 17: v67 leader pre-battle text stub (gym shock bit 0)"
+    },
+    {
+      "offset": "0x5c477",
+      "before": "cd943c",
+      "after": "cd0c7d",
+      "name": "Gym leader (shock bit 0): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x5fd1e",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb4f2803212b7dc3943c17b5773150",
+      "name": "Bank 17: v67 leader pre-battle text stub (gym shock bit 1)"
+    },
+    {
+      "offset": "0x5c7a5",
+      "before": "cd943c",
+      "after": "cd1e7d",
+      "name": "Gym leader (shock bit 1): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x5fd30",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb572803213d7dc3943c17f4773150",
+      "name": "Bank 17: v67 leader pre-battle text stub (gym shock bit 2)"
+    },
+    {
+      "offset": "0x5cb51",
+      "before": "cd943c",
+      "after": "cd307d",
+      "name": "Gym leader (shock bit 2): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x5fd42",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb6f2803214f7dc3943c17a5783150",
+      "name": "Bank 17: v67 leader pre-battle text stub (gym shock bit 5)"
+    },
+    {
+      "offset": "0x5d14c",
+      "before": "cd943c",
+      "after": "cd427d",
+      "name": "Gym leader (shock bit 5): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x4bb26",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb5f280321337bc3943c172a783150",
+      "name": "Bank 12: v67 leader pre-battle text stub (gym shock bit 3)"
+    },
+    {
+      "offset": "0x48a30",
+      "before": "cd943c",
+      "after": "cd267b",
+      "name": "Gym leader (shock bit 3): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x77f48",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb67280321557fc3943c176a783150",
+      "name": "Bank 1D: v67 leader pre-battle text stub (gym shock bit 4)"
+    },
+    {
+      "offset": "0x75553",
+      "before": "cd943c",
+      "after": "cd487f",
+      "name": "Gym leader (shock bit 4): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x77f5a",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa39d8cb7f280321677fc3943c1717793150",
+      "name": "Bank 1D: v67 leader pre-battle text stub (gym shock bit 7)"
+    },
+    {
+      "offset": "0x74aa3",
+      "before": "cd943c",
+      "after": "cd5a7f",
+      "name": "Gym leader (shock bit 7): pre-battle text through the shock stub"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563636000000",
+      "after": "435245455059204d5520563637000000",
+      "name": "Branch identity"
+    }
+  ]
+}
