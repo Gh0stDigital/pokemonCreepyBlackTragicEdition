@@ -23,7 +23,7 @@ def first_trainer(mapid,spr,prep=None):
     t=talk_up(spr)
     return (spr if m[0xd057] else None),t
 def sbits():
-    return sum(bin(m[a]).count('1') for a in list(range(0xd784,0xd78e))+list(range(0xd7a4,0xd7af))+list(range(0xd80a,0xd813))+list(range(0xd84f,0xd857))+list(range(0xd858,0xd85f)))
+    return sum(bin(m[a]).count('1') for a in list(range(0xd784,0xd78e))+list(range(0xd7a4,0xd7af))+list(range(0xd80a,0xd813))+list(range(0xd84f,0xd857))+list(range(0xd858,0xd85c)))
 for MAP,SPR in ((0x0e,2),(0x0f,2)):
     print('=== map',hex(MAP),'sprite',SPR,flush=True)
     if MY=='sulk':
