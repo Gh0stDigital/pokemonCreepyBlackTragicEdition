@@ -79,7 +79,7 @@ for i in range(30):
     press_('a',120)
 t=allt().replace("'","")
 print('text:',t[:400],flush=True)
-ok('SHAMANESS %d'%(idx+1) in t and KEYS[idx] in t,'her speech is SHAMANESS %d'%(idx+1))
+ok(KEYS[idx] in t and 'SHAMANESS' not in t,'her speech is lore %d (no name / title in the dialogue)'%(idx+1))
 ok(m[0xd840+(idx//8)]&(1<<(idx%8)),'talked flag set')
 ok(m[0xc100+16*s[0]]==0x19,'still standing until the map reloads')
 f0,f1=m[0xd840],m[0xd841]
