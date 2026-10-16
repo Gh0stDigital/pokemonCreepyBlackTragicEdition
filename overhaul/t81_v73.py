@@ -89,7 +89,7 @@ elif MY=='hostage':
 elif MY=='saffron':
     warp_from_pallet(0x0a,0);m[0xd887]=0;m[0xd451]=1
     sp=[(i,hex(m[0xc100+16*i]),m[0xc204+16*i]-4,m[0xc205+16*i]-4) for i in range(1,m[0xd4e1]+1)]
-    sh=[s for s in sp if s[1]=='0x19' and m[0xd4e4+2*(s[0]-1)+1]==0x3f]
+    sh=[s for s in sp if s[1]=='0x19' and m[0xd4e4+2*(s[0]-1)]==0xd0]
     print('shamaness',sh,flush=True)
     ok(len(sh)==1 and (sh[0][2],sh[0][3])==(24,32),'the SAFFRON shamaness stands at (24,32)')
     ok(not any((s[2],s[3])==(22,19) and s[1]!='0x0' for s in sp),'nobody stands at SILPH CO.\'s door tile (22,19)')

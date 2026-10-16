@@ -12,7 +12,7 @@ def go(mapid):
         p.button('up',8);T(24)
     T(120)
 def shaman():
-    s=[x for x in sprites() if x[1]=='0x19' and m[0xd4e4+2*(x[0]-1)+1]==0x3f]
+    s=[x for x in sprites() if x[1]=='0x19' and m[0xd4e4+2*(x[0]-1)]==0xd0]
     return s[0] if s else None
 idx=ORDER.index(TOWN)
 DOOR={0:0x25,1:0x29,2:0x34,3:0x40,4:0x8d,5:0x59,6:0x7a,7:0x98,8:0xa5,0x0a:0xb4}
