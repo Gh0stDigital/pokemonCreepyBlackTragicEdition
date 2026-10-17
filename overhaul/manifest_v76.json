@@ -1,0 +1,44 @@
+{
+  "input": "Creepy_Black_Mu_v75.gb",
+  "input_sha256": "67c62e8ec2b1e23f1dcea1aa36d7ed1c2a8a98c58838b7d49e86d96b2ce8f11b",
+  "sha256": "6a369425166c88f932aac998f751053fee06f8a160e7869492e2b757b2cd3a2f",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank4": {
+      "tow76": "0x7bc0"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x13bc0",
+      "before": "00000000000000000000000000",
+      "after": "fa5ed3fe94c2807bf13e01a7c9",
+      "name": "Bank 4: v76 no encounters on POKeMON TOWER 7F"
+    },
+    {
+      "offset": "0x138bc",
+      "before": "cd807b",
+      "after": "cdc07b",
+      "name": "TryDoWildEncounter: 7F has none; else tow49"
+    },
+    {
+      "offset": "0x63d5b",
+      "before": "0b0f",
+      "after": "1314",
+      "name": "Chamber: OLD AMBER stand object -> the right stand (y15 x16)"
+    },
+    {
+      "offset": "0x63d67",
+      "before": "1314",
+      "after": "0b0f",
+      "name": "Chamber: HELIX FOSSIL stand object -> the top stand (y7 x11)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563735000000",
+      "after": "435245455059204d5520563736000000",
+      "name": "Branch identity"
+    }
+  ]
+}

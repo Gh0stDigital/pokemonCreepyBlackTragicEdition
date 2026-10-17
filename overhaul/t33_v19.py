@@ -126,8 +126,13 @@ elif MODE=='saveload':
 elif MODE=='fossils':                                          # v22: a fossil on each statue's stand
     tower(5);bfs_to(2,11);p.button('up',16);T(200)
     objs=[spr(k) for k in range(2,5)];print('fossil objects',objs)
-    assert objs==[('0x3e',7,11),('0x3e',15,6),('0x3e',15,16)]
-    for (y,x),name in (((8,11),'OLD AMBER'),((16,6),'DOME FOSSIL'),((16,16),'HELIX FOSSIL')):
+    if VERSION>=76:        # v76: HELIX on the top stand, DOME left, AMBER right
+        assert objs==[('0x3e',15,16),('0x3e',15,6),('0x3e',7,11)],objs
+        STANDS=(((8,11),'HELIX FOSSIL'),((16,6),'DOME FOSSIL'),((16,16),'OLD AMBER'))
+    else:
+        assert objs==[('0x3e',7,11),('0x3e',15,6),('0x3e',15,16)]
+        STANDS=(((8,11),'OLD AMBER'),((16,6),'DOME FOSSIL'),((16,16),'HELIX FOSSIL'))
+    for (y,x),name in STANDS:
         bfs_to(y,x);seen.clear();p.button('up',8);T(30)
         for k in range(6):
             press_('a',90)

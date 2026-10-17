@@ -96,9 +96,11 @@ elif MODE=='altar':
     ok(all(i in sprites() for i in (2,3,4)),'the three fossil sprites are on the stands')
     cries.clear();t=talk_at(15,7,'left',n=10);print('DOME stand:',t[-90:],cries)
     ok('PRETA' in t and 'still' in t and 0xb6 in cries,'DOME stand (PRETA awakened): its cry and "PRETA stands still on the stand."')
-    m[0xd460]=4;cries.clear();t=talk_at(8,11,'up',n=10);print('AMBER stand:',t[-90:],cries)
+    AMB=(15,15,'right') if VERSION>=76 else (8,11,'up')        # v76: AMBER on the right stand, HELIX on the top one
+    HEL=(8,11,'up') if VERSION>=76 else (15,15,'right')
+    m[0xd460]=4;cries.clear();t=talk_at(*AMB,n=10);print('AMBER stand:',t[-90:],cries)
     ok('AZHI' in t and 'still' in t and 0xb7 in cries,'AMBER stand (AZHI awakened): its cry and "AZHI stands still on the stand."')
-    cries.clear();t=talk_at(15,15,'right',n=10);print('HELIX stand:',t[-90:])
+    cries.clear();t=talk_at(*HEL,n=10);print('HELIX stand:',t[-90:])
     ok('HELIX FOSSIL' in t and not cries,'HELIX stand: plain text, no cry')
     bfs_to(18,11);p.button('down',16);T(200);T(60)
     pt=list(m[0xd164:0xd164+m[0xd163]]);print('back on 7F',pos(),[hex(x) for x in pt],hex(m[0xd466]))
