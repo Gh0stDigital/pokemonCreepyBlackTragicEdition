@@ -1,0 +1,35 @@
+{
+  "input": "Creepy_Black_Mu_v74.gb",
+  "input_sha256": "a241a52fd2ea515cf4b1966440df6df0bdf7c4cfff270d29d2bfc2f189ee3d2b",
+  "sha256": "67c62e8ec2b1e23f1dcea1aa36d7ed1c2a8a98c58838b7d49e86d96b2ce8f11b",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank31": {
+      "app75": "0x4b00",
+      "app75.l": "0x4b24",
+      "app75.o": "0x4b2d",
+      "lpic75": "0x4b30"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xc4b00",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa5ed3fe942026fa64d4fe05201ffa67d4fe063018fae1d4fe0a381121304b1140c1060c2a127bc6105f0520f7c3004916391d1b0d39191919191919",
+      "name": "Bank 31: v75 app75 (7F object pictures as at the map load before the sprite loader, then app74)"
+    },
+    {
+      "offset": "0xc71f9",
+      "before": "0049",
+      "after": "004b",
+      "name": "im67: call app74 -> app75"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563734000000",
+      "after": "435245455059204d5520563735000000",
+      "name": "Branch identity"
+    }
+  ]
+}
