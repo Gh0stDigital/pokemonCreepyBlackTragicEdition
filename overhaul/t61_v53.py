@@ -109,7 +109,8 @@ elif MODE=='altar':
     enter(0);t=talk_at(15,7,'left',n=10);print('plain:',t[-80:])
     ok('DOME FOSSIL' in t and 'stands still' not in t,'not awakened (D460 0): the stand says it rests there')
     enter(2,rit=3);pt=list(m[0xd164:0xd164+m[0xd163]])
-    ok(0xb6 in pt and not m[0xd466]&0x40 and not any(i in sprites() for i in (2,3,4)),'after the ritual (RIT 3): nothing stashed, the fossil sprites are gone')
+    gone=not any(i in sprites() for i in (2,3,4))
+    ok(0xb6 in pt and not m[0xd466]&0x40 and (gone if VERSION<77 else not gone),'after the ritual (RIT 3): nothing stashed, the fossil sprites are %s'%('gone' if VERSION<77 else 'still there (v77: until BLACK)'))
 elif MODE=='ritualstash':                               # PRETA waits in the stash while the ritual ends: it comes back first, black_join gives no second PRETA
     PS=fo(0x2e,0x469a);ROMB=open(os.environ['CB_ROM'],'rb').read()
     exec(open('t46_v38.py').read().split("if MODE in ('join','owned'):")[0].split("def climax")[1].join(["def climax",""]) if False else "")

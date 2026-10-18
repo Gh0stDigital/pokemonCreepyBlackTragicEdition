@@ -1,0 +1,118 @@
+{
+  "input": "Creepy_Black_Mu_v76.gb",
+  "input_sha256": "6a369425166c88f932aac998f751053fee06f8a160e7869492e2b757b2cd3a2f",
+  "sha256": "d5d09c35ea328703958bc4ac75a6d1e22c1f869add1fb71df8c313422d414854",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "BLACK born: flag + music refresh through mus77r",
+      "a flag store replaced by a call that stores it"
+    ],
+    [
+      "Trainer victory music: no fanfare in the chamber (vict77)",
+      "the far routine repeats the link check, the fanfare and sets hl = F:4714 for the PrintText after it"
+    ]
+  ],
+  "labels": {
+    "bank30": {
+      "music77": "0x4400",
+      "rmus77": "0x4414",
+      "pre77": "0x4417",
+      "pre77.q": "0x442e",
+      "et77": "0x443b",
+      "et77.n": "0x4449",
+      "vicw77": "0x4451",
+      "vict77": "0x4474",
+      "vict77.n": "0x4495"
+    },
+    "bank2d": {
+      "mus77r": "0x4b00",
+      "cm77": "0x4b0e",
+      "cm77.first": "0x4b23"
+    },
+    "bank2e": {
+      "menu77": "0x7820",
+      "t_block3": "0x7839"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xc0400",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cdc240fa5ed3fe69c0fa6cd4a7c03effea5bd3c9c3c2402105c4afea5ad4fa91cffe7f2809fe79c0fa67d4fe01c03e01ea5ad4f8043edc223641c9fa67d4fe0720073e08ea67d4afc9210079062fc31836afea83d0ea2ac03ceaf6ccfa5ed3fe69c83effeaeec0cd7a370e083ef9cdce23c3223efa2bd1fe04281afa5ed3fe6928133effeaeec0cd7a370e08fa68d4cdce23cd223e211447c9",
+      "name": "Bank 30: v77 chamber music, quiet send-out in MR. MU battle, climax enemy turn, victory music off in the chamber"
+    },
+    {
+      "offset": "0x124a",
+      "before": "c240",
+      "after": "0044",
+      "name": "Map music read -> music77 (TOWER CHAMBER silent until BLACK)"
+    },
+    {
+      "offset": "0xb4b00",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "3e01ea6cd42114440630cd1836c9cd5f37fa67d4fe05280bfe08c03e05ea67d4c3e044fa57d0a7c83e07ea67d4c9",
+      "name": "Bank 2D: v77 mus77r (BLACK flag + music) and cm77 (climax: the player acts first)"
+    },
+    {
+      "offset": "0xb4556",
+      "before": "3e01ea6cd4",
+      "after": "cd004b0000",
+      "name": "BLACK born: flag + music refresh through mus77r"
+    },
+    {
+      "offset": "0x3fff9",
+      "before": "d744",
+      "after": "0e4b",
+      "name": "Climax battle-menu stub -> cm77"
+    },
+    {
+      "offset": "0x3e7c9",
+      "before": "0079062f",
+      "after": "3b440630",
+      "name": "Enemy turn: et77 (climax: GHOST skips the player-turn) -> scared49"
+    },
+    {
+      "offset": "0x3ffb9",
+      "before": "0074062f",
+      "after": "17440630",
+      "name": "Battle start stub -> pre77 (quiet start also for MR. MU's battle)"
+    },
+    {
+      "offset": "0x3c5df",
+      "before": "cd58463ef9cd1947",
+      "after": "2151440630cf0000",
+      "name": "Wild victory music: no fanfare in the chamber (vicw77)"
+    },
+    {
+      "offset": "0x3c6c6",
+      "before": "fa2bd1fe0478c41947211447",
+      "after": "78ea68d42174440630cf0000",
+      "name": "Trainer victory music: no fanfare in the chamber (vict77)"
+    },
+    {
+      "offset": "0x62fce",
+      "before": "03",
+      "after": "06",
+      "name": "Chamber script: the fossil sprites go when the player is BLACK (RIT 6), not at RIT 3"
+    },
+    {
+      "offset": "0xbb820",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa67d4fe07c2db59fa68d4a7c8213978cd943c11de4ec3c8590086878e9293bd7fa0b4b1a04fa7aeaba3b27fb8aeb47fa7a4b1a4e758",
+      "name": "Bank 2E: v77 menu77 (climax battle: FIGHT only on the first turn)"
+    },
+    {
+      "offset": "0xbb80d",
+      "before": "db59",
+      "after": "2078",
+      "name": "2E battle-menu chain: menu -> menu77 (RIT 7 limits)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563736000000",
+      "after": "435245455059204d5520563737000000",
+      "name": "Branch identity"
+    }
+  ]
+}
