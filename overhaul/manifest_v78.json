@@ -1,0 +1,43 @@
+{
+  "input": "Creepy_Black_Mu_v77.gb",
+  "input_sha256": "d5d09c35ea328703958bc4ac75a6d1e22c1f869add1fb71df8c313422d414854",
+  "sha256": "a00dc5797b476adfd862385a36f3ab65dbfbeeee03737911e8102bc744ffe64c",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Climax evolution scene -> evo78 (RED -> GHOST -> BLACK)",
+      "the routine sets cee9/ceea itself and makes the same far call twice"
+    ]
+  ],
+  "labels": {
+    "bank2d": {
+      "evo78": "0x4b60"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xb4b60",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "3e86eae9ce3e1feaeace21347e061ecd18363e1feae9ce3e7feaeace21347e061ecd1836c9",
+      "name": "Bank 2D: v78 evo78 (RED -> GHOST -> BLACK evolution)"
+    },
+    {
+      "offset": "0xb4548",
+      "before": "21347e061ecd1836",
+      "after": "cd604b0000000000",
+      "name": "Climax evolution scene -> evo78 (RED -> GHOST -> BLACK)"
+    },
+    {
+      "offset": "0xb46a6",
+      "before": "fe02380a",
+      "after": "00000000",
+      "name": "do_post: GHOST leaves the party even as the only member (BLACK joins right after)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563737000000",
+      "after": "435245455059204d5520563738000000",
+      "name": "Branch identity"
+    }
+  ]
+}
