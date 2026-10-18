@@ -1,0 +1,50 @@
+{
+  "input": "Creepy_Black_Mu_v78.gb",
+  "input_sha256": "a00dc5797b476adfd862385a36f3ab65dbfbeeee03737911e8102bc744ffe64c",
+  "sha256": "71445e6b2dba1c90662197a7ce5b6143879aeadd3766d76c0ca9a89816ac0717",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "app75: the pictures of the 7F object list also after the ritual (no RIT < 6 test)",
+      "nops over a load/compare/jr nc that only skipped the restore"
+    ]
+  ],
+  "labels": {
+    "bank12": {
+      "house79": "0x7200",
+      "house79.o": "0x7213"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xc4b0e",
+      "before": "fa67d4fe063018",
+      "after": "00000000000000",
+      "name": "app75: the pictures of the 7F object list also after the ritual (no RIT < 6 test)"
+    },
+    {
+      "offset": "0xc4b3b",
+      "before": "19",
+      "after": "33",
+      "name": "lpic75: object 15 = MOM picture (33), as in the 7F object list"
+    },
+    {
+      "offset": "0x4b200",
+      "before": "00000000000000000000000000000000000000000000",
+      "after": "fa67d4fe06380cafea10c13effea14c2ea15c2c3f063",
+      "name": "Bank 12: v79 house79 (MOM leaves the player's house when BLACK)"
+    },
+    {
+      "offset": "0x48163",
+      "before": "f063",
+      "after": "0072",
+      "name": "House 1F map script -> house79"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563738000000",
+      "after": "435245455059204d5520563739000000",
+      "name": "Branch identity"
+    }
+  ]
+}

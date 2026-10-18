@@ -242,7 +242,7 @@ elif MODE=='house':
         if spr_id is None:
             assert [o[0] for o in objs[1:]]==['0x0']*3,objs
             print('PASS before the ritual nobody waits at home',flush=True);continue
-        assert objs[0][0]=='0x33' and objs[[1,0x1d,0x1b,0x0d].index(spr_id) if False else 1+(consort-1)]==(hex(spr_id),5,6),objs
+        assert objs[0][0]==('0x33' if VERSION<79 else '0x0') and objs[[1,0x1d,0x1b,0x0d].index(spr_id) if False else 1+(consort-1)]==(hex(spr_id),5,6),objs
         assert [o[0] for i,o in enumerate(objs[1:]) if i!=consort-1]==['0x0']*2,objs
         print('PASS',name,'waits at home (5,6), the other two are hidden',flush=True)
     # talk + heal (SABRINA is loaded)
