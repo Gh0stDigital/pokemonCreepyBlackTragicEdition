@@ -1,0 +1,112 @@
+{
+  "input": "Creepy_Black_Mu_v80.gb",
+  "input_sha256": "96b9430d01c31d0588d5e4499e86cfc015aebac222bfd9668f1504aa91182b1f",
+  "sha256": "8fba6e3b472e39afc76593a3f9cf389409cde07a9a511d058b0b0478598ba63d",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "LoadGBPal: shorter row arithmetic + tail jump to core81 (ghost walk)",
+      "same result for wMapPalOffset 0-9; the only jump target inside (20F4) was the old jr nc; callers enter at 20E7"
+    ]
+  ],
+  "labels": {
+    "bank31": {
+      "anim81": "0x5700",
+      "gwalk81": "0x5715",
+      "gwalk81.p": "0x5725",
+      "t_on": "0x572d",
+      "t_off": "0x5764"
+    },
+    "bank4": {
+      "tow81": "0x7bd0",
+      "fm81": "0x7bdc",
+      "gwalk4": "0x7bec"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x35bf",
+      "before": "0000000000000000000000000000000000000000000000",
+      "after": "fa78d8a7c8fa57d0a7c03a2fe0493a2fe0487e2fe047c9",
+      "name": "Home 0:35BF: core81 (ghost walk: complemented palette row)"
+    },
+    {
+      "offset": "0x1251",
+      "before": "0000000000000000000000000000000000",
+      "after": "f048fed02008e5214521cdbf35e1c31836",
+      "name": "Home 0:1251: vbl81 (re-inverts the normal palette while ghost walk is on)"
+    },
+    {
+      "offset": "0x20c6",
+      "before": "cd1836",
+      "after": "cd5112",
+      "name": "VBlank handler: audio far call -> vbl81 (ghost walk inversion)"
+    },
+    {
+      "offset": "0x20e7",
+      "before": "fa5dd3472143217d906f3001252ae0472ae0482ae049c9",
+      "after": "fa5dd32fc6446f26212ae0472ae0487ee049c3bf350000",
+      "name": "LoadGBPal: shorter row arithmetic + tail jump to core81 (ghost walk)"
+    },
+    {
+      "offset": "0xc5700",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa7cd0f5210078062fcff1feabc021d753061ecfc9fa78d8ee01ea78d8212d572003216457e5cde720e1c3943c00818b80828a7fb2aba8afb27fa8adb3ae4fb3a7a47fa3a0b1aae87f93a7a4558f8e8aa48c8e8d7fa2a0adbe55a5a8ada37fb8aeb4e85800818b80828a7fb2b3a4afb27fa1a0a2aa4fa8adb3ae7fb3a7a47faba8a6a7b3e858",
+      "name": "Bank 31: v81 anim81 (GHOST WALK pic back), gwalk81 (field move toggle), texts"
+    },
+    {
+      "offset": "0x13bd0",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa78d8a7cac07bf13e01a7c97cfe2bc2207b7dfecac2207b21ec7bc92115570631cd1836c3f570",
+      "name": "Bank 4: v81 tow81 (no encounters while ghost walking), fm81 (field move GHOST WALK)"
+    },
+    {
+      "offset": "0x138bc",
+      "before": "cdc07b",
+      "after": "cdd07b",
+      "name": "TryDoWildEncounter: ghost walk -> none; else tow76"
+    },
+    {
+      "offset": "0x131c4",
+      "before": "cd207b",
+      "after": "cddc7b",
+      "name": "Party menu field move dispatch: GHOST WALK (entry 11)"
+    },
+    {
+      "offset": "0x7e60",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "0f010c13020cb4030c39040c46050a94060c5b070c64080a870908aa0a0bab0b08ff",
+      "name": "Bank 1: field-move data with GHOST WALK (entry 11)"
+    },
+    {
+      "offset": "0x7e82",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "82949350858b9850509294918550929391848d86938750858b809287508388865093848b848f8e919350928e8593818e888b84835082949192845086878e92937f96808b8a50",
+      "name": "Bank 1: field-move names with GHOST WALK"
+    },
+    {
+      "offset": "0x77ed",
+      "before": "807d",
+      "after": "607e",
+      "name": "GetMonFieldMoves: table with GHOST WALK"
+    },
+    {
+      "offset": "0x774d",
+      "before": "9f7d",
+      "after": "827e",
+      "name": "DisplayFieldMoveMonMenu: names with GHOST WALK"
+    },
+    {
+      "offset": "0x3ff56",
+      "before": "210078062f",
+      "after": "2100570631",
+      "name": "Move animation hook -> bank 31 anim81 (restores the back picture after GHOST WALK)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563830000000",
+      "after": "435245455059204d5520563831000000",
+      "name": "Branch identity"
+    }
+  ]
+}
