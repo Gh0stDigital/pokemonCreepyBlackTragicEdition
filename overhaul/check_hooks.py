@@ -29,6 +29,7 @@ for v in range(2,max(roms)+1):
 # Reviewed exceptions: (site, 'jump'|'regs') -> reason. Every entry was checked by disassembly; add new ones only
 # with the same care and a reason.
 REVIEWED={
+ (fo(0x2d,0x4548),'jump'):'v78: the only hit (file $b450a = 2D:450A) is the operand byte 18 of "call $18f1" (cd f1 18 at 2D:4508) misread as jr $454A',
  (fo(0x2d,0x4556),'jump'):'v77: the only hit (file $b4521 = 2D:4521) is the operand 18 36 of "call $3618" (cd 18 36 at 2D:4520) misread as jr $4559',
  (fo(6,0x54bd),'jump'):'v70: the only hit (file $194e7 = 6:54e7) is the operand $28 of "ld [$d528],a" (ea 28 d5 at 6:54e6) misread as jr z',
  (fo(4,0x71c4),'regs'):'v41 fm41 (4:7B20) returns the CONSUME handler in hl on purpose (the next instruction is jp hl); for every other field move it tail-jumps to v25\'s stub with hl unchanged',
