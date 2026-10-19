@@ -1,0 +1,157 @@
+{
+  "input": "Creepy_Black_Mu_v83.gb",
+  "input_sha256": "b50935836caa17a1988f1a92e7024dd1019bd7fad475cf2553704758517bab45",
+  "sha256": "b0124759a16851c0902e9cde21f24158bbed366cb4b2b2802f7b2ab308b8d244",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank2f": {
+      "give84": "0x5c00",
+      "slotused": "0x5c09",
+      "slotused.l": "0x5c0e",
+      "slotused.n": "0x5c21",
+      "slotused.y": "0x5c2a",
+      "put64": "0x5c2c",
+      "put64.vb": "0x5c40",
+      "ball84": "0x5c4a",
+      "ball84.a": "0x5c4f",
+      "ball84.have": "0x5c5c",
+      "ball84.w": "0x5c6c",
+      "ball84.pick": "0x5c79",
+      "ball84.p2": "0x5c7e",
+      "ball84.n2": "0x5c8b",
+      "ball84.m": "0x5cab",
+      "ball84.go": "0x5cb3",
+      "dam84": "0x5cc8",
+      "slide84": "0x5cdb",
+      "slide84.s": "0x5cdd",
+      "slide84.c": "0x5ce2",
+      "slide84.blank": "0x5cf6",
+      "slide84.col": "0x5cfa",
+      "slide84.r": "0x5cfe",
+      "slide84.k": "0x5d09",
+      "msg84": "0x5d27",
+      "msg84.black": "0x5d3a",
+      "msg84.p": "0x5d49",
+      "msg84.slide": "0x5dac",
+      "msg84.done": "0x5db3",
+      "bane_add84": "0x5dbb"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xbdc00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cdb0403e01ea52d4c92110c1060f7ea7280ffe47280be5247df60e6f7ee1b928097dc6106f0520e6a7c937c9fac4cfcb47200d545d2159510140003e2fc32418115951062f0e04c375182110c1060f7efe4728087dc6106f0520f4c90e0ccd095c30160e0bcd095c300f0e0acd095c30080d79fe0230f50e0c2110c1060f7efe472008e5247df60e6f71e17dc6106f0520ec79fe0c21c087ca2c5cfe0b218087ca2c5c21008011c000410578a72804190518f8e5cd2c5ce111400019e5cd2c5ce111400019c32c5ccd8f68fadcccfeacc03e01ea52d4afea39ccc906012105c40e0079b830103e0790815f87878793c631571e011804167f1e00e5c506077a7783577dc6146f3001240520f2c1e1230c79fe0738cd3e01e0bac50e03cd7337c10478fe0838b7c9fa5ad4a7200dfa14d0fe7fc21a743e02ea5ad421e6cf2ab6280821174e060fcd1836218b4d060fcd18363e04cdc13eafe0e1212dcc2277ea5bccea5bd0ead2cf21f1cc22772160d02222222277ea6dd0eaeecceaf7cc0601cd433e2167d0cbae3e01e0f3fa5ad4fe02281aafea5ad4fa57d0f5afea57d02180c43e02cdc13ef1ea57d01807afea5ad4cddb5cf8043e1f22364dc9cdd750c34a5c",
+      "name": "Bank 2F: v84 give84 + ball84 (conflict-free black ball slot)"
+    },
+    {
+      "offset": "0x17fbd",
+      "before": "0060",
+      "after": "4a5c",
+      "name": "InitMapSprites wrapper: ball_fix -> ball84"
+    },
+    {
+      "offset": "0xbd0c3",
+      "before": "cd6d60",
+      "after": "cdbb5d",
+      "name": "bane_npc: bane_add -> bane_add84 (ball84)"
+    },
+    {
+      "offset": "0xbc052",
+      "before": "cdb040",
+      "after": "cd005c",
+      "name": "bane_move: call give -> give84 (+ D452)"
+    },
+    {
+      "offset": "0x3fd21",
+      "before": "8f68",
+      "after": "c85c",
+      "name": "FaintEnemyPokemon hook: kill45 -> dam84 (DAMNATION faints visibly, CURSE flag)"
+    },
+    {
+      "offset": "0x3ccbd",
+      "before": "1a74",
+      "after": "275d",
+      "name": "SendOutMon message far call: msg46 -> msg84 (BLACK switched in: slide in, no ball)"
+    },
+    {
+      "offset": "0xc2f00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd0058fa64d4fe05c0fa67d4fe06d8212b6f0e0a2acb375f16c1af127bc6045f16c23eff121c120d20eac904050607080a0b0c0d0e",
+      "name": "Bank 30: v84 ch84 (no channelers on 7F after the ritual)"
+    },
+    {
+      "offset": "0x62fb8",
+      "before": "0058",
+      "after": "006f",
+      "name": "tail53: ch54 -> ch84 (hides the channelers after the ritual)"
+    },
+    {
+      "offset": "0xc5a80",
+      "before": "00000000000000000000000000000000000000000000000000000000",
+      "after": "fa5ed34721935a2afeffca504cb820f7c3627ef5f6f7f87178ebcaff",
+      "name": "Bank 31: v84 rdisp84 (v80 scared lines not in the League / story maps)"
+    },
+    {
+      "offset": "0xd2",
+      "before": "504c",
+      "after": "805a",
+      "name": "Home stub 0:00CE -> rdisp84"
+    },
+    {
+      "offset": "0xb9c00",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "f5c5d5e5fa6cd4a72834fa5ed3fe712808fef53829fef83025fa84d8a720352158d11179d8010b00cdb500215b5c1158d1010b00cdb5003e01ea84d81816fa84d8a728102179d81158d1010b00cdb500afea84d8e1d1c1f1c38b7c818b80828a500000000000",
+      "name": "Bank 2E: v84 name84 (player name BLACK in the LEAGUE rooms)"
+    },
+    {
+      "offset": "0xb82b4",
+      "before": "c38b7c",
+      "after": "c3005c",
+      "name": "Map load chain end: -> name84 (then the old jp 7C8B)"
+    },
+    {
+      "offset": "0xc2f80",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "00887fa0ac7f8191948d8e7faea57fb3a7a44f848b8893847f858e9491e75193a7b1aeb4a6a77fb1a8a6aeb1aeb4b24fb3b1a0a8ada8ada6f47fafa4aeafaba455a0ada37f547fa2a0ad55a1a4a2aeaca47fb2b3b1aeada6a4b1e75588bfa47fb6a4a8a6a7b355b3b1a0a8ada4a37fb6a8b3a77facb85554e751887fb6aeadbe7faba4b37fa04facaeadb2b3a4b17faba8aaa47fb8aeb455a3a8b2a6b1a0a2a47fb3a7a455b2a0a2b1a4a37fa1aeada355a1a4b3b6a4a4ad7fb3b1a0a8ada4b155a0ada37f54e751818b80828ae77f96a47fb6a8abab4fa6b1a8ada37fb8aeb47fa3aeb6ad55b6a8b3a77faeb4b17fb2b4afa4b1a8aeb155afaeb6a4b1e77f87aeae7fa7a0a7e758",
+      "name": "Bank 30: v84 BRUNO's speech with BLACK"
+    },
+    {
+      "offset": "0x77e80",
+      "before": "0062",
+      "after": "806f",
+      "name": "BRUNO's speech pointer -> the BLACK text"
+    },
+    {
+      "offset": "0xbddc1",
+      "before": "00000000000000000000000000000000000000",
+      "after": "215846060fcfcd0062c0cd8164214766c3943c",
+      "name": "Bank 2F: v84 shat84 (MOON STONE shatters at the last faint)"
+    },
+    {
+      "offset": "0xbe4c1",
+      "before": "cd8164214766cd943c",
+      "after": "000000000000000000",
+      "name": "ph44: no flash / \"shatters\" here any more (shat84 says it at the last faint)"
+    },
+    {
+      "offset": "0x3d046",
+      "before": "0000000000000000",
+      "after": "21c15d062fc31836",
+      "name": "Bank F: v84 far stub -> 2F shat84"
+    },
+    {
+      "offset": "0x3c6ab",
+      "before": "cd5846",
+      "after": "cd4650",
+      "name": "TrainerBattleVictory: call 4658 -> call 5046 (shat84: 4658, then the MOON STONE shatters)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563833000000",
+      "after": "435245455059204d5520563834000000",
+      "name": "Branch identity"
+    }
+  ]
+}

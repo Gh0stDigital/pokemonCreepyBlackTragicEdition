@@ -31,7 +31,8 @@ if MY87=='hall':
     near=[i for i in range(4,16) if m[0xc100+16*i]==0x19 and m[0xc204+16*i]!=0xff]
     undrawn=[i for i in near if m[0xc102+16*i]==0xff]
     print('channelers near',near,'undrawn',undrawn,'MOM',sp(15),flush=True)
-    ok(len(near)>=3 and not undrawn,'the channelers near the player are drawn')
+    if VERSION>=84:ok(not near,'no channelers stand on 7F after the ritual (v84)')
+    else:ok(len(near)>=3 and not undrawn,'the channelers near the player are drawn')
     ok(sp(15)[0]==0x33 and sp(15)[1]!=0xff,'MOM (picture 33) is drawn in the hall')
     # talk to MOM at (y9,x9): stand at (10 -> x) next to her on the right, facing left
     p.button('up',8);T(26);p.button('left',8);T(26);p.button('left',8);T(30)

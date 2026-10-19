@@ -11,7 +11,7 @@ if MODE=='mom':
     bfs_to(9,10);T(40)
     ms=mom_sprites();print('mom',ms,'channelers',len(chs()))
     ok(len(ms)==1 and list(ms.values())[0][1:3]==(9,9),'MOM stands at (9,9) among the channelers')
-    ok(len(chs())>=4,'the channelers stand there too (%d drawn)'%len(chs()))
+    ok(len(chs())==0 if VERSION>=84 else len(chs())>=4,'the channelers stand there too (%d drawn)'%len(chs()) if VERSION<84 else 'no channelers on 7F after the ritual (v84), %d drawn'%len(chs()))
     shot('v54_mom')
     t=talk_at(9,10,'left',n=80);print(t[-120:])
     ok("not really your" in t.replace('  ',' ') or 'Hello, honey' in t,'first talk: the confession')
