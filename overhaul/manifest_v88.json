@@ -1,0 +1,45 @@
+{
+  "input": "Creepy_Black_Mu_v87.gb",
+  "input_sha256": "fc50d2c444ba818dc12e6aba491a0097ae0c98fe24c0241fb9326e5ab2faa701",
+  "sha256": "a44bd6ff4cf77ea19578f43f9cc57f5fa65d5bd68a1178778e9cdb8771674276",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xbde00",
+      "before": "000000000000000000000000000000",
+      "after": "fa5ad0fe03c2c15d215846060fcfc9",
+      "name": "Bank 2F: v88 shat88"
+    },
+    {
+      "offset": "0x3d047",
+      "before": "c15d",
+      "after": "005e",
+      "name": "F:5046 far stub -> shat88 (no second \"shatters\")"
+    },
+    {
+      "offset": "0xc5c00",
+      "before": "000000000000000000000000000000000000",
+      "after": "afe0d73effea6bcdc9cd005c3effea02c1c9",
+      "name": "Bank 31: v88 anim88"
+    },
+    {
+      "offset": "0xc47a7",
+      "before": "3effea6bcd",
+      "after": "cd005c0000",
+      "name": "scene62: ld a,$ff / ld [cd6b],a -> call anim88 (tile animations off: the water tile (VRAM $9140) was overwriting a tile of the picture / the credits)"
+    },
+    {
+      "offset": "0xc4854",
+      "before": "3effea6bcd",
+      "after": "cd095c0000",
+      "name": "ending62: ld a,$ff / ld [cd6b],a -> call anim88 (tile animations off: the water tile (VRAM $9140) was overwriting a tile of the picture / the credits)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563837000000",
+      "after": "435245455059204d5520563838000000",
+      "name": "Branch identity"
+    }
+  ]
+}
