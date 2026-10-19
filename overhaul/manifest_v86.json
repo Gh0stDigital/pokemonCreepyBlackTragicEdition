@@ -1,0 +1,116 @@
+{
+  "input": "Creepy_Black_Mu_v85.gb",
+  "input_sha256": "e3b0587001f22fa070482c328299c1c9ea73bfadb798cc007c364d5b9dd34e5b",
+  "sha256": "3247fc1665b96a56b3ec4f206ca86342b1cf76acaa7102a55800c9d7db341c92",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Map music -> music86 (HALL OF FAME silent as BLACK)",
+      "operand and bank of the far-call stub"
+    ]
+  ],
+  "changes": [
+    {
+      "offset": "0xc9200",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa2bd1fe042828fa5ed3fe692821fa31d0213352be281823460420f83effeaeec0cd7a370e08fa68d4cdce23cd223e211447c9212c2e2f2b1aff2100440630cd1836fa5ed3fe76c0fa6cd4a7c83effea5bd3c921004011dccc061ccd1836fad2cffeabc0fa22d04fcb3f81c61430023efaead4cfc9",
+      "name": "Bank 32: v86 vict86 / music86 / gpow86 / gate86"
+    },
+    {
+      "offset": "0x3c6cb",
+      "before": "74440630",
+      "after": "00520632",
+      "name": "vict77 -> vict86 (no fanfare after League/BLUE/OAK/BILL battles)"
+    },
+    {
+      "offset": "0x124a",
+      "before": "00440630",
+      "after": "3a520632",
+      "name": "Map music -> music86 (HALL OF FAME silent as BLACK)"
+    },
+    {
+      "offset": "0x3d784",
+      "before": "21004011dccc061ccd1836",
+      "after": "2153520632cf0000000000",
+      "name": "Move data far call -> gpow86 (GHOST WALK power by level)"
+    },
+    {
+      "offset": "0x52b60",
+      "before": "000000000000000000000000000000000000",
+      "after": "fa63d447fa6cd4b0280521ebd7cbbec3b24e",
+      "name": "Bank 14: v86 Route 22 gate (shock / hero / BLACK: no rival)"
+    },
+    {
+      "offset": "0x50007",
+      "before": "2a6b",
+      "after": "606b",
+      "name": "Route 22 map script -> gate86"
+    },
+    {
+      "offset": "0x77f80",
+      "before": "00000000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a72813fa57d0feff280cafea10c13effea14c2ea15c2c30e7f",
+      "name": "Bank 1D: v86 s3_86 (BLUE's object is hidden at once)"
+    },
+    {
+      "offset": "0x75f37",
+      "before": "0e7f",
+      "after": "807f",
+      "name": "Champion's room script 3 -> s3_86"
+    },
+    {
+      "offset": "0xc0500",
+      "before": "000000000000000000000000000000",
+      "after": "cd006efa76d8fe04c03e04ea19c1c9",
+      "name": "Bank 30: v86 hof86 (AGATHA faces up in the Hall of Fame)"
+    },
+    {
+      "offset": "0x5b108",
+      "before": "006e",
+      "after": "0045",
+      "name": "Hall of Fame script -> hof86"
+    },
+    {
+      "offset": "0xc5aa0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa5ed3fe282037fa6cd4a72831fa76d8fe04382a21e15a1110c1060b2a127bc6105f0520f72171d40e0a2afe282a200bfe8a20073e47eaa0c118030d20ecc3004b023d3d3d034141030d2020",
+      "name": "Bank 31: v86 app86 (OAK LAB pictures as at the map load)"
+    },
+    {
+      "offset": "0xc71f9",
+      "before": "004b",
+      "after": "a05a",
+      "name": "im67: call app75 -> app86"
+    },
+    {
+      "offset": "0xc9400",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a7c8fa76d8fe04d80e0179fe0a2813cb376f26c1af7779cb37c6046f26c23eff22770c79fe0c20e22171d40e0a2afe282a2003fe8ac80d20f43e20eaa0c13e08eaa9c13e0eeaa4c23e04eaa5c23effeaa6c2fac5cfa7c0fa61d3473e0a9087878787c63ceaa4c1fa62d347af9087878787c640eaa6c1c93e0aea13cf219554cd943ccd2e36fa26cca7c021a050062fc318361716772f50",
+      "name": "Bank 32: v86 lab86 / aide86"
+    },
+    {
+      "offset": "0x1ff71",
+      "before": "00780630",
+      "after": "00540632",
+      "name": "lab_s: lab59 -> lab86"
+    },
+    {
+      "offset": "0x1ffe0",
+      "before": "0000000000000000000000",
+      "after": "217a540632cd1836c30425",
+      "name": "Bank 7: v86 ext86 (the aide asks about METAMORPHOSIS)"
+    },
+    {
+      "offset": "0x1ff9d",
+      "before": "c30425",
+      "after": "c3e07f",
+      "name": "aide text end: jp TextScriptEnd -> ext86"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563835000000",
+      "after": "435245455059204d5520563836000000",
+      "name": "Branch identity"
+    }
+  ]
+}

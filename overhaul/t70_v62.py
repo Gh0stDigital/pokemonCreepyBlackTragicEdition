@@ -53,7 +53,7 @@ if MODE=='scene':
         if m[0xd05a]==3 and 'FIGHT' in clean(' '.join(txt())):break
         if k%90==0:p.button('a',8)
     tt=allt().replace('  ',' ');print('to phase:',tt[-300:],flush=True)
-    ok('shatters' not in tt,'no MOON STONE shatter text for him')
+    ok(('shatters' in tt) if VERSION>=84 else ('shatters' not in tt),'MOON STONE shatter text for him (v84: right after his last POKeMON, like BILL)')
     keys=['prevent this fate','Forgive me','fool all along','How foolish','Pandora','unleash']
     print([k for k in keys if k not in tt.replace("'","")])
     ok(all(k in tt.replace("'","") for k in keys),'his defeat speech')
