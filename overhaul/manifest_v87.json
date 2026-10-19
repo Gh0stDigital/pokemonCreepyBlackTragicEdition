@@ -1,0 +1,97 @@
+{
+  "input": "Creepy_Black_Mu_v86.gb",
+  "input_sha256": "3247fc1665b96a56b3ec4f206ca86342b1cf76acaa7102a55800c9d7db341c92",
+  "sha256": "fc50d2c444ba818dc12e6aba491a0097ae0c98fe24c0241fb9326e5ab2faa701",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "bill60 .s2 end: jp bill87 (HideObject at the battle start)",
+      "the stub repeats ld a,3 / ld [D877],a / ret"
+    ]
+  ],
+  "labels": {
+    "bank31": {
+      "app87": "0x5b00",
+      "app87.house": "0x5b1f",
+      "app87.go": "0x5b31",
+      "app87.l": "0x5b34",
+      "app87.o": "0x5b3d",
+      "lpic25": "0x5b40",
+      "lpic58": "0x5b44"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xc5b00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa5ed3fe252818fe582032fa6cd4a7282cfa76d8fe05202521445b06031812fa6cd4a72818fa67d4fe06381121405b06041110c12a127bc6105f0520f7c3a05a331d1b0d050c0c",
+      "name": "Bank 31: v87 app87 (house / cottage pictures as at the map load)"
+    },
+    {
+      "offset": "0xc71f9",
+      "before": "a05a",
+      "after": "005b",
+      "name": "im67: call app86 -> app87"
+    },
+    {
+      "offset": "0xc0540",
+      "before": "000000000000000000000000000000000000000000",
+      "after": "00008080ff3e03ea77d83e62ea4dcc3e11cdc13ec9",
+      "name": "Bank 30: v87 mv87 / bill87"
+    },
+    {
+      "offset": "0xc3e6f",
+      "before": "067f",
+      "after": "4045",
+      "name": "BILL walks down 2, left 2 (mv87)"
+    },
+    {
+      "offset": "0xc3e81",
+      "before": "08",
+      "after": "00",
+      "name": "BILL faces down (not left)"
+    },
+    {
+      "offset": "0xc3ead",
+      "before": "3e03ea77d8c9",
+      "after": "c34545000000",
+      "name": "bill60 .s2 end: jp bill87 (HideObject at the battle start)"
+    },
+    {
+      "offset": "0xc00c7",
+      "before": "25",
+      "after": "26",
+      "name": "music51: LAVENDER also in the player's house (maps < $26)"
+    },
+    {
+      "offset": "0x77fa0",
+      "before": "000000000000000000000000000000000000000000",
+      "after": "fa6cd4a7280cfa57d0feff280521a7d5cbc6c3807f",
+      "name": "Bank 1D: v87 s3_87 (BLUE beaten: the CERULEAN CAVE guard goes)"
+    },
+    {
+      "offset": "0x75f37",
+      "before": "807f",
+      "after": "a07f",
+      "name": "Champion's room script 3 -> s3_87"
+    },
+    {
+      "offset": "0x1b100",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a72817fa76d8a7281121a7d5cbc6afeaa0c13effeaa4c2eaa5c2c38054",
+      "name": "Bank 6: v87 cer87 (CERULEAN CITY script wrapper)"
+    },
+    {
+      "offset": "0x18755",
+      "before": "8054",
+      "after": "0071",
+      "name": "CERULEAN CITY map script -> cer87"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563836000000",
+      "after": "435245455059204d5520563837000000",
+      "name": "Branch identity"
+    }
+  ]
+}

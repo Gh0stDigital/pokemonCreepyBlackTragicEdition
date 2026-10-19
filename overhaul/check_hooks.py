@@ -1,11 +1,11 @@
-# Re-check every hook ever added (v1-v86) against the CURRENT ROM with patchguard:
+# Re-check every hook ever added (v1-v87) against the CURRENT ROM with patchguard:
 #   - no jump elsewhere in the ROM lands inside a patched range (except reviewed, allow-listed ones)
 #   - stubs don't leave registers changed that the original code after the hook still reads, and don't
 #     re-run a replaced "call X" after changing X's inputs.
 # Usage (from overhaul/): python check_hooks.py [ROM]   -> exit code 1 on any unreviewed problem.
 import json,sys,hashlib
 from patchguard import check_hook,jumps_into,fo
-LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v86.gb'
+LATEST=sys.argv[1] if len(sys.argv)>1 else 'Creepy_Black_Mu_v87.gb'
 cur=open(LATEST,'rb').read()
 v1=bytearray(open('Creepy_Black_Mu_v1.gb','rb').read())
 # v1 had no byte log: original bytes from the asserts in edit/build.py
@@ -34,6 +34,7 @@ REVIEWED={
  (fo(6,0x54bd),'jump'):'v70: the only hit (file $194e7 = 6:54e7) is the operand $28 of "ld [$d528],a" (ea 28 d5 at 6:54e6) misread as jr z',
  (fo(4,0x71c4),'regs'):'v41 fm41 (4:7B20) returns the CONSUME handler in hl on purpose (the next instruction is jp hl); for every other field move it tail-jumps to v25\'s stub with hl unchanged',
  (fo(0x2d,0x44c9),'jump'):'v38 hunger_wrap patch: the hits at 0:2B3F/0:2B5C are "ld [$cc26],a" operand bytes (cc) + "call $3c44" misread as call z,$44cd (home code, not bank 2D)',
+ (fo(0x30,0x7ead),'jump'):"v87 bill87: the only hit (file $15c6 = 0:15C6) is a real 'call $7eb0' whose target is bank F's stub (the bank is switched before it), not bank 30's address 7EB0",
  (0x15c6,'jump'):'hits are operand bytes (bank C sprite data at 0x315CF, "ld [$cc3c],a" operand at 0x74E11)',
  (fo(0xe,0x58c6),'jump'):'"cp $28" operand at E:589D',
  (fo(3,0x79da),'regs'):'heal-skip stub advances hl/de to the next Pokemon on purpose (it is the loop iterator)',
