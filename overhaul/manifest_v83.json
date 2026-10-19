@@ -1,0 +1,72 @@
+{
+  "input": "Creepy_Black_Mu_v82.gb",
+  "input_sha256": "074748e921748b3fefc78c9f1b45c9c686497890a169fb4fe20a61e36bab3946",
+  "sha256": "b50935836caa17a1988f1a92e7024dd1019bd7fad475cf2553704758517bab45",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank31": {
+      "meta83": "0x5900",
+      "fill83": "0x5980",
+      "fill83.i1": "0x598d",
+      "fill83.i2": "0x5994",
+      "fill83.y1": "0x599a",
+      "fill83.c1": "0x599f",
+      "fill83.b1": "0x59a3",
+      "fill83.n1": "0x59ac",
+      "fill83.k1": "0x59b7",
+      "fill83.y2": "0x59c4",
+      "fill83.c2": "0x59d0",
+      "fill83.b2": "0x59d4",
+      "fill83.n2": "0x59dc",
+      "fill83.k2": "0x59e7",
+      "fill83.c3": "0x59f1",
+      "fill83.b3": "0x59f3",
+      "fill83.wh": "0x59fe",
+      "fill83.sk": "0x5a27",
+      "fill83.n3": "0x5a28",
+      "fill83.k3": "0x5a34",
+      "rowptr": "0x5a43",
+      "mark": "0x5a4b",
+      "mark.s": "0x5a54"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0xc5900",
+      "before": "000000000000000000000000000000",
+      "after": "afeae6cfeae7cf3cea39ccea52d4c9",
+      "name": "Bank 31: v83 meta83 (METAMORPHOSIS on a trainer's POKeMON = CURSE kill + CURSE flag)"
+    },
+    {
+      "offset": "0xbc069",
+      "before": "afeae6cfeae7cf",
+      "after": "2100590631cf00",
+      "name": "bane_move (trainer): far call meta83 instead of zeroing HP only"
+    },
+    {
+      "offset": "0xc5980",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "213d76062fcf2100a006383eff220520fc0638af220520fc1600cd435a1e007e4f0608cb113005e5cd4b5ae11c0520f37dc6706f3001247bfe3838e3147afe3838d81600afeaf0a0eaf1a0cd435a1e007e4f0608cb1130047beaf0a01c0520f47dc6706f3001247bfe3838e4cd435a1e0006807ea028073e01eaf1a0182afaf1a0a72824faf0a0bb381e281ce526a06b7eba30137dc6386f7eba380b2809e17eb0227eb0321801e11ccb3820c67dc6706f3001247bfe3838b8147afe3838851188a1c97a87c6886f26a1c926a06b7efeff2001727dc6386f72c9",
+      "name": "Bank 31: v83 fill83 (black pictures: enclosed holes filled)"
+    },
+    {
+      "offset": "0xbf676",
+      "before": "cd3d761188a1",
+      "after": "2180590631cf",
+      "name": "black picture: far call fill83 (blacken + hole fill + ld de,$a188)"
+    },
+    {
+      "offset": "0xbf693",
+      "before": "cd3d761188a1",
+      "after": "2180590631cf",
+      "name": "black picture: far call fill83 (blacken + hole fill + ld de,$a188)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563832000000",
+      "after": "435245455059204d5520563833000000",
+      "name": "Branch identity"
+    }
+  ]
+}
