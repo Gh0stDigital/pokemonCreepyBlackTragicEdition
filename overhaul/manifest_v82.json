@@ -1,0 +1,33 @@
+{
+  "input": "Creepy_Black_Mu_v81.gb",
+  "input_sha256": "8fba6e3b472e39afc76593a3f9cf389409cde07a9a511d058b0b0478598ba63d",
+  "sha256": "074748e921748b3fefc78c9f1b45c9c686497890a169fb4fe20a61e36bab3946",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xc5800",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "016dcd004fb6a0b27fa4adb2ada0b1a4a3e758016dcd004fb6a0b27fa4adb2ada0b1a4a3e75188b37fb6a0b27fb2a4adb37fb3ae4fb3a7a47f8f82e858",
+      "name": "Bank 31: v82 \"was ensnared!\" texts"
+    },
+    {
+      "offset": "0xbc20b",
+      "before": "016dcd004fa9aea8ada4a37fb8aeb4b17fafa0b1b3b8e858",
+      "after": "170058315000000000000000000000000000000000000000",
+      "name": "give (party): \"<MON> was ensnared!\" (TX_FAR to bank 31)"
+    },
+    {
+      "offset": "0xbc223",
+      "before": "016dcd004fb6a0b27fb2a4adb37fb3ae7fb3a7a47f8f82e858",
+      "after": "17135831500000000000000000000000000000000000000000",
+      "name": "give (box): \"<MON> was ensnared! It was sent to the PC.\" (TX_FAR to bank 31)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563831000000",
+      "after": "435245455059204d5520563832000000",
+      "name": "Branch identity"
+    }
+  ]
+}

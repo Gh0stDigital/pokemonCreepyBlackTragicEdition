@@ -32,7 +32,7 @@ if MODE=='bane':
     sp=pd[0][2]
     t=talk(b[0]);T(60);print(t[-120:])
     pt=party()
-    ok(pt==p0+[sp] and 'joined your party' in t,'picking the ball up: %s joins the party'%hex(sp))
+    ok(pt==p0+[sp] and ('ensnared' if VERSION>=82 else 'joined your party') in t,'picking the ball up: %s joins the party'%hex(sp))
     ok(m[0xd16b+44*(len(pt)-1)+33]==5,'Lv5 (no badges)')
     ok(not pending() and not drawn(b[0]),'the ball is gone')
     go_map(0x25,0);go_map(0,0);T(60);freeze()
@@ -55,7 +55,7 @@ elif MODE=='overflow':
     m[PEND:PEND+6]=[0x25,9,0x99,0x25,10,0x24]          # two balls already wait (elsewhere): KRABBY, PIDGEY
     ns=[n for n in npcs() if n[1] in (0xd,0x2f) and n[4]==0];b=ns[1];p0=party()
     t=bane(b[0]);pd=pending();print('pending',pd,'party',[hex(x) for x in party()],t[-120:])
-    ok(party()==p0+[0x99] and 'joined your party' in t,'a third BANE collects the oldest waiting ball at once (KRABBY joins)')
+    ok(party()==p0+[0x99] and ('ensnared' if VERSION>=82 else 'joined your party') in t,'a third BANE collects the oldest waiting ball at once (KRABBY joins)')
     ok(pd==[(0x25,10,0x24),(0,b[0],pd[1][2])],'two balls wait: the second old one and the new one')
 elif MODE=='trainer':
     warp(0x33,0,black=True)

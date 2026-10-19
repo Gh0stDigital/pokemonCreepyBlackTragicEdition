@@ -52,7 +52,7 @@ def owned(dex):return bool(m[0xd2f7+(dex-1)//8]&(1<<((dex-1)&7)))
 if MODE=='wild':
     best=wild(0xa5);pt=party();t=allt()
     print('party',[hex(x) for x in pt],'nicks',[nick(i) for i in range(len(pt))],'ball pixels',best,'in battle',m[0xd057])
-    ok(('BLACK used BANE' in t or (VERSION>=47 and 'METAMORPHOSIS' in t)) and 'joined your party' in t,'"BLACK used BANE!" / "RATTATA joined your party."')
+    ok(('BLACK used BANE' in t or (VERSION>=47 and 'METAMORPHOSIS' in t)) and ('ensnared' if VERSION>=82 else 'joined your party') in t,'"BLACK used BANE!" / "RATTATA joined your party."')
     ok(best>40,'the black POKe BALL stands in the enemy picture (%d dark pixels)'%best)
     ok(pt==[BLK,CHAR,0xa5] and nick(2)=='RATTATA' and m[0xd057]==0,'RATTATA joined (nickname RATTATA) and the battle is over')
     b=0xd16b+44*2;ok(m[b+33]==5 and (m[b+12],m[b+13])==(m[0xd359],m[0xd35a]),'it is Lv5 with the player\'s OT')
@@ -66,7 +66,7 @@ elif MODE=='wildbox':
         full();global b0;b0=m[0xda80]
     wild(0xa5,s);t=allt()
     print('party',len(party()),'box',b0,'->',m[0xda80],[hex(m[0xda81+i]) for i in range(m[0xda80])],t[-80:])
-    ok(len(party())==6 and m[0xda80]==b0+1 and m[0xda81+m[0xda80]-1]==0xa5 and 'sent to the PC' in t,'party full: RATTATA goes to the PC box')
+    ok(len(party())==6 and m[0xda80]==b0+1 and m[0xda81+m[0xda80]-1]==0xa5 and ('ensnared' if VERSION>=82 else 'sent to the PC') in t,'party full: RATTATA goes to the PC box')
     ok(owned(19),'RATTATA is registered as owned')
 elif MODE=='immune':
     load('pallet_with_ghost');make_black();m[0xd059]=0x1f;m[0xd127]=5
