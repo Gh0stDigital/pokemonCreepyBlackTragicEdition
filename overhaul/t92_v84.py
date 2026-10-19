@@ -5,6 +5,7 @@
 #  normal  - an ordinary trainer (Viridian Forest) keeps "RED defeated ...!" as BLACK; the v80 scared lines still come before the battle
 import sys,re,json,os
 MY92=sys.argv[1]
+VERSION=int(re.search(r'_v(\d+)',os.environ.get('CB_ROM',''))[1]) if os.environ.get('CB_ROM') else 0
 if MY92=='league':
     sys.argv=['x','black']
     src=open('t63_v55.py').read().replace("MY63=sys.argv[1]","MY63='black'")
@@ -30,6 +31,8 @@ if MY92=='league':
     # the name
     print('name now',bytes(m[0xd158:0xd158+7]).hex(),'swapped',m[0xd884])
 elif MY92=='names':
+    if VERSION>=85:
+        print('SKIP names: superseded by t93_v85.py names (the name stays BLACK since v85)');sys.exit(0)
     sys.argv=['x','none'];exec(open('t52_v44.py').read().split("if MODE=='block':")[0])
     def ok(c,msg):print(('PASS ' if c else 'FAIL ')+msg,flush=True)
     t36=open('t36_v28.py').read()
