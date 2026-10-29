@@ -1,0 +1,36 @@
+{
+  "input": "Creepy_Black_Mu_v88.gb",
+  "input_sha256": "a44bd6ff4cf77ea19578f43f9cc57f5fa65d5bd68a1178778e9cdb8771674276",
+  "sha256": "c65fefc4232baeec861e26d91fef50cfcd59b713cce9aa1e320a8f32b14e6def",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank14": {
+      "r22a89": "0x6ba0",
+      "r22a89.pre": "0x6bb3",
+      "r22a89.shock": "0x6bb8",
+      "r22a89.p": "0x6bbb",
+      "shock89": "0x6bc1"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x52ba0",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "08faebd7cb6f280bfa52d4a7200a21b251180821ad51180321c16bcd943cc304250096a7a0b37fb6a0b27fb3a7a0b3e6e7518cb87f548c8e8de8e8e84f93a7a4b87fb6a4adb37faba8acafe85193a7a0b37fb3a7a8ada67faea54fb8aeb4b1b27fa8b2adbe7fa055548c8e8df47fa8b27fa8b3e6e75192b3a0b87fa0b6a0b87fa5b1aeac4faca4e77f88e57fb3a4ababa8ada6558691808c8f92e758",
+      "name": "Bank 14: v89 r22a89 (ROUTE 22 text 1: BLUE after the battle, shocked when CURSE was used) + text"
+    },
+    {
+      "offset": "0x51175",
+      "before": "7b51",
+      "after": "a06b",
+      "name": "ROUTE 22 text 1 -> r22a89"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563838000000",
+      "after": "435245455059204d5520563839000000",
+      "name": "Branch identity"
+    }
+  ]
+}
