@@ -1,0 +1,56 @@
+{
+  "input": "Creepy_Black_Mu_v89.gb",
+  "input_sha256": "c65fefc4232baeec861e26d91fef50cfcd59b713cce9aa1e320a8f32b14e6def",
+  "sha256": "8c4a4394321e4cb94f8cb8f9b20b4240413a0c0257ce3c8ef3546be279050a96",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bank17": {
+      "killchk89": "0x7d80",
+      "adv89": "0x7d99",
+      "adv89.p": "0x7da9",
+      "t4_89": "0x7dac",
+      "t4_89.p": "0x7db9",
+      "t5_89": "0x7dbf",
+      "t5_89.s": "0x7dcf",
+      "recv_89": "0x7dde",
+      "s4_89": "0x7de4",
+      "s5_89": "0x7e02",
+      "took_89": "0x7e3d",
+      "adv_s89": "0x7e68",
+      "tab_89": "0x7ea6"
+    }
+  },
+  "changes": [
+    {
+      "offset": "0x5fd80",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "060321ac4dcd1836c83e07e08ccd4d290101eacd823ef601c921b844fa52d447fa53d4b0280321687ec3943c0821bd44fa52d4a7280321e47dcd943cc3042508fa52d4a7200921c244cd943cc3042521de7dcd943c21027ecd943cc3042517ad40260b5000e8e8e88faba4a0b2a4e87f93a0aaa44fb3a7a8b27fa0ada37fa6aee8580088b3bd7f81888384e8e8e8518daeb67fa6aee87f8faba4a0b2a4e84f93a0aaa47fb3a7a0b37fb3a7a8ada655a0b6a0b87fa5b1aeac7faca4e75800527fb3aeaeaa7fb3a7a44f818e948b83849181808386847fa5b1aeac5581918e828abd7fa1aea3b8e85700e8e8e898aeb4e4a47fb3a7a47faeada44fa4b5a4b1b8aeada47fa5a4a0b1b2e85186ae7fb3ae7f828491948b84808d4f86988ce87f8faba4a0b2a4e8585844db44f444ac7dbf7dcc443d7e",
+      "name": "Bank 17: v90 BROCK killchk89 / text choosers / killed text / table"
+    },
+    {
+      "offset": "0x5c3df",
+      "before": "060321ac4dcd18362024",
+      "after": "cd807d20290000000000",
+      "name": "BROCK post-battle: killed check -> killchk89 (+ the killed line / TM34)"
+    },
+    {
+      "offset": "0x5c46c",
+      "before": "21b844cd943c",
+      "after": "cd997d000000",
+      "name": "BROCK talk after the fight: ld hl,44B8 / call PrintText -> adv89 (shaken advice for a CURSE user / murderer)"
+    },
+    {
+      "offset": "0x5c380",
+      "before": "3f44",
+      "after": "a67e",
+      "name": "PEWTER GYM text table -> v90 copy (4 / 5 choosers, 7 = killed)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563839000000",
+      "after": "435245455059204d5520563930000000",
+      "name": "Branch identity"
+    }
+  ]
+}
