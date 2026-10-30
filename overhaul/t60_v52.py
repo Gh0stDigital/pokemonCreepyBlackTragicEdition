@@ -33,6 +33,8 @@ elif MY60=='mansion':
     ok(go(0xa5,3,stage=2)==0,'AGATHA took the OLD AMBER: Mu is gone from the Mansion')
     ok(go(0xa5,3,dex=0x20)==0,'an AERODACTYL was revived at the lab: Mu is gone')
     ok(go(0xa5,3,dex=0x08)!=0,'a KABUTO revived (the DOME side) does not affect the Mansion Mu')
+elif MY60=='azhi' and int(__import__('re').search(r'_v(\d+)',__import__('os').environ.get('CB_ROM','_v52')).group(1))>=92:
+    print('SKIP azhi: the Mansion MU talk changed in v92 (t100_v92.py talk covers it)')
 elif MY60=='azhi':
     def amber():n=m[0xd31d];m[0xd31e+2*n]=0x1f;m[0xd31f+2*n]=1;m[0xd320+2*n]=0xff;m[0xd31d]=n+1
     def to_mu():
