@@ -1,0 +1,21 @@
+{
+  "input": "Creepy_Black_Mu_v94.gb",
+  "input_sha256": "fd1925a2a6384d5261019b80b4b773fd09694319daeffd8a4de1c7dc6d0767c6",
+  "sha256": "a40d294ca5c61ec55006fa219e4cb9033d26a66b15b0f0f7e7ae8291e1a3bb9a",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xb6240",
+      "before": "cd0064",
+      "after": "cd517e",
+      "name": "killed74: call frame40 (waiting balls STAY / picked-up balls hidden, then kill_chk2) instead of kill_chk2 directly"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563934000000",
+      "after": "435245455059204d5520563935000000",
+      "name": "Branch identity"
+    }
+  ]
+}
