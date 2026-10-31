@@ -1,0 +1,33 @@
+{
+  "input": "Creepy_Black_Mu_v95.gb",
+  "input_sha256": "a40d294ca5c61ec55006fa219e4cb9033d26a66b15b0f0f7e7ae8291e1a3bb9a",
+  "sha256": "3e6ba0459eb7e07b829d3a73547f730e64249cfc5020ba8c6379ed745cc491ff",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xb4c00",
+      "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "cd407ec8fa5ed3fe25382b2110c1fae1d4a728224f06007efe3d3813fe47280ffe49280b5778a72805ba200d1801427dc6106f0d20e1f601c9afc9",
+      "name": "Bank 2D: v96 grave96 (no map-load gravestone where two four-tile pictures already fill the slots)"
+    },
+    {
+      "offset": "0x1689",
+      "before": "407e",
+      "after": "004c",
+      "name": "0:1688 map-load gravestone far call: load40 -> grave96"
+    },
+    {
+      "offset": "0xc9237",
+      "before": "2b",
+      "after": "21",
+      "name": "vict86 quiet list: BLUE (RIVAL3 $2B) plays the victory music again"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563935000000",
+      "after": "435245455059204d5520563936000000",
+      "name": "Branch identity"
+    }
+  ]
+}
