@@ -1,0 +1,94 @@
+{
+  "input": "Creepy_Black_Mu_v92.gb",
+  "input_sha256": "e7a57553bef1ec4f4c8e34225ebaf5fd62fa3d9f15382c3f9bf07e35e3bbd8d0",
+  "sha256": "40257145a00edb4eb616c5b2f3923a488adf059ef4521f4533aed0b64c2e59b0",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [
+    [
+      "Enemy HUD level: MR. MU shows Lv68 (en93)",
+      "en93 sets wLoadedMonLevel and hl = $c3b8 (the value popped just before) for the PrintLevel call that follows"
+    ],
+    [
+      "Enemy faint sounds -> faint93 (none for MR. MU)",
+      "faint93 repeats the sounds and the wait loop; the jr at 45DD follows"
+    ],
+    [
+      "Route 22 gate: also GHOST acquired + eight badges (BLACK TAMER path)",
+      "map header script entry rewritten from its first byte; jp 4EB2 as before"
+    ]
+  ],
+  "changes": [
+    {
+      "offset": "0xcb800",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "2122d011b9cf010b00cdb500fa14d0fe79c03e0aeab9cfc9faf3cfeab9cffae5cffe2020053e44eab9cf21b8c3c9fae5cffe202006fa67d4fe01c83e9ecd7a37fa2ac0fe9e28f93e95cdde23c382372105c4afea5ad4fa91cffe7f2815fe79c0fa67d4fe01280bfe052807fe072803fe08c03e01ea5ad4f8043edc223641c9fa67d4fe033812f026cb7f200c3e80e0263e77e0243effe02521a74d0630c31836fa6cd4a72815fa10c1fe03200e3effea12c1ea14c2ea15c2ea16c22100640631c31836fa6cd4a7ca00540e0179cb376f26c17efe0320112c2c3eff7779cb37c6046f26c23eff22770c79fe0c20dec30054",
+      "name": "Bank 32: v93 ritual HUD levels / silent faint / GHOST battle start / OAK gone (PALLET, lab) / chamber speakers"
+    },
+    {
+      "offset": "0x3cdbc",
+      "before": "2122d011b9cf010b00cdb500",
+      "after": "2100780632cf000000000000",
+      "name": "Player HUD level: the copy + YOU shows Lv10 (ply93)"
+    },
+    {
+      "offset": "0x3ce45",
+      "before": "faf3cfeab9cf",
+      "after": "2118780632cf",
+      "name": "Enemy HUD level: MR. MU shows Lv68 (en93)"
+    },
+    {
+      "offset": "0x3c5c9",
+      "before": "3e9ecd7a37fa2ac0fe9e28f93e95cdde23cd8237",
+      "after": "212e780632cf0000000000000000000000000000",
+      "name": "Enemy faint sounds -> faint93 (none for MR. MU)"
+    },
+    {
+      "offset": "0x7d60",
+      "before": "00000000000000000000000000",
+      "after": "fa67d4fe022003afe026c3207d",
+      "name": "Bank 1: v93 predef 08 prefix (MASTER BALL toss in the ritual: APU off)"
+    },
+    {
+      "offset": "0x4fe91",
+      "before": "01207d",
+      "after": "01607d",
+      "name": "Predef 08 MoveAnimation -> v93 prefix"
+    },
+    {
+      "offset": "0x62fc3",
+      "before": "a74d0630",
+      "after": "7f780632",
+      "name": "Chamber script -> chm93 (speakers back after the ritual)"
+    },
+    {
+      "offset": "0x3ffb9",
+      "before": "17440630",
+      "after": "4f780632",
+      "name": "Battle start stub -> pre93 (quiet start also in the GHOST battle)"
+    },
+    {
+      "offset": "0x1ad73",
+      "before": "00640631",
+      "after": "a0780632",
+      "name": "Pallet script far call -> pal93"
+    },
+    {
+      "offset": "0x1ff71",
+      "before": "0054",
+      "after": "c378",
+      "name": "OAK'S LAB script wrapper -> lab93"
+    },
+    {
+      "offset": "0x52b60",
+      "before": "fa63d447fa6cd4b0280521ebd7cbbec3b24e00000000000000000000000000",
+      "after": "fa63d447fa6cd4b0200dfa51d4a7280cfa56d3feff200521ebd7cbbec3b24e",
+      "name": "Route 22 gate: also GHOST acquired + eight badges (BLACK TAMER path)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563932000000",
+      "after": "435245455059204d5520563933000000",
+      "name": "Branch identity"
+    }
+  ]
+}
