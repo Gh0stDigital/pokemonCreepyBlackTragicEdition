@@ -1,0 +1,21 @@
+{
+  "input": "Creepy_Black_Mu_v93.gb",
+  "input_sha256": "40257145a00edb4eb616c5b2f3923a488adf059ef4521f4533aed0b64c2e59b0",
+  "sha256": "fd1925a2a6384d5261019b80b4b773fd09694319daeffd8a4de1c7dc6d0767c6",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xb4b60",
+      "before": "3e86eae9ce3e1feaeace21347e061ecd18363e1feae9ce3e7feaeace21347e061ecd1836c9",
+      "after": "3e86eae9ce3e7feaeace21347e061ecd1836c9000000000000000000000000000000000000",
+      "name": "evo78: RED -> BLACK in one evolution animation (no GHOST sprite)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563933000000",
+      "after": "435245455059204d5520563934000000",
+      "name": "Branch identity"
+    }
+  ]
+}
