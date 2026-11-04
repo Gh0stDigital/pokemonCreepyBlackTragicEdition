@@ -1,0 +1,56 @@
+{
+  "input": "Creepy_Black_Mu_v104.gb",
+  "input_sha256": "4b95c500d9620d43c2a5b63da4644ecba39ed87417929e5648fa1ec6edb49778",
+  "sha256": "e1856dca989c81e477ba9e0702a62e8900cb4882e8124bdaf1edb69c2e6d8cab",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "labels": {
+    "bird105": "0x7f80",
+    "oak105": "0x7f20",
+    "meta105": "0x5f00"
+  },
+  "changes": [
+    {
+      "offset": "0xbbf80",
+      "before": "000000000000000000000000000000000000000000000000",
+      "after": "fa6cd4a7280f21b0d5cbee21b1d5cbde21c2d5cbdec30077",
+      "name": "Bank 2E: bird105 (map load: legendary birds hidden as BLACK)"
+    },
+    {
+      "offset": "0xb8000",
+      "before": "c30077",
+      "after": "c3807f",
+      "name": "Map-load chain: bird105 first"
+    },
+    {
+      "offset": "0x3bf20",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa31d0fe26202cfa5dd0fe022025fa91cffe4b2008fad4d7cb4fc01816fe492008faeed7cb77c0180afe4a2006fa82d8cb57c0c3e07e",
+      "name": "Bank E: oak105 (PROF. OAK skips birds the player already fought)"
+    },
+    {
+      "offset": "0x39ce6",
+      "before": "cde07e",
+      "after": "cd207f",
+      "name": "ReadTrainer (special format): AddPartyMon -> oak105 -> v45 stub"
+    },
+    {
+      "offset": "0xbdf00",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa31d04f21215f2afeffcaaf41b9200d2aa7280747fa5dd0b820037ec9232318e62c009d2100312f00b42b002326012aff",
+      "name": "Bank 2F: meta105 (fixed METAMORPHOSIS forms for LORELEI/BRUNO/LANCE/BLUE/BILL)"
+    },
+    {
+      "offset": "0xbc159",
+      "before": "cdaf41",
+      "after": "cd005f",
+      "name": "bane_phase: rand_uncaught -> meta105"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563130340000",
+      "after": "435245455059204d5520563130350000",
+      "name": "Branch identity"
+    }
+  ]
+}
