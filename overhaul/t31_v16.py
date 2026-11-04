@@ -114,6 +114,7 @@ elif MODE=='full':
     # MISTY: beaten (badge event + TM), gets the shell
     for i in range(m[0xd3ae]):m[0xd3af+4*i+2]=0;m[0xd3af+4*i+3]=0x41
     m[0xd75e]|=0xcc;m[0xd365]=0x94
+    if VERSION>=100:m[0xd356]|=0x3f   # v100: MISTY needs six BADGES
     bfs_to(16,10);p.button('left',16);T(200)
     print('gym?',pos());assert m[0xd35e]==0x41
     t=talk(3,4,'up',answer='yes');print('5:',t[-220:])
