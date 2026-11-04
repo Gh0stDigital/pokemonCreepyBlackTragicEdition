@@ -1,0 +1,117 @@
+{
+  "input": "Creepy_Black_Mu_v98.gb",
+  "input_sha256": "91749b673d7a5a43d5111b4c3204728c741b5522332f4d40dbbdacf6f0ad4d38",
+  "sha256": "91f12bd1225367fe909e411886da0c694b71cf8d0bd6ca3bb6df1cd352b97dd2",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "changes": [
+    {
+      "offset": "0xcdb9",
+      "before": "7aa7280516002130d4",
+      "after": "7aa728032110d40000",
+      "name": "Kill bit set/test: base D410 + index/8 for every high byte ($1xx as before, $23Bn -> D886)"
+    },
+    {
+      "offset": "0xb4c40",
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "21a4d47aa7c82130d4fe23c02186d87be6075fc902b02303b12304b22305b32306b42307b52308b62300",
+      "name": "Bank 2D: v99 kc99 (kill_chk2 base helper) + CINNABAR GYM gravestone table"
+    },
+    {
+      "offset": "0xb6425",
+      "before": "21a4d47aa728032130d4",
+      "after": "cd404c00000000000000",
+      "name": "kill_chk2: kill bit base through kc99 (D886 for the CINNABAR quiz trainers)"
+    },
+    {
+      "offset": "0xb72cc",
+      "before": "0000",
+      "after": "544c",
+      "name": "Gravestone table: CINNABAR GYM -> the seven quiz trainers"
+    },
+    {
+      "offset": "0xb6173",
+      "before": "0000",
+      "after": "b023",
+      "name": "phase2: CINNABAR quiz trainer (class D0 set 9, object 2) -> kill index 23B0"
+    },
+    {
+      "offset": "0xb6178",
+      "before": "0000",
+      "after": "b223",
+      "name": "phase2: CINNABAR quiz trainer (class D0 set 10, object 4) -> kill index 23B2"
+    },
+    {
+      "offset": "0xb617d",
+      "before": "0000",
+      "after": "b423",
+      "name": "phase2: CINNABAR quiz trainer (class D0 set 11, object 6) -> kill index 23B4"
+    },
+    {
+      "offset": "0xb6182",
+      "before": "0000",
+      "after": "b623",
+      "name": "phase2: CINNABAR quiz trainer (class D0 set 12, object 8) -> kill index 23B6"
+    },
+    {
+      "offset": "0xb6187",
+      "before": "0000",
+      "after": "b123",
+      "name": "phase2: CINNABAR quiz trainer (class D3 set 4, object 3) -> kill index 23B1"
+    },
+    {
+      "offset": "0xb618c",
+      "before": "0000",
+      "after": "b323",
+      "name": "phase2: CINNABAR quiz trainer (class D3 set 5, object 5) -> kill index 23B3"
+    },
+    {
+      "offset": "0xb6191",
+      "before": "0000",
+      "after": "b523",
+      "name": "phase2: CINNABAR quiz trainer (class D3 set 6, object 7) -> kill index 23B5"
+    },
+    {
+      "offset": "0x1ece0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "afea38dafa86d84ffa3dcde60f47cb390520fbcb41280ae121056dcd943cc30425fa3dcdc9008491918e91e75183849288868d809384834f939180888d84917f8c889292888d86e858",
+      "name": "Bank 7: v99 quiz99 (CINNABAR quiz machine of a dead trainer: error text)"
+    },
+    {
+      "offset": "0x1ea36",
+      "before": "afea38dafa3dcd",
+      "after": "cde06c00000000",
+      "name": "CINNABAR quiz: dead trainer -> ERROR text (quiz99)"
+    },
+    {
+      "offset": "0xcbc00",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "00818b80888d849c7f87a0a7e74f92ae7fa8b3bd7fb8aeb4e8e8e851887fa7a4a0b1a37fb3a7a44fa2b1a8a4b27faea57facb855b2b3b4a3a4adb3b2e85188bfa47fa7a4a0b1a37fb3a7a44fb1b4acaeb1b2f47fb3aeaee87f8055a2a7a8aba37fb6a8b3a77fa05586878e92937fb3a7a0b37faaa8ababb2e8518e808a7fa0ada37f85948988e8e8e84f92ae7fb3a7a4a8b17fb3b6a8b2b3a4a355afb1aea9a4a2b37fb1a4a0ababb855a2a0aca47fb3aea6a4b3a7a4b1e851887fada4b5a4b17fb3a7aeb4a6a7b34f88bb7fb2a4a47fa8b37fb6a0abaa55a8adb3ae7facb87f86988ce75195a4b1b87fb6a4ababe77f92a7aeb64faca47fb6a7a0b37fb3a7a4b855aca0a3a47faea57fb8aeb4e75800818b80888d849c7fe8e8e898aeb44fb2afa0b1a4a37faca4e85187acafa7e87f93a7a4ad7fb8aeb44fa3a4b2a4b1b5a47fb3ae7fa7a4a0b155b3a7a47fb3b1b4b3a7e8518baeada67fa0a6aef47f859489884fa0ada37f8e808a7fb6aeb1aaa4a355b3aea6a4b3a7a4b17fa8ad7fb3a7a455548c8e8d7f8c808d92888e8de851859489887fb6a0b27faea1b2a4b2b2a4a34fb6a8b3a77fb2aeb4abb27fa0ada355b6a7a0b37fb6a0a8b3b27fa0a5b3a4b155a3a4a0b3a7e8518e808a7fb6a0adb3a4a37fb3ae4faaadaeb67fa7aeb67fa5a0b17fa055548c8e8d7fa2aeb4aba37fa1a455afb4b2a7a4a3e851887fb6a0b27fb3a7a4b1a4e87f884fa1b4b1ada4a37fb6a7a0b37f8855a2aeb4aba3e8e8e87fa1b4b37fadaeb355a4b5a4b1b8b3a7a8ada6e85193a7a0b37faca0adb2a8aead4fb2b3a8abab7fa7aeaba3b27faca0adb855b2a4a2b1a4b3b2e85192a4a2b1a4b3b27fb3a7a0b37fa0b1a44fa1a4b2b37faba4a5b37fa1b4b1a8a4a3e85591a4aca4aca1a4b17fb3a7a0b3e858",
+      "name": "Bank 32: v99 BLAINE's shock speech + the spared lore"
+    },
+    {
+      "offset": "0x768c0",
+      "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fa86d8e67f211459280321d068c3943c17007c325008fa52d4a7280dfaa7d4cb7f200621f268cd943c212559cd943cc30425170f7d3250",
+      "name": "Bank 1D: v99 BLAINE text choosers (shock speech, spared lore)"
+    },
+    {
+      "offset": "0x758fd",
+      "before": "211459cd943c",
+      "after": "cdc068000000",
+      "name": "BLAINE pre-battle speech -> bl99"
+    },
+    {
+      "offset": "0x77c2e",
+      "before": "2559",
+      "after": "d568",
+      "name": "CINNABAR GYM text 10 (BLAINE after the battle) -> t10_99"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563938000000",
+      "after": "435245455059204d5520563939000000",
+      "name": "Branch identity"
+    }
+  ]
+}
