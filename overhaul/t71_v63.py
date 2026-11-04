@@ -1,6 +1,6 @@
 # v63: the ten SHAMANESSES in the towns. Modes: town <map> - warp there, find her, walk next to her, talk, leave and come back
 import sys
-MY71=sys.argv[1];TOWN=int(sys.argv[2],0);BLK=len(sys.argv)>3
+MY71=sys.argv[1];TOWN=int(sys.argv[2],0);AS_BLACK=len(sys.argv)>3
 sys.argv=['x','none'];exec(open('t52_v44.py').read().split("if MODE=='block':")[0])
 ORDER=[0,1,2,3,5,6,7,0x0a,4,8]
 KEYS=['Long before Kanto','God of the Abyss','The old clan divided','Four warriors','Eight dragons','call a soul back','eight sacred grounds','ancient rite','outsiders came','Those who practiced']
@@ -22,7 +22,7 @@ def enter():
         if m[0xd35e]==TOWN:break
         p.button('down',8);T(30)
     T(120);print('left the building ->',pos(),flush=True)
-if BLK:
+if AS_BLACK:
     _w=warp
     def warp(mapid,warpid=0,setup=None):_w(mapid,warpid,lambda:(make_black()))
 if MY71=='nogh':
