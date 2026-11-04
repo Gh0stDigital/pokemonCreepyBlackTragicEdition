@@ -186,6 +186,7 @@ D45F Ghost deposited for Mirage (1, or 2 = it was leading; v31) · D460 Mu state
 - **Outdoor sprite sets: entries 1-9 = walkers (<$3D), entries 10-11 = the two four-tile pictures (>= $3D); an object's VRAM slot = its picture's position in the set + 1 (5:79F4 lookup), the loader puts the 1st/2nd four-tile picture at $8780/$87C0 whatever their position. A four-tile picture anywhere else draws other sprites' tiles (v1-v71: SNORLAX in set 12; the item balls on routes 13-17 looked like Snorlax). Never add a third four-tile picture to a set (only two slots): check_sets.py fails on a wrong order. Position-split maps keep the set chosen at the last FULL reload (map load / battle); a redraw after a menu or text skips the tile copy (wFontLoaded bit 0).**
 
 ## Planned (decided, not built yet)
+- **PlayerRocketAvatar** (approved, not implemented): the player's TEAM ROCKET look = map sprite + trainer-card picture in `overhaul/assets/PlayerRocketAvatar/` (README there: formats, 2bpp tiles in RED's sheet order, 56x56 card grid). Use it when the "join TEAM ROCKET" path is built.
 - The RED+GHOST fusion (option A0 front/back, `overhaul/red_ghost_fusion.py`, map sprite `red_ghost_overworld.py`) is the
   player's look as BLACK since v25 (battle back picture, YOU, map walking sprite). Still RED when BLACK: the trainer-card /
   Oak-intro front picture (RedPicFront), the bike and surf map sprites. The fusion front picture (2D:41C0) is BLACK's species
