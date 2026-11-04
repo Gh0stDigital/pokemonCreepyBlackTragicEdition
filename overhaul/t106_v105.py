@@ -4,6 +4,7 @@
 #  oak          - PROF. OAK's party: no bird fought before = MR. MIME, VENUSAUR, ARTICUNO, ZAPDOS, MOLTRES, MEW; ZAPDOS fought = without
 #                 ZAPDOS; all three fought = MR. MIME, VENUSAUR, MEW
 #  meta <WHO>   - LORELEI / BRUNO / LANCE / BLUE / BILL beaten as BLACK, METAMORPHOSIS in the phase: the fixed POKeMON joins
+#  fight        - beating ZAPDOS sets D7D4 bit 1 (the flag oak105 reads)
 #  (control: t47_v39.py's trainer METAMORPHOSIS still gives a random POKeMON)
 import sys
 MY=sys.argv[1:]
@@ -80,4 +81,20 @@ elif MODE=='meta':
         T(120);pt=party();got=spname(pt[-1]) if len(pt)>len(p0) else None
         print(WHO,'joined',got,'|',allt()[-160:],flush=True)
         ok(got==WANT,'METAMORPHOSIS on %s: %s joins'%(WHO,WANT))
+elif MODE=='fight':                           # the base game sets ZAPDOS's flag when the player beats it (what oak105 reads)
+    def su():lead(CHAR);strong(0)
+    warp(0x53,0,su);T(30);summon(9);T(30)
+    p.button('up',8);T(20);seen.clear()
+    for i in range(40):
+        if m[0xd057]:break
+        press_('a',80)
+    ok(m[0xd057]==1 and m[0xcfe5]==0x4b,'a wild battle against ZAPDOS')
+    for r in range(12):
+        if m[0xd057]==0:break
+        if wait_menu(20):use_move(0,300)
+    for i in range(30):
+        if m[0xd057]==0 and not box():break
+        press_('a',80)
+    T(120);print('flag',hex(m[0xd7d4]),'toggle',hex(m[0xd5b0]),flush=True)
+    ok(m[0xd7d4]&2 and m[0xd5b0]&0x20,'beaten: ZAPDOS flag D7D4 bit 1 set (OAK will not have it) and it is gone from the POWER PLANT')
 print('t106 done',flush=True)

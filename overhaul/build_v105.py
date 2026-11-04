@@ -19,7 +19,7 @@ def spname(s):return R[NAMES+10*(s-1):NAMES+10*s].split(b'\x50')[0]
 def enc(t):return bytes(0xe8 if c=='.' else 0x80+ord(c)-65 for c in t)
 SP={n:s for n,s in (('GOLDEEN',0x9d),('GOLEM',0x31),('CHARIZARD',0xb4),('FEAROW',0x23),('MR.MIME',0x2a),('ZAPDOS',0x4b),('MOLTRES',0x49),('ARTICUNO',0x4a))}
 for n,s in SP.items():assert spname(s)==enc(n),(n,hex(s))
-LORELEI,BRUNO,LANCE,BLUE3,BILLCLS=0x2c,0x21,0x2f,0x2b,0x26
+LORELEI,BRUNO,LANCE,BLUE3,BILLCLS=0x2c,0x21,0x2f,0x2b,26        # BILL / PROF.OAK = class 26 DECIMAL ($1A)
 le=lambda a:'%02x %02x'%(a&255,a>>8)
 
 # ---- 1. birds hidden as BLACK (map-load chain)

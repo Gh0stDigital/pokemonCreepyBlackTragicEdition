@@ -1,7 +1,7 @@
 {
   "input": "Creepy_Black_Mu_v104.gb",
   "input_sha256": "4b95c500d9620d43c2a5b63da4644ecba39ed87417929e5648fa1ec6edb49778",
-  "sha256": "e1856dca989c81e477ba9e0702a62e8900cb4882e8124bdaf1edb69c2e6d8cab",
+  "sha256": "c2b9598be23c3122f6ea1cd53e4942756e6db3ee2fe8125d0d8a4b98b67d7f4c",
   "size": 1048576,
   "reviewed_guard_exceptions": [],
   "labels": {
@@ -25,7 +25,7 @@
     {
       "offset": "0x3bf20",
       "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-      "after": "fa31d0fe26202cfa5dd0fe022025fa91cffe4b2008fad4d7cb4fc01816fe492008faeed7cb77c0180afe4a2006fa82d8cb57c0c3e07e",
+      "after": "fa31d0fe1a202cfa5dd0fe022025fa91cffe4b2008fad4d7cb4fc01816fe492008faeed7cb77c0180afe4a2006fa82d8cb57c0c3e07e",
       "name": "Bank E: oak105 (PROF. OAK skips birds the player already fought)"
     },
     {
@@ -37,7 +37,7 @@
     {
       "offset": "0xbdf00",
       "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-      "after": "fa31d04f21215f2afeffcaaf41b9200d2aa7280747fa5dd0b820037ec9232318e62c009d2100312f00b42b002326012aff",
+      "after": "fa31d04f21215f2afeffcaaf41b9200d2aa7280747fa5dd0b820037ec9232318e62c009d2100312f00b42b00231a012aff",
       "name": "Bank 2F: meta105 (fixed METAMORPHOSIS forms for LORELEI/BRUNO/LANCE/BLUE/BILL)"
     },
     {
