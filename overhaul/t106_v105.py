@@ -8,7 +8,7 @@
 import sys
 MY=sys.argv[1:]
 sys.argv=['x','none'];exec(open('t52_v44.py').read().split("if MODE=='block':")[0]);MODE=MY[0]
-RB=open(ROM,'rb').read()
+import os;RB=open(os.environ['CB_ROM'],'rb').read()
 def spname(x):
     cm={0x80+i:c for i,c in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ')};cm[0xe8]='.'
     return ''.join(cm.get(b,'?') for b in RB[0x1c21e+10*(x-1):0x1c21e+10*x] if b!=0x50)
