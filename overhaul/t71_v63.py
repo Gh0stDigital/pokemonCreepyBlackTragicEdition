@@ -34,6 +34,11 @@ if MY71=='nogh':
     ok(m[0xd451]==0 and shaman() is None,'GHOST never acquired: no shamaness');print('t71 done',flush=True);sys.exit(0)
 enter()
 print('numsprites',m[0xd4e1],sprites(),flush=True)
+if AS_BLACK and VERSION>=101:                 # v101: no shamaness once the player is BLACK (also after a START menu redraw)
+    ok(m[0xd46c]==1 and shaman() is None,'BLACK: no shamaness in map %x'%TOWN)
+    press_('start',60);press_('b',60);T(30)
+    ok(shaman() is None and not any(x[1]=='0x19' and m[0xd4e4+2*(x[0]-1)]==0xd0 for x in sprites()),'... none after a START menu redraw either')
+    print('t71 done',flush=True);sys.exit(0)
 s=shaman();ok(s is not None,'a shamaness stands in map %x'%TOWN)
 shot('v71_town_%x'%TOWN)
 sy,sx=s[2],s[3]
