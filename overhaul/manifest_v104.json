@@ -1,0 +1,39 @@
+{
+  "input": "Creepy_Black_Mu_v103.gb",
+  "input_sha256": "77f3a31d1e52100ff981ad5289adec0c1592d20deea135cbbbb3efbca240c914",
+  "sha256": "4b95c500d9620d43c2a5b63da4644ecba39ed87417929e5648fa1ec6edb49778",
+  "size": 1048576,
+  "reviewed_guard_exceptions": [],
+  "back_pic": {
+    "addr": "0x7a00",
+    "bytes": 114,
+    "eye": [
+      [
+        11,
+        16
+      ],
+      [
+        11,
+        17
+      ],
+      [
+        12,
+        18
+      ]
+    ]
+  },
+  "changes": [
+    {
+      "offset": "0xb7a00",
+      "before": "44b9104104e843820834d10412b8c2cc9f82e773978c208e36ceecf033c0ca4e2cc27454a74e3b90819b83397df2f2dcda08c241238eab98f879c73bbfa72cf97a64cefc83e6518cf1156e71b676fd1db677d9d09767445dda64fa70dde47dcd98268dbc9365b9ac15157a8ba74cddd1f0a0",
+      "after": "44b9104104e843820834d10412b8c2cc9f82e773978c208e36ceecf033c0cc2383309d26c874e3b9219b83397df2f2dcda08c241238eab98f879c73bbfa72cf97a64cefc83e6518cf1156e71b676fd1db677d9d09767445dda64fa70dde47dcd98268dbc9365b9ac15157a8ba74cddd1f0a0",
+      "name": "BLACK's back picture: white eye two rows lower (under the hat)"
+    },
+    {
+      "offset": "0x134",
+      "before": "435245455059204d5520563130330000",
+      "after": "435245455059204d5520563130340000",
+      "name": "Branch identity"
+    }
+  ]
+}
